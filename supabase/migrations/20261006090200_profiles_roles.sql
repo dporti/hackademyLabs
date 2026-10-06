@@ -1,5 +1,17 @@
 -- Tutor247 — Perfiles, roles, familias y helpers de autorización.
 
+-- ───────────────────────────────── profile ─────────────────────────────────
+-- 1:1 con auth.users. Datos mínimos; los subperfiles viven en tablas aparte.
+create table profile (
+  id         uuid primary key references auth.users (id) on delete cascade,
+  role       user_role not null default 'alumno',
+  full_name  text,
+  email      text,
+  locale     text not null default 'es',
+  avatar_url text,
+  created_at timestamptz not null default now()
+);
+
 -- ───────────────────────── Helpers (SECURITY DEFINER) ─────────────────────────
 -- Se usan en políticas RLS. SECURITY DEFINER + search_path fijo evita recursión
 -- de RLS (la función lee profile sin reactivar las políticas de quien consulta).
@@ -17,18 +29,6 @@ language sql stable security definer set search_path = public as $$
     select 1 from public.profile where id = auth.uid() and role = 'admin'
   )
 $$;
-
--- ───────────────────────────────── profile ─────────────────────────────────
--- 1:1 con auth.users. Datos mínimos; los subperfiles viven en tablas aparte.
-create table profile (
-  id         uuid primary key references auth.users (id) on delete cascade,
-  role       user_role not null default 'alumno',
-  full_name  text,
-  email      text,
-  locale     text not null default 'es',
-  avatar_url text,
-  created_at timestamptz not null default now()
-);
 
 -- Crea el profile automáticamente al registrarse un usuario en auth.users.
 -- El rol y el nombre llegan en raw_user_meta_data desde el formulario de registro.
