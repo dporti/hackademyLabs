@@ -1,0 +1,19 @@
+{
+  "common": {
+    "appName": "Tutor247",
+    "tagline": "No et fem classes. Et traiem el mòdul."
+  },
+  "home": {
+    "studentCta": "Sóc estudiant",
+    "familyCta": "Sóc mare/pare",
+    "searchPlaceholder": "Quin mòdul et preocupa?",
+    "searchLabel": "Cerca el teu mòdul",
+    "heroSubtitle": "Catàleg per mòdul oficial d'FP d'informàtica. Pla, mentor i seguiment fins a l'examen."
+  },
+  "nav": {
+    "cycles": "Cicles",
+    "mentors": "Mentors",
+    "pricing": "Preus",
+    "login": "Entra"
+  }
+}

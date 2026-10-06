@@ -1,0 +1,13 @@
+diff --git a/node_modules/next-intl/dist/cjs/development/plugin.cjs b/node_modules/next-intl/dist/cjs/development/plugin.cjs
+index 9a8b8e8..fb6d112 100644
+--- a/node_modules/next-intl/dist/cjs/development/plugin.cjs
++++ b/node_modules/next-intl/dist/cjs/development/plugin.cjs
+@@ -6,7 +6,7 @@ var module$1 = require('module');
+ var url = require('url');
+ var watcher = require('@parcel/watcher');
+ var fs = require('fs');
+-var core = require('@swc/core');
++var core = new Proxy({}, { get: function (_t, prop) { return require('@swc/core')[prop]; } });
+ 
+ var _documentCurrentScript = typeof document !== 'undefined' ? document.currentScript : null;
+ function _interopDefaultCompat (e) { return e && typeof e === 'object' && 'default' in e ? e : { default: e }; }

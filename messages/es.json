@@ -1,0 +1,19 @@
+{
+  "common": {
+    "appName": "Tutor247",
+    "tagline": "No te damos clases. Te sacamos el módulo."
+  },
+  "home": {
+    "studentCta": "Soy estudiante",
+    "familyCta": "Soy madre/padre",
+    "searchPlaceholder": "¿Qué módulo te preocupa?",
+    "searchLabel": "Busca tu módulo",
+    "heroSubtitle": "Catálogo por módulo oficial de FP de informática. Plan, mentor y seguimiento hasta el examen."
+  },
+  "nav": {
+    "cycles": "Ciclos",
+    "mentors": "Mentores",
+    "pricing": "Precios",
+    "login": "Entrar"
+  }
+}
