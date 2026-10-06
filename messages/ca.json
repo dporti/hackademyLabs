@@ -11,7 +11,20 @@
     "familyCta": "Sóc mare/pare",
     "searchPlaceholder": "Quin mòdul et preocupa?",
     "searchLabel": "Cerca el teu mòdul",
-    "heroSubtitle": "Catàleg per mòdul oficial d'FP d'informàtica. Pla, mentor i seguiment fins a l'examen."
+    "heroSubtitle": "Catàleg per mòdul oficial d'FP d'informàtica. Pla, mentor i seguiment fins a l'examen.",
+    "mapaCaption": "Vista prèvia — Mapa de Domini",
+    "processTitle": "Com et traiem el mòdul",
+    "s1t": "Diagnòstic",
+    "s1d": "Test per RA. En surt el teu Mapa de Domini en verd, ambre i vermell.",
+    "s2t": "Pla invers",
+    "s2d": "Poses la data de l'examen. Calculem quins RA treballar i quan.",
+    "s3t": "Mentor i seguiment",
+    "s3d": "Un expert del mòdul et porta fins a aprovar.",
+    "killerTitle": "Els mòduls que més costen",
+    "killerSubtitle": "On hi ha més suspensos. Comença pel teu.",
+    "familyTitle": "El teu fill o filla estudia informàtica?",
+    "familyText": "Li donem un tutor que el coneix, l'organitza i l'acompanya. I a tu, un informe cada setmana.",
+    "familyCta2": "Sóc mare o pare"
   },
   "nav": {
     "cycles": "Cicles",

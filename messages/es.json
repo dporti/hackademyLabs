@@ -11,7 +11,20 @@
     "familyCta": "Soy madre/padre",
     "searchPlaceholder": "¿Qué módulo te preocupa?",
     "searchLabel": "Busca tu módulo",
-    "heroSubtitle": "Catálogo por módulo oficial de FP de informática. Plan, mentor y seguimiento hasta el examen."
+    "heroSubtitle": "Catálogo por módulo oficial de FP de informática. Plan, mentor y seguimiento hasta el examen.",
+    "mapaCaption": "Vista previa — Mapa de Dominio",
+    "processTitle": "Cómo te sacamos el módulo",
+    "s1t": "Diagnóstico",
+    "s1d": "Test por RA. Sale tu Mapa de Dominio en verde, ámbar y rojo.",
+    "s2t": "Plan inverso",
+    "s2d": "Pones la fecha del examen. Calculamos qué RA trabajar y cuándo.",
+    "s3t": "Mentor y seguimiento",
+    "s3d": "Un experto del módulo te lleva hasta aprobar.",
+    "killerTitle": "Los módulos que más se atragantan",
+    "killerSubtitle": "Donde más suspensos hay. Empieza por el tuyo.",
+    "familyTitle": "¿Tu hijo o hija estudia informática?",
+    "familyText": "Le damos un tutor que le conoce, le organiza y le acompaña. Y a ti, un informe cada semana.",
+    "familyCta2": "Soy madre o padre"
   },
   "nav": {
     "cycles": "Ciclos",

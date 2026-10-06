@@ -8,22 +8,35 @@ export function SiteHeader() {
   const c = useTranslations("common");
 
   return (
-    <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b border-border/80 bg-background/70 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-6 px-4">
-        <Link href="/" className="font-bold tracking-tight">
-          {c("appName")}
+        <Link href="/" className="flex items-center gap-2">
+          {/* Logomark HUD */}
+          <span
+            aria-hidden
+            className="grid size-6 place-items-center rounded-[5px] font-mono text-[11px] font-bold text-primary-foreground"
+            style={{
+              backgroundColor: "var(--primary)",
+              boxShadow: "var(--glow-primary)",
+            }}
+          >
+            T
+          </span>
+          <span className="font-display text-lg font-bold tracking-tight">
+            {c("appName")}
+          </span>
         </Link>
         <nav className="hidden items-center gap-5 text-sm text-muted-foreground sm:flex">
-          <Link href="/ciclos" className="hover:text-foreground">
+          <Link href="/ciclos" className="transition-colors hover:text-foreground">
             {t("cycles")}
           </Link>
-          <Link href="/modulos" className="hover:text-foreground">
+          <Link href="/modulos" className="transition-colors hover:text-foreground">
             {t("modules")}
           </Link>
-          <Link href="/mentores" className="hover:text-foreground">
+          <Link href="/mentores" className="transition-colors hover:text-foreground">
             {t("mentors")}
           </Link>
-          <Link href="/precios" className="hover:text-foreground">
+          <Link href="/precios" className="transition-colors hover:text-foreground">
             {t("pricing")}
           </Link>
         </nav>

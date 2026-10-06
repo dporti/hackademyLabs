@@ -35,7 +35,9 @@ export default async function MentorPage({
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
       <div className="flex flex-wrap items-center gap-3">
-        <h1 className="text-3xl font-bold tracking-tight">{m.full_name}</h1>
+        <h1 className="font-display text-3xl font-bold tracking-tight">
+          {m.full_name}
+        </h1>
         <Badge variant="secondary">
           {t(`level.${m.level as MentorLevel}`)}
         </Badge>
@@ -56,15 +58,15 @@ export default async function MentorPage({
 
       {m.modulos.length > 0 && (
         <section className="mt-8">
-          <h2 className="text-lg font-semibold">{t("teaches")}</h2>
+          <h2 className="font-display text-lg font-semibold">{t("teaches")}</h2>
           <div className="mt-3 flex flex-wrap gap-2">
             {m.modulos.map((mo) => (
               <Link
                 key={mo.code}
                 href={`/modulos/${mo.code}`}
-                className="rounded-full border px-3 py-1 text-sm hover:bg-muted/40"
+                className="card-interactive rounded-full border bg-card px-3 py-1 text-sm"
               >
-                <span className="font-mono text-muted-foreground">{mo.code}</span>{" "}
+                <span className="font-mono text-primary">{mo.code}</span>{" "}
                 {mo.name}
               </Link>
             ))}

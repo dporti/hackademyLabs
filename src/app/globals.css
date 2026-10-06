@@ -226,6 +226,18 @@
   .glow-pass {
     box-shadow: var(--glow-pass);
   }
+  /* Tarjeta interactiva: borde + glow del color primario al hover. */
+  .card-interactive {
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+  .card-interactive:hover {
+    border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
+    box-shadow: 0 0 24px -10px color-mix(in oklab, var(--primary) 70%, transparent);
+  }
   /* Rejilla HUD sutil de fondo (solo zona student). */
   .hud-grid {
     background-image:

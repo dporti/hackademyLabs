@@ -60,6 +60,20 @@ export async function getModuloByCode(
   return data as unknown as ModuloDetalle | null;
 }
 
+// Módulos "killer" (más suspensos) para destacar en la home.
+export async function getModulosKiller(): Promise<Modulo[]> {
+  "use cache";
+  cacheLife("hours");
+  const sb = createPublicClient();
+  const { data, error } = await sb
+    .from("modulo")
+    .select("*")
+    .eq("killer", true)
+    .order("code");
+  if (error) throw error;
+  return (data ?? []) as Modulo[];
+}
+
 export async function getAllModuloCodes(): Promise<string[]> {
   "use cache";
   cacheLife("hours");

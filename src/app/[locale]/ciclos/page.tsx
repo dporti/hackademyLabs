@@ -1,6 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
-import { Badge } from "@/components/ui/badge";
+import { ModuleCard } from "@/components/brand/module-card";
 import { getCiclosConModulos } from "@/lib/catalog";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/ciclos">) {
@@ -40,30 +39,12 @@ export default async function CiclosPage({
               </div>
               <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {modulos.map((m) => (
-                  <Link
+                  <ModuleCard
                     key={m.id}
-                    href={`/modulos/${m.code}`}
-                    className="group rounded-lg border p-4 transition-colors hover:border-foreground/30 hover:bg-muted/40"
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="font-mono text-sm text-muted-foreground">
-                        {m.code}
-                      </span>
-                      {m.killer && (
-                        <Badge variant="destructive" title={c("killer")}>
-                          🔥
-                        </Badge>
-                      )}
-                    </div>
-                    <p className="mt-1 font-medium group-hover:underline">
-                      {m.name}
-                    </p>
-                    {m.curso != null && (
-                      <p className="mt-1 text-xs text-muted-foreground">
-                        {t("course", { n: m.curso })}
-                      </p>
-                    )}
-                  </Link>
+                    modulo={m}
+                    cursoLabel={m.curso != null ? t("course", { n: m.curso }) : undefined}
+                    killerLabel={c("killer")}
+                  />
                 ))}
               </div>
             </section>

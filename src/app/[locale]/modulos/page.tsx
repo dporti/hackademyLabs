@@ -1,7 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ModuleCard } from "@/components/brand/module-card";
 import { buscarModulos } from "@/lib/catalog";
 
 // Ruta de búsqueda: depende de searchParams → se renderiza en cada petición
@@ -52,25 +51,9 @@ export default async function ModulosPage({
       {modulos.length === 0 ? (
         <p className="mt-4 text-muted-foreground">{t("noResults")}</p>
       ) : (
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {modulos.map((m) => (
-            <Link
-              key={m.id}
-              href={`/modulos/${m.code}`}
-              className="group rounded-lg border p-4 hover:bg-muted/40"
-            >
-              <div className="flex items-center justify-between gap-2">
-                <span className="font-mono text-sm text-muted-foreground">
-                  {m.code}
-                </span>
-                {m.killer && (
-                  <Badge variant="destructive" title={c("killer")}>
-                    🔥
-                  </Badge>
-                )}
-              </div>
-              <p className="mt-1 font-medium group-hover:underline">{m.name}</p>
-            </Link>
+            <ModuleCard key={m.id} modulo={m} killerLabel={c("killer")} />
           ))}
         </div>
       )}

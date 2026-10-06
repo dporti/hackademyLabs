@@ -28,39 +28,61 @@ export default async function PreciosPage({
       <p className="mt-2 text-muted-foreground">{t("subtitle")}</p>
 
       {/* Packs de créditos */}
-      <h2 className="mt-10 text-xl font-semibold">{t("packsTitle")}</h2>
+      <h2 className="mt-10 font-display text-xl font-semibold">
+        {t("packsTitle")}
+      </h2>
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {packs.map((p) => (
-          <div key={p.id} className="flex flex-col rounded-xl border p-5">
-            <div className="flex items-center justify-between">
-              <span className="font-semibold">{p.name}</span>
-              {p.bonus_pct > 0 && (
-                <Badge variant="secondary">{t("bonus", { pct: p.bonus_pct })}</Badge>
-              )}
-            </div>
-            <p className="mt-3 text-3xl font-bold">{eur(p.price_eur)}</p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              {t("credits", { n: p.credits })}
-            </p>
-            <Button
-              className="mt-4"
-              nativeButton={false}
-              render={<Link href={`/registro?rol=alumno&pack=${p.slug}`} />}
+        {packs.map((p) => {
+          const featured = p.slug === "modulo";
+          return (
+            <div
+              key={p.id}
+              className={`card-interactive flex flex-col rounded-xl border bg-card p-5 ${
+                featured ? "glow border-primary/40" : ""
+              }`}
             >
-              {t("buy")}
-            </Button>
-          </div>
-        ))}
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-semibold">{p.name}</span>
+                {p.bonus_pct > 0 && (
+                  <Badge variant="secondary">
+                    {t("bonus", { pct: p.bonus_pct })}
+                  </Badge>
+                )}
+              </div>
+              <p className="mt-3 font-display text-3xl font-bold">
+                {eur(p.price_eur)}
+              </p>
+              <p className="mt-1 font-mono text-sm text-primary">
+                {t("credits", { n: p.credits })}
+              </p>
+              <Button
+                className={`mt-4 ${featured ? "glow" : ""}`}
+                variant={featured ? "default" : "secondary"}
+                nativeButton={false}
+                render={<Link href={`/registro?rol=alumno&pack=${p.slug}`} />}
+              >
+                {t("buy")}
+              </Button>
+            </div>
+          );
+        })}
       </div>
       <p className="mt-3 text-xs text-muted-foreground">{t("creditsNote")}</p>
 
       {/* Suscripciones */}
-      <h2 className="mt-12 text-xl font-semibold">{t("plansTitle")}</h2>
+      <h2 className="mt-12 font-display text-xl font-semibold">
+        {t("plansTitle")}
+      </h2>
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {planes.map((pl) => (
-          <div key={pl.id} className="flex flex-col rounded-xl border p-5">
+          <div
+            key={pl.id}
+            className={`card-interactive flex flex-col rounded-xl border bg-card p-5 ${
+              pl.kind === "companero" ? "glow border-primary/40" : ""
+            }`}
+          >
             <span className="font-semibold">{pl.name}</span>
-            <p className="mt-3 text-3xl font-bold">
+            <p className="mt-3 font-display text-3xl font-bold">
               {pl.price_eur_month > 0 ? eur(pl.price_eur_month) : t("free")}
               {pl.price_eur_month > 0 && (
                 <span className="text-base font-normal text-muted-foreground">
