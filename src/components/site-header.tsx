@@ -29,7 +29,12 @@ export function SiteHeader() {
         </nav>
         <div className="ml-auto flex items-center gap-3">
           <LocaleSwitcher />
-          <Button size="sm" variant="outline" render={<Link href="/entrar" />}>
+          <Button
+            size="sm"
+            variant="outline"
+            nativeButton={false}
+            render={<Link href="/entrar" />}
+          >
             {t("login")}
           </Button>
         </div>

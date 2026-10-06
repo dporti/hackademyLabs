@@ -7,9 +7,17 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-heading: var(--font-space-grotesk);
+  --font-display: var(--font-space-grotesk);
+
+  /* Tokens de marca Tutor247 (HUD Terminal) */
+  --color-surface-2: var(--surface-2);
+  --color-accent-pass: var(--accent-pass);
+  --color-ra-verde: var(--ra-verde);
+  --color-ra-ambar: var(--ra-ambar);
+  --color-ra-rojo: var(--ra-rojo);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -117,6 +125,84 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ═══════════════════════ Temas de marca Tutor247 ═══════════════════════
+   Una sola marca, dos zonas. Se activan con data-theme en un contenedor:
+   - "student": HUD oscuro, neón cian/violeta, verde acid solo para aprobado.
+   - "family":  claro, sobrio y confiable, neón solo como acento puntual.
+   Ambos sobrescriben los tokens que consumen los componentes shadcn. */
+
+[data-theme="student"] {
+  --background: #05070a;
+  --surface-2: #0e141b;
+  --foreground: #e6edf3;
+  --card: #0b1016;
+  --card-foreground: #e6edf3;
+  --popover: #0b1016;
+  --popover-foreground: #e6edf3;
+
+  --primary: #22d3ee; /* cian neón */
+  --primary-foreground: #04121a;
+  --secondary: #a78bfa; /* violeta */
+  --secondary-foreground: #120a24;
+
+  --muted: #121a24;
+  --muted-foreground: #8b97a7;
+  --accent: #121a24;
+  --accent-foreground: #e6edf3;
+  --accent-pass: #9ef01a; /* verde acid: SOLO aprobado/dominado */
+
+  --destructive: #fb5069;
+  --border: #1a2230;
+  --input: #1a2230;
+  --ring: #22d3ee;
+
+  /* Semáforo del Mapa de Dominio */
+  --ra-verde: #5be59a;
+  --ra-ambar: #fbbf24;
+  --ra-rojo: #fb5069;
+
+  --radius: 0.5rem; /* esquinas poco redondeadas (táctico) */
+  --glow-primary: 0 0 0 1px color-mix(in oklab, var(--primary) 50%, transparent),
+    0 0 18px -2px color-mix(in oklab, var(--primary) 55%, transparent);
+  --glow-pass: 0 0 18px -2px color-mix(in oklab, var(--accent-pass) 60%, transparent);
+  color-scheme: dark;
+}
+
+[data-theme="family"] {
+  --background: #f7f9fb;
+  --surface-2: #eef2f6;
+  --foreground: #0e1726;
+  --card: #ffffff;
+  --card-foreground: #0e1726;
+  --popover: #ffffff;
+  --popover-foreground: #0e1726;
+
+  --primary: #0e7490; /* teal (cian oscurecido → AA sobre blanco) */
+  --primary-foreground: #ffffff;
+  --secondary: #5b46d6; /* violeta puntual */
+  --secondary-foreground: #ffffff;
+
+  --muted: #eef2f6;
+  --muted-foreground: #51607a;
+  --accent: #eef2f6;
+  --accent-foreground: #0e1726;
+  --accent-pass: #15803d;
+
+  --destructive: #dc2626;
+  --border: #dce3ec;
+  --input: #dce3ec;
+  --ring: #0e7490;
+
+  --ra-verde: #15803d;
+  --ra-ambar: #b45309;
+  --ra-rojo: #dc2626;
+
+  --radius: 0.625rem;
+  --glow-primary: 0 1px 2px rgb(14 23 38 / 0.06), 0 2px 8px rgb(14 23 38 / 0.06);
+  --glow-pass: none;
+  color-scheme: light;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -126,5 +212,44 @@
   }
   html {
     @apply font-sans;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  /* Glow reutilizable para botones/paneles destacados (barato: box-shadow). */
+  .glow {
+    box-shadow: var(--glow-primary);
+  }
+  .glow-pass {
+    box-shadow: var(--glow-pass);
+  }
+  /* Rejilla HUD sutil de fondo (solo zona student). */
+  .hud-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--border) 60%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--border) 60%, transparent) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+}
+
+/* Entrada sutil de paneles HUD; una sola animación orquestada, no por tarjeta. */
+@keyframes hud-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-hud-in {
+  animation: hud-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Rendimiento + accesibilidad: sin movimiento si el usuario lo pide. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

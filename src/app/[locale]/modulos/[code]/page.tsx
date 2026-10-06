@@ -77,10 +77,17 @@ export default async function ModuloPage({
 
       {/* CTAs */}
       <div className="mt-6 flex flex-wrap gap-3">
-        <Button render={<Link href="/registro?rol=alumno" />}>
+        <Button
+          nativeButton={false}
+          render={<Link href="/registro?rol=alumno" />}
+        >
           {t("ctaPlan")}
         </Button>
-        <Button variant="outline" render={<Link href="/registro?rol=alumno" />}>
+        <Button
+          variant="outline"
+          nativeButton={false}
+          render={<Link href="/registro?rol=alumno" />}
+        >
           {t("ctaDiagnostic")}
         </Button>
       </div>

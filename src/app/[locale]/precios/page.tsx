@@ -44,6 +44,7 @@ export default async function PreciosPage({
             </p>
             <Button
               className="mt-4"
+              nativeButton={false}
               render={<Link href={`/registro?rol=alumno&pack=${p.slug}`} />}
             >
               {t("buy")}
@@ -76,6 +77,7 @@ export default async function PreciosPage({
               <Button
                 variant="outline"
                 className="mt-4"
+                nativeButton={false}
                 render={<Link href={`/registro?plan=${pl.kind}`} />}
               >
                 {t("subscribe")}

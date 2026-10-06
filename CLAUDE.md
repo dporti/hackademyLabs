@@ -72,6 +72,22 @@ Rutas: `/` = español (sin prefijo), `/ca` = catalán.
 - **Menores / consentimiento:** modo Familia para <18; compartir informes con la
   familia de un alumno mayor de edad requiere su consentimiento explícito.
 
+## Identidad visual (HUD Terminal)
+Una marca, dos zonas. Tokens en `src/app/globals.css`, activados con `data-theme`:
+- `data-theme="student"` — HUD oscuro. Fondo casi negro, **cian** `#22D3EE` primario +
+  **violeta** `#A78BFA`, glow sutil (`box-shadow`), esquinas poco redondeadas.
+  Verde acid `#9EF01A` (`--accent-pass`) **solo** para "aprobado/dominado".
+- `data-theme="family"` — claro y sobrio. Fondo `#F7F9FB`, acento **teal** `#0E7490`,
+  neón solo puntual. Transmite confianza.
+- Default del `<body>` = `student`. Las rutas de familia se envuelven en `data-theme="family"`.
+- Semáforo RA: `--ra-verde` / `--ra-ambar` / `--ra-rojo` (más oscuros en family para AA).
+- Tipografía: **Space Grotesk** (títulos `--font-heading`), **Inter** (texto `--font-sans`),
+  **JetBrains Mono** (códigos/RA/cifras `--font-mono`).
+- Utilidades: `.glow`, `.glow-pass`, `.hud-grid`, `.animate-hud-in`. Todo respeta
+  `prefers-reduced-motion`. El estado de RA nunca se transmite solo por color (texto + forma).
+- Referencia viva: `/styleguide` (muestra ambos temas; `noindex`).
+- Componentes de marca: `src/components/brand/` (RaBadge, MapaDominio).
+
 ## Parches de dependencias
 `patches/next-intl+4.14.9.patch`: hace lazy el `require('@swc/core')` del plugin de
 next-intl. Motivo: el binario nativo de `@swc/core` no está firmado y **Windows App
