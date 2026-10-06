@@ -8,6 +8,13 @@ Fuente de verdad del negocio: `docs/modelo-negocio-v1.md`, `docs/capa-ia-v1.md`,
 `docs/segmentos-tutor247-v1.md`. **Leerlos antes de cambiar reglas de negocio.**
 Si el código contradice los docs, ganan los docs (o preguntar).
 
+## Estado del proyecto (obligatorio)
+- **Al empezar cada sesión, leer `docs/ESTADO.md`** para retomar el contexto.
+- **Al terminar cada tarea o fase, actualizar `docs/ESTADO.md` sin que lo pidan**:
+  mover tareas de "En curso" a "Hecho" (con fecha AAAA-MM-DD y commit si aplica),
+  añadir decisiones tomadas y actualizar próximos pasos.
+- **Nunca** escribir claves, contraseñas ni secretos en `docs/ESTADO.md`.
+
 ## Idioma y convenciones
 - Interfaz y comentarios de código **en español**.
 - Textos de UI **siempre** vía i18n (`next-intl`), nunca hardcodeados. `es` por
