@@ -56,6 +56,46 @@
       "experto": "Mentor Experto"
     }
   },
+  "auth": {
+    "registerTitle": "Crea tu cuenta",
+    "loginTitle": "Entrar",
+    "fullName": "Nombre y apellidos",
+    "email": "Email",
+    "password": "Contraseña",
+    "role": "¿Quién eres?",
+    "roleAlumno": "Alumno (mayor de edad)",
+    "roleFamilia": "Madre / padre / tutor",
+    "roleMentor": "Mentor",
+    "register": "Crear cuenta",
+    "login": "Entrar",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "noAccount": "¿No tienes cuenta?",
+    "goLogin": "Entra",
+    "goRegister": "Regístrate",
+    "logout": "Salir"
+  },
+  "onboarding": {
+    "title": "Casi listo",
+    "alumnoSubtitle": "Cuéntanos cómo estudias para ajustar tu plan.",
+    "familiaSubtitle": "Cuéntanos de tu hijo/a para acompañarle mejor.",
+    "mentorSubtitle": "Completa tu perfil y elige los módulos que dominas.",
+    "mode": "¿Cómo pagas?",
+    "modeAutonomo": "Pago yo (autónomo)",
+    "modeFamilia": "Paga mi familia",
+    "birthdate": "Fecha de nacimiento (opcional)",
+    "familyName": "Nombre de la familia",
+    "headline": "Titular (p. ej. Especialista 0485)",
+    "bio": "Sobre ti",
+    "languages": "Idiomas",
+    "modules": "Módulos que impartes",
+    "finish": "Finalizar",
+    "pendingVerification": "Tu perfil de mentor quedará pendiente de verificación por un admin."
+  },
+  "panel": {
+    "greeting": "Hola, {name}",
+    "roleLabel": "Rol",
+    "pendingOnboarding": "Completa tu onboarding para empezar."
+  },
   "pricing": {
     "title": "Precios",
     "subtitle": "Créditos para lo humano (1 crédito ≈ 1 €) y suscripciones para el acompañamiento.",

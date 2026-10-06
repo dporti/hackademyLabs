@@ -155,14 +155,20 @@ begin
     insert into auth.users (
       instance_id, id, aud, role, email, encrypted_password,
       email_confirmed_at, created_at, updated_at,
-      raw_app_meta_data, raw_user_meta_data, is_sso_user, is_anonymous
+      raw_app_meta_data, raw_user_meta_data, is_sso_user, is_anonymous,
+      -- Columnas de token: GoTrue las lee como string NO nullable; deben ser ''
+      -- (si quedan NULL, el login falla con "Database error querying schema").
+      confirmation_token, recovery_token, email_change_token_new, email_change,
+      email_change_token_current, phone_change, phone_change_token,
+      reauthentication_token
     ) values (
       '00000000-0000-0000-0000-000000000000', m.id, 'authenticated', 'authenticated',
       m.email, extensions.crypt('Tutor247Dev!', extensions.gen_salt('bf')),
       now(), now(), now(),
       '{"provider":"email","providers":["email"]}'::jsonb,
       jsonb_build_object('full_name', m.full_name, 'role', 'mentor'),
-      false, false
+      false, false,
+      '', '', '', '', '', '', '', ''
     ) on conflict (id) do nothing;
 
     -- identidad email (permite login en local)

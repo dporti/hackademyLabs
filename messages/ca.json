@@ -56,6 +56,46 @@
       "experto": "Mentor Expert"
     }
   },
+  "auth": {
+    "registerTitle": "Crea el teu compte",
+    "loginTitle": "Entra",
+    "fullName": "Nom i cognoms",
+    "email": "Email",
+    "password": "Contrasenya",
+    "role": "Qui ets?",
+    "roleAlumno": "Alumne (major d'edat)",
+    "roleFamilia": "Mare / pare / tutor",
+    "roleMentor": "Mentor",
+    "register": "Crear compte",
+    "login": "Entra",
+    "haveAccount": "Ja tens compte?",
+    "noAccount": "No tens compte?",
+    "goLogin": "Entra",
+    "goRegister": "Registra't",
+    "logout": "Surt"
+  },
+  "onboarding": {
+    "title": "Gairebé a punt",
+    "alumnoSubtitle": "Explica'ns com estudies per ajustar el teu pla.",
+    "familiaSubtitle": "Explica'ns del teu fill/a per acompanyar-lo millor.",
+    "mentorSubtitle": "Completa el teu perfil i tria els mòduls que domines.",
+    "mode": "Com pagues?",
+    "modeAutonomo": "Pago jo (autònom)",
+    "modeFamilia": "Paga la meva família",
+    "birthdate": "Data de naixement (opcional)",
+    "familyName": "Nom de la família",
+    "headline": "Titular (p. ex. Especialista 0485)",
+    "bio": "Sobre tu",
+    "languages": "Idiomes",
+    "modules": "Mòduls que imparteixes",
+    "finish": "Finalitzar",
+    "pendingVerification": "El teu perfil de mentor quedarà pendent de verificació per un admin."
+  },
+  "panel": {
+    "greeting": "Hola, {name}",
+    "roleLabel": "Rol",
+    "pendingOnboarding": "Completa l'onboarding per començar."
+  },
   "pricing": {
     "title": "Preus",
     "subtitle": "Crèdits per al que és humà (1 crèdit ≈ 1 €) i subscripcions per a l'acompanyament.",
