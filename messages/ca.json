@@ -1,7 +1,10 @@
 {
   "common": {
     "appName": "Tutor247",
-    "tagline": "No et fem classes. Et traiem el mòdul."
+    "tagline": "No et fem classes. Et traiem el mòdul.",
+    "killer": "Mòdul amb més suspensos",
+    "viewModule": "Veure mòdul",
+    "viewProfile": "Veure perfil"
   },
   "home": {
     "studentCta": "Sóc estudiant",
@@ -12,8 +15,58 @@
   },
   "nav": {
     "cycles": "Cicles",
+    "modules": "Mòduls",
     "mentors": "Mentors",
     "pricing": "Preus",
     "login": "Entra"
+  },
+  "catalog": {
+    "title": "Cicles i mòduls",
+    "subtitle": "Tria el teu cicle i troba el mòdul que se't resisteix.",
+    "gradeMedio": "Grau mitjà",
+    "gradeSuperior": "Grau superior",
+    "course": "Curs {n}",
+    "modulesCount": "{n} mòduls"
+  },
+  "module": {
+    "learningResults": "Resultats d'Aprenentatge (RA)",
+    "equivCat": "Equivalència a Catalunya",
+    "mentors": "Mentors d'aquest mòdul",
+    "noMentors": "Encara no hi ha mentors assignats a aquest mòdul.",
+    "cycles": "Apareix a",
+    "products": "Què pots contractar",
+    "ctaDiagnostic": "Diagnòstic gratis",
+    "ctaPlan": "Vull aprovar-lo"
+  },
+  "search": {
+    "title": "Cerca mòdul",
+    "placeholder": "Codi (0485) o nom (Programació)",
+    "resultsFor": "Resultats per a \"{q}\"",
+    "noResults": "Sense resultats. Prova amb el codi del mòdul (p. ex. 0485).",
+    "all": "Tots els mòduls"
+  },
+  "mentors": {
+    "title": "Mentors verificats",
+    "subtitle": "Experts per mòdul. Filtra pel que necessites.",
+    "teaches": "Imparteix",
+    "responseTime": "Respon en ~{min} min",
+    "level": {
+      "mentor": "Mentor",
+      "pro": "Mentor Pro",
+      "experto": "Mentor Expert"
+    }
+  },
+  "pricing": {
+    "title": "Preus",
+    "subtitle": "Crèdits per al que és humà (1 crèdit ≈ 1 €) i subscripcions per a l'acompanyament.",
+    "packsTitle": "Packs de crèdits",
+    "plansTitle": "Subscripcions",
+    "credits": "{n} crèdits",
+    "bonus": "+{pct}% bonus",
+    "perMonth": "/mes",
+    "free": "Gratis",
+    "buy": "Comprar",
+    "subscribe": "Subscriure'm",
+    "creditsNote": "Els crèdits caduquen als 12 mesos."
   }
 }
