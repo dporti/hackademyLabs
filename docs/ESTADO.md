@@ -9,8 +9,8 @@ no vende clases sueltas sino "te sacamos el módulo": catálogo por módulo ofic
 diagnóstico (Mapa de Dominio por RA) → plan inverso → mentor verificado → seguimiento
 hasta el examen. Monetiza con créditos (ledger inmutable) y suscripciones (IA "Bit" y
 acompañamiento a familias).
-**Fase actual del roadmap: Fase 1 (MVP base).** Hechas F1.1–F1.3 + identidad visual;
-F1.4 (panel alumno) hecha; siguiente F1.5 (panel mentor + admin).
+**Fase actual del roadmap: Fase 1 (MVP base).** Hechas F1.1–F1.5 + identidad visual.
+Fase 1 completa en lo básico; quedan pulidos (auth HUD, familias, header con sesión).
 
 ## 2. Hecho
 - **Fase 0 — Scaffold** · 2026-10-06 · `9a5d25e`
@@ -42,17 +42,28 @@ F1.4 (panel alumno) hecha; siguiente F1.5 (panel mentor + admin).
   `student_modulo`, RLS del dueño, aplicada en Supabase). Verificado con
   `scripts/verify-credits.mjs` (15/15) y en navegador (es + ca). Arreglado de paso el aviso
   "unstable value Date.now()" del panel (`connection()` en `getSessionUser`).
+- **F1.5 — Panel del mentor + admin mínimo + guardas de rol** · 2026-10-07 · `dc22cdd`
+  Mentor: estado de verificación/nivel y edición de perfil (titular, bio, vídeo https,
+  idiomas, módulos que imparte). Admin: lista de mentores (pendientes primero), verificar /
+  rechazar / volver a pendiente y nivel. Datos públicos de mentores con `cacheTag` →
+  cambios visibles al momento. **Seguridad**: migración `20261007090200_role_guards.sql`
+  (aplicada) cierra 3 escaladas de privilegios del esquema inicial (auto-ascenso a admin,
+  signUp con rol admin, alta de mentor ya verificado / auto-subida de nivel); comprobado
+  que no se habían usado. Verificado con `scripts/verify-roles.mjs` (18/18), sin regresión
+  en `verify-auth`/`verify-credits`, y en navegador (mentor y admin, ca).
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`).
 
 ## 3. En curso
-Nada abierto a medias. El último bloque cerrado fue F1.4 (panel del alumno).
+Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin).
 
 ## 4. Próximos pasos (orden de prioridad)
-1. **F1.5 — Panel del mentor (básico) + Admin mínimo**: mentor edita perfil/módulos; admin
-   verifica mentores (cambia `mentor_profile.status`).
-2. Afinar pantallas de auth (`/entrar`, `/registro`, `/onboarding`) con el look HUD.
-3. Landing propia de familias (`/familias`) en `data-theme="family"`.
-4. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
+1. **Crear tu usuario admin real**: regístrate en `/registro` y ejecuta
+   `node scripts/make-admin.mjs tu@email`.
+2. **Header con sesión** (ahora siempre "Entrar") + enlace al panel; "Comprar" de `/precios`
+   al panel si hay sesión.
+3. Afinar pantallas de auth (`/entrar`, `/registro`, `/onboarding`) con el look HUD.
+4. Landing propia de familias (`/familias`) en `data-theme="family"`.
+5. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
 
 ## 5. Decisiones tomadas
 - **Nombre de trabajo: Tutor247** · aún no definitivo, se usa el de los docs · 2026-10-06.
@@ -74,6 +85,13 @@ Nada abierto a medias. El último bloque cerrado fue F1.4 (panel del alumno).
   pasará al webhook de pago confirmado · 2026-10-07.
 - **"Módulos que prepara" = tabla `student_modulo`** (alumno, módulo, fecha de examen),
   separada de `study_plan` (plan inverso, más adelante) · 2026-10-07.
+- **Admin solo por script** (`scripts/make-admin.mjs`, service role); el registro público
+  nunca da admin. Cambios de rol/verificación/nivel: admin o servidor (`auth.uid()` nulo) ·
+  2026-10-07.
+- **Acciones de admin con la sesión del admin**, no con service role: la BD revalida (RLS +
+  trigger) · 2026-10-07.
+- **Un mentor verificado que edita su perfil sigue verificado** (los cambios salen en público
+  sin re-revisión) · MVP; revisar si hace falta moderación · 2026-10-07.
 - **`apply_all.sql` se genera** con `scripts/build-apply-all.mjs` (no editar a mano) · 2026-10-07.
 
 ## 6. Decisiones pendientes (las decide el usuario)
@@ -102,6 +120,11 @@ Nada abierto a medias. El último bloque cerrado fue F1.4 (panel del alumno).
   movimientos `caducidad` negativos.
 - **Precios → "Comprar"** sigue llevando a `/registro?pack=…` aunque haya sesión; el
   parámetro `pack` no se usa todavía.
+- **Formularios y reset de React 19**: tras una server action React resetea el formulario.
+  Arreglado en el perfil de mentor (devuelve los valores en error); falta en onboarding,
+  registro y "añadir módulo" (en error se pierde lo escrito).
+- **Login en dev**: el primer click en "Entrar" a veces no envía (probablemente antes de
+  hidratar); el segundo sí. Revisar si pasa en producción.
 - **Avisos de hidratación** en navegador por extensiones del cliente (LanguageTool), no del código.
 
 ## 8. Cómo arrancar el proyecto
@@ -124,7 +147,9 @@ El esquema y los datos viven en `supabase/`. Para aplicarlos a un proyecto:
 
 Verificación: `node scripts/verify-db.mjs` (catálogo + mentores),
 `node scripts/verify-auth.mjs` (trigger + RLS + guard) y
-`node scripts/verify-credits.mjs` (ledger + compra mock + `student_modulo`).
+`node scripts/verify-credits.mjs` (ledger + compra mock + `student_modulo`) y
+`node scripts/verify-roles.mjs` (guardas de rol + verificación de mentores).
+Admin: `node scripts/make-admin.mjs <email>` (el usuario debe existir).
 Tras tocar migraciones o seed: `node scripts/build-apply-all.mjs`.
 
 ### Variables de entorno
