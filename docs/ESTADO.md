@@ -61,6 +61,10 @@ Fase 1 completa en lo básico; quedan pulidos (auth HUD, familias, header con se
   onboarding el usuario volvía a `/onboarding` (redirección de Server Component cacheada en
   el router del cliente) → el panel renderiza el onboarding en vez de redirigir.
   Probado en navegador; verify-auth/roles/credits OK.
+- **Confirmación de email** · 2026-10-07 · `cef1f34`
+  Registro con `emailRedirectTo` → `/api/auth/confirm` (PKCE `code` o `token_hash`) → sesión
+  → onboarding; enlace inválido → `/entrar?error=link`; `next` sin open redirect; mensaje
+  propio para "email sin confirmar". Verificado con `scripts/verify-confirm.mjs` (11/11).
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`).
 
 ## 3. En curso
@@ -69,8 +73,9 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 ## 4. Próximos pasos (orden de prioridad)
 1. **Crear tu usuario admin real**: regístrate en `/registro` y ejecuta
    `node scripts/make-admin.mjs tu@email`.
-2. **Desactivar "Confirm email" en Supabase (dev)** o montar el flujo de confirmación
-   (página de "revisa tu correo" + callback). Hoy el registro real no inicia sesión.
+2. **Configurar Supabase Auth** (panel): Site URL y Redirect URLs (`http://localhost:3000/**`
+   y el dominio de producción). Opcional: plantilla "Confirm signup" con `token_hash` para
+   que el enlace funcione abierto en otro dispositivo. Probar un registro real con tu email.
 3. Landing propia de familias (`/familias`) en `data-theme="family"`.
 4. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
 
@@ -116,8 +121,8 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 - Aspectos legales: menores, facturación de mentores (autónomos), RGPD de grabaciones.
 
 ## 7. Problemas conocidos / deuda técnica
-- **Supabase: "Confirm email"** probablemente activado → el registro real no devuelve
-  sesión y el onboarding no arranca solo. Para dev conviene desactivarlo en el panel.
+- **Enlace de confirmación PKCE** (plantilla por defecto) solo funciona en el mismo navegador
+  del registro; con la plantilla `token_hash` funciona en cualquiera. Sin "reenviar email".
 - **Tipos de BD a mano** (`src/lib/db-types.ts`) hasta usar `supabase gen types` (CLI/MCP).
 - **Equivalencias catalanas y RA** del seed son orientativos → validar.
 - **Buscador de la home** postea a `/modulos` (es-centric); afinar i18n del form.
@@ -163,6 +168,7 @@ Verificación: `node scripts/verify-db.mjs` (catálogo + mentores),
 `node scripts/verify-credits.mjs` (ledger + compra mock + `student_modulo`) y
 `node scripts/verify-roles.mjs` (guardas de rol + verificación de mentores).
 Admin: `node scripts/make-admin.mjs <email>` (el usuario debe existir).
+`node scripts/verify-confirm.mjs` (enlace de confirmación; requiere `npm run dev`).
 Tras tocar migraciones o seed: `node scripts/build-apply-all.mjs`.
 
 ### Variables de entorno
@@ -170,3 +176,4 @@ Copiar `.env.local.example` → `.env.local` y rellenar (NUNCA commitear valores
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` (publishable)
 - `SUPABASE_SERVICE_ROLE_KEY` (secret; solo servidor)
+- `NEXT_PUBLIC_SITE_URL` (p. ej. `http://localhost:3000`; respaldo para enlaces de email)
