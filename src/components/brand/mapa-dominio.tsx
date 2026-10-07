@@ -24,10 +24,13 @@ export function MapaDominio({
   code,
   name,
   ras,
+  statusLabels = LABEL,
 }: {
   code: string;
   name: string;
   ras: RaProgress[];
+  // Etiquetas traducidas del semáforo (por defecto, en español).
+  statusLabels?: Record<RaStatus, string>;
 }) {
   const dominados = ras.filter((r) => r.status === "verde").length;
 
@@ -60,7 +63,7 @@ export function MapaDominio({
               aria-valuenow={ra.progress}
               aria-valuemin={0}
               aria-valuemax={100}
-              aria-label={`${ra.code} ${LABEL[ra.status]}`}
+              aria-label={`${ra.code} ${statusLabels[ra.status]}`}
             >
               <span
                 className="absolute inset-y-0 left-0 rounded-full"
@@ -75,7 +78,7 @@ export function MapaDominio({
               className="w-20 shrink-0 text-right font-mono text-[10px] tracking-wider"
               style={{ color: COLOR[ra.status] }}
             >
-              {LABEL[ra.status]}
+              {statusLabels[ra.status]}
             </span>
           </li>
         ))}

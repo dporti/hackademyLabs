@@ -467,5 +467,123 @@
       "required": "Omple «Com va» i «Què podeu fer aquesta setmana».",
       "generic": "Alguna cosa ha fallat. Torna-ho a provar."
     }
+  },
+  "diagnostico": {
+    "metaTitle": "Diagnòstic gratuït del teu mòdul d'FP",
+    "metaDescription": "En 2 minuts i sense registre: el teu Mapa de Domini per resultats d'aprenentatge i un pla setmana a setmana fins a l'examen.",
+    "title": "Arribes a l'examen? Descobreix-ho en 2 minuts.",
+    "subtitle": "Marca com portes cada resultat d'aprenentatge del teu mòdul. T'ensenyem el teu Mapa de Domini i un pla setmana a setmana fins a l'examen.",
+    "badges": {
+      "b1": "Sense registre",
+      "b2": "Gratis",
+      "b3": "Pels RA oficials del teu mòdul"
+    },
+    "pickTitle": "Tria el teu mòdul",
+    "raCount": "{n} resultats d'aprenentatge",
+    "notListed": "No hi és el teu? Estem carregant els RA de la resta de mòduls. Mentrestant,",
+    "notListedLink": "busca la seva fitxa i els seus mentors.",
+    "raTitle": "Com portes {code}?",
+    "changeModule": "Canviar de mòdul",
+    "raHelp": "Sigues sincer: ningú ho veu més que tu. Són els resultats d'aprenentatge amb què t'avaluen.",
+    "raAria": "Com portes el {code}",
+    "answer": {
+      "verde": "Ho domino",
+      "ambar": "A mitges",
+      "rojo": "Ni idea"
+    },
+    "map": {
+      "verde": "DOMINAT",
+      "ambar": "A MITGES",
+      "rojo": "FLUIX"
+    },
+    "mapProgress": "{n} de {total} respostos",
+    "mapDone": "Aquest és el teu Mapa de Domini.",
+    "orientative": "Orientatiu: és la teva autoavaluació, no una nota oficial.",
+    "planTitle": "El teu pla invers",
+    "planHelp": "Posa la data de l'examen i quantes hores hi pots dedicar. El pla es recalcula a l'instant.",
+    "examDate": "Data de l'examen",
+    "hoursWeek": "Hores per setmana: {n}",
+    "verdict": {
+      "holgado": {
+        "title": "Tens temps: queden {dias} dies.",
+        "text": "Necessites unes {necesarias} h en total i tens marge. La clau és no saltar-te setmanes."
+      },
+      "justo": {
+        "title": "Hi arribes just: queden {dias} dies.",
+        "text": "Necessites unes {necesarias} h i vas al límit. Cada setmana compta; un mentor t'estalvia les hores d'encallar-te."
+      },
+      "noLlegas": {
+        "title": "Així no hi arribes: queden {dias} dies.",
+        "text": "Necessitaries unes {porSemana} h per setmana i en tens {horas}. Aquí és on un mentor marca la diferència: va directe al que et falta."
+      }
+    },
+    "week": "Setmana {n}",
+    "from": "des del {date}",
+    "study": "estudiar",
+    "review": "repassar",
+    "mockExam": "Simulacre d'examen",
+    "buffer": "Marge per repassar",
+    "recTitle": "El que et recomanem",
+    "recLoose": "{sesiones, plural, =0 {} one {# sessió 1:1 + } other {# sessions 1:1 + }}{flash, plural, =0 {} one {# sessió flash + } other {# sessions flash + }}1 simulacre",
+    "recWhy": {
+      "rescate_48h": "El teu examen és molt a prop. Dos dies intensius amb el teu mentor: 3 sessions, tiquets il·limitats i un simulacre corregit.",
+      "plan_modulo": "Hi ha molt per recuperar. Pla complet fins a l'examen: diagnòstic, pla, sessions, tiquets i simulacres, amb la garantia «Seguim amb tu».",
+      "sesion_1a1": "Vas ben encaminat. Ataca només el que fluixeja amb sessions puntuals i comprova el teu nivell amb un simulacre.",
+      "simulacro": "Ho portes bé. Un simulacre corregit per un mentor et confirma que estàs a punt i t'assenyala les últimes errades."
+    },
+    "credits": "{min}–{max} crèdits",
+    "creditsNote": "1 crèdit ≈ 1 €. Orientatiu; el preu exacte depèn del nivell del mentor.",
+    "ctaMentors": "Veure mentors de {code}",
+    "ctaPricing": "Veure preus",
+    "ctaShare": "Copiar enllaç",
+    "copied": "Enllaç copiat",
+    "saveHint": "Vols desar-lo i que en Bit et recordi cada setmana què toca?",
+    "saveLink": "Crea el teu compte gratis"
+  },
+  "products": {
+    "diagnostico": {
+      "name": "Diagnòstic + Mapa de Domini",
+      "desc": "Test per resultats d'aprenentatge i mapa visual del teu mòdul."
+    },
+    "sesion_1a1": {
+      "name": "Sessió 1:1",
+      "desc": "60 minuts de videoclasse amb un mentor expert en el teu mòdul."
+    },
+    "sesion_flash": {
+      "name": "Sessió flash",
+      "desc": "25 minuts en directe per desencallar un dubte concret."
+    },
+    "ticket_express": {
+      "name": "Tiquet Express",
+      "desc": "Dubte escrit o de codi amb resposta en menys de 2 hores."
+    },
+    "ticket_normal": {
+      "name": "Tiquet normal",
+      "desc": "Dubte escrit amb resposta en menys de 24 hores."
+    },
+    "revision": {
+      "name": "Revisió explicada",
+      "desc": "Un mentor revisa el teu codi o pràctica i t'explica què falla. No la refà."
+    },
+    "simulacro": {
+      "name": "Simulacre d'examen",
+      "desc": "Examen tipus del teu mòdul amb correcció comentada."
+    },
+    "rescate_48h": {
+      "name": "Rescat 48h",
+      "desc": "Dos dies abans de l'examen: 3 sessions, tiquets il·limitats i simulacre."
+    },
+    "plan_modulo": {
+      "name": "Pla Mòdul",
+      "desc": "Diagnòstic, pla invers, sessions, tiquets i simulacres fins a l'examen. Amb garantia."
+    },
+    "defensa_proyecto": {
+      "name": "Defensa de projecte",
+      "desc": "Assaig de la defensa del projecte intermodular amb feedback."
+    },
+    "grupo_reducido": {
+      "name": "Grup reduït",
+      "desc": "Sessió temàtica del teu mòdul, màxim 5 alumnes. Preu per alumne."
+    }
   }
 }

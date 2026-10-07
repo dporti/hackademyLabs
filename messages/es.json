@@ -467,5 +467,123 @@
       "required": "Rellena «Cómo va» y «Qué podéis hacer esta semana».",
       "generic": "Algo ha fallado. Inténtalo de nuevo."
     }
+  },
+  "diagnostico": {
+    "metaTitle": "Diagnóstico gratis de tu módulo de FP",
+    "metaDescription": "En 2 minutos y sin registro: tu Mapa de Dominio por resultados de aprendizaje y un plan semana a semana hasta el examen.",
+    "title": "¿Llegas al examen? Descúbrelo en 2 minutos.",
+    "subtitle": "Marca cómo llevas cada resultado de aprendizaje de tu módulo. Te enseñamos tu Mapa de Dominio y un plan semana a semana hasta el examen.",
+    "badges": {
+      "b1": "Sin registro",
+      "b2": "Gratis",
+      "b3": "Por los RA oficiales de tu módulo"
+    },
+    "pickTitle": "Elige tu módulo",
+    "raCount": "{n} resultados de aprendizaje",
+    "notListed": "¿No está el tuyo? Estamos cargando los RA del resto de módulos. Mientras tanto,",
+    "notListedLink": "busca su ficha y sus mentores.",
+    "raTitle": "¿Cómo llevas {code}?",
+    "changeModule": "Cambiar de módulo",
+    "raHelp": "Sé sincero: nadie lo ve más que tú. Son los resultados de aprendizaje con los que te evalúan.",
+    "raAria": "Cómo llevas el {code}",
+    "answer": {
+      "verde": "Lo domino",
+      "ambar": "A medias",
+      "rojo": "Ni idea"
+    },
+    "map": {
+      "verde": "DOMINADO",
+      "ambar": "A MEDIAS",
+      "rojo": "FLOJO"
+    },
+    "mapProgress": "{n} de {total} respondidos",
+    "mapDone": "Este es tu Mapa de Dominio.",
+    "orientative": "Orientativo: es tu autoevaluación, no una nota oficial.",
+    "planTitle": "Tu plan inverso",
+    "planHelp": "Pon la fecha del examen y cuántas horas puedes dedicarle. El plan se recalcula al momento.",
+    "examDate": "Fecha del examen",
+    "hoursWeek": "Horas por semana: {n}",
+    "verdict": {
+      "holgado": {
+        "title": "Te da tiempo: quedan {dias} días.",
+        "text": "Necesitas unas {necesarias} h en total y tienes margen. La clave es no saltarte semanas."
+      },
+      "justo": {
+        "title": "Llegas justo: quedan {dias} días.",
+        "text": "Necesitas unas {necesarias} h y vas al límite. Cada semana cuenta; un mentor te ahorra las horas de atascarte."
+      },
+      "noLlegas": {
+        "title": "Así no llegas: quedan {dias} días.",
+        "text": "Necesitarías unas {porSemana} h por semana y tienes {horas}. Aquí es donde un mentor marca la diferencia: va directo a lo que te falta."
+      }
+    },
+    "week": "Semana {n}",
+    "from": "desde {date}",
+    "study": "estudiar",
+    "review": "repasar",
+    "mockExam": "Simulacro de examen",
+    "buffer": "Margen para repasar",
+    "recTitle": "Lo que te recomendamos",
+    "recLoose": "{sesiones, plural, =0 {} one {# sesión 1:1 + } other {# sesiones 1:1 + }}{flash, plural, =0 {} one {# sesión flash + } other {# sesiones flash + }}1 simulacro",
+    "recWhy": {
+      "rescate_48h": "Tu examen está muy cerca. Dos días intensivos con tu mentor: 3 sesiones, tickets ilimitados y un simulacro corregido.",
+      "plan_modulo": "Hay mucho por recuperar. Plan completo hasta el examen: diagnóstico, plan, sesiones, tickets y simulacros, con la garantía «Seguimos contigo».",
+      "sesion_1a1": "Vas bien encaminado. Ataca solo lo que flojea con sesiones puntuales y comprueba tu nivel con un simulacro.",
+      "simulacro": "Lo llevas bien. Un simulacro corregido por un mentor te confirma que estás listo y te señala los últimos fallos."
+    },
+    "credits": "{min}–{max} créditos",
+    "creditsNote": "1 crédito ≈ 1 €. Orientativo; el precio exacto depende del nivel del mentor.",
+    "ctaMentors": "Ver mentores de {code}",
+    "ctaPricing": "Ver precios",
+    "ctaShare": "Copiar enlace",
+    "copied": "Enlace copiado",
+    "saveHint": "¿Quieres guardarlo y que Bit te recuerde cada semana qué toca?",
+    "saveLink": "Crea tu cuenta gratis"
+  },
+  "products": {
+    "diagnostico": {
+      "name": "Diagnóstico + Mapa de Dominio",
+      "desc": "Test por resultados de aprendizaje y mapa visual de tu módulo."
+    },
+    "sesion_1a1": {
+      "name": "Sesión 1:1",
+      "desc": "60 minutos de videoclase con un mentor experto en tu módulo."
+    },
+    "sesion_flash": {
+      "name": "Sesión flash",
+      "desc": "25 minutos en directo para desatascar una duda concreta."
+    },
+    "ticket_express": {
+      "name": "Ticket Express",
+      "desc": "Duda escrita o de código con respuesta en menos de 2 horas."
+    },
+    "ticket_normal": {
+      "name": "Ticket normal",
+      "desc": "Duda escrita con respuesta en menos de 24 horas."
+    },
+    "revision": {
+      "name": "Revisión explicada",
+      "desc": "Un mentor revisa tu código o práctica y te explica qué falla. No la rehace."
+    },
+    "simulacro": {
+      "name": "Simulacro de examen",
+      "desc": "Examen tipo de tu módulo con corrección comentada."
+    },
+    "rescate_48h": {
+      "name": "Rescate 48h",
+      "desc": "Dos días antes del examen: 3 sesiones, tickets ilimitados y simulacro."
+    },
+    "plan_modulo": {
+      "name": "Plan Módulo",
+      "desc": "Diagnóstico, plan inverso, sesiones, tickets y simulacros hasta el examen. Con garantía."
+    },
+    "defensa_proyecto": {
+      "name": "Defensa de proyecto",
+      "desc": "Ensayo de la defensa del proyecto intermodular con feedback."
+    },
+    "grupo_reducido": {
+      "name": "Grupo reducido",
+      "desc": "Sesión temática de tu módulo, máximo 5 alumnos. Precio por alumno."
+    }
   }
 }

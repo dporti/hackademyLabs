@@ -1148,6 +1148,50 @@ from (values
 join modulo m on m.code = v.modulo_code
 on conflict (modulo_id, code) do nothing;
 
+-- RA de los demás módulos killer (orientativos, a validar). Misma fuente que
+-- supabase/data/ra-killer.json (cargable con scripts/seed-ra.mjs).
+insert into ra (modulo_id, code, description, sort_order)
+select m.id, v.code, v.descr, v.ord
+from (values
+  ('0373','RA1','Reconoce las características de los lenguajes de marcas analizando e interpretando fragmentos de código.',1),
+  ('0373','RA2','Utiliza lenguajes de marcas para la transmisión de información a través de la web, analizando la estructura de los documentos.',2),
+  ('0373','RA3','Genera canales de contenidos analizando y utilizando tecnologías de sindicación.',3),
+  ('0373','RA4','Establece mecanismos de validación para documentos XML definiendo su sintaxis y estructura.',4),
+  ('0373','RA5','Realiza conversiones sobre documentos XML utilizando técnicas y herramientas de procesamiento.',5),
+  ('0373','RA6','Gestiona información en formato XML usando tecnologías de almacenamiento y lenguajes de consulta.',6),
+  ('0373','RA7','Trabaja con sistemas empresariales de gestión de información: importación, integración, aseguramiento y extracción.',7),
+  ('0613','RA1','Selecciona las arquitecturas y tecnologías de programación web en entorno servidor, analizando sus capacidades.',1),
+  ('0613','RA2','Escribe sentencias ejecutables por un servidor web integrando el código en lenguajes de marcas.',2),
+  ('0613','RA3','Escribe bloques de sentencias embebidos en lenguajes de marcas usando las estructuras de programación.',3),
+  ('0613','RA4','Desarrolla aplicaciones web embebidas en lenguajes de marcas incorporando funcionalidades según especificaciones.',4),
+  ('0613','RA5','Desarrolla aplicaciones web separando el código de presentación de la lógica de negocio.',5),
+  ('0613','RA6','Desarrolla aplicaciones de acceso a almacenes de datos manteniendo la seguridad y la integridad de la información.',6),
+  ('0613','RA7','Desarrolla servicios web reutilizables y accesibles mediante protocolos web, verificando su funcionamiento.',7),
+  ('0613','RA8','Genera páginas web dinámicas usando tecnologías del servidor que añaden código al lenguaje de marcas.',8),
+  ('0613','RA9','Desarrolla aplicaciones web híbridas usando frameworks de servidor y repositorios heterogéneos de información.',9),
+  ('0486','RA1','Desarrolla aplicaciones que gestionan información almacenada en ficheros usando clases específicas.',1),
+  ('0486','RA2','Desarrolla aplicaciones que gestionan información en bases de datos relacionales usando mecanismos de conexión.',2),
+  ('0486','RA3','Gestiona la persistencia de los datos con herramientas de mapeo objeto-relacional (ORM).',3),
+  ('0486','RA4','Desarrolla aplicaciones sobre bases de datos objeto-relacionales y orientadas a objetos.',4),
+  ('0486','RA5','Desarrolla aplicaciones que gestionan información en bases de datos nativas XML.',5),
+  ('0486','RA6','Programa componentes de acceso a datos usando herramientas de desarrollo.',6),
+  ('0370','RA1','Reconoce la estructura de las redes de datos identificando sus elementos y principios de funcionamiento.',1),
+  ('0370','RA2','Integra ordenadores y periféricos en redes cableadas e inalámbricas, evaluando su funcionamiento.',2),
+  ('0370','RA3','Administra conmutadores estableciendo opciones de configuración para su integración en la red.',3),
+  ('0370','RA4','Administra las funciones básicas de un router estableciendo opciones de configuración.',4),
+  ('0370','RA5','Configura redes locales virtuales (VLAN) identificando su campo de aplicación.',5),
+  ('0370','RA6','Realiza tareas avanzadas de administración de red usando protocolos dinámicos de encaminamiento.',6),
+  ('0370','RA7','Conecta redes privadas a redes públicas identificando y aplicando diferentes tecnologías.',7),
+  ('0225','RA1','Reconoce la estructura de redes locales cableadas describiendo la funcionalidad de sus componentes.',1),
+  ('0225','RA2','Despliega el cableado de una red local interpretando especificaciones y aplicando técnicas de montaje.',2),
+  ('0225','RA3','Interconecta equipos en redes locales cableadas aplicando estándares de cableado y montaje de conectores.',3),
+  ('0225','RA4','Instala equipos en red describiendo sus prestaciones y aplicando técnicas de montaje.',4),
+  ('0225','RA5','Mantiene una red local relacionando disfunciones con sus causas.',5),
+  ('0225','RA6','Cumple las normas de prevención de riesgos laborales y de protección ambiental.',6)
+) as v(modulo_code, code, descr, ord)
+join modulo m on m.code = v.modulo_code
+on conflict (modulo_id, code) do nothing;
+
 -- ════════════════ EQUIVALENCIAS CATALANAS (EJEMPLO, A VALIDAR) ═════════
 -- Mapeo orientativo código estatal ↔ M catalán. Completar con la numeración real.
 insert into modulo_equiv_cat (modulo_id, codigo_cat, comunidad)

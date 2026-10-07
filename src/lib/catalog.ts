@@ -215,3 +215,31 @@ export async function getPlanes(): Promise<Plan[]> {
   if (error) throw error;
   return (data ?? []) as Plan[];
 }
+
+// ─────────────────────────── Diagnóstico gratis ───────────────────────────
+// Módulos con RA cargados (los únicos diagnosticables), con sus RA ordenados.
+export type ModuloDiagnosticable = Pick<Modulo, "code" | "name" | "killer"> & {
+  ra: Pick<Ra, "code" | "description">[];
+};
+
+export async function getModulosDiagnosticables(): Promise<ModuloDiagnosticable[]> {
+  "use cache";
+  cacheLife("hours");
+  const sb = createPublicClient();
+  const { data, error } = await sb
+    .from("modulo")
+    .select("code, name, killer, ra!inner(code, description, sort_order)")
+    .order("code");
+  if (error) throw error;
+  type Row = Pick<Modulo, "code" | "name" | "killer"> & {
+    ra: (Pick<Ra, "code" | "description"> & { sort_order: number })[];
+  };
+  return ((data ?? []) as unknown as Row[]).map((m) => ({
+    code: m.code,
+    name: m.name,
+    killer: m.killer,
+    ra: [...m.ra]
+      .sort((a, b) => a.sort_order - b.sort_order)
+      .map(({ code, description }) => ({ code, description })),
+  }));
+}
