@@ -30,6 +30,19 @@ export async function getSessionUser() {
   return { user, profile: profile as Profile | null };
 }
 
+// ¿Hay sesión válida? Como getSessionUser pero sin leer profile. Usa getUser (no
+// getClaims) a propósito: debe coincidir con el criterio del panel. getClaims da
+// por buena la cookie de un usuario borrado o con sesión revocada (JWT aún no
+// caducado) y /entrar → /panel → /entrar entraría en bucle.
+export async function hasSession() {
+  await connection();
+  const sb = await createClient();
+  const {
+    data: { user },
+  } = await sb.auth.getUser();
+  return !!user;
+}
+
 // Construye una ruta con el prefijo de locale correcto ("as-needed": es sin prefijo).
 export function localePath(locale: string, path: string) {
   const clean = path.startsWith("/") ? path : `/${path}`;

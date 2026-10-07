@@ -1,7 +1,11 @@
+import { Suspense } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Button } from "@/components/ui/button";
 import { LocaleSwitcher } from "@/components/locale-switcher";
+import {
+  HeaderSession,
+  HeaderSessionFallback,
+} from "@/components/header-session";
 
 export function SiteHeader() {
   const t = useTranslations("nav");
@@ -42,14 +46,9 @@ export function SiteHeader() {
         </nav>
         <div className="ml-auto flex items-center gap-3">
           <LocaleSwitcher />
-          <Button
-            size="sm"
-            variant="outline"
-            nativeButton={false}
-            render={<Link href="/entrar" />}
-          >
-            {t("login")}
-          </Button>
+          <Suspense fallback={<HeaderSessionFallback />}>
+            <HeaderSession />
+          </Suspense>
         </div>
       </div>
     </header>
