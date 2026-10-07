@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { BuyPackForm } from "@/components/panel/buy-pack-form";
 import { AddModuloForm } from "@/components/panel/add-modulo-form";
 import { StudentFamily } from "@/components/panel/student-family";
+import { WeeklyReportCard } from "@/components/panel/weekly-report-card";
 import type { StudentDashboard } from "@/lib/student";
 import type { Modulo, Pack } from "@/lib/db-types";
 
@@ -143,6 +144,21 @@ export async function StudentPanel({
 
       {/* ───────────────────────────── Familia ───────────────────────────── */}
       <StudentFamily locale={locale} family={dashboard.family} />
+
+      {/* ─────────────────────── Informes semanales ─────────────────────── */}
+      {dashboard.reports.length > 0 && (
+        <section aria-labelledby="informes" data-theme="family" className="rounded-xl bg-background p-5">
+          <h2 id="informes" className="font-display text-xl font-semibold">
+            {t("reportsTitle")}
+          </h2>
+          <p className="mt-1 text-sm text-muted-foreground">{t("reportsHelp")}</p>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            {dashboard.reports.slice(0, 2).map((r) => (
+              <WeeklyReportCard key={r.id} report={r} studentName={t("you")} locale={locale} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ───────────────────────── Historial ledger ───────────────────────── */}
       <section aria-labelledby="historial">

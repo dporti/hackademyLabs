@@ -180,7 +180,10 @@
       "packNotFound": "Aquest pack no està disponible.",
       "moduloNotFound": "No trobem aquest mòdul.",
       "generic": "Alguna cosa ha fallat. Torna-ho a provar."
-    }
+    },
+    "reportsTitle": "Els teus informes setmanals",
+    "reportsHelp": "Això és exactament el que rep la teva família.",
+    "you": "Tu"
   },
   "pricing": {
     "title": "Preus",
@@ -401,7 +404,8 @@
     "createCode": "Generar codi",
     "newCode": "Generar un codi nou",
     "plansHint": "Voleu tutor de referència i informes setmanals?",
-    "plansLink": "Veure plans Família"
+    "plansLink": "Veure plans Família",
+    "olderReports": "{n, plural, one {# informe anterior} other {# informes anteriors}}"
   },
   "studentFamily": {
     "title": "Família",
@@ -426,6 +430,41 @@
       "notStudent": "Només un compte d'alumne es pot vincular a una família.",
       "noProfile": "Completa primer l'onboarding.",
       "noFamilyLink": "No estàs vinculat amb cap família.",
+      "generic": "Alguna cosa ha fallat. Torna-ho a provar."
+    }
+  },
+  "report": {
+    "week": "Setmana del {from} al {to}",
+    "days": "{n} de 7 dies"
+  },
+  "adminReport": {
+    "title": "Informes setmanals",
+    "help": "Mentre no existeixi el panell del tutor de referència, els redactes tu. La família el veu al seu panell (si l'alumne és menor o ho consent) i l'alumne també.",
+    "noStudents": "Encara no hi ha cap alumne vinculat a una família.",
+    "student": "Alumne",
+    "week": "Setmana",
+    "weekHint": "Es desa com el dilluns d'aquella setmana. Si ja existeix, es corregeix.",
+    "overall": "Estat",
+    "overallNote": "Com va (una frase)",
+    "overallNotePh": "Va bé, un punt a vigilar",
+    "activeDays": "Dies actius",
+    "worked": "Què ha treballat (fins a 4)",
+    "module": "Mòdul",
+    "workedText": "Què",
+    "workedTextPh": "Adreçament IP",
+    "noModules": "Aquest alumne encara no ha triat mòduls.",
+    "tipPh": "Demaneu-li que us expliqui què és una adreça IP.",
+    "upcomingAuto": "Les properes dates s'omplen soles amb els exàmens de l'alumne dels propers 45 dies.",
+    "save": "Desar informe",
+    "ok": {
+      "reportSaved": "Informe desat.",
+      "reportUpdated": "Informe corregit."
+    },
+    "errors": {
+      "notAdmin": "Només un admin pot redactar informes.",
+      "badWeek": "Tria una data vàlida.",
+      "noFamily": "Aquest alumne ja no està vinculat a cap família.",
+      "required": "Omple «Com va» i «Què podeu fer aquesta setmana».",
       "generic": "Alguna cosa ha fallat. Torna-ho a provar."
     }
   }

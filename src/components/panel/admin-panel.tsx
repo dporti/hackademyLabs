@@ -3,6 +3,8 @@ import { reviewMentorAction } from "@/app/actions/admin";
 import { Button } from "@/components/ui/button";
 import { MentorStatusBadge } from "@/components/panel/mentor-status-badge";
 import type { MentorAdminRow } from "@/lib/mentor";
+import type { ReportableStudent } from "@/lib/report-admin";
+import { AdminReportForm } from "@/components/panel/admin-report-form";
 import type { MentorLevel, MentorStatus } from "@/lib/db-types";
 
 const LEVELS: MentorLevel[] = ["mentor", "pro", "experto"];
@@ -12,10 +14,15 @@ const LEVELS: MentorLevel[] = ["mentor", "pro", "experto"];
 export async function AdminPanel({
   locale,
   mentores,
+  reportStudents,
+  defaultWeek,
 }: {
   locale: string;
   mentores: MentorAdminRow[];
+  reportStudents: ReportableStudent[];
+  defaultWeek: string;
 }) {
+  const tr = await getTranslations("adminReport");
   const t = await getTranslations("adminPanel");
   const tm = await getTranslations("mentorPanel");
   const pendientes = mentores.filter((m) => m.status === "pendiente").length;
@@ -30,6 +37,15 @@ export async function AdminPanel({
 
   return (
     <div className="mt-8 space-y-6">
+      {/* Informes semanales: el admin hace de tutor de referencia hasta que exista su panel. */}
+      <section aria-labelledby="informes" className="rounded-xl border bg-card p-6">
+        <h2 id="informes" className="font-display text-xl font-semibold">
+          {tr("title")}
+        </h2>
+        <p className="mt-1 mb-5 text-sm text-muted-foreground">{tr("help")}</p>
+        <AdminReportForm locale={locale} students={reportStudents} defaultWeek={defaultWeek} />
+      </section>
+
       <div>
         <h2 className="font-display text-xl font-semibold">{t("mentorsTitle")}</h2>
         <p className="mt-1 text-sm text-muted-foreground">

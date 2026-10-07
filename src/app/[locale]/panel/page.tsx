@@ -4,6 +4,8 @@ import { getSessionUser, localePath } from "@/lib/auth";
 import { getStudentDashboard } from "@/lib/student";
 import { getMentorSelf, getMentoresAdmin } from "@/lib/mentor";
 import { getFamilyDashboard } from "@/lib/family";
+import { getReportableStudents } from "@/lib/report-admin";
+import { mondayOf } from "@/lib/report";
 import { buscarModulos, getPacks } from "@/lib/catalog";
 import { signOutAction } from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
@@ -68,7 +70,18 @@ export default async function PanelPage({
     if (!dashboard.family) return <OnboardingContent locale={locale} role="familia" />;
     contenido = <FamilyPanel locale={locale} dashboard={dashboard} />;
   } else if (profile?.role === "admin") {
-    contenido = <AdminPanel locale={locale} mentores={await getMentoresAdmin()} />;
+    const [mentores, reportStudents] = await Promise.all([
+      getMentoresAdmin(),
+      getReportableStudents(),
+    ]);
+    contenido = (
+      <AdminPanel
+        locale={locale}
+        mentores={mentores}
+        reportStudents={reportStudents}
+        defaultWeek={mondayOf(new Date().toISOString().slice(0, 10))}
+      />
+    );
   }
 
   return (

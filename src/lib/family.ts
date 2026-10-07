@@ -1,5 +1,6 @@
 import "server-only";
 import { createClient } from "@/lib/supabase/server";
+import { toWeeklyReport, type WeeklyReport } from "@/lib/report";
 
 // Capa de datos del panel de familia. Los datos de cada hijo llegan por la RPC
 // my_family_students, que ya aplica la regla de consentimiento (menor de edad o
@@ -14,17 +15,11 @@ export interface FamilyStudent {
   balance: number | null;
 }
 
-export interface FamilyReport {
-  id: string;
-  student_id: string;
-  week_start: string;
-}
-
 export interface FamilyDashboard {
   family: { id: string; name: string | null } | null;
   students: FamilyStudent[];
   invite: { code: string; expires_at: string } | null;
-  reports: FamilyReport[];
+  reports: WeeklyReport[];
 }
 
 export async function getFamilyDashboard(ownerId: string): Promise<FamilyDashboard> {
@@ -51,7 +46,7 @@ export async function getFamilyDashboard(ownerId: string): Promise<FamilyDashboa
     // La RLS (wr_family) ya filtra por consentimiento.
     sb
       .from("weekly_report")
-      .select("id, student_id, week_start")
+      .select("id, student_id, week_start, payload")
       .eq("family_id", family.id)
       .order("week_start", { ascending: false })
       .limit(20),
@@ -62,7 +57,7 @@ export async function getFamilyDashboard(ownerId: string): Promise<FamilyDashboa
     family,
     students: (studentsRes.data ?? []) as FamilyStudent[],
     invite: inviteRes.data ?? null,
-    reports: (reportsRes.data ?? []) as FamilyReport[],
+    reports: (reportsRes.data ?? []).map(toWeeklyReport),
   };
 }
 

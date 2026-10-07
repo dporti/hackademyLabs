@@ -180,7 +180,10 @@
       "packNotFound": "Ese pack no está disponible.",
       "moduloNotFound": "No encontramos ese módulo.",
       "generic": "Algo ha fallado. Inténtalo de nuevo."
-    }
+    },
+    "reportsTitle": "Tus informes semanales",
+    "reportsHelp": "Esto es exactamente lo que recibe tu familia.",
+    "you": "Tú"
   },
   "pricing": {
     "title": "Precios",
@@ -401,7 +404,8 @@
     "createCode": "Generar código",
     "newCode": "Generar un código nuevo",
     "plansHint": "¿Queréis tutor de referencia e informes semanales?",
-    "plansLink": "Ver planes Familia"
+    "plansLink": "Ver planes Familia",
+    "olderReports": "{n, plural, one {# informe anterior} other {# informes anteriores}}"
   },
   "studentFamily": {
     "title": "Familia",
@@ -426,6 +430,41 @@
       "notStudent": "Solo una cuenta de alumno puede vincularse a una familia.",
       "noProfile": "Completa tu onboarding primero.",
       "noFamilyLink": "No estás vinculado con ninguna familia.",
+      "generic": "Algo ha fallado. Inténtalo de nuevo."
+    }
+  },
+  "report": {
+    "week": "Semana del {from} al {to}",
+    "days": "{n} de 7 días"
+  },
+  "adminReport": {
+    "title": "Informes semanales",
+    "help": "Mientras no exista el panel del tutor de referencia, los redactas tú. La familia lo ve en su panel (si el alumno es menor o lo consiente) y el alumno también.",
+    "noStudents": "Ningún alumno está vinculado a una familia todavía.",
+    "student": "Alumno",
+    "week": "Semana",
+    "weekHint": "Se guarda como el lunes de esa semana. Si ya existe, se corrige.",
+    "overall": "Estado",
+    "overallNote": "Cómo va (una frase)",
+    "overallNotePh": "Va bien, un punto a vigilar",
+    "activeDays": "Días activos",
+    "worked": "Qué ha trabajado (hasta 4)",
+    "module": "Módulo",
+    "workedText": "Qué",
+    "workedTextPh": "Direccionamiento IP",
+    "noModules": "Este alumno aún no ha elegido módulos.",
+    "tipPh": "Pedidle que os explique qué es una dirección IP.",
+    "upcomingAuto": "Las próximas fechas se rellenan solas con los exámenes del alumno de los próximos 45 días.",
+    "save": "Guardar informe",
+    "ok": {
+      "reportSaved": "Informe guardado.",
+      "reportUpdated": "Informe corregido."
+    },
+    "errors": {
+      "notAdmin": "Solo un admin puede redactar informes.",
+      "badWeek": "Elige una fecha válida.",
+      "noFamily": "Ese alumno ya no está vinculado a una familia.",
+      "required": "Rellena «Cómo va» y «Qué podéis hacer esta semana».",
       "generic": "Algo ha fallado. Inténtalo de nuevo."
     }
   }

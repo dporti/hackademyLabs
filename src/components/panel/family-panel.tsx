@@ -4,6 +4,7 @@ import { createFamilyInviteAction } from "@/app/actions/family";
 import { Button } from "@/components/ui/button";
 import { RaBadge } from "@/components/brand/ra-badge";
 import { formatInviteCode, type FamilyDashboard } from "@/lib/family";
+import { WeeklyReportCard } from "@/components/panel/weekly-report-card";
 
 // Panel de familia (zona "family": clara y sobria). Hijos vinculados con lo que
 // el consentimiento permite ver, informes semanales e invitación para vincular.
@@ -93,6 +94,34 @@ export async function FamilyPanel({
                         <p className="mt-1 text-sm text-muted-foreground">{t("noModules")}</p>
                       )}
                     </>
+                  )}
+
+                  {/* Informe más reciente completo; los anteriores, plegados. */}
+                  {s.shared && informes.length > 0 && (
+                    <div className="mt-5 space-y-3">
+                      <WeeklyReportCard
+                        report={informes[0]}
+                        studentName={s.full_name ?? t("noName")}
+                        locale={locale}
+                      />
+                      {informes.length > 1 && (
+                        <details className="rounded-lg border p-3">
+                          <summary className="cursor-pointer text-sm font-medium">
+                            {t("olderReports", { n: informes.length - 1 })}
+                          </summary>
+                          <div className="mt-3 space-y-3">
+                            {informes.slice(1).map((r) => (
+                              <WeeklyReportCard
+                                key={r.id}
+                                report={r}
+                                studentName={s.full_name ?? t("noName")}
+                                locale={locale}
+                              />
+                            ))}
+                          </div>
+                        </details>
+                      )}
+                    </div>
                   )}
                 </li>
               );

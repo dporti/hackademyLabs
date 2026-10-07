@@ -6,6 +6,7 @@ import type {
   Pack,
   StudentModulo,
 } from "@/lib/db-types";
+import { toWeeklyReport, type WeeklyReport } from "@/lib/report";
 
 // Capa de datos del panel del alumno. Todo se lee con el cliente SSR (sesión del
 // alumno): la RLS garantiza que solo ve SUS movimientos y SUS módulos.
@@ -25,6 +26,8 @@ export interface StudentDashboard {
   ledger: LedgerEntryConPack[];
   modulos: StudentModuloConModulo[];
   family: StudentFamily;
+  // Informes que recibe su familia (transparencia: el alumno ve lo mismo).
+  reports: WeeklyReport[];
 }
 
 // Vínculo con la familia visto por el alumno.
@@ -52,7 +55,7 @@ export async function getStudentDashboard(
 ): Promise<StudentDashboard> {
   const sb = await createClient();
 
-  const [profileRes, balanceRes, ledgerRes, modulosRes] = await Promise.all([
+  const [profileRes, balanceRes, ledgerRes, modulosRes, reportsRes] = await Promise.all([
     sb
       .from("student_profile")
       .select("profile_id, family_id, consent_share_family, birthdate")
@@ -71,6 +74,12 @@ export async function getStudentDashboard(
       .select("*, modulo(id, code, name, killer)")
       .eq("student_id", studentId)
       .order("created_at"),
+    sb
+      .from("weekly_report")
+      .select("id, student_id, week_start, payload")
+      .eq("student_id", studentId)
+      .order("week_start", { ascending: false })
+      .limit(4),
   ]);
 
   if (balanceRes.error) throw balanceRes.error;
@@ -91,6 +100,7 @@ export async function getStudentDashboard(
       shared: !!sp?.consent_share_family,
       isMinor: esMenor(sp?.birthdate ?? null),
     },
+    reports: (reportsRes.data ?? []).map(toWeeklyReport),
     balance: (balanceRes.data as number | null) ?? 0,
     ledger: (ledgerRes.data ?? []) as unknown as LedgerEntryConPack[],
     modulos: (modulosRes.data ?? []) as unknown as StudentModuloConModulo[],
