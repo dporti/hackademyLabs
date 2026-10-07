@@ -7,24 +7,152 @@
     "viewProfile": "Veure perfil"
   },
   "home": {
-    "studentCta": "Sóc estudiant",
-    "familyCta": "Sóc mare/pare",
-    "searchPlaceholder": "Quin mòdul et preocupa?",
-    "searchLabel": "Cerca el teu mòdul",
-    "heroSubtitle": "Catàleg per mòdul oficial d'FP d'informàtica. Pla, mentor i seguiment fins a l'examen.",
-    "mapaCaption": "Vista prèvia — Mapa de Domini",
+    "heroSubtitle": "Tria el teu mòdul d'FP d'informàtica. Et diem què et falta, et donem un pla fins a l'examen i un mentor que domina aquest mòdul.",
+    "ctaDiagnostic": "Fes el diagnòstic gratis",
+    "ctaNote": "2 minuts. Sense registre. Sense targeta.",
+    "familyCta": "Soc mare o pare",
+    "worryTitle": "Quin mòdul et preocupa?",
+    "searchLabel": "Cercar",
+    "searchPlaceholder": "Codi o nom: 0485, bases de dades…",
+    "mapaCaption": "Així es veu el teu mòdul després del diagnòstic: cada resultat d'aprenentatge, en verd, ambre o vermell.",
+    "painTitle": "Et sona alguna?",
+    "pain": {
+      "d1": {
+        "quote": "Vaig perdut a Programació i no sé per on començar.",
+        "answer": "Fes el diagnòstic de 0485: en 2 minuts veus quins RA et falten i en quin ordre atacar-los.",
+        "cta": "Diagnosticar 0485"
+      },
+      "d2": {
+        "quote": "Tinc l'examen d'aquí a 10 dies i no hi arribo.",
+        "answer": "Posa la data i et diem si hi arribes. Si no, el Rescat 48h: tres sessions, tiquets il·limitats i un simulacre corregit.",
+        "cta": "Hi arribo a l'examen?"
+      },
+      "d3": {
+        "quote": "Estudio a distància i ningú no em resol els dubtes a temps.",
+        "answer": "Tiquet Express: escrius el dubte o enganxes el codi i un mentor et respon en menys de 2 hores.",
+        "cta": "Veure Tiquet Express"
+      },
+      "d4": {
+        "quote": "Em fa pànic la defensa del projecte.",
+        "answer": "Defensa de projecte: assages amb un mentor que et fa les preguntes del tribunal i et dona feedback.",
+        "cta": "Veure Defensa de projecte"
+      }
+    },
     "processTitle": "Com et traiem el mòdul",
     "s1t": "Diagnòstic",
-    "s1d": "Test per RA. En surt el teu Mapa de Domini en verd, ambre i vermell.",
+    "s1d": "Marques com portes cada resultat d'aprenentatge. Surt el teu Mapa de Domini en verd, ambre i vermell.",
     "s2t": "Pla invers",
-    "s2d": "Poses la data de l'examen. Calculem quins RA treballar i quan.",
+    "s2d": "Poses la data de l'examen. Calculem què treballar cada setmana i si tens temps.",
     "s3t": "Mentor i seguiment",
-    "s3d": "Un expert del mòdul et porta fins a aprovar.",
-    "killerTitle": "Els mòduls que més costen",
-    "killerSubtitle": "On hi ha més suspensos. Comença pel teu.",
+    "s3d": "Un mentor verificat del teu mòdul i en Bit, el teu copilot 24/7, et porten fins a l'examen.",
+    "diffTitle": "No és una acadèmia ni un professor particular",
+    "diffSubtitle": "Treballem com treballa el teu cicle: per mòdul oficial i per resultats d'aprenentatge.",
+    "diff": {
+      "catalogo": {
+        "title": "El teu mòdul, pel seu codi",
+        "text": "0485, 0484, 0613… Cada mòdul amb els seus resultats d'aprenentatge oficials. No «classes de programació» genèriques."
+      },
+      "mapa": {
+        "title": "Mapa de Domini",
+        "text": "Veus d'un cop d'ull què domines i què no. És l'abans i el després del teu mòdul."
+      },
+      "plan": {
+        "title": "Pla invers",
+        "text": "Comencem per la data de l'examen i anem enrere. Les classes es converteixen en un projecte amb data."
+      },
+      "urgencia": {
+        "title": "Ajuda quan apreta",
+        "text": "Tiquet Express en menys de 2 hores i Rescat 48h abans de l'examen. Per quan de debò ho necessites."
+      },
+      "mentores": {
+        "title": "Mentors verificats",
+        "text": "Docents d'FP i professionals que dominen el teu mòdul, amb entrevista i prova tècnica abans d'entrar."
+      },
+      "etica": {
+        "title": "Mai fem les teves pràctiques",
+        "text": "T'ajudem a entendre i a aprovar. Ni la plataforma ni la IA fan pràctiques ni exàmens per tu."
+      }
+    },
+    "bit": {
+      "title": "Bit: algú amb tu a qualsevol hora",
+      "subtitle": "En Bit és la IA de Tutor247. Coneix el teu mòdul, el teu Mapa de Domini i la data de l'examen. Et recorda què toca avui i resol el que és senzill. El que és difícil, li passa al teu mentor.",
+      "points": {
+        "p1": {
+          "title": "24/7, també per WhatsApp.",
+          "text": "Recordatoris del pla i qüestionaris de 2 minuts."
+        },
+        "p2": {
+          "title": "Sempre es presenta com a IA.",
+          "text": "Saps en tot moment si parles amb en Bit o amb una persona."
+        },
+        "p3": {
+          "title": "T'ensenya, no et copia.",
+          "text": "Et guia amb preguntes i pistes; mai no et lliura una pràctica avaluable."
+        },
+        "p4": {
+          "title": "Humà garantit.",
+          "text": "El botó «Vull el meu mentor» sempre és a la vista."
+        }
+      },
+      "chatTitle": "Bit",
+      "chatSubtitle": "IA de Tutor247 · 0485 Programació",
+      "example": "Exemple",
+      "chat": {
+        "m1": "Fes-me la pràctica 3 de 0485, que l'entrego demà.",
+        "m2": "Soc en Bit, la IA de Tutor247. La pràctica no te la faig: és teva i te l'avaluaran. Però la treus tu en una estona. Què demana el primer exercici?",
+        "m3": "Un bucle que sumi els nombres parells de l'1 al 100. No em surt.",
+        "m4": "Anem per parts: com saps si un nombre és parell? Pista: pensa en el residu de dividir entre 2.",
+        "m5": "Això mateix, n % 2 == 0! Ara posa-ho dins del for i prova-ho primer de l'1 al 10.",
+        "m6": "Si t'encalles, prem «Vull el meu mentor» i una persona et respon amb un Tiquet Express."
+      }
+    },
+    "productsTitle": "Pagues només pel que necessites",
+    "productsSubtitle": "El que és humà es paga amb crèdits (1 crèdit ≈ 1 €). Sense matrícula ni quotes obligatòries.",
+    "creditsRange": "{range} crèdits",
+    "productsCta": "Veure tots els preus",
+    "productsNote": "Els crèdits duren 12 mesos. Packs amb fins a un 20 % extra.",
+    "guaranteeTitle": "Garantia «Seguim amb tu»",
+    "guaranteeText": "Amb el Pla Mòdul, si compleixes el pla i tot i així suspens, preparar la recuperació et costa la meitat: et retornem el 50 % dels crèdits.",
+    "guaranteeSmall": "Complir el pla és assistir i fer almenys el 80 % de les tasques. Així de senzill.",
+    "mentorsTitle": "Mentors que dominen el teu mòdul",
+    "mentorsSubtitle": "Verificats amb entrevista i prova tècnica. Tries per mòdul, nivell i temps de resposta.",
+    "mentorsAll": "Veure tots els mentors",
+    "mentorJoin": "Ets docent d'FP o professional del sector?",
+    "mentorJoinLink": "Fes-te mentor",
+    "killerTitle": "Els mòduls que més s'encallen",
+    "killerSubtitle": "On hi ha més suspesos. Comença pel teu.",
     "familyTitle": "El teu fill o filla estudia informàtica?",
     "familyText": "Li donem un tutor que el coneix, l'organitza i l'acompanya. I a tu, un informe cada setmana.",
-    "familyCta2": "Sóc mare o pare"
+    "familyCta2": "Veure com funciona per a famílies",
+    "faqTitle": "Preguntes freqüents",
+    "faq": {
+      "q1": {
+        "q": "Sou una acadèmia?",
+        "a": "No. No venem hores de classe: venem aprovar un mòdul concret. Diagnòstic, pla fins a l'examen, mentor d'aquest mòdul i seguiment."
+      },
+      "q2": {
+        "q": "Em feu les pràctiques?",
+        "a": "No, i és una línia vermella. T'ajudem a entendre-les i a fer-les tu: revisem el teu codi i t'expliquem què falla, però no el refem."
+      },
+      "q3": {
+        "q": "Quant costa?",
+        "a": "El diagnòstic és gratis. El que és humà es paga amb crèdits (1 crèdit ≈ 1 €): un Tiquet Express són 6–8 crèdits i una sessió 1:1, 25–35. En Bit il·limitat, amb el pla Company (des de 9,90 €/mes)."
+      },
+      "q4": {
+        "q": "Caduquen els crèdits?",
+        "a": "Duren 12 mesos des de la compra."
+      },
+      "q5": {
+        "q": "Estudio a Catalunya: trobaré el meu mòdul?",
+        "a": "Sí. Cada mòdul mostra la seva equivalència catalana (M/UF) i pots cercar per codi o per nom."
+      },
+      "q6": {
+        "q": "I si suspenc?",
+        "a": "Amb el Pla Mòdul tens la garantia «Seguim amb tu»: si vas complir el pla, preparar la recuperació et costa la meitat."
+      }
+    },
+    "finalTitle": "El teu examen té data. El teu pla també la pot tenir.",
+    "finalText": "Fes el diagnòstic gratis i descobreix en 2 minuts què et falta i si hi arribes."
   },
   "nav": {
     "cycles": "Cicles",
@@ -33,7 +161,8 @@
     "pricing": "Preus",
     "login": "Entra",
     "panel": "El meu panell",
-    "families": "Famílies"
+    "families": "Famílies",
+    "diagnostic": "Diagnòstic gratis"
   },
   "catalog": {
     "title": "Cicles i mòduls",

@@ -7,24 +7,152 @@
     "viewProfile": "Ver perfil"
   },
   "home": {
-    "studentCta": "Soy estudiante",
-    "familyCta": "Soy madre/padre",
-    "searchPlaceholder": "¿Qué módulo te preocupa?",
-    "searchLabel": "Busca tu módulo",
-    "heroSubtitle": "Catálogo por módulo oficial de FP de informática. Plan, mentor y seguimiento hasta el examen.",
-    "mapaCaption": "Vista previa — Mapa de Dominio",
+    "heroSubtitle": "Elige tu módulo de FP de informática. Te decimos qué te falta, te damos un plan hasta el examen y un mentor que domina ese módulo.",
+    "ctaDiagnostic": "Haz el diagnóstico gratis",
+    "ctaNote": "2 minutos. Sin registro. Sin tarjeta.",
+    "familyCta": "Soy madre o padre",
+    "worryTitle": "¿Qué módulo te preocupa?",
+    "searchLabel": "Buscar",
+    "searchPlaceholder": "Código o nombre: 0485, bases de datos…",
+    "mapaCaption": "Así se ve tu módulo tras el diagnóstico: cada resultado de aprendizaje, en verde, ámbar o rojo.",
+    "painTitle": "¿Te suena alguna?",
+    "pain": {
+      "d1": {
+        "quote": "Voy perdido en Programación y no sé por dónde empezar.",
+        "answer": "Haz el diagnóstico de 0485: en 2 minutos ves qué RA te faltan y en qué orden atacarlos.",
+        "cta": "Diagnosticar 0485"
+      },
+      "d2": {
+        "quote": "Tengo el examen en 10 días y no llego.",
+        "answer": "Pon la fecha y te decimos si llegas. Si no, el Rescate 48h: tres sesiones, tickets ilimitados y un simulacro corregido.",
+        "cta": "¿Llego al examen?"
+      },
+      "d3": {
+        "quote": "Estudio a distancia y nadie me resuelve las dudas a tiempo.",
+        "answer": "Ticket Express: escribes tu duda o pegas tu código y un mentor te responde en menos de 2 horas.",
+        "cta": "Ver Ticket Express"
+      },
+      "d4": {
+        "quote": "Me da pánico la defensa del proyecto.",
+        "answer": "Defensa de proyecto: ensayas con un mentor que te hace las preguntas del tribunal y te da feedback.",
+        "cta": "Ver Defensa de proyecto"
+      }
+    },
     "processTitle": "Cómo te sacamos el módulo",
     "s1t": "Diagnóstico",
-    "s1d": "Test por RA. Sale tu Mapa de Dominio en verde, ámbar y rojo.",
+    "s1d": "Marcas cómo llevas cada resultado de aprendizaje. Sale tu Mapa de Dominio en verde, ámbar y rojo.",
     "s2t": "Plan inverso",
-    "s2d": "Pones la fecha del examen. Calculamos qué RA trabajar y cuándo.",
+    "s2d": "Pones la fecha del examen. Calculamos qué trabajar cada semana y si te da tiempo.",
     "s3t": "Mentor y seguimiento",
-    "s3d": "Un experto del módulo te lleva hasta aprobar.",
+    "s3d": "Un mentor verificado de tu módulo y Bit, tu copiloto 24/7, te llevan hasta el examen.",
+    "diffTitle": "No es una academia ni un profesor particular",
+    "diffSubtitle": "Trabajamos como trabaja tu ciclo: por módulo oficial y por resultados de aprendizaje.",
+    "diff": {
+      "catalogo": {
+        "title": "Tu módulo, por su código",
+        "text": "0485, 0484, 0613… Cada módulo con sus resultados de aprendizaje oficiales. No «clases de programación» genéricas."
+      },
+      "mapa": {
+        "title": "Mapa de Dominio",
+        "text": "Ves de un vistazo qué dominas y qué no. Es el antes y el después de tu módulo."
+      },
+      "plan": {
+        "title": "Plan inverso",
+        "text": "Empezamos por la fecha del examen y vamos hacia atrás. Las clases se convierten en un proyecto con fecha."
+      },
+      "urgencia": {
+        "title": "Ayuda cuando aprieta",
+        "text": "Ticket Express en menos de 2 horas y Rescate 48h antes del examen. Para cuando de verdad lo necesitas."
+      },
+      "mentores": {
+        "title": "Mentores verificados",
+        "text": "Docentes de FP y profesionales que dominan tu módulo, con entrevista y prueba técnica antes de entrar."
+      },
+      "etica": {
+        "title": "Nunca hacemos tus prácticas",
+        "text": "Te ayudamos a entender y a aprobar. Ni la plataforma ni la IA hacen prácticas ni exámenes por ti."
+      }
+    },
+    "bit": {
+      "title": "Bit: alguien contigo a cualquier hora",
+      "subtitle": "Bit es la IA de Tutor247. Conoce tu módulo, tu Mapa de Dominio y la fecha de tu examen. Te recuerda qué toca hoy y resuelve lo sencillo. Lo difícil, se lo pasa a tu mentor.",
+      "points": {
+        "p1": {
+          "title": "24/7, también por WhatsApp.",
+          "text": "Recordatorios del plan y quizzes de 2 minutos."
+        },
+        "p2": {
+          "title": "Siempre se presenta como IA.",
+          "text": "Sabes en todo momento si hablas con Bit o con una persona."
+        },
+        "p3": {
+          "title": "Te enseña, no te copia.",
+          "text": "Te guía con preguntas y pistas; nunca te entrega una práctica evaluable."
+        },
+        "p4": {
+          "title": "Humano garantizado.",
+          "text": "El botón «Quiero a mi mentor» está siempre a la vista."
+        }
+      },
+      "chatTitle": "Bit",
+      "chatSubtitle": "IA de Tutor247 · 0485 Programación",
+      "example": "Ejemplo",
+      "chat": {
+        "m1": "Hazme la práctica 3 de 0485, que la entrego mañana.",
+        "m2": "Soy Bit, la IA de Tutor247. La práctica no te la hago: es tuya y te la van a evaluar. Pero la sacas tú en un rato. ¿Qué pide el primer ejercicio?",
+        "m3": "Un bucle que sume los números pares del 1 al 100. No me sale.",
+        "m4": "Vamos por partes: ¿cómo sabes si un número es par? Pista: piensa en el resto de dividir entre 2.",
+        "m5": "¡Eso es, n % 2 == 0! Ahora mételo dentro del for y pruébalo primero del 1 al 10.",
+        "m6": "Si te atascas, pulsa «Quiero a mi mentor» y un humano te responde con un Ticket Express."
+      }
+    },
+    "productsTitle": "Pagas solo por lo que necesitas",
+    "productsSubtitle": "Lo humano se paga con créditos (1 crédito ≈ 1 €). Sin matrícula ni cuotas obligatorias.",
+    "creditsRange": "{range} créditos",
+    "productsCta": "Ver todos los precios",
+    "productsNote": "Los créditos duran 12 meses. Packs con hasta un 20 % extra.",
+    "guaranteeTitle": "Garantía «Seguimos contigo»",
+    "guaranteeText": "Con el Plan Módulo, si cumples el plan y aun así suspendes, preparar la recuperación te cuesta la mitad: te devolvemos el 50 % de los créditos.",
+    "guaranteeSmall": "Cumplir el plan es asistir y hacer al menos el 80 % de las tareas. Así de simple.",
+    "mentorsTitle": "Mentores que dominan tu módulo",
+    "mentorsSubtitle": "Verificados con entrevista y prueba técnica. Eliges por módulo, nivel y tiempo de respuesta.",
+    "mentorsAll": "Ver todos los mentores",
+    "mentorJoin": "¿Eres docente de FP o profesional del sector?",
+    "mentorJoinLink": "Hazte mentor",
     "killerTitle": "Los módulos que más se atragantan",
     "killerSubtitle": "Donde más suspensos hay. Empieza por el tuyo.",
     "familyTitle": "¿Tu hijo o hija estudia informática?",
     "familyText": "Le damos un tutor que le conoce, le organiza y le acompaña. Y a ti, un informe cada semana.",
-    "familyCta2": "Soy madre o padre"
+    "familyCta2": "Ver cómo funciona para familias",
+    "faqTitle": "Preguntas frecuentes",
+    "faq": {
+      "q1": {
+        "q": "¿Sois una academia?",
+        "a": "No. No vendemos horas de clase: vendemos aprobar un módulo concreto. Diagnóstico, plan hasta el examen, mentor de ese módulo y seguimiento."
+      },
+      "q2": {
+        "q": "¿Me hacéis las prácticas?",
+        "a": "No, y es una línea roja. Te ayudamos a entenderlas y a hacerlas tú: revisamos tu código y te explicamos qué falla, pero no lo rehacemos."
+      },
+      "q3": {
+        "q": "¿Cuánto cuesta?",
+        "a": "El diagnóstico es gratis. Lo humano se paga con créditos (1 crédito ≈ 1 €): un Ticket Express son 6–8 créditos y una sesión 1:1, 25–35. Bit ilimitado, con el plan Compañero (desde 9,90 €/mes)."
+      },
+      "q4": {
+        "q": "¿Caducan los créditos?",
+        "a": "Duran 12 meses desde la compra."
+      },
+      "q5": {
+        "q": "Estudio en Cataluña: ¿encuentro mi módulo?",
+        "a": "Sí. Cada módulo muestra su equivalencia catalana (M/UF) y puedes buscar por código o por nombre."
+      },
+      "q6": {
+        "q": "¿Y si suspendo?",
+        "a": "Con el Plan Módulo tienes la garantía «Seguimos contigo»: si cumpliste el plan, preparar la recuperación te cuesta la mitad."
+      }
+    },
+    "finalTitle": "Tu examen tiene fecha. Tu plan también puede tenerla.",
+    "finalText": "Haz el diagnóstico gratis y descubre en 2 minutos qué te falta y si llegas."
   },
   "nav": {
     "cycles": "Ciclos",
@@ -33,7 +161,8 @@
     "pricing": "Precios",
     "login": "Entrar",
     "panel": "Mi panel",
-    "families": "Familias"
+    "families": "Familias",
+    "diagnostic": "Diagnóstico gratis"
   },
   "catalog": {
     "title": "Ciclos y módulos",

@@ -31,6 +31,9 @@ export function SiteHeader() {
           </span>
         </Link>
         <nav className="hidden items-center gap-5 text-sm text-muted-foreground sm:flex">
+          <Link href="/diagnostico" className="font-medium text-primary transition-colors hover:text-foreground">
+            {t("diagnostic")}
+          </Link>
           <Link href="/ciclos" className="transition-colors hover:text-foreground">
             {t("cycles")}
           </Link>
