@@ -5,16 +5,13 @@
 -- parcial. SOLO toca objetos propios de Tutor247. No forma parte de las migraciones
 -- versionadas (que se aplican una vez cada una vía CLI/MCP).
 
--- Borra los usuarios de prueba para que el seed los recree y dispare el trigger.
-delete from auth.users where email like '%@tutor247.dev';
-
 drop view if exists public.mentor_public;
 
 drop table if exists
   public.mentor_payout, public.mentor_badge, public.badge, public.referral,
   public.weekly_report, public.message, public.conversation, public.ticket,
   public.booking, public.ra_assessment, public.diagnostic, public.study_plan,
-  public.consent, public.credit_ledger, public.mentor_modulo, public.plan,
+  public.consent, public.student_modulo, public.credit_ledger, public.mentor_modulo, public.plan,
   public.pack, public.modulo_equiv_cat, public.ra, public.ciclo_modulo,
   public.modulo, public.ciclo, public.reference_tutor, public.mentor_profile,
   public.student_profile, public.family, public.profile
@@ -32,6 +29,11 @@ drop type if exists
   consent_type, plan_kind, product_kind, ledger_type, ra_status,
   mentor_status, mentor_level, student_mode, user_role, grade_level
   cascade;
+
+-- Borra los usuarios de prueba para que el seed los recree y dispare el trigger.
+-- Va DESPUÉS de los drops: con credit_ledger aún presente, el borrado en cascada
+-- chocaría con el trigger de inmutabilidad del ledger.
+delete from auth.users where email like '%@tutor247.dev';
 
 
 -- ========================= migrations/20261006090100_enums.sql =========================
@@ -676,6 +678,29 @@ create policy payout_admin on mentor_payout for all
   using (public.is_admin()) with check (public.is_admin());
 
 
+-- ========================= migrations/20261007090100_student_modulo.sql =========================
+-- Tutor247 — Módulos que prepara el alumno (F1.4).
+-- Relación N:M alumno ↔ módulo con fecha de examen opcional. Es la base del panel
+-- del alumno ("mis módulos") y, más adelante, del plan inverso (study_plan).
+
+create table student_modulo (
+  student_id uuid not null references student_profile (profile_id) on delete cascade,
+  modulo_id  uuid not null references modulo (id) on delete cascade,
+  exam_date  date,
+  created_at timestamptz not null default now(),
+  primary key (student_id, modulo_id)
+);
+
+create index student_modulo_modulo_idx on student_modulo (modulo_id);
+
+alter table student_modulo enable row level security;
+-- El alumno gestiona sus propios módulos; admin todo.
+create policy sm_own on student_modulo
+  for all using (auth.uid() = student_id) with check (auth.uid() = student_id);
+create policy sm_admin on student_modulo
+  for all using (public.is_admin()) with check (public.is_admin());
+
+
 -- ========================= seed.sql =========================
 -- Tutor247 — Seed de datos iniciales (Fase 1).
 -- Catálogo de ciclos/módulos (docs/modelo-negocio-v1.md), RA de ejemplo (0485, 0484),
@@ -873,5 +898,3 @@ begin
     on conflict do nothing;
   end loop;
 end $$;
-
-

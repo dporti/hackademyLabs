@@ -107,7 +107,48 @@
   "panel": {
     "greeting": "Hola, {name}",
     "roleLabel": "Rol",
-    "pendingOnboarding": "Completa tu onboarding para empezar."
+    "pendingOnboarding": "Completa tu onboarding para empezar.",
+    "balanceTitle": "Tu saldo",
+    "creditsUnit": "créditos",
+    "buyTitle": "Recargar créditos",
+    "mockNotice": "Modo prueba: la compra suma créditos al instante, sin cobro real.",
+    "buyMock": "Comprar (simulado)",
+    "buying": "Procesando…",
+    "modulesTitle": "Módulos que preparas",
+    "modulesEmpty": "Aún no has añadido ningún módulo. Elige el que te preocupa y su fecha de examen.",
+    "moduleLabel": "Módulo",
+    "modulePlaceholder": "Elige un módulo…",
+    "examDate": "Fecha de examen (opcional)",
+    "addModule": "Añadir",
+    "removeModule": "Quitar",
+    "removeModuleAria": "Quitar el módulo {code}",
+    "examOn": "Examen: {date}",
+    "noExamDate": "Sin fecha de examen",
+    "historyTitle": "Movimientos",
+    "historyEmpty": "Todavía no hay movimientos.",
+    "colDate": "Fecha",
+    "colConcept": "Concepto",
+    "colExpires": "Caduca",
+    "colAmount": "Créditos",
+    "ledgerType": {
+      "compra_pack": "Compra de pack",
+      "bonus": "Bonus",
+      "gasto": "Gasto",
+      "caducidad": "Caducidad",
+      "ajuste": "Ajuste",
+      "devolucion": "Devolución"
+    },
+    "ok": {
+      "packBought": "+{n} créditos añadidos a tu saldo.",
+      "moduloAdded": "Módulo guardado."
+    },
+    "errors": {
+      "notStudent": "Solo los alumnos pueden hacer esto.",
+      "noProfile": "Completa tu onboarding primero.",
+      "packNotFound": "Ese pack no está disponible.",
+      "moduloNotFound": "No encontramos ese módulo.",
+      "generic": "Algo ha fallado. Inténtalo de nuevo."
+    }
   },
   "pricing": {
     "title": "Precios",

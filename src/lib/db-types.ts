@@ -101,3 +101,25 @@ export interface MentorPublic {
   languages: string[];
   response_time_minutes: number | null;
 }
+
+// Movimiento del ledger de créditos (inmutable; saldo = suma de amount).
+export interface CreditLedgerEntry {
+  id: string;
+  student_id: string;
+  type: LedgerType;
+  amount: number;
+  product_kind: ProductKind | null;
+  mentor_id: string | null;
+  pack_id: string | null;
+  expires_at: string | null;
+  note: string | null;
+  created_at: string;
+}
+
+// Módulo que prepara el alumno (N:M alumno ↔ módulo).
+export interface StudentModulo {
+  student_id: string;
+  modulo_id: string;
+  exam_date: string | null;
+  created_at: string;
+}

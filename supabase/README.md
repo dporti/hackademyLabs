@@ -10,7 +10,9 @@ supabase/
     20261006090300_catalog.sql            ciclo, modulo, ra, equivalencias, packs, planes
     20261006090400_credit_ledger.sql      Ledger inmutable + función de saldo
     20261006090500_future_scaffolding.sql Tablas de fases futuras (tickets, Bit, informes…)
+    20261007090100_student_modulo.sql     Módulos que prepara el alumno (F1.4)
   seed.sql                                Catálogo + RA (0485/0484) + 3 mentores de prueba
+  apply_all.sql                           Todo junto, re-ejecutable (generado)
 ```
 
 ## Aplicar (elige una vía)
@@ -25,6 +27,8 @@ supabase db reset      # aplica migraciones + seed desde cero
 Las claves locales salen de `supabase start`; cópialas a `.env.local`.
 
 ### B) Proyecto en la nube
+`apply_all.sql` se regenera con `node scripts/build-apply-all.mjs` tras tocar
+migraciones o seed (no editarlo a mano).
 Aplica las migraciones en orden y luego `seed.sql` (SQL Editor del panel, la CLI
 con `supabase db push`, o el MCP de Supabase). Copia URL y keys a `.env.local`.
 

@@ -1,4 +1,5 @@
 import "server-only";
+import { connection } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import type { UserRole } from "@/lib/db-types";
 
@@ -13,6 +14,9 @@ export interface Profile {
 
 // Usuario autenticado + su profile (o null si no hay sesión).
 export async function getSessionUser() {
+  // supabase-js usa Date.now() al validar la sesión; sin esto, el prerender en
+  // runtime (con cookies) de Next 16 da "unstable value Date.now()". Solo request.
+  await connection();
   const sb = await createClient();
   const {
     data: { user },

@@ -107,7 +107,48 @@
   "panel": {
     "greeting": "Hola, {name}",
     "roleLabel": "Rol",
-    "pendingOnboarding": "Completa l'onboarding per començar."
+    "pendingOnboarding": "Completa l'onboarding per començar.",
+    "balanceTitle": "El teu saldo",
+    "creditsUnit": "crèdits",
+    "buyTitle": "Recarregar crèdits",
+    "mockNotice": "Mode prova: la compra suma crèdits a l'instant, sense cobrament real.",
+    "buyMock": "Comprar (simulat)",
+    "buying": "Processant…",
+    "modulesTitle": "Mòduls que prepares",
+    "modulesEmpty": "Encara no has afegit cap mòdul. Tria el que et preocupa i la data d'examen.",
+    "moduleLabel": "Mòdul",
+    "modulePlaceholder": "Tria un mòdul…",
+    "examDate": "Data d'examen (opcional)",
+    "addModule": "Afegir",
+    "removeModule": "Treure",
+    "removeModuleAria": "Treure el mòdul {code}",
+    "examOn": "Examen: {date}",
+    "noExamDate": "Sense data d'examen",
+    "historyTitle": "Moviments",
+    "historyEmpty": "Encara no hi ha moviments.",
+    "colDate": "Data",
+    "colConcept": "Concepte",
+    "colExpires": "Caduca",
+    "colAmount": "Crèdits",
+    "ledgerType": {
+      "compra_pack": "Compra de pack",
+      "bonus": "Bonus",
+      "gasto": "Despesa",
+      "caducidad": "Caducitat",
+      "ajuste": "Ajust",
+      "devolucion": "Devolució"
+    },
+    "ok": {
+      "packBought": "+{n} crèdits afegits al teu saldo.",
+      "moduloAdded": "Mòdul desat."
+    },
+    "errors": {
+      "notStudent": "Només els alumnes poden fer això.",
+      "noProfile": "Completa primer l'onboarding.",
+      "packNotFound": "Aquest pack no està disponible.",
+      "moduloNotFound": "No trobem aquest mòdul.",
+      "generic": "Alguna cosa ha fallat. Torna-ho a provar."
+    }
   },
   "pricing": {
     "title": "Preus",
