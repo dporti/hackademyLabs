@@ -59,7 +59,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
               <Button
                 variant="ghost"
                 nativeButton={false}
-                render={<Link href="/registro?rol=familia" />}
+                render={<Link href="/familias" />}
               >
                 {t("familyCta")}
               </Button>
@@ -137,7 +137,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
           <Button
             size="lg"
             nativeButton={false}
-            render={<Link href="/registro?rol=familia" />}
+            render={<Link href="/familias" />}
           >
             {t("familyCta2")}
           </Button>

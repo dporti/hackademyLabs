@@ -32,7 +32,8 @@
     "mentors": "Mentors",
     "pricing": "Preus",
     "login": "Entra",
-    "panel": "El meu panell"
+    "panel": "El meu panell",
+    "families": "Famílies"
   },
   "catalog": {
     "title": "Cicles i mòduls",
@@ -242,5 +243,135 @@
       "pendiente": "Tornar a pendent"
     },
     "setLevel": "Aplicar nivell"
+  },
+  "family": {
+    "metaTitle": "Famílies: acompanyament per a FP d'informàtica",
+    "metaDescription": "El teu fill estudia informàtica i tu no el pots ajudar. Li donem un tutor de referència que el coneix, l'organitza i l'acompanya. I a tu, un informe cada setmana.",
+    "eyebrow": "Per a mares, pares i tutors",
+    "heroTitle": "El teu fill estudia informàtica i tu no el pots ajudar. Nosaltres sí.",
+    "heroSubtitle": "Un tutor de referència que el coneix, l'organitza i l'acompanya fins a l'examen. I a vosaltres, un informe clar cada setmana.",
+    "ctaPrimary": "Començar",
+    "ctaPlans": "Veure plans",
+    "heroNote": "Estem a sobre perquè vosaltres no hàgiu d'estar-hi.",
+    "status": {
+      "verde": "Bé",
+      "ambar": "A vigilar",
+      "rojo": "En risc"
+    },
+    "report": {
+      "title": "Informe setmanal",
+      "example": "Exemple",
+      "student": "Àlex · 1r SMX",
+      "week": "Setmana del 5 a l'11 d'octubre",
+      "overallLabel": "Com va",
+      "overall": "Va bé, un punt a vigilar",
+      "consistencyLabel": "Constància",
+      "consistency": "5 de 7 dies",
+      "workedLabel": "Què ha treballat",
+      "w1": "Adreçament IP",
+      "w2": "Pràctica de muntatge",
+      "upcomingLabel": "Properes dates",
+      "u1date": "14 oct",
+      "u1": "Lliurament de la pràctica de 0221",
+      "u2date": "21 oct",
+      "u2": "Examen de 0225",
+      "tipLabel": "Què podeu fer aquesta setmana",
+      "tip": "Demaneu-li que us expliqui què és una adreça IP: explicar-ho l'ajuda a fixar-ho."
+    },
+    "includesTitle": "Què inclou",
+    "includesSubtitle": "La part acadèmica la donen mentors experts en cada mòdul. A més, algú està pendent del vostre fill cada setmana.",
+    "inc": {
+      "tutor": {
+        "title": "Un tutor de referència fix",
+        "a": "Una cara coneguda per a ell i per a vosaltres.",
+        "b": "Check-in setmanal de 15–20 min: lliuraments, exàmens i prioritats.",
+        "c": "Hàbits d'estudi i motivació. Coordina els mentors quan cal classe tècnica."
+      },
+      "bit": {
+        "title": "Bit, el seu copilot diari",
+        "a": "Recordatoris, repassos i dubtes cada dia.",
+        "b": "Avisa el tutor si detecta bloqueig o desmotivació.",
+        "c": "Mai no fa les pràctiques ni els exàmens per ell."
+      },
+      "family": {
+        "title": "Per a vosaltres",
+        "a": "Informe setmanal: com va, constància, què ha treballat i properes dates.",
+        "b": "Alertes només si importa: examen en risc, 3 dies sense activitat. Sense spam.",
+        "c": "Reunió mensual de 15 min amb el tutor i canal directe en horari definit."
+      }
+    },
+    "howTitle": "Com funciona",
+    "how": {
+      "s1": {
+        "title": "Ens expliqueu del vostre fill",
+        "text": "Cicle, curs, mòduls que el preocupen i com s'organitza."
+      },
+      "s2": {
+        "title": "Trucada de benvinguda",
+        "text": "Amb el seu tutor de referència, per conèixer-nos i fixar objectius."
+      },
+      "s3": {
+        "title": "Seguiment setmanal",
+        "text": "Check-in amb el tutor, Bit cada dia i mentors per mòdul quan cal."
+      },
+      "s4": {
+        "title": "Informe cada setmana",
+        "text": "Sabeu com va sense haver de preguntar ni entendre d'informàtica."
+      }
+    },
+    "plansTitle": "Plans Família",
+    "plansSubtitle": "Subscripció mensual amb tot inclòs. Si cal més (un Rescat 48h abans d'un examen, sessions extra), es fan servir crèdits.",
+    "plusBadge": "Més complet",
+    "planCta": "Triar aquest pla",
+    "plansNote": "Per a tot el curs? Curs tranquil: Acompanya+ de setembre a juny amb un 15 % de descompte (pagament trimestral).",
+    "trustTitle": "Confiança i límits",
+    "trustSubtitle": "Treballem amb menors. Aquestes normes no es negocien.",
+    "trust": {
+      "c1": {
+        "title": "Certificat negatiu de delictes sexuals",
+        "text": "Obligatori per a tot tutor i mentor amb contacte amb menors."
+      },
+      "c2": {
+        "title": "Tot dins de la plataforma",
+        "text": "Sessions i missatges sempre pels nostres canals, mai pel WhatsApp personal del tutor."
+      },
+      "c3": {
+        "title": "Acompanyant, no terapeuta",
+        "text": "Si veiem senyals de malestar seriós, us avisem i us recomanem professionals."
+      },
+      "c4": {
+        "title": "No és un espia",
+        "text": "El vostre fill sap què es comparteix amb vosaltres. Sense confiança no hi ha acompanyament."
+      },
+      "c5": {
+        "title": "Integritat acadèmica",
+        "text": "Ningú no fa les seves pràctiques ni els seus exàmens. L'ensenyem a fer-los."
+      },
+      "c6": {
+        "title": "Dades i consentiment",
+        "text": "Consentiment dels tutors legals segons l'RGPD i tractament mínim de dades."
+      }
+    },
+    "faqTitle": "Preguntes freqüents",
+    "faq": {
+      "q1": {
+        "q": "Cal que sàpiga informàtica?",
+        "a": "No. L'informe està escrit perquè s'entengui sense coneixements tècnics, i el tutor us l'explica a la reunió mensual."
+      },
+      "q2": {
+        "q": "I si el meu fill ja és major d'edat?",
+        "a": "Pot fer servir Tutor247 igualment, però és ell qui decideix quins informes es comparteixen amb vosaltres. Sense el seu consentiment, no compartim res."
+      },
+      "q3": {
+        "q": "Li feu els treballs?",
+        "a": "No. Ni la plataforma ni la IA fan pràctiques ni exàmens. L'ajudem a entendre i a organitzar-se per fer-los ell."
+      },
+      "q4": {
+        "q": "Què passa si el veiem malament?",
+        "a": "El tutor no fa suport psicològic. Si detecta assetjament, ansietat intensa o un altre risc, us avisa i us recomana professionals."
+      }
+    },
+    "finalTitle": "Comenceu aquesta setmana",
+    "finalText": "Expliqueu-nos del vostre fill i us presentem el seu tutor de referència."
   }
 }

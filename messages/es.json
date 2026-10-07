@@ -32,7 +32,8 @@
     "mentors": "Mentores",
     "pricing": "Precios",
     "login": "Entrar",
-    "panel": "Mi panel"
+    "panel": "Mi panel",
+    "families": "Familias"
   },
   "catalog": {
     "title": "Ciclos y módulos",
@@ -242,5 +243,135 @@
       "pendiente": "Volver a pendiente"
     },
     "setLevel": "Aplicar nivel"
+  },
+  "family": {
+    "metaTitle": "Familias: acompañamiento para FP de informática",
+    "metaDescription": "Tu hijo estudia informática y tú no puedes ayudarle. Le damos un tutor de referencia que le conoce, le organiza y le acompaña. Y a ti, un informe cada semana.",
+    "eyebrow": "Para madres, padres y tutores",
+    "heroTitle": "Tu hijo estudia informática y tú no puedes ayudarle. Nosotros sí.",
+    "heroSubtitle": "Un tutor de referencia que le conoce, le organiza y le acompaña hasta el examen. Y a vosotros, un informe claro cada semana.",
+    "ctaPrimary": "Empezar",
+    "ctaPlans": "Ver planes",
+    "heroNote": "Estamos encima para que vosotros no tengáis que estarlo.",
+    "status": {
+      "verde": "Bien",
+      "ambar": "A vigilar",
+      "rojo": "En riesgo"
+    },
+    "report": {
+      "title": "Informe semanal",
+      "example": "Ejemplo",
+      "student": "Álex · 1.º SMX",
+      "week": "Semana del 5 al 11 de octubre",
+      "overallLabel": "Cómo va",
+      "overall": "Va bien, un punto a vigilar",
+      "consistencyLabel": "Constancia",
+      "consistency": "5 de 7 días",
+      "workedLabel": "Qué ha trabajado",
+      "w1": "Direccionamiento IP",
+      "w2": "Práctica de montaje",
+      "upcomingLabel": "Próximas fechas",
+      "u1date": "14 oct",
+      "u1": "Entrega de la práctica de 0221",
+      "u2date": "21 oct",
+      "u2": "Examen de 0225",
+      "tipLabel": "Qué podéis hacer esta semana",
+      "tip": "Pedidle que os explique qué es una dirección IP: contarlo le ayuda a fijarlo."
+    },
+    "includesTitle": "Qué incluye",
+    "includesSubtitle": "Lo académico lo dan mentores expertos en cada módulo. Además, alguien está pendiente de vuestro hijo cada semana.",
+    "inc": {
+      "tutor": {
+        "title": "Un tutor de referencia fijo",
+        "a": "Una cara conocida para él y para vosotros.",
+        "b": "Check-in semanal de 15–20 min: entregas, exámenes y prioridades.",
+        "c": "Hábitos de estudio y motivación. Coordina a los mentores cuando hace falta clase técnica."
+      },
+      "bit": {
+        "title": "Bit, su copiloto diario",
+        "a": "Recordatorios, repasos y dudas cada día.",
+        "b": "Avisa al tutor si detecta bloqueo o desmotivación.",
+        "c": "Nunca hace las prácticas ni los exámenes por él."
+      },
+      "family": {
+        "title": "Para vosotros",
+        "a": "Informe semanal: cómo va, constancia, qué ha trabajado y próximas fechas.",
+        "b": "Alertas solo si importa: examen en riesgo, 3 días sin actividad. Sin spam.",
+        "c": "Reunión mensual de 15 min con el tutor y canal directo en horario definido."
+      }
+    },
+    "howTitle": "Cómo funciona",
+    "how": {
+      "s1": {
+        "title": "Nos contáis de vuestro hijo",
+        "text": "Ciclo, curso, módulos que le preocupan y cómo se organiza."
+      },
+      "s2": {
+        "title": "Llamada de bienvenida",
+        "text": "Con su tutor de referencia, para conocernos y fijar objetivos."
+      },
+      "s3": {
+        "title": "Seguimiento semanal",
+        "text": "Check-in con el tutor, Bit a diario y mentores por módulo cuando hace falta."
+      },
+      "s4": {
+        "title": "Informe cada semana",
+        "text": "Sabéis cómo va sin tener que preguntar ni entender de informática."
+      }
+    },
+    "plansTitle": "Planes Familia",
+    "plansSubtitle": "Suscripción mensual todo incluido. Si hace falta más (un Rescate 48h antes de un examen, sesiones extra), se usan créditos.",
+    "plusBadge": "Más completo",
+    "planCta": "Elegir este plan",
+    "plansNote": "¿Para todo el curso? Curso tranquilo: Acompaña+ de septiembre a junio con un 15 % de descuento (pago trimestral).",
+    "trustTitle": "Confianza y límites",
+    "trustSubtitle": "Trabajamos con menores. Estas reglas no se negocian.",
+    "trust": {
+      "c1": {
+        "title": "Certificado negativo de delitos sexuales",
+        "text": "Obligatorio para todo tutor y mentor con contacto con menores."
+      },
+      "c2": {
+        "title": "Todo dentro de la plataforma",
+        "text": "Sesiones y mensajes siempre por nuestros canales, nunca por el WhatsApp personal del tutor."
+      },
+      "c3": {
+        "title": "Acompañante, no terapeuta",
+        "text": "Si vemos señales de malestar serio, os avisamos y os recomendamos profesionales."
+      },
+      "c4": {
+        "title": "No es un espía",
+        "text": "Vuestro hijo sabe qué se comparte con vosotros. Sin confianza no hay acompañamiento."
+      },
+      "c5": {
+        "title": "Integridad académica",
+        "text": "Nadie hace sus prácticas ni sus exámenes. Le enseñamos a hacerlos."
+      },
+      "c6": {
+        "title": "Datos y consentimiento",
+        "text": "Consentimiento de los tutores legales según el RGPD y tratamiento mínimo de datos."
+      }
+    },
+    "faqTitle": "Preguntas frecuentes",
+    "faq": {
+      "q1": {
+        "q": "¿Necesito saber informática?",
+        "a": "No. El informe está escrito para que se entienda sin conocimientos técnicos, y el tutor os lo explica en la reunión mensual."
+      },
+      "q2": {
+        "q": "¿Y si mi hijo ya es mayor de edad?",
+        "a": "Puede usar Tutor247 igual, pero es él quien decide qué informes se comparten con vosotros. Sin su consentimiento, no compartimos nada."
+      },
+      "q3": {
+        "q": "¿Le hacéis los trabajos?",
+        "a": "No. Ni la plataforma ni la IA hacen prácticas ni exámenes. Le ayudamos a entender y a organizarse para hacerlos él."
+      },
+      "q4": {
+        "q": "¿Qué pasa si le vemos mal?",
+        "a": "El tutor no hace apoyo psicológico. Si detecta acoso, ansiedad intensa u otro riesgo, os avisa y os recomienda profesionales."
+      }
+    },
+    "finalTitle": "Empezad esta semana",
+    "finalText": "Contadnos de vuestro hijo y os presentamos a su tutor de referencia."
   }
 }

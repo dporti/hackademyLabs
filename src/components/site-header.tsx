@@ -12,7 +12,7 @@ export function SiteHeader() {
   const c = useTranslations("common");
 
   return (
-    <header className="sticky top-0 z-20 border-b border-border/80 bg-background/70 backdrop-blur-md">
+    <header className="sticky top-0 z-20 border-b border-border/80 bg-background/95 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-6 px-4">
         <Link href="/" className="flex items-center gap-2">
           {/* Logomark HUD */}
@@ -42,6 +42,9 @@ export function SiteHeader() {
           </Link>
           <Link href="/precios" className="transition-colors hover:text-foreground">
             {t("pricing")}
+          </Link>
+          <Link href="/familias" className="transition-colors hover:text-foreground">
+            {t("families")}
           </Link>
         </nav>
         <div className="ml-auto flex items-center gap-3">
