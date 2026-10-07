@@ -316,7 +316,7 @@
   },
   "pricing": {
     "title": "Preus",
-    "subtitle": "Crèdits per al que és humà (1 crèdit ≈ 1 €) i subscripcions per a l'acompanyament.",
+    "subtitle": "El diagnòstic és gratis. El que és humà es paga amb crèdits (1 crèdit ≈ 1 €) i només quan ho necessites. Sense matrícula.",
     "packsTitle": "Packs de crèdits",
     "plansTitle": "Subscripcions",
     "credits": "{n} crèdits",
@@ -325,7 +325,63 @@
     "free": "Gratis",
     "buy": "Comprar",
     "subscribe": "Subscriure'm",
-    "creditsNote": "Els crèdits caduquen als 12 mesos."
+    "creditsNote": "Els crèdits caduquen als 12 mesos.",
+    "heroTitle": "Pagues per aprovar el teu mòdul, no per hores de classe",
+    "ctaCalc": "Calcula el que et costaria",
+    "scenariosTitle": "Quant em costa aprovar?",
+    "scenariosSubtitle": "Depèn de quant et falti i de quant temps tinguis. Aquests són els casos més habituals.",
+    "scenarios": {
+      "e1": {
+        "quote": "Em falta poc, vull assegurar-ho"
+      },
+      "e2": {
+        "quote": "Em fluixegen un parell de RA"
+      },
+      "e3": {
+        "quote": "Tinc l'examen aquesta setmana"
+      },
+      "e4": {
+        "quote": "Vaig perdut i vull anar a totes"
+      }
+    },
+    "creditsRange": "{min}–{max} crèdits",
+    "approxEur": "≈ {min} – {max}",
+    "scenariosNote": "Quin és el teu cas? El diagnòstic gratuït t'ho diu en 2 minuts, amb la data del teu examen.",
+    "scenariosLink": "Fer el diagnòstic",
+    "productsTitle": "Què compres amb crèdits",
+    "productsSubtitle": "Tot el que fa una persona per tu. El cost exacte depèn del nivell del mentor que triïs.",
+    "colProduct": "Producte",
+    "colWhat": "Què és",
+    "colCredits": "Crèdits",
+    "popular": "Més demanat",
+    "productsNote": "El Rescat 48h i el Pla Mòdul inclouen en Bit (pla Company) mentre duren.",
+    "packsSubtitle": "Com més gran el pack, més crèdits de regal.",
+    "plansSubtitle": "Per a l'acompanyament del dia a dia: en Bit per a estudiants i tutor de referència per a famílies.",
+    "forStudents": "Per a estudiants",
+    "forFamilies": "Per a famílies",
+    "startFree": "Començar gratis",
+    "seeFamilies": "Veure plans Família",
+    "guaranteeTitle": "Garantia «Seguim amb tu»",
+    "guaranteeText": "Amb el Pla Mòdul, si compleixes el pla (assistència i almenys el 80 % de les tasques) i suspens, preparar la recuperació et costa la meitat: et retornem el 50 % dels crèdits.",
+    "faqTitle": "Dubtes sobre preus",
+    "faq": {
+      "q1": {
+        "q": "He de pagar res per provar-ho?",
+        "a": "No. El diagnòstic i el pla invers són gratis i sense registre. El pla Gratis inclou a més 10 consultes a en Bit per setmana."
+      },
+      "q2": {
+        "q": "Per què crèdits i no euros?",
+        "a": "Perquè així pagues igual una sessió, un tiquet o un simulacre, i els packs grans et regalen crèdits extra. 1 crèdit equival a 1 € aproximadament."
+      },
+      "q3": {
+        "q": "Caduquen?",
+        "a": "Sí, als 12 mesos de la compra. Hi ha temps de sobres per a un curs sencer."
+      },
+      "q4": {
+        "q": "Per què una sessió costa entre 25 i 35 crèdits?",
+        "a": "Depèn del nivell del mentor (Mentor, Mentor Pro o Mentor Expert). Tu tries amb qui."
+      }
+    }
   },
   "mentorPanel": {
     "statusTitle": "Estat del teu perfil",
@@ -714,5 +770,97 @@
       "name": "Grup reduït",
       "desc": "Sessió temàtica del teu mòdul, màxim 5 alumnes. Preu per alumne."
     }
+  },
+  "joinMentor": {
+    "metaTitle": "Fes-te mentor d'FP d'informàtica",
+    "metaDescription": "Ensenya el mòdul que domines. Alumnes sense buscar-los, cobrament garantit i una IA que et treu la feina repetitiva.",
+    "heroTitle": "Ensenya el mòdul que domines. Nosaltres et portem els alumnes.",
+    "heroSubtitle": "Si ets docent d'FP, desenvolupador o sysadmin i domines un mòdul, a Tutor247 només t'ocupes d'ensenyar. La captació, els cobraments i la paperassa són cosa nostra.",
+    "cta": "Vull ser mentor",
+    "ctaNote": "Registrar-te és gratis. El teu perfil es publica quan el verifiquem.",
+    "whyTitle": "Per què ensenyar amb nosaltres",
+    "why": {
+      "v1": {
+        "title": "Alumnes sense buscar-los",
+        "text": "Et troben pel codi del mòdul que domines: 0485, 0484, 0613…"
+      },
+      "v2": {
+        "title": "Cobrament garantit",
+        "text": "L'alumne paga per avançat en crèdits. Tu cobres entre el 60 % i el 70 % del que consumeix, segons el teu nivell. Liquidació mensual."
+      },
+      "v3": {
+        "title": "Aula en línia integrada",
+        "text": "Videotrucada, pissarra i codi al navegador. Sense instal·lar res."
+      },
+      "v4": {
+        "title": "Material i simulacres per RA",
+        "text": "Banc comú d'exercicis, simulacres i rúbriques revisat per mentors."
+      },
+      "v5": {
+        "title": "Agenda i facturació",
+        "text": "Tu marques la teva disponibilitat; nosaltres gestionem reserves, cobraments i factures."
+      },
+      "v6": {
+        "title": "Alumnes que venen amb pla",
+        "text": "Arriben amb el seu Mapa de Domini i la data d'examen: saps què necessiten abans de començar."
+      }
+    },
+    "aiTitle": "En Bit també treballa per a tu",
+    "aiSubtitle": "La IA s'encarrega del que és repetitiu perquè dediquis el temps al que només pot fer una persona.",
+    "ai": {
+      "i1": {
+        "title": "Brief abans de cada sessió",
+        "text": "30 segons de lectura: RA fluixos, últims dubtes, errors repetits i estat d'ànim de l'alumne."
+      },
+      "i2": {
+        "title": "Resum després de la sessió",
+        "text": "Punts vistos, tasques i pla actualitzat, a punt per revisar i enviar."
+      },
+      "i3": {
+        "title": "Esborranys de resposta a tiquets",
+        "text": "Revises, edites i envies. Els tiquets senzills els resol en Bit i tu només audites."
+      },
+      "i4": {
+        "title": "Alertes de risc",
+        "text": "T'avisa de qui no obre el pla o arriba a l'examen en vermell, perquè intervinguis a temps."
+      }
+    },
+    "levelsTitle": "Creixes amb els teus resultats",
+    "levelsSubtitle": "El preu de les teves sessions i el teu percentatge pugen amb les valoracions i els aprovats dels teus alumnes.",
+    "levels": {
+      "mentor": {
+        "title": "Mentor",
+        "text": "Entres verificat als mòduls que domines."
+      },
+      "pro": {
+        "title": "Mentor Pro",
+        "text": "Bones valoracions i alumnes que aproven: més preu per sessió."
+      },
+      "experto": {
+        "title": "Mentor Expert",
+        "text": "Referent del teu mòdul. El nivell més alt de preu i repartiment."
+      }
+    },
+    "stepsTitle": "Com entrar",
+    "steps": {
+      "p1": {
+        "title": "Registra't com a mentor",
+        "text": "Crea el teu compte i tria els mòduls que domines."
+      },
+      "p2": {
+        "title": "Entrevista",
+        "text": "Una conversa per conèixer-nos i veure com expliques."
+      },
+      "p3": {
+        "title": "Prova tècnica per mòdul",
+        "text": "Demostres que domines cada mòdul que vols ensenyar."
+      },
+      "p4": {
+        "title": "Perfil publicat",
+        "text": "Apareixes al catàleg i a la fitxa dels teus mòduls."
+      }
+    },
+    "rules": "Normes que no es negocien: no fem pràctiques ni exàmens de ningú; tot el contacte i el cobrament van per la plataforma; i per treballar amb menors necessites el certificat negatiu de delictes de naturalesa sexual.",
+    "finalTitle": "Domines un mòdul? Hi ha alumnes esperant-te."
   }
 }

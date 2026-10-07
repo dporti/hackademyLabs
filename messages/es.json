@@ -316,7 +316,7 @@
   },
   "pricing": {
     "title": "Precios",
-    "subtitle": "Créditos para lo humano (1 crédito ≈ 1 €) y suscripciones para el acompañamiento.",
+    "subtitle": "El diagnóstico es gratis. Lo humano se paga con créditos (1 crédito ≈ 1 €) y solo cuando lo necesitas. Sin matrícula.",
     "packsTitle": "Packs de créditos",
     "plansTitle": "Suscripciones",
     "credits": "{n} créditos",
@@ -325,7 +325,63 @@
     "free": "Gratis",
     "buy": "Comprar",
     "subscribe": "Suscribirme",
-    "creditsNote": "Los créditos caducan a los 12 meses."
+    "creditsNote": "Los créditos caducan a los 12 meses.",
+    "heroTitle": "Pagas por aprobar tu módulo, no por horas de clase",
+    "ctaCalc": "Calcula lo que te costaría",
+    "scenariosTitle": "¿Cuánto me cuesta aprobar?",
+    "scenariosSubtitle": "Depende de cuánto te falte y de cuánto tiempo tengas. Estos son los casos más habituales.",
+    "scenarios": {
+      "e1": {
+        "quote": "Me falta poco, quiero asegurarlo"
+      },
+      "e2": {
+        "quote": "Me flojean un par de RA"
+      },
+      "e3": {
+        "quote": "Tengo el examen esta semana"
+      },
+      "e4": {
+        "quote": "Voy perdido y quiero ir a por todas"
+      }
+    },
+    "creditsRange": "{min}–{max} créditos",
+    "approxEur": "≈ {min} – {max}",
+    "scenariosNote": "¿Cuál es tu caso? El diagnóstico gratis te lo dice en 2 minutos, con tu fecha de examen.",
+    "scenariosLink": "Hacer el diagnóstico",
+    "productsTitle": "Qué compras con créditos",
+    "productsSubtitle": "Todo lo que hace una persona por ti. El coste exacto depende del nivel del mentor que elijas.",
+    "colProduct": "Producto",
+    "colWhat": "Qué es",
+    "colCredits": "Créditos",
+    "popular": "Más pedido",
+    "productsNote": "Rescate 48h y Plan Módulo incluyen Bit (plan Compañero) mientras duran.",
+    "packsSubtitle": "Cuanto más grande el pack, más créditos de regalo.",
+    "plansSubtitle": "Para el acompañamiento del día a día: Bit para estudiantes y tutor de referencia para familias.",
+    "forStudents": "Para estudiantes",
+    "forFamilies": "Para familias",
+    "startFree": "Empezar gratis",
+    "seeFamilies": "Ver planes Familia",
+    "guaranteeTitle": "Garantía «Seguimos contigo»",
+    "guaranteeText": "Con el Plan Módulo, si cumples el plan (asistencia y al menos el 80 % de las tareas) y suspendes, preparar la recuperación te cuesta la mitad: te devolvemos el 50 % de los créditos.",
+    "faqTitle": "Dudas sobre precios",
+    "faq": {
+      "q1": {
+        "q": "¿Tengo que pagar algo para probar?",
+        "a": "No. El diagnóstico y el plan inverso son gratis y sin registro. El plan Gratis incluye además 10 consultas a Bit por semana."
+      },
+      "q2": {
+        "q": "¿Por qué créditos y no euros?",
+        "a": "Porque así pagas igual una sesión, un ticket o un simulacro, y los packs grandes te regalan créditos extra. 1 crédito equivale a 1 € aproximadamente."
+      },
+      "q3": {
+        "q": "¿Caducan?",
+        "a": "Sí, a los 12 meses de la compra. Da tiempo de sobra para un curso entero."
+      },
+      "q4": {
+        "q": "¿Por qué una sesión cuesta entre 25 y 35 créditos?",
+        "a": "Depende del nivel del mentor (Mentor, Mentor Pro o Mentor Experto). Tú eliges con quién."
+      }
+    }
   },
   "mentorPanel": {
     "statusTitle": "Estado de tu perfil",
@@ -714,5 +770,97 @@
       "name": "Grupo reducido",
       "desc": "Sesión temática de tu módulo, máximo 5 alumnos. Precio por alumno."
     }
+  },
+  "joinMentor": {
+    "metaTitle": "Hazte mentor de FP de informática",
+    "metaDescription": "Enseña el módulo que dominas. Alumnos sin buscarlos, cobro garantizado y una IA que te quita el trabajo repetitivo.",
+    "heroTitle": "Enseña el módulo que dominas. Nosotros te traemos los alumnos.",
+    "heroSubtitle": "Si eres docente de FP, desarrollador o sysadmin y dominas un módulo, en Tutor247 solo te ocupas de enseñar. La captación, los cobros y el papeleo son cosa nuestra.",
+    "cta": "Quiero ser mentor",
+    "ctaNote": "Registrarte es gratis. Tu perfil se publica cuando lo verificamos.",
+    "whyTitle": "Por qué enseñar con nosotros",
+    "why": {
+      "v1": {
+        "title": "Alumnos sin buscarlos",
+        "text": "Te encuentran por el código del módulo que dominas: 0485, 0484, 0613…"
+      },
+      "v2": {
+        "title": "Cobro garantizado",
+        "text": "El alumno paga por adelantado en créditos. Tú cobras entre el 60 % y el 70 % de lo que consume, según tu nivel. Liquidación mensual."
+      },
+      "v3": {
+        "title": "Aula online integrada",
+        "text": "Videollamada, pizarra y código en el navegador. Sin instalar nada."
+      },
+      "v4": {
+        "title": "Material y simulacros por RA",
+        "text": "Banco común de ejercicios, simulacros y rúbricas revisado por mentores."
+      },
+      "v5": {
+        "title": "Agenda y facturación",
+        "text": "Tú marcas tu disponibilidad; nosotros gestionamos reservas, cobros y facturas."
+      },
+      "v6": {
+        "title": "Alumnos que vienen con plan",
+        "text": "Llegan con su Mapa de Dominio y su fecha de examen: sabes qué necesitan antes de empezar."
+      }
+    },
+    "aiTitle": "Bit trabaja para ti también",
+    "aiSubtitle": "La IA se encarga de lo repetitivo para que dediques tu tiempo a lo que solo puede hacer una persona.",
+    "ai": {
+      "i1": {
+        "title": "Brief antes de cada sesión",
+        "text": "30 segundos de lectura: RA flojos, últimas dudas, errores repetidos y estado de ánimo del alumno."
+      },
+      "i2": {
+        "title": "Resumen después de la sesión",
+        "text": "Puntos vistos, tareas y plan actualizado, listos para revisar y enviar."
+      },
+      "i3": {
+        "title": "Borradores de respuesta a tickets",
+        "text": "Revisas, editas y envías. Los tickets sencillos los resuelve Bit y tú solo auditas."
+      },
+      "i4": {
+        "title": "Alertas de riesgo",
+        "text": "Te avisa de quién no abre el plan o llega al examen en rojo, para que intervengas a tiempo."
+      }
+    },
+    "levelsTitle": "Creces con tus resultados",
+    "levelsSubtitle": "El precio de tus sesiones y tu porcentaje suben con las valoraciones y los aprobados de tus alumnos.",
+    "levels": {
+      "mentor": {
+        "title": "Mentor",
+        "text": "Entras verificado en los módulos que dominas."
+      },
+      "pro": {
+        "title": "Mentor Pro",
+        "text": "Buenas valoraciones y alumnos que aprueban: más precio por sesión."
+      },
+      "experto": {
+        "title": "Mentor Experto",
+        "text": "Referente de tu módulo. El nivel más alto de precio y reparto."
+      }
+    },
+    "stepsTitle": "Cómo entrar",
+    "steps": {
+      "p1": {
+        "title": "Regístrate como mentor",
+        "text": "Crea tu cuenta y elige los módulos que dominas."
+      },
+      "p2": {
+        "title": "Entrevista",
+        "text": "Una conversación para conocernos y ver cómo explicas."
+      },
+      "p3": {
+        "title": "Prueba técnica por módulo",
+        "text": "Demuestras que dominas cada módulo que quieres enseñar."
+      },
+      "p4": {
+        "title": "Perfil publicado",
+        "text": "Apareces en el catálogo y en la ficha de tus módulos."
+      }
+    },
+    "rules": "Reglas que no se negocian: no hacemos prácticas ni exámenes de nadie; todo el contacto y el cobro van por la plataforma; y para trabajar con menores necesitas el certificado negativo de delitos de naturaleza sexual.",
+    "finalTitle": "¿Dominas un módulo? Hay alumnos esperándote."
   }
 }

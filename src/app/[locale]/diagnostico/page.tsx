@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { connection } from "next/server";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getModulosDiagnosticables } from "@/lib/catalog";
 import { Diagnostico } from "@/components/diagnostico/diagnostico";
@@ -56,7 +57,9 @@ async function Herramienta({
   const sp = await searchParams;
   const str = (v: string | string[] | undefined) => (typeof v === "string" ? v : null);
   const modulos = await getModulosDiagnosticables();
-  // `hoy` se fija en el servidor para que servidor y cliente pinten lo mismo.
+  // `hoy` se fija en el servidor (por petición) para que servidor y cliente
+  // pinten lo mismo; connection() evita leer la hora durante el prerender.
+  await connection();
   const hoy = new Date().toISOString().slice(0, 10);
   const horas = Number(str(sp.h));
   const examen = str(sp.x);
