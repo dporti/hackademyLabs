@@ -65,6 +65,10 @@ Fase 1 completa en lo básico; quedan pulidos (auth HUD, familias, header con se
   Registro con `emailRedirectTo` → `/api/auth/confirm` (PKCE `code` o `token_hash`) → sesión
   → onboarding; enlace inválido → `/entrar?error=link`; `next` sin open redirect; mensaje
   propio para "email sin confirmar". Verificado con `scripts/verify-confirm.mjs` (11/11).
+- **Landing de familias** · 2026-10-07 · `4dd6a17`
+  `/familias` en tema claro (estática): informe semanal de ejemplo, qué incluye, cómo funciona,
+  planes Familia desde BD, confianza y límites, FAQ. Enlazada desde header y home. De paso:
+  `loading.tsx` en fichas de módulo/mentor (aviso de navegación no instantánea de Next 16).
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`).
 
 ## 3. En curso
@@ -76,7 +80,8 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 2. **Configurar Supabase Auth** (panel): Site URL y Redirect URLs (`http://localhost:3000/**`
    y el dominio de producción). Opcional: plantilla "Confirm signup" con `token_hash` para
    que el enlace funcione abierto en otro dispositivo. Probar un registro real con tu email.
-3. Landing propia de familias (`/familias`) en `data-theme="family"`.
+3. **Panel de familia** (tema claro): vincular alumno (invitación + consentimiento si es mayor
+   de edad), semáforo e informes. Hoy la familia ve el panel stub.
 4. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
 
 ## 5. Decisiones tomadas
@@ -143,6 +148,9 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
   router del cliente cachea la redirección. Patrón usado: renderizar el contenido en sitio.
 - (Descartado) "el primer click no envía" en las pruebas: era la automatización de Chrome
   (el primer click solo activa la ventana; `document.hasFocus()` = false). No es bug.
+- **Header oscuro en páginas claras** (`/familias`): el header es global (layout) y no sabe la
+  ruta; se ve correcto pero no "family". Revisar si se quiere un header claro en esa zona.
+- **`?plan=` en `/registro`** (desde planes Familia) aún no se usa.
 - **Avisos de hidratación** en navegador por extensiones del cliente (LanguageTool), no del código.
 
 ## 8. Cómo arrancar el proyecto
