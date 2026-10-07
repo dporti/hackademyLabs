@@ -373,5 +373,60 @@
     },
     "finalTitle": "Empezad esta semana",
     "finalText": "Contadnos de vuestro hijo y os presentamos a su tutor de referencia."
+  },
+  "familyPanel": {
+    "studentsTitle": "Vuestros hijos",
+    "studentsEmpty": "Todavía no hay ningún hijo vinculado. Genera un código abajo y pídele que lo introduzca en su panel.",
+    "noName": "(sin nombre)",
+    "minor": "Menor: compartido",
+    "sharing": "Comparte con vosotros",
+    "notSharing": "No comparte",
+    "notSharingHelp": "Es mayor de edad y ha decidido no compartir su progreso. Es su derecho: podéis hablarlo con él o con su tutor de referencia.",
+    "balance": "Saldo",
+    "credits": "créditos",
+    "lastReport": "Último informe",
+    "weekOf": "Semana del {date}",
+    "noReports": "El primero llegará tras la primera semana de seguimiento.",
+    "modules": "Módulos que prepara",
+    "examOn": "Examen: {date}",
+    "noExamDate": "Sin fecha",
+    "noModules": "Aún no ha elegido módulos.",
+    "linkTitle": "Vincular a tu hijo",
+    "linkHelp": "El vínculo lo confirma tu hijo desde su cuenta: así sabe en todo momento qué compartimos con vosotros.",
+    "codeAria": "Código de invitación",
+    "codeExpires": "Válido hasta el {date}. Un solo uso.",
+    "step1": "Pídele que entre en Tutor247 con su cuenta de alumno (si no la tiene, que se registre como alumno).",
+    "step2": "En su panel, en «Familia», que escriba este código.",
+    "step3": "Si es mayor de edad, decidirá si comparte su progreso con vosotros.",
+    "createCode": "Generar código",
+    "newCode": "Generar un código nuevo",
+    "plansHint": "¿Queréis tutor de referencia e informes semanales?",
+    "plansLink": "Ver planes Familia"
+  },
+  "studentFamily": {
+    "title": "Familia",
+    "notLinked": "Si tu familia te acompaña en Tutor247, te habrá dado un código. Escríbelo aquí para vincular vuestras cuentas.",
+    "codeLabel": "Código de tu familia",
+    "shareConsent": "Acepto compartir mi progreso con mi familia (puedo retirarlo cuando quiera).",
+    "whatIsShared": "Tu familia verá: módulos que preparas, fechas de examen, saldo de créditos e informes semanales. Nunca tus mensajes ni tus dudas.",
+    "link": "Vincular",
+    "linkedTo": "Estás vinculado con {name}.",
+    "yourFamily": "tu familia",
+    "minorShares": "Como eres menor de edad, tu familia ve tu progreso.",
+    "adultShares": "Compartes tu progreso con tu familia.",
+    "adultNotShares": "No compartes tu progreso: tu familia solo sabe que estás vinculado.",
+    "startSharing": "Compartir mi progreso",
+    "stopSharing": "Dejar de compartir",
+    "leave": "Desvincular",
+    "ok": {
+      "familyLinked": "¡Listo! Ya estás vinculado con tu familia."
+    },
+    "errors": {
+      "invalidCode": "Ese código no es válido, ya se usó o ha caducado. Pide uno nuevo a tu familia.",
+      "notStudent": "Solo una cuenta de alumno puede vincularse a una familia.",
+      "noProfile": "Completa tu onboarding primero.",
+      "noFamilyLink": "No estás vinculado con ninguna familia.",
+      "generic": "Algo ha fallado. Inténtalo de nuevo."
+    }
   }
 }

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BuyPackForm } from "@/components/panel/buy-pack-form";
 import { AddModuloForm } from "@/components/panel/add-modulo-form";
+import { StudentFamily } from "@/components/panel/student-family";
 import type { StudentDashboard } from "@/lib/student";
 import type { Modulo, Pack } from "@/lib/db-types";
 
@@ -139,6 +140,9 @@ export async function StudentPanel({
         )}
         <AddModuloForm locale={locale} modulos={catalogo} />
       </section>
+
+      {/* ───────────────────────────── Familia ───────────────────────────── */}
+      <StudentFamily locale={locale} family={dashboard.family} />
 
       {/* ───────────────────────── Historial ledger ───────────────────────── */}
       <section aria-labelledby="historial">

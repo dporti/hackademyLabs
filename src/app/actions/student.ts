@@ -132,3 +132,51 @@ export async function removeModuloAction(formData: FormData) {
 
   refresh();
 }
+
+// ───────────────────────────── Familia ─────────────────────────────
+// Todo vía RPC (SECURITY DEFINER): validan el código, aplican la regla de
+// consentimiento y lo registran en `consent`. El alumno nunca fija family_id a mano.
+const FAMILY_ERRORS = ["invalidCode", "notStudent", "noProfile", "noFamilyLink"];
+
+function familyErrorCode(message: string) {
+  return FAMILY_ERRORS.find((c) => message.includes(c)) ?? "generic";
+}
+
+export async function acceptFamilyInviteAction(
+  _prev: StudentActionState,
+  formData: FormData,
+): Promise<StudentActionState> {
+  const locale = String(formData.get("locale") ?? "es");
+  const code = String(formData.get("code") ?? "");
+  // Casilla de consentimiento (solo se muestra a mayores de edad).
+  const share = formData.get("share") === "on";
+
+  const ctx = await requireStudent(locale);
+  if (ctx.error) return { error: ctx.error };
+
+  const { error } = await ctx.sb.rpc("accept_family_invite", {
+    p_code: code,
+    p_share: share,
+  });
+  if (error) return { error: familyErrorCode(error.message) };
+
+  refresh();
+  return { ok: "familyLinked" };
+}
+
+export async function setFamilyShareAction(formData: FormData) {
+  const locale = String(formData.get("locale") ?? "es");
+  const share = formData.get("share") === "true";
+  const ctx = await requireStudent(locale);
+  if (ctx.error) return;
+  await ctx.sb.rpc("set_family_share", { p_share: share });
+  refresh();
+}
+
+export async function leaveFamilyAction(formData: FormData) {
+  const locale = String(formData.get("locale") ?? "es");
+  const ctx = await requireStudent(locale);
+  if (ctx.error) return;
+  await ctx.sb.rpc("leave_family");
+  refresh();
+}

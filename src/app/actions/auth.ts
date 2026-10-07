@@ -216,9 +216,10 @@ export async function onboardingAction(
     }
   } else if (role === "familia") {
     const name = values.family_name?.trim() || null;
+    // Una familia por cuenta (índice único): reenviar el onboarding solo renombra.
     const { error } = await sb
       .from("family")
-      .insert({ owner_profile_id: user!.id, name });
+      .upsert({ owner_profile_id: user!.id, name }, { onConflict: "owner_profile_id" });
     if (error) return fail();
   }
 

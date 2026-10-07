@@ -24,6 +24,25 @@ export interface StudentDashboard {
   balance: number;
   ledger: LedgerEntryConPack[];
   modulos: StudentModuloConModulo[];
+  family: StudentFamily;
+}
+
+// Vínculo con la familia visto por el alumno.
+export interface StudentFamily {
+  linked: boolean;
+  name: string | null;
+  shared: boolean;
+  // Menor de edad: la familia ve sus datos sin consentimiento (regla de negocio).
+  // Sin fecha de nacimiento se trata como mayor (se pide consentimiento).
+  isMinor: boolean;
+}
+
+// Misma regla que la BD: nacido hace menos de 18 años.
+function esMenor(birthdate: string | null) {
+  if (!birthdate) return false;
+  const limite = new Date();
+  limite.setUTCFullYear(limite.getUTCFullYear() - 18);
+  return new Date(birthdate) > limite;
 }
 
 const LEDGER_LIMIT = 50;
@@ -36,7 +55,7 @@ export async function getStudentDashboard(
   const [profileRes, balanceRes, ledgerRes, modulosRes] = await Promise.all([
     sb
       .from("student_profile")
-      .select("profile_id")
+      .select("profile_id, family_id, consent_share_family, birthdate")
       .eq("profile_id", studentId)
       .maybeSingle(),
     // Saldo CALCULADO en BD (suma del ledger), nunca un campo guardado.
@@ -58,8 +77,20 @@ export async function getStudentDashboard(
   if (ledgerRes.error) throw ledgerRes.error;
   if (modulosRes.error) throw modulosRes.error;
 
+  const sp = profileRes.data;
+  // El alumno no puede leer la tabla family (es del dueño): nombre vía RPC.
+  const familyName = sp?.family_id
+    ? (((await sb.rpc("my_linked_family")).data as string | null) ?? null)
+    : null;
+
   return {
-    hasProfile: !!profileRes.data,
+    hasProfile: !!sp,
+    family: {
+      linked: !!sp?.family_id,
+      name: familyName,
+      shared: !!sp?.consent_share_family,
+      isMinor: esMenor(sp?.birthdate ?? null),
+    },
     balance: (balanceRes.data as number | null) ?? 0,
     ledger: (ledgerRes.data ?? []) as unknown as LedgerEntryConPack[],
     modulos: (modulosRes.data ?? []) as unknown as StudentModuloConModulo[],

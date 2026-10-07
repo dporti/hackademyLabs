@@ -373,5 +373,60 @@
     },
     "finalTitle": "Comenceu aquesta setmana",
     "finalText": "Expliqueu-nos del vostre fill i us presentem el seu tutor de referència."
+  },
+  "familyPanel": {
+    "studentsTitle": "Els vostres fills",
+    "studentsEmpty": "Encara no hi ha cap fill vinculat. Genera un codi a sota i demana-li que l'introdueixi al seu panell.",
+    "noName": "(sense nom)",
+    "minor": "Menor: compartit",
+    "sharing": "Comparteix amb vosaltres",
+    "notSharing": "No comparteix",
+    "notSharingHelp": "És major d'edat i ha decidit no compartir el seu progrés. És el seu dret: ho podeu parlar amb ell o amb el seu tutor de referència.",
+    "balance": "Saldo",
+    "credits": "crèdits",
+    "lastReport": "Últim informe",
+    "weekOf": "Setmana del {date}",
+    "noReports": "El primer arribarà després de la primera setmana de seguiment.",
+    "modules": "Mòduls que prepara",
+    "examOn": "Examen: {date}",
+    "noExamDate": "Sense data",
+    "noModules": "Encara no ha triat mòduls.",
+    "linkTitle": "Vincular el teu fill",
+    "linkHelp": "El vincle el confirma el teu fill des del seu compte: així sap en tot moment què compartim amb vosaltres.",
+    "codeAria": "Codi d'invitació",
+    "codeExpires": "Vàlid fins al {date}. Un sol ús.",
+    "step1": "Demana-li que entri a Tutor247 amb el seu compte d'alumne (si no en té, que es registri com a alumne).",
+    "step2": "Al seu panell, a «Família», que escrigui aquest codi.",
+    "step3": "Si és major d'edat, decidirà si comparteix el seu progrés amb vosaltres.",
+    "createCode": "Generar codi",
+    "newCode": "Generar un codi nou",
+    "plansHint": "Voleu tutor de referència i informes setmanals?",
+    "plansLink": "Veure plans Família"
+  },
+  "studentFamily": {
+    "title": "Família",
+    "notLinked": "Si la teva família t'acompanya a Tutor247, t'haurà donat un codi. Escriu-lo aquí per vincular els vostres comptes.",
+    "codeLabel": "Codi de la teva família",
+    "shareConsent": "Accepto compartir el meu progrés amb la meva família (puc retirar-ho quan vulgui).",
+    "whatIsShared": "La teva família veurà: mòduls que prepares, dates d'examen, saldo de crèdits i informes setmanals. Mai els teus missatges ni els teus dubtes.",
+    "link": "Vincular",
+    "linkedTo": "Estàs vinculat amb {name}.",
+    "yourFamily": "la teva família",
+    "minorShares": "Com que ets menor d'edat, la teva família veu el teu progrés.",
+    "adultShares": "Comparteixes el teu progrés amb la teva família.",
+    "adultNotShares": "No comparteixes el teu progrés: la teva família només sap que estàs vinculat.",
+    "startSharing": "Compartir el meu progrés",
+    "stopSharing": "Deixar de compartir",
+    "leave": "Desvincular",
+    "ok": {
+      "familyLinked": "Fet! Ja estàs vinculat amb la teva família."
+    },
+    "errors": {
+      "invalidCode": "Aquest codi no és vàlid, ja s'ha fet servir o ha caducat. Demana'n un de nou a la teva família.",
+      "notStudent": "Només un compte d'alumne es pot vincular a una família.",
+      "noProfile": "Completa primer l'onboarding.",
+      "noFamilyLink": "No estàs vinculat amb cap família.",
+      "generic": "Alguna cosa ha fallat. Torna-ho a provar."
+    }
   }
 }

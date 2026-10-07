@@ -3,12 +3,14 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getSessionUser, localePath } from "@/lib/auth";
 import { getStudentDashboard } from "@/lib/student";
 import { getMentorSelf, getMentoresAdmin } from "@/lib/mentor";
+import { getFamilyDashboard } from "@/lib/family";
 import { buscarModulos, getPacks } from "@/lib/catalog";
 import { signOutAction } from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
 import { StudentPanel } from "@/components/panel/student-panel";
 import { MentorPanel } from "@/components/panel/mentor-panel";
 import { AdminPanel } from "@/components/panel/admin-panel";
+import { FamilyPanel } from "@/components/panel/family-panel";
 import { OnboardingContent } from "@/components/auth/onboarding-content";
 
 // Panel autenticado, según rol: alumno (F1.4), mentor y admin (F1.5).
@@ -61,28 +63,38 @@ export default async function PanelPage({
         catalogo={catalogo.map((m) => ({ code: m.code, name: m.name }))}
       />
     );
+  } else if (profile?.role === "familia") {
+    const dashboard = await getFamilyDashboard(user.id);
+    if (!dashboard.family) return <OnboardingContent locale={locale} role="familia" />;
+    contenido = <FamilyPanel locale={locale} dashboard={dashboard} />;
   } else if (profile?.role === "admin") {
     contenido = <AdminPanel locale={locale} mentores={await getMentoresAdmin()} />;
   }
 
   return (
-    <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
-      <div className="flex items-center justify-between gap-4">
-        <h1 className="font-display text-2xl font-bold tracking-tight">
-          {t("greeting", { name })}
-        </h1>
-        <form action={signOutAction}>
-          <input type="hidden" name="locale" value={locale} />
-          <Button type="submit" variant="outline" size="sm">
-            {ta("logout")}
-          </Button>
-        </form>
+    // La zona de familia usa el tema claro (data-theme="family").
+    <main
+      data-theme={profile?.role === "familia" ? "family" : undefined}
+      className="w-full flex-1 bg-background text-foreground"
+    >
+      <div className="mx-auto w-full max-w-5xl px-4 py-12">
+        <div className="flex items-center justify-between gap-4">
+          <h1 className="font-display text-2xl font-bold tracking-tight">
+            {t("greeting", { name })}
+          </h1>
+          <form action={signOutAction}>
+            <input type="hidden" name="locale" value={locale} />
+            <Button type="submit" variant="outline" size="sm">
+              {ta("logout")}
+            </Button>
+          </form>
+        </div>
+        {contenido ?? (
+          <p className="mt-4 text-muted-foreground">
+            {t("roleLabel")}: <span className="font-medium">{profile?.role}</span>
+          </p>
+        )}
       </div>
-      {contenido ?? (
-        <p className="mt-4 text-muted-foreground">
-          {t("roleLabel")}: <span className="font-medium">{profile?.role}</span>
-        </p>
-      )}
     </main>
   );
 }
