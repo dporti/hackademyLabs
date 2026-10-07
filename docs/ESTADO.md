@@ -75,6 +75,11 @@ Fase 1 completa en lo básico; quedan pulidos (auth HUD, familias, header con se
   (hijos, módulos, saldo, último informe); sección Familia en el panel del alumno. Migración
   `20261007090300_family_link.sql` aplicada. Arreglado: `wr_family` ignoraba el
   consentimiento. Verificado: `verify-family` 21/21, UI por HTTP 10/10, resto de verify OK.
+- **Informes semanales** · 2026-10-07 · `6057f1e`
+  Redacta el admin (hace de tutor de referencia); próximas fechas automáticas desde los
+  exámenes; la familia ve el informe completo + historial (con consentimiento) y el alumno ve
+  los suyos. Verificado: helpers 10/10, UI por HTTP 7/7. La acción de guardado no se ha
+  probado de punta a punta desde el navegador (sí su camino en BD con sesión de admin).
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`).
 
 ## 3. En curso
@@ -86,9 +91,9 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 2. **Configurar Supabase Auth** (panel): Site URL y Redirect URLs (`http://localhost:3000/**`
    y el dominio de producción). Opcional: plantilla "Confirm signup" con `token_hash` para
    que el enlace funcione abierto en otro dispositivo. Probar un registro real con tu email.
-3. **Informes semanales reales**: generar `weekly_report` (payload: semáforo, constancia, qué se
-   ha trabajado, próximas fechas) y vista del informe para la familia. Hoy la tabla está vacía.
-4. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
+3. **Replantear la landing** (pedido por el usuario, pendiente de definir con él).
+4. **Panel del tutor de referencia** (cartera de familias, redactar informes; hoy lo hace el admin).
+5. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
 
 ## 5. Decisiones tomadas
 - **Nombre de trabajo: Tutor247** · aún no definitivo, se usa el de los docs · 2026-10-06.
@@ -160,6 +165,7 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 - **Migraciones a mano**: el MCP de Supabase no accede a este proyecto (solo ve "gifter"), así
   que cada migración nueva se pega en el SQL Editor. Escribirlas **re-ejecutables** (if not
   exists / drop ... if exists) para que un intento a medias no bloquee el siguiente.
+- **"Días activos" del informe es manual**: no hay registro de actividad del alumno todavía.
 - **Avisos de hidratación** en navegador por extensiones del cliente (LanguageTool), no del código.
 
 ## 8. Cómo arrancar el proyecto
