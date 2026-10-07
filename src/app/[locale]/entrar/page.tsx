@@ -16,8 +16,12 @@ export async function generateMetadata({
   return { title: `${t("loginTitle")} · Tutor247` };
 }
 
+// Errores admitidos por URL (lista cerrada: nada de texto arbitrario en la UI).
+const URL_ERRORS = ["link"];
+
 export default async function EntrarPage({
   params,
+  searchParams,
 }: PageProps<"/[locale]/entrar">) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -25,6 +29,8 @@ export default async function EntrarPage({
   // desde /precios lleva aquí y el alumno ya logueado acaba en sus packs).
   if (await hasSession()) redirect(localePath(locale, "/panel"));
   const t = await getTranslations("auth");
+  const sp = await searchParams;
+  const urlError = typeof sp.error === "string" ? sp.error : "";
 
   return (
     <AuthShell
@@ -39,7 +45,10 @@ export default async function EntrarPage({
         </>
       }
     >
-      <LoginForm locale={locale} />
+      <LoginForm
+        locale={locale}
+        initialError={URL_ERRORS.includes(urlError) ? urlError : undefined}
+      />
     </AuthShell>
   );
 }

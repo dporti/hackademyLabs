@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { headers } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { localePath } from "@/lib/auth";
@@ -42,8 +43,20 @@ function invalidarSesion() {
 const MIN_PASSWORD = 8;
 
 // Traduce los errores de Supabase Auth a códigos propios (sin filtrar el texto
-// interno a la UI).
-function signUpErrorCode(message: string): string {
+// interno a la UI). Primero por `code` (estable); el texto, solo como respaldo.
+function signUpErrorCode(code: string | undefined, message: string): string {
+  switch (code) {
+    case "user_already_exists":
+    case "email_exists":
+      return "emailTaken";
+    case "weak_password":
+      return "weakPassword";
+    case "email_address_invalid":
+      return "invalidEmail";
+    case "over_email_send_rate_limit":
+    case "over_request_rate_limit":
+      return "rateLimit";
+  }
   const m = message.toLowerCase();
   if (m.includes("already registered") || m.includes("already been registered"))
     return "emailTaken";
@@ -71,18 +84,28 @@ export async function signUpAction(
   if (!email || !password) return { error: "required", values };
   if (password.length < MIN_PASSWORD) return { error: "weakPassword", values };
 
+  // Enlace del email de confirmación → /api/auth/confirm (crea la sesión) → onboarding.
+  // El origen sale de la petición (localhost, preview o producción); debe estar en
+  // Supabase → Authentication → URL Configuration → Redirect URLs.
+  const origin =
+    (await headers()).get("origin") ?? process.env.NEXT_PUBLIC_SITE_URL ?? "";
+  const next = localePath(locale, "/onboarding");
+
   const sb = await createClient();
   const { data, error } = await sb.auth.signUp({
     email,
     password,
-    // El trigger handle_new_user crea el profile con este rol y nombre (y solo
-    // acepta alumno/familia/mentor: ver migración role_guards).
-    options: { data: { full_name: fullName, role } },
+    options: {
+      // El trigger handle_new_user crea el profile con este rol y nombre (y solo
+      // acepta alumno/familia/mentor: ver migración role_guards).
+      data: { full_name: fullName, role },
+      emailRedirectTo: `${origin}/api/auth/confirm?next=${encodeURIComponent(next)}`,
+    },
   });
 
-  if (error) return { error: signUpErrorCode(error.message), values };
+  if (error) return { error: signUpErrorCode(error.code, error.message), values };
   // Si el proyecto exige confirmar email, no hay sesión todavía.
-  if (!data.session) return { info: "confirmEmail" };
+  if (!data.session) return { info: "confirmEmail", values: { email } };
 
   redirect(localePath(locale, "/onboarding"));
 }
@@ -98,8 +121,14 @@ export async function signInAction(
 
   const sb = await createClient();
   const { error } = await sb.auth.signInWithPassword({ email, password });
-  // Mensaje único: no revela si el email existe.
-  if (error) return { error: "badCredentials", values: { email } };
+  if (error) {
+    // Cuenta creada pero sin confirmar: decirlo evita que el usuario crea que se
+    // equivocó de contraseña. Cualquier otro fallo: mensaje único (no revela si
+    // el email existe).
+    const code =
+      error.code === "email_not_confirmed" ? "emailNotConfirmed" : "badCredentials";
+    return { error: code, values: { email } };
+  }
 
   invalidarSesion();
   redirect(localePath(locale, "/panel"));

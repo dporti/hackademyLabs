@@ -27,7 +27,7 @@ export function RegistroForm({
   if (state.info) {
     return (
       <p role="status" className="rounded-md border border-primary/40 p-4 text-sm">
-        {t(`info.${state.info}`)}
+        {t(`info.${state.info}`, { email: state.values?.email ?? "" })}
       </p>
     );
   }

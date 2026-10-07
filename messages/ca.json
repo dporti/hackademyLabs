@@ -104,7 +104,7 @@
       }
     },
     "info": {
-      "confirmEmail": "Compte creat. Revisa el correu per confirmar-lo i després entra."
+      "confirmEmail": "Compte creat. T'hem enviat un correu a {email}: prem l'enllaç per confirmar-lo i entraràs directament. Obre'l en aquest mateix navegador."
     },
     "errors": {
       "required": "El correu i la contrasenya són obligatoris.",
@@ -113,7 +113,9 @@
       "invalidEmail": "El correu no és vàlid.",
       "rateLimit": "Massa intents. Espera uns minuts.",
       "badCredentials": "Correu o contrasenya incorrectes.",
-      "generic": "Alguna cosa ha fallat. Torna-ho a provar."
+      "generic": "Alguna cosa ha fallat. Torna-ho a provar.",
+      "emailNotConfirmed": "Encara no has confirmat el correu. Revisa la safata (i el correu brossa) i prem l'enllaç.",
+      "link": "L'enllaç de confirmació no és vàlid o ha caducat. Entra o registra't de nou."
     }
   },
   "onboarding": {

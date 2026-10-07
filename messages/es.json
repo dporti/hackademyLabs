@@ -104,7 +104,7 @@
       }
     },
     "info": {
-      "confirmEmail": "Cuenta creada. Revisa tu email para confirmarla y luego entra."
+      "confirmEmail": "Cuenta creada. Te hemos enviado un email a {email}: pulsa el enlace para confirmarla y entrarás directamente. Ábrelo en este mismo navegador."
     },
     "errors": {
       "required": "Email y contraseña son obligatorios.",
@@ -113,7 +113,9 @@
       "invalidEmail": "El email no es válido.",
       "rateLimit": "Demasiados intentos. Espera unos minutos.",
       "badCredentials": "Email o contraseña incorrectos.",
-      "generic": "Algo ha fallado. Inténtalo de nuevo."
+      "generic": "Algo ha fallado. Inténtalo de nuevo.",
+      "emailNotConfirmed": "Aún no has confirmado tu email. Revisa tu bandeja (y spam) y pulsa el enlace.",
+      "link": "El enlace de confirmación no es válido o ha caducado. Entra o regístrate de nuevo."
     }
   },
   "onboarding": {

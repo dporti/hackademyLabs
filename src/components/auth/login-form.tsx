@@ -6,12 +6,20 @@ import { signInAction, type AuthState } from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
 import { INPUT_CLASS, LABEL_CLASS } from "@/components/ui/field";
 
-export function LoginForm({ locale }: { locale: string }) {
+// initialError: error que llega por URL (p. ej. ?error=link desde /api/auth/confirm).
+export function LoginForm({
+  locale,
+  initialError,
+}: {
+  locale: string;
+  initialError?: string;
+}) {
   const t = useTranslations("auth");
   const [state, action, pending] = useActionState<AuthState, FormData>(
     signInAction,
     {},
   );
+  const error = state.error ?? initialError;
 
   return (
     <form action={action} className="space-y-4">
@@ -40,9 +48,9 @@ export function LoginForm({ locale }: { locale: string }) {
         />
       </label>
 
-      {state.error && (
+      {error && (
         <p role="alert" className="text-sm text-destructive">
-          {t(`errors.${state.error}`)}
+          {t(`errors.${error}`)}
         </p>
       )}
 
