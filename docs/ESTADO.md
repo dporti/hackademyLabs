@@ -1,7 +1,7 @@
 # Estado del proyecto — Tutor247
 
 > Documento vivo. Se actualiza al cerrar cada tarea o fase.
-> Última actualización: 2026-10-06.
+> Última actualización: 2026-10-07.
 
 ## 1. Resumen
 Tutor247 es una plataforma web de FP de informática (SMX, ASIR/ASIX, DAM, DAW) que
@@ -10,7 +10,7 @@ diagnóstico (Mapa de Dominio por RA) → plan inverso → mentor verificado →
 hasta el examen. Monetiza con créditos (ledger inmutable) y suscripciones (IA "Bit" y
 acompañamiento a familias).
 **Fase actual del roadmap: Fase 1 (MVP base).** Hechas F1.1–F1.3 + identidad visual;
-pendiente F1.4 (panel alumno) y F1.5 (panel mentor + admin).
+F1.4 (panel alumno) hecha; siguiente F1.5 (panel mentor + admin).
 
 ## 2. Hecho
 - **Fase 0 — Scaffold** · 2026-10-06 · `9a5d25e`
@@ -35,20 +35,24 @@ pendiente F1.4 (panel alumno) y F1.5 (panel mentor + admin).
   semáforo RA verde/ámbar/rojo con AA, fuentes Space Grotesk/Inter/JetBrains Mono,
   componentes `MapaDominio`, `RaBadge`, `ModuleCard`, `MentorCard`, página `/styleguide`,
   home/catálogo/fichas/mentores/precios rediseñados.
+- **F1.4 — Panel del alumno** · 2026-10-07 · `8025898`
+  Saldo calculado (RPC `my_credit_balance`), compra mock de packs (`buyPackAction`: el
+  servidor lee el pack de BD e inserta `compra_pack` con service role, caducidad 12 meses),
+  historial del ledger (50 últimos), "módulos que preparas" con fecha de examen (tabla
+  `student_modulo`, RLS del dueño, aplicada en Supabase). Verificado con
+  `scripts/verify-credits.mjs` (15/15) y en navegador (es + ca). Arreglado de paso el aviso
+  "unstable value Date.now()" del panel (`connection()` en `getSessionUser`).
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`).
 
 ## 3. En curso
-Nada abierto a medias. El último bloque cerrado fue el rediseño de las páginas públicas.
+Nada abierto a medias. El último bloque cerrado fue F1.4 (panel del alumno).
 
 ## 4. Próximos pasos (orden de prioridad)
-1. **F1.4 — Panel del alumno**: saldo de créditos (RPC `my_credit_balance`), compra mock
-   de packs (server action con service role → movimientos en `credit_ledger`), historial
-   de movimientos, módulos que prepara.
-2. **F1.5 — Panel del mentor (básico) + Admin mínimo**: mentor edita perfil/módulos; admin
+1. **F1.5 — Panel del mentor (básico) + Admin mínimo**: mentor edita perfil/módulos; admin
    verifica mentores (cambia `mentor_profile.status`).
-3. Afinar pantallas de auth (`/entrar`, `/registro`, `/onboarding`) con el look HUD.
-4. Landing propia de familias (`/familias`) en `data-theme="family"`.
-5. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
+2. Afinar pantallas de auth (`/entrar`, `/registro`, `/onboarding`) con el look HUD.
+3. Landing propia de familias (`/familias`) en `data-theme="family"`.
+4. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
 
 ## 5. Decisiones tomadas
 - **Nombre de trabajo: Tutor247** · aún no definitivo, se usa el de los docs · 2026-10-06.
@@ -65,6 +69,12 @@ Nada abierto a medias. El último bloque cerrado fue el rediseño de las página
 - **Precios Fase 1 = extremo bajo de los rangos** de los docs (Compañero 9,90 / Acompaña 79
   / Acompaña+ 149) · a validar · 2026-10-06.
 - **Stripe en Fase 1 = mock** (botón suma créditos, sin cobro real) · 2026-10-06.
+- **Compra mock: un único movimiento `compra_pack`** con los créditos del pack (bonus
+  incluido, como en `pack.credits`) y `expires_at` = +12 meses. Con Stripe real el insert
+  pasará al webhook de pago confirmado · 2026-10-07.
+- **"Módulos que prepara" = tabla `student_modulo`** (alumno, módulo, fecha de examen),
+  separada de `study_plan` (plan inverso, más adelante) · 2026-10-07.
+- **`apply_all.sql` se genera** con `scripts/build-apply-all.mjs` (no editar a mano) · 2026-10-07.
 
 ## 6. Decisiones pendientes (las decide el usuario)
 - Nombre y marca definitivos.
@@ -84,6 +94,14 @@ Nada abierto a medias. El último bloque cerrado fue el rediseño de las página
 - **Buscador de la home** postea a `/modulos` (es-centric); afinar i18n del form.
 - **Patch next-intl** (`@swc/core` lazy) por Windows App Control: revisar si deja de hacer
   falta en otros entornos o al actualizar next-intl.
+- **Borrar un usuario con movimientos en el ledger falla**: el borrado en cascada choca con
+  el trigger de inmutabilidad. Necesario definir estrategia (anonimizar en vez de borrar)
+  para bajas/RGPD. El preámbulo de `apply_all.sql` ya borra los usuarios de prueba DESPUÉS
+  de los drops para evitarlo.
+- **Caducidad de créditos**: solo se guarda `expires_at`; falta el job que inserte los
+  movimientos `caducidad` negativos.
+- **Precios → "Comprar"** sigue llevando a `/registro?pack=…` aunque haya sesión; el
+  parámetro `pack` no se usa todavía.
 - **Avisos de hidratación** en navegador por extensiones del cliente (LanguageTool), no del código.
 
 ## 8. Cómo arrancar el proyecto
@@ -104,8 +122,10 @@ El esquema y los datos viven en `supabase/`. Para aplicarlos a un proyecto:
 - **Cloud (SQL Editor)**: pegar `supabase/apply_all.sql` (re-ejecutable: limpia y recrea).
 - **CLI local**: `supabase start` + `supabase db reset` (aplica `migrations/` + `seed.sql`).
 
-Verificación: `node scripts/verify-db.mjs` (catálogo + mentores) y
-`node scripts/verify-auth.mjs` (trigger + RLS + guard).
+Verificación: `node scripts/verify-db.mjs` (catálogo + mentores),
+`node scripts/verify-auth.mjs` (trigger + RLS + guard) y
+`node scripts/verify-credits.mjs` (ledger + compra mock + `student_modulo`).
+Tras tocar migraciones o seed: `node scripts/build-apply-all.mjs`.
 
 ### Variables de entorno
 Copiar `.env.local.example` → `.env.local` y rellenar (NUNCA commitear valores):
