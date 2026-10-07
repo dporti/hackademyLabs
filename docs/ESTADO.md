@@ -88,12 +88,18 @@ Fase 1 completa en lo básico; quedan pulidos (auth HUD, familias, header con se
   productos. Landing `/hazte-mentor`. Fichas de módulo con CTA a su diagnóstico y productos.
   RA de los 5 módulos killer restantes cargados (orientativos). Sin testimonios ni cifras
   inventadas.
-- **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`).
+- **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
+  2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
 Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin).
 
 ## 4. Próximos pasos (orden de prioridad)
+0. **SIGUIENTE (acordado 2026-10-07): tickets + reservas = consumo de créditos.** Tickets
+   (duda → mentor responde → gasto en ledger), reservas de sesión 1:1/flash, productos
+   empaquetados (simulacro, Rescate 48h, Plan Módulo) y atribución al mentor. Tablas `ticket` y
+   `booking` ya existen (scaffolding). Después: Bit (tutor IA con Claude) → Stripe real →
+   deploy en Vercel → legal (aviso legal, RGPD, cookies, términos).
 1. **Crear tu usuario admin real**: regístrate en `/registro` y ejecuta
    `node scripts/make-admin.mjs tu@email`.
 2. **Configurar Supabase Auth** (panel): Site URL y Redirect URLs (`http://localhost:3000/**`
