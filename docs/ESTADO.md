@@ -55,6 +55,12 @@ Fase 1 completa en lo básico; quedan pulidos (auth HUD, familias, header con se
   "Mi panel"/"Entrar" según sesión en un hueco `<Suspense>` (públicas pasan de ○ a ◐:
   shell estático + hueco dinámico; contenido SEO sigue prerenderizado). `/entrar` y
   `/registro` con sesión → `/panel` (arregla "Comprar" de precios). Probado en navegador.
+- **Pantallas de acceso HUD** · 2026-10-07 · `14cc665`
+  `AuthShell` en entrar/registro/onboarding, rol del registro en tarjetas, errores de auth
+  en i18n (es/ca) y valores conservados tras error (sin contraseña). Arreglado bug: tras el
+  onboarding el usuario volvía a `/onboarding` (redirección de Server Component cacheada en
+  el router del cliente) → el panel renderiza el onboarding en vez de redirigir.
+  Probado en navegador; verify-auth/roles/credits OK.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`).
 
 ## 3. En curso
@@ -63,7 +69,8 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 ## 4. Próximos pasos (orden de prioridad)
 1. **Crear tu usuario admin real**: regístrate en `/registro` y ejecuta
    `node scripts/make-admin.mjs tu@email`.
-2. Afinar pantallas de auth (`/entrar`, `/registro`, `/onboarding`) con el look HUD.
+2. **Desactivar "Confirm email" en Supabase (dev)** o montar el flujo de confirmación
+   (página de "revisa tu correo" + callback). Hoy el registro real no inicia sesión.
 3. Landing propia de familias (`/familias`) en `data-theme="family"`.
 4. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
 
@@ -125,10 +132,12 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 - **Precios → "Comprar"**: con sesión acaba en `/panel`; sin sesión va a
   `/registro?pack=…` y el parámetro `pack` aún no se usa (no preselecciona el pack).
 - **Formularios y reset de React 19**: tras una server action React resetea el formulario.
-  Arreglado en el perfil de mentor (devuelve los valores en error); falta en onboarding,
-  registro y "añadir módulo" (en error se pierde lo escrito).
-- **Login en dev**: el primer click en "Entrar" a veces no envía (probablemente antes de
-  hidratar); el segundo sí. Revisar si pasa en producción.
+  Resuelto en auth, onboarding y perfil de mentor (devuelven los valores en error); falta
+  "añadir módulo" del alumno (solo pierde la selección).
+- **Evitar `redirect()` en Server Components hacia rutas que cambian tras una acción**: el
+  router del cliente cachea la redirección. Patrón usado: renderizar el contenido en sitio.
+- (Descartado) "el primer click no envía" en las pruebas: era la automatización de Chrome
+  (el primer click solo activa la ventana; `document.hasFocus()` = false). No es bug.
 - **Avisos de hidratación** en navegador por extensiones del cliente (LanguageTool), no del código.
 
 ## 8. Cómo arrancar el proyecto
