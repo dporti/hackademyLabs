@@ -77,16 +77,44 @@
     "email": "Email",
     "password": "Contrasenya",
     "role": "Qui ets?",
-    "roleAlumno": "Alumne (major d'edat)",
-    "roleFamilia": "Mare / pare / tutor",
-    "roleMentor": "Mentor",
     "register": "Crear compte",
     "login": "Entra",
     "haveAccount": "Ja tens compte?",
     "noAccount": "No tens compte?",
     "goLogin": "Entra",
     "goRegister": "Registra't",
-    "logout": "Surt"
+    "logout": "Surt",
+    "loginSubtitle": "Reprèn el teu pla on el vas deixar.",
+    "registerSubtitle": "Gratis. Comença pel diagnòstic del teu mòdul.",
+    "loggingIn": "Entrant…",
+    "registering": "Creant el compte…",
+    "passwordHint": "Mínim 8 caràcters.",
+    "roles": {
+      "alumno": {
+        "title": "Alumne",
+        "desc": "Major d'edat. Si ets menor, que et registri la teva família."
+      },
+      "familia": {
+        "title": "Família",
+        "desc": "Mare, pare o tutor: segueixes el progrés i gestiones els pagaments."
+      },
+      "mentor": {
+        "title": "Mentor",
+        "desc": "Docent d'FP o professional. El teu perfil es verifica abans de publicar-se."
+      }
+    },
+    "info": {
+      "confirmEmail": "Compte creat. Revisa el correu per confirmar-lo i després entra."
+    },
+    "errors": {
+      "required": "El correu i la contrasenya són obligatoris.",
+      "weakPassword": "La contrasenya ha de tenir almenys 8 caràcters.",
+      "emailTaken": "Ja hi ha un compte amb aquest correu. Entra o recupera la contrasenya.",
+      "invalidEmail": "El correu no és vàlid.",
+      "rateLimit": "Massa intents. Espera uns minuts.",
+      "badCredentials": "Correu o contrasenya incorrectes.",
+      "generic": "Alguna cosa ha fallat. Torna-ho a provar."
+    }
   },
   "onboarding": {
     "title": "Gairebé a punt",

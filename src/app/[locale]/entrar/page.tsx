@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { hasSession, localePath } from "@/lib/auth";
 import { Link } from "@/i18n/navigation";
 import { LoginForm } from "@/components/auth/login-form";
+import { AuthShell } from "@/components/auth/auth-shell";
 
 // Lee la sesión (cookies) → siempre dinámica.
 export const instant = false;
@@ -26,17 +27,19 @@ export default async function EntrarPage({
   const t = await getTranslations("auth");
 
   return (
-    <main className="mx-auto w-full max-w-sm flex-1 px-4 py-12">
-      <h1 className="text-2xl font-bold tracking-tight">{t("loginTitle")}</h1>
-      <div className="mt-6">
-        <LoginForm locale={locale} />
-      </div>
-      <p className="mt-4 text-sm text-muted-foreground">
-        {t("noAccount")}{" "}
-        <Link href="/registro" className="underline">
-          {t("goRegister")}
-        </Link>
-      </p>
-    </main>
+    <AuthShell
+      title={t("loginTitle")}
+      subtitle={t("loginSubtitle")}
+      footer={
+        <>
+          {t("noAccount")}{" "}
+          <Link href="/registro" className="text-primary underline-offset-4 hover:underline">
+            {t("goRegister")}
+          </Link>
+        </>
+      }
+    >
+      <LoginForm locale={locale} />
+    </AuthShell>
   );
 }

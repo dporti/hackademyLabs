@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { StudentPanel } from "@/components/panel/student-panel";
 import { MentorPanel } from "@/components/panel/mentor-panel";
 import { AdminPanel } from "@/components/panel/admin-panel";
+import { OnboardingContent } from "@/components/auth/onboarding-content";
 
 // Panel autenticado, según rol: alumno (F1.4), mentor y admin (F1.5).
 // Familia y tutor de referencia: stub hasta sus fases.
@@ -35,8 +36,10 @@ export default async function PanelPage({
       getPacks(),
       buscarModulos(""),
     ]);
-    // Sin student_profile no puede tener ledger ni módulos: primero onboarding.
-    if (!dashboard.hasProfile) redirect(localePath(locale, "/onboarding"));
+    // Sin student_profile no puede tener ledger ni módulos: primero onboarding
+    // (renderizado aquí, no redirect: ver OnboardingContent).
+    if (!dashboard.hasProfile)
+      return <OnboardingContent locale={locale} role="alumno" />;
     contenido = (
       <StudentPanel
         locale={locale}
@@ -50,11 +53,11 @@ export default async function PanelPage({
       getMentorSelf(user.id),
       buscarModulos(""),
     ]);
-    if (!mentor) redirect(localePath(locale, "/onboarding"));
+    if (!mentor) return <OnboardingContent locale={locale} role="mentor" />;
     contenido = (
       <MentorPanel
         locale={locale}
-        mentor={mentor!}
+        mentor={mentor}
         catalogo={catalogo.map((m) => ({ code: m.code, name: m.name }))}
       />
     );

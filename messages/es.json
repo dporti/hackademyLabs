@@ -77,16 +77,44 @@
     "email": "Email",
     "password": "Contraseña",
     "role": "¿Quién eres?",
-    "roleAlumno": "Alumno (mayor de edad)",
-    "roleFamilia": "Madre / padre / tutor",
-    "roleMentor": "Mentor",
     "register": "Crear cuenta",
     "login": "Entrar",
     "haveAccount": "¿Ya tienes cuenta?",
     "noAccount": "¿No tienes cuenta?",
     "goLogin": "Entra",
     "goRegister": "Regístrate",
-    "logout": "Salir"
+    "logout": "Salir",
+    "loginSubtitle": "Retoma tu plan donde lo dejaste.",
+    "registerSubtitle": "Gratis. Empieza por el diagnóstico de tu módulo.",
+    "loggingIn": "Entrando…",
+    "registering": "Creando cuenta…",
+    "passwordHint": "Mínimo 8 caracteres.",
+    "roles": {
+      "alumno": {
+        "title": "Alumno",
+        "desc": "Mayor de edad. Si eres menor, que te registre tu familia."
+      },
+      "familia": {
+        "title": "Familia",
+        "desc": "Madre, padre o tutor: sigues el progreso y gestionas los pagos."
+      },
+      "mentor": {
+        "title": "Mentor",
+        "desc": "Docente FP o profesional. Tu perfil se verifica antes de publicarse."
+      }
+    },
+    "info": {
+      "confirmEmail": "Cuenta creada. Revisa tu email para confirmarla y luego entra."
+    },
+    "errors": {
+      "required": "Email y contraseña son obligatorios.",
+      "weakPassword": "La contraseña debe tener al menos 8 caracteres.",
+      "emailTaken": "Ya existe una cuenta con ese email. Entra o recupera tu contraseña.",
+      "invalidEmail": "El email no es válido.",
+      "rateLimit": "Demasiados intentos. Espera unos minutos.",
+      "badCredentials": "Email o contraseña incorrectos.",
+      "generic": "Algo ha fallado. Inténtalo de nuevo."
+    }
   },
   "onboarding": {
     "title": "Casi listo",

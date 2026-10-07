@@ -8,10 +8,8 @@ import {
   type MentorFormValues,
 } from "@/app/actions/mentor";
 import { Button } from "@/components/ui/button";
+import { INPUT_CLASS as INPUT } from "@/components/ui/field";
 import type { Modulo } from "@/lib/db-types";
-
-const INPUT =
-  "w-full rounded-md border border-input bg-card px-3 py-2 text-sm outline-none focus-visible:border-primary/60 focus-visible:ring-2 focus-visible:ring-ring";
 
 // Edición del perfil del mentor: titular, bio, vídeo, idiomas y módulos que imparte.
 // status y level NO están aquí: solo los cambia un admin.

@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import { useTranslations } from "next-intl";
 import { signInAction, type AuthState } from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
+import { INPUT_CLASS, LABEL_CLASS } from "@/components/ui/field";
 
 export function LoginForm({ locale }: { locale: string }) {
   const t = useTranslations("auth");
@@ -17,31 +18,36 @@ export function LoginForm({ locale }: { locale: string }) {
       <input type="hidden" name="locale" value={locale} />
 
       <label className="block space-y-1">
-        <span className="text-sm font-medium">{t("email")}</span>
+        <span className={LABEL_CLASS}>{t("email")}</span>
         <input
           name="email"
           type="email"
           required
           autoComplete="email"
-          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          defaultValue={state.values?.email ?? ""}
+          className={INPUT_CLASS}
         />
       </label>
 
       <label className="block space-y-1">
-        <span className="text-sm font-medium">{t("password")}</span>
+        <span className={LABEL_CLASS}>{t("password")}</span>
         <input
           name="password"
           type="password"
           required
           autoComplete="current-password"
-          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          className={INPUT_CLASS}
         />
       </label>
 
-      {state.error && <p className="text-sm text-destructive">{state.error}</p>}
+      {state.error && (
+        <p role="alert" className="text-sm text-destructive">
+          {t(`errors.${state.error}`)}
+        </p>
+      )}
 
-      <Button type="submit" disabled={pending} className="w-full">
-        {t("login")}
+      <Button type="submit" disabled={pending} className="glow w-full">
+        {pending ? t("loggingIn") : t("login")}
       </Button>
     </form>
   );

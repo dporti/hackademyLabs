@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { hasSession, localePath } from "@/lib/auth";
 import { Link } from "@/i18n/navigation";
 import { RegistroForm } from "@/components/auth/registro-form";
+import { AuthShell } from "@/components/auth/auth-shell";
 
 // Lee ?rol= para preseleccionar → ruta dinámica.
 export const instant = false;
@@ -29,17 +30,19 @@ export default async function RegistroPage({
   const t = await getTranslations("auth");
 
   return (
-    <main className="mx-auto w-full max-w-sm flex-1 px-4 py-12">
-      <h1 className="text-2xl font-bold tracking-tight">{t("registerTitle")}</h1>
-      <div className="mt-6">
-        <RegistroForm locale={locale} defaultRole={rol} />
-      </div>
-      <p className="mt-4 text-sm text-muted-foreground">
-        {t("haveAccount")}{" "}
-        <Link href="/entrar" className="underline">
-          {t("goLogin")}
-        </Link>
-      </p>
-    </main>
+    <AuthShell
+      title={t("registerTitle")}
+      subtitle={t("registerSubtitle")}
+      footer={
+        <>
+          {t("haveAccount")}{" "}
+          <Link href="/entrar" className="text-primary underline-offset-4 hover:underline">
+            {t("goLogin")}
+          </Link>
+        </>
+      }
+    >
+      <RegistroForm locale={locale} defaultRole={rol} />
+    </AuthShell>
   );
 }
