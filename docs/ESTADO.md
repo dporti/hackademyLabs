@@ -51,6 +51,10 @@ Fase 1 completa en lo básico; quedan pulidos (auth HUD, familias, header con se
   signUp con rol admin, alta de mentor ya verificado / auto-subida de nivel); comprobado
   que no se habían usado. Verificado con `scripts/verify-roles.mjs` (18/18), sin regresión
   en `verify-auth`/`verify-credits`, y en navegador (mentor y admin, ca).
+- **Header con sesión** · 2026-10-07 · `93b54c3`
+  "Mi panel"/"Entrar" según sesión en un hueco `<Suspense>` (públicas pasan de ○ a ◐:
+  shell estático + hueco dinámico; contenido SEO sigue prerenderizado). `/entrar` y
+  `/registro` con sesión → `/panel` (arregla "Comprar" de precios). Probado en navegador.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`).
 
 ## 3. En curso
@@ -59,11 +63,9 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 ## 4. Próximos pasos (orden de prioridad)
 1. **Crear tu usuario admin real**: regístrate en `/registro` y ejecuta
    `node scripts/make-admin.mjs tu@email`.
-2. **Header con sesión** (ahora siempre "Entrar") + enlace al panel; "Comprar" de `/precios`
-   al panel si hay sesión.
-3. Afinar pantallas de auth (`/entrar`, `/registro`, `/onboarding`) con el look HUD.
-4. Landing propia de familias (`/familias`) en `data-theme="family"`.
-5. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
+2. Afinar pantallas de auth (`/entrar`, `/registro`, `/onboarding`) con el look HUD.
+3. Landing propia de familias (`/familias`) en `data-theme="family"`.
+4. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
 
 ## 5. Decisiones tomadas
 - **Nombre de trabajo: Tutor247** · aún no definitivo, se usa el de los docs · 2026-10-06.
@@ -92,6 +94,9 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
   trigger) · 2026-10-07.
 - **Un mentor verificado que edita su perfil sigue verificado** (los cambios salen en público
   sin re-revisión) · MVP; revisar si hace falta moderación · 2026-10-07.
+- **Sesión en UI con `getUser`, no `getClaims`**: misma verdad que el panel (evita bucles con
+  cookies de usuarios borrados/revocados); coste extra asumible (el proxy ya llama a getUser) ·
+  2026-10-07.
 - **`apply_all.sql` se genera** con `scripts/build-apply-all.mjs` (no editar a mano) · 2026-10-07.
 
 ## 6. Decisiones pendientes (las decide el usuario)
@@ -108,7 +113,6 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
   sesión y el onboarding no arranca solo. Para dev conviene desactivarlo en el panel.
 - **Tipos de BD a mano** (`src/lib/db-types.ts`) hasta usar `supabase gen types` (CLI/MCP).
 - **Equivalencias catalanas y RA** del seed son orientativos → validar.
-- **Header** no refleja la sesión (siempre muestra "Entrar").
 - **Buscador de la home** postea a `/modulos` (es-centric); afinar i18n del form.
 - **Patch next-intl** (`@swc/core` lazy) por Windows App Control: revisar si deja de hacer
   falta en otros entornos o al actualizar next-intl.
@@ -118,8 +122,8 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
   de los drops para evitarlo.
 - **Caducidad de créditos**: solo se guarda `expires_at`; falta el job que inserte los
   movimientos `caducidad` negativos.
-- **Precios → "Comprar"** sigue llevando a `/registro?pack=…` aunque haya sesión; el
-  parámetro `pack` no se usa todavía.
+- **Precios → "Comprar"**: con sesión acaba en `/panel`; sin sesión va a
+  `/registro?pack=…` y el parámetro `pack` aún no se usa (no preselecciona el pack).
 - **Formularios y reset de React 19**: tras una server action React resetea el formulario.
   Arreglado en el perfil de mentor (devuelve los valores en error); falta en onboarding,
   registro y "añadir módulo" (en error se pierde lo escrito).
