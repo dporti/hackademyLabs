@@ -8,6 +8,11 @@ import {
   getAllModuloCodes,
   getMentoresByModulo,
 } from "@/lib/catalog";
+import { creditRange } from "@/lib/products";
+import type { ProductKind } from "@/lib/db-types";
+
+// Productos que se ofrecen en cada ficha (la ficha es landing de venta: docs §8).
+const AYUDA: ProductKind[] = ["ticket_express", "simulacro", "rescate_48h", "plan_modulo"];
 
 // Pre-genera una página por módulo (SEO / casi estática).
 export async function generateStaticParams() {
@@ -18,14 +23,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/modulos/[code]">) {
-  const { code } = await params;
+  const { code, locale } = await params;
   const modulo = await getModuloByCode(code);
   if (!modulo) return {};
-  const title = `${modulo.code} ${modulo.name} — cómo aprobarlo · Tutor247`;
-  const description =
-    modulo.description ??
-    `Resultados de aprendizaje, mentores y plan para aprobar ${modulo.code} ${modulo.name} en FP de informática.`;
-  return { title, description };
+  const t = await getTranslations({ locale, namespace: "module" });
+  const vars = { code: modulo.code, name: modulo.name };
+  return {
+    title: `${t("metaTitle", vars)} · Tutor247`,
+    description: modulo.description ?? t("metaDescription", vars),
+  };
 }
 
 export default async function ModuloPage({
@@ -38,6 +44,8 @@ export default async function ModuloPage({
 
   const t = await getTranslations("module");
   const c = await getTranslations("common");
+  const tp = await getTranslations("products");
+  const diagnosticable = modulo.ra.length > 0;
   const mentores = await getMentoresByModulo(modulo.id);
 
   return (
@@ -93,19 +101,25 @@ export default async function ModuloPage({
       {/* CTAs */}
       <div className="mt-6 flex flex-wrap gap-3">
         <Button
+          size="lg"
+          className="glow"
           nativeButton={false}
-          render={<Link href="/registro?rol=alumno" />}
+          render={
+            <Link href={diagnosticable ? `/diagnostico?m=${modulo.code}` : "/diagnostico"} />
+          }
         >
-          {t("ctaPlan")}
+          {diagnosticable ? t("ctaDiagnosticCode", { code: modulo.code }) : t("ctaDiagnostic")}
         </Button>
         <Button
+          size="lg"
           variant="outline"
           nativeButton={false}
-          render={<Link href="/registro?rol=alumno" />}
+          render={<Link href="/precios" />}
         >
-          {t("ctaDiagnostic")}
+          {t("ctaPricing")}
         </Button>
           </div>
+          <p className="mt-3 text-sm text-muted-foreground">{t("ctaNote")}</p>
         </div>
       </div>
 
@@ -132,11 +146,46 @@ export default async function ModuloPage({
         </section>
       )}
 
+      {/* Cómo te ayudamos con este módulo */}
+      <section className="mt-12">
+        <h2 className="font-display text-xl font-semibold">
+          {t("helpTitle", { code: modulo.code })}
+        </h2>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          {AYUDA.map((k) => (
+            <Link
+              key={k}
+              href="/precios#productos"
+              className={`card-interactive flex flex-col rounded-lg border bg-card p-4 ${
+                k === "plan_modulo" ? "border-primary/40" : ""
+              }`}
+            >
+              <span className="flex items-baseline justify-between gap-3">
+                <span className="font-semibold">{tp(`${k}.name`)}</span>
+                <span className="shrink-0 font-mono text-sm text-primary">
+                  {t("credits", { range: creditRange(k) })}
+                </span>
+              </span>
+              <span className="mt-1 text-sm text-muted-foreground">{tp(`${k}.desc`)}</span>
+            </Link>
+          ))}
+        </div>
+        <ul className="mt-5 space-y-1.5 text-sm text-muted-foreground">
+          <li>{t("promiseGuarantee")}</li>
+          <li>{t("promiseEthics")}</li>
+        </ul>
+      </section>
+
       {/* Mentores del módulo */}
       <section className="mt-10">
         <h2 className="font-display text-xl font-semibold">{t("mentors")}</h2>
         {mentores.length === 0 ? (
-          <p className="mt-3 text-muted-foreground">{t("noMentors")}</p>
+          <p className="mt-3 text-muted-foreground">
+            {t("noMentors")}{" "}
+            <Link href="/hazte-mentor" className="text-primary underline-offset-4 hover:underline">
+              {t("becomeMentor")}
+            </Link>
+          </p>
         ) : (
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {mentores.map((m) => (

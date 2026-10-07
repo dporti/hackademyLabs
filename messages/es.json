@@ -176,11 +176,21 @@
     "learningResults": "Resultados de Aprendizaje (RA)",
     "equivCat": "Equivalencia en Cataluña",
     "mentors": "Mentores de este módulo",
-    "noMentors": "Aún no hay mentores asignados a este módulo.",
+    "noMentors": "Estamos verificando mentores para este módulo.",
     "cycles": "Aparece en",
     "products": "Qué puedes contratar",
     "ctaDiagnostic": "Diagnóstico gratis",
-    "ctaPlan": "Quiero aprobarlo"
+    "ctaPlan": "Quiero aprobarlo",
+    "metaTitle": "{code} {name}: cómo aprobarlo",
+    "metaDescription": "Resultados de aprendizaje, diagnóstico gratis, mentores y plan para aprobar {code} {name} en FP de informática.",
+    "ctaDiagnosticCode": "Diagnostica {code} gratis",
+    "ctaPricing": "Ver precios",
+    "ctaNote": "2 minutos, sin registro: tu Mapa de Dominio y si llegas al examen.",
+    "helpTitle": "Cómo te ayudamos con {code}",
+    "credits": "{range} cr.",
+    "promiseGuarantee": "Con el Plan Módulo, garantía «Seguimos contigo»: si cumples el plan y suspendes, la recuperación te cuesta la mitad.",
+    "promiseEthics": "Te ayudamos a entender y a aprobar; no hacemos tus prácticas ni tus exámenes.",
+    "becomeMentor": "¿Lo dominas? Hazte mentor."
   },
   "search": {
     "title": "Buscar módulo",

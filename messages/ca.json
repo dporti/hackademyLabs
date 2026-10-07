@@ -176,11 +176,21 @@
     "learningResults": "Resultats d'Aprenentatge (RA)",
     "equivCat": "Equivalència a Catalunya",
     "mentors": "Mentors d'aquest mòdul",
-    "noMentors": "Encara no hi ha mentors assignats a aquest mòdul.",
+    "noMentors": "Estem verificant mentors per a aquest mòdul.",
     "cycles": "Apareix a",
     "products": "Què pots contractar",
     "ctaDiagnostic": "Diagnòstic gratis",
-    "ctaPlan": "Vull aprovar-lo"
+    "ctaPlan": "Vull aprovar-lo",
+    "metaTitle": "{code} {name}: com aprovar-lo",
+    "metaDescription": "Resultats d'aprenentatge, diagnòstic gratuït, mentors i pla per aprovar {code} {name} a l'FP d'informàtica.",
+    "ctaDiagnosticCode": "Diagnostica {code} gratis",
+    "ctaPricing": "Veure preus",
+    "ctaNote": "2 minuts, sense registre: el teu Mapa de Domini i si arribes a l'examen.",
+    "helpTitle": "Com t'ajudem amb {code}",
+    "credits": "{range} cr.",
+    "promiseGuarantee": "Amb el Pla Mòdul, garantia «Seguim amb tu»: si compleixes el pla i suspens, la recuperació et costa la meitat.",
+    "promiseEthics": "T'ajudem a entendre i a aprovar; no fem les teves pràctiques ni els teus exàmens.",
+    "becomeMentor": "El domines? Fes-te mentor."
   },
   "search": {
     "title": "Cerca mòdul",
