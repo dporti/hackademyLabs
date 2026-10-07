@@ -80,6 +80,14 @@ Fase 1 completa en lo básico; quedan pulidos (auth HUD, familias, header con se
   exámenes; la familia ve el informe completo + historial (con consentimiento) y el alumno ve
   los suyos. Verificado: helpers 10/10, UI por HTTP 7/7. La acción de guardado no se ha
   probado de punta a punta desde el navegador (sí su camino en BD con sesión de admin).
+- **Web vendible sin cuenta** · 2026-10-07 · `869d218` → `50e78b1`
+  Diagnóstico gratis sin registro (`/diagnostico`: autoevaluación por RA → Mapa de Dominio en
+  vivo → plan inverso semana a semana → recomendación con créditos; estado compartible en la
+  URL). Home convertida en página de venta (dolores, cómo funciona, diferenciadores, demo de Bit,
+  productos, garantía, mentores, FAQ). Precios con "¿cuánto me cuesta aprobar?" y tabla de
+  productos. Landing `/hazte-mentor`. Fichas de módulo con CTA a su diagnóstico y productos.
+  RA de los 5 módulos killer restantes cargados (orientativos). Sin testimonios ni cifras
+  inventadas.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`).
 
 ## 3. En curso
@@ -91,7 +99,8 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 2. **Configurar Supabase Auth** (panel): Site URL y Redirect URLs (`http://localhost:3000/**`
    y el dominio de producción). Opcional: plantilla "Confirm signup" con `token_hash` para
    que el enlace funcione abierto en otro dispositivo. Probar un registro real con tu email.
-3. **Replantear la landing** (pedido por el usuario, pendiente de definir con él).
+3. **Revisar con el usuario la web pública** (copys, orden de secciones, qué promesas mantener
+   antes de lanzar: ver "promesas aún no construidas" en deuda).
 4. **Panel del tutor de referencia** (cartera de familias, redactar informes; hoy lo hace el admin).
 5. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
 
@@ -165,6 +174,12 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 - **Migraciones a mano**: el MCP de Supabase no accede a este proyecto (solo ve "gifter"), así
   que cada migración nueva se pega en el SQL Editor. Escribirlas **re-ejecutables** (if not
   exists / drop ... if exists) para que un intento a medias no bloquee el siguiente.
+- **Promesas aún no construidas en la web pública**: Bit (IA, WhatsApp, quizzes), Ticket
+  Express/Rescate 48h/sesiones reales, aula online, banco de materiales, Plan Módulo con
+  garantía y liquidación a mentores (60–70 %, % aún por decidir). La web describe la visión de
+  los docs; antes de abrir a usuarios reales, o se construyen o se marcan como "próximamente".
+- **RA orientativos**: los de 0485/0484 y los 5 killer nuevos (`supabase/data/ra-killer.json`)
+  hay que validarlos con el BOE/decreto; el diagnóstico solo cubre módulos con RA cargados (7).
 - **"Días activos" del informe es manual**: no hay registro de actividad del alumno todavía.
 - **Avisos de hidratación** en navegador por extensiones del cliente (LanguageTool), no del código.
 
@@ -191,6 +206,7 @@ Verificación: `node scripts/verify-db.mjs` (catálogo + mentores),
 `node scripts/verify-credits.mjs` (ledger + compra mock + `student_modulo`) y
 `node scripts/verify-roles.mjs` (guardas de rol + verificación de mentores),
 `node scripts/verify-family.mjs` (vinculación familia + consentimiento).
+RA de catálogo: `node scripts/seed-ra.mjs` (carga `supabase/data/ra-killer.json`).
 Admin: `node scripts/make-admin.mjs <email>` (el usuario debe existir).
 `node scripts/verify-confirm.mjs` (enlace de confirmación; requiere `npm run dev`).
 Tras tocar migraciones o seed: `node scripts/build-apply-all.mjs`.
