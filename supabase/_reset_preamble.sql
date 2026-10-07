@@ -18,6 +18,8 @@ drop function if exists public.current_user_role() cascade;
 drop function if exists public.is_admin() cascade;
 drop function if exists public.handle_new_user() cascade;
 drop function if exists public.guard_mentor_status() cascade;
+drop function if exists public.guard_profile_role() cascade;
+drop function if exists public.is_admin_or_server() cascade;
 drop function if exists public.block_ledger_mutation() cascade;
 drop function if exists public.credit_balance(uuid) cascade;
 drop function if exists public.my_credit_balance() cascade;

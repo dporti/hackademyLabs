@@ -1,5 +1,5 @@
 import "server-only";
-import { cacheLife } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createPublicClient } from "@/lib/supabase/public";
 import type {
   Ciclo,
@@ -95,6 +95,10 @@ export async function buscarModulos(q: string): Promise<Modulo[]> {
 }
 
 // ─────────────────────────────── Mentores ───────────────────────────────
+// Tag de caché de los datos públicos de mentores: las acciones de mentor/admin
+// lo invalidan (updateTag) para que el perfil público refleje los cambios al momento.
+export const MENTORES_TAG = "mentores";
+
 export type MentorConModulos = MentorPublic & {
   modulos: Pick<Modulo, "code" | "name">[];
 };
@@ -127,6 +131,7 @@ async function adjuntarModulos(
 export async function getMentores(): Promise<MentorConModulos[]> {
   "use cache";
   cacheLife("hours");
+  cacheTag(MENTORES_TAG);
   const sb = createPublicClient();
   const { data, error } = await sb
     .from("mentor_public")
@@ -141,6 +146,7 @@ export async function getMentorById(
 ): Promise<MentorConModulos | null> {
   "use cache";
   cacheLife("hours");
+  cacheTag(MENTORES_TAG);
   const sb = createPublicClient();
   const { data, error } = await sb
     .from("mentor_public")
@@ -156,6 +162,7 @@ export async function getMentorById(
 export async function getMentorIds(): Promise<string[]> {
   "use cache";
   cacheLife("hours");
+  cacheTag(MENTORES_TAG);
   const sb = createPublicClient();
   const { data, error } = await sb.from("mentor_public").select("profile_id");
   if (error) throw error;
@@ -167,6 +174,7 @@ export async function getMentoresByModulo(
 ): Promise<MentorPublic[]> {
   "use cache";
   cacheLife("hours");
+  cacheTag(MENTORES_TAG);
   const sb = createPublicClient();
   const { data: links } = await sb
     .from("mentor_modulo")

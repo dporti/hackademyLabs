@@ -162,5 +162,54 @@
     "buy": "Comprar",
     "subscribe": "Subscriure'm",
     "creditsNote": "Els crèdits caduquen als 12 mesos."
+  },
+  "mentorPanel": {
+    "statusTitle": "Estat del teu perfil",
+    "levelLabel": "Nivell",
+    "status": {
+      "pendiente": "Pendent de verificació",
+      "verificado": "Verificat",
+      "rechazado": "No verificat"
+    },
+    "level": {
+      "mentor": "Mentor",
+      "pro": "Mentor Pro",
+      "experto": "Mentor Expert"
+    },
+    "statusHelp": {
+      "pendiente": "Un admin revisarà el teu perfil (entrevista + prova tècnica per mòdul). Mentrestant no apareixes a la web pública.",
+      "verificado": "El teu perfil és públic: els alumnes et veuen al catàleg i a les fitxes dels teus mòduls.",
+      "rechazado": "El teu perfil no ha superat la verificació. Pots millorar-lo; un admin el podrà tornar a revisar."
+    },
+    "viewPublic": "Veure el meu perfil públic",
+    "profileTitle": "El teu perfil",
+    "profileHelp": "El que veuran els alumnes. No hi posis mai correu, telèfon ni xarxes: el contacte va sempre per la plataforma.",
+    "videoUrl": "Vídeo de presentació (60 s)",
+    "videoHint": "Enllaç https (YouTube, Vimeo…).",
+    "save": "Desar canvis",
+    "saving": "Desant…",
+    "ok": {
+      "saved": "Canvis desats."
+    },
+    "errors": {
+      "tooLong": "Titular o bio massa llargs.",
+      "noLanguage": "Tria almenys un idioma.",
+      "badUrl": "El vídeo ha de ser un enllaç https vàlid.",
+      "noProfile": "Completa primer l'onboarding.",
+      "generic": "Alguna cosa ha fallat. Torna-ho a provar."
+    }
+  },
+  "adminPanel": {
+    "mentorsTitle": "Verificació de mentors",
+    "pendingCount": "{n, plural, =0 {No hi ha mentors pendents.} one {# mentor pendent de revisar.} other {# mentors pendents de revisar.}}",
+    "empty": "Encara no hi ha mentors.",
+    "noName": "(sense nom)",
+    "noModules": "Sense mòduls",
+    "action": {
+      "verificado": "Verificar",
+      "rechazado": "Rebutjar",
+      "pendiente": "Tornar a pendent"
+    },
+    "setLevel": "Aplicar nivell"
   }
 }

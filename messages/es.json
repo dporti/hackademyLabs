@@ -162,5 +162,54 @@
     "buy": "Comprar",
     "subscribe": "Suscribirme",
     "creditsNote": "Los créditos caducan a los 12 meses."
+  },
+  "mentorPanel": {
+    "statusTitle": "Estado de tu perfil",
+    "levelLabel": "Nivel",
+    "status": {
+      "pendiente": "Pendiente de verificación",
+      "verificado": "Verificado",
+      "rechazado": "No verificado"
+    },
+    "level": {
+      "mentor": "Mentor",
+      "pro": "Mentor Pro",
+      "experto": "Mentor Experto"
+    },
+    "statusHelp": {
+      "pendiente": "Un admin revisará tu perfil (entrevista + prueba técnica por módulo). Mientras tanto no apareces en la web pública.",
+      "verificado": "Tu perfil es público: los alumnos te ven en el catálogo y en las fichas de tus módulos.",
+      "rechazado": "Tu perfil no ha superado la verificación. Puedes mejorarlo; un admin podrá revisarlo de nuevo."
+    },
+    "viewPublic": "Ver mi perfil público",
+    "profileTitle": "Tu perfil",
+    "profileHelp": "Lo que verán los alumnos. Nunca incluyas email, teléfono ni redes: el contacto va siempre por la plataforma.",
+    "videoUrl": "Vídeo de presentación (60 s)",
+    "videoHint": "Enlace https (YouTube, Vimeo…).",
+    "save": "Guardar cambios",
+    "saving": "Guardando…",
+    "ok": {
+      "saved": "Cambios guardados."
+    },
+    "errors": {
+      "tooLong": "Titular o bio demasiado largos.",
+      "noLanguage": "Elige al menos un idioma.",
+      "badUrl": "El vídeo debe ser un enlace https válido.",
+      "noProfile": "Completa tu onboarding primero.",
+      "generic": "Algo ha fallado. Inténtalo de nuevo."
+    }
+  },
+  "adminPanel": {
+    "mentorsTitle": "Verificación de mentores",
+    "pendingCount": "{n, plural, =0 {No hay mentores pendientes.} one {# mentor pendiente de revisar.} other {# mentores pendientes de revisar.}}",
+    "empty": "Todavía no hay mentores.",
+    "noName": "(sin nombre)",
+    "noModules": "Sin módulos",
+    "action": {
+      "verificado": "Verificar",
+      "rechazado": "Rechazar",
+      "pendiente": "Volver a pendiente"
+    },
+    "setLevel": "Aplicar nivel"
   }
 }

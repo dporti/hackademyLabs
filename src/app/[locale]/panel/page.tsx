@@ -2,12 +2,16 @@ import { redirect } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getSessionUser, localePath } from "@/lib/auth";
 import { getStudentDashboard } from "@/lib/student";
+import { getMentorSelf, getMentoresAdmin } from "@/lib/mentor";
 import { buscarModulos, getPacks } from "@/lib/catalog";
 import { signOutAction } from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
 import { StudentPanel } from "@/components/panel/student-panel";
+import { MentorPanel } from "@/components/panel/mentor-panel";
+import { AdminPanel } from "@/components/panel/admin-panel";
 
-// Panel autenticado. Alumno: panel completo (F1.4). Resto de roles: stub hasta F1.5.
+// Panel autenticado, según rol: alumno (F1.4), mentor y admin (F1.5).
+// Familia y tutor de referencia: stub hasta sus fases.
 export const instant = false;
 
 export default async function PanelPage({
@@ -24,7 +28,7 @@ export default async function PanelPage({
   const ta = await getTranslations("auth");
   const name = profile?.full_name ?? profile?.email ?? "";
 
-  let alumno: React.ReactNode = null;
+  let contenido: React.ReactNode = null;
   if (profile?.role === "alumno") {
     const [dashboard, packs, catalogo] = await Promise.all([
       getStudentDashboard(user.id),
@@ -33,7 +37,7 @@ export default async function PanelPage({
     ]);
     // Sin student_profile no puede tener ledger ni módulos: primero onboarding.
     if (!dashboard.hasProfile) redirect(localePath(locale, "/onboarding"));
-    alumno = (
+    contenido = (
       <StudentPanel
         locale={locale}
         dashboard={dashboard}
@@ -41,6 +45,21 @@ export default async function PanelPage({
         catalogo={catalogo.map((m) => ({ code: m.code, name: m.name }))}
       />
     );
+  } else if (profile?.role === "mentor") {
+    const [mentor, catalogo] = await Promise.all([
+      getMentorSelf(user.id),
+      buscarModulos(""),
+    ]);
+    if (!mentor) redirect(localePath(locale, "/onboarding"));
+    contenido = (
+      <MentorPanel
+        locale={locale}
+        mentor={mentor!}
+        catalogo={catalogo.map((m) => ({ code: m.code, name: m.name }))}
+      />
+    );
+  } else if (profile?.role === "admin") {
+    contenido = <AdminPanel locale={locale} mentores={await getMentoresAdmin()} />;
   }
 
   return (
@@ -56,7 +75,7 @@ export default async function PanelPage({
           </Button>
         </form>
       </div>
-      {alumno ?? (
+      {contenido ?? (
         <p className="mt-4 text-muted-foreground">
           {t("roleLabel")}: <span className="font-medium">{profile?.role}</span>
         </p>
