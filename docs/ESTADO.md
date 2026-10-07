@@ -69,6 +69,12 @@ Fase 1 completa en lo básico; quedan pulidos (auth HUD, familias, header con se
   `/familias` en tema claro (estática): informe semanal de ejemplo, qué incluye, cómo funciona,
   planes Familia desde BD, confianza y límites, FAQ. Enlazada desde header y home. De paso:
   `loading.tsx` en fichas de módulo/mentor (aviso de navegación no instantánea de Next 16).
+- **Panel de familia + vinculación** · 2026-10-07 · `1cb6178`
+  Código de invitación que confirma el alumno; consentimiento en BD (menor → visible; mayor →
+  solo si consiente, revocable, registrado en `consent`); panel de familia en tema claro
+  (hijos, módulos, saldo, último informe); sección Familia en el panel del alumno. Migración
+  `20261007090300_family_link.sql` aplicada. Arreglado: `wr_family` ignoraba el
+  consentimiento. Verificado: `verify-family` 21/21, UI por HTTP 10/10, resto de verify OK.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`).
 
 ## 3. En curso
@@ -80,8 +86,8 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 2. **Configurar Supabase Auth** (panel): Site URL y Redirect URLs (`http://localhost:3000/**`
    y el dominio de producción). Opcional: plantilla "Confirm signup" con `token_hash` para
    que el enlace funcione abierto en otro dispositivo. Probar un registro real con tu email.
-3. **Panel de familia** (tema claro): vincular alumno (invitación + consentimiento si es mayor
-   de edad), semáforo e informes. Hoy la familia ve el panel stub.
+3. **Informes semanales reales**: generar `weekly_report` (payload: semáforo, constancia, qué se
+   ha trabajado, próximas fechas) y vista del informe para la familia. Hoy la tabla está vacía.
 4. Completar mapeo real de equivalencias catalanas y validar RA con BOE/decreto.
 
 ## 5. Decisiones tomadas
@@ -151,6 +157,9 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 - **Header oscuro en páginas claras** (`/familias`): el header es global (layout) y no sabe la
   ruta; se ve correcto pero no "family". Revisar si se quiere un header claro en esa zona.
 - **`?plan=` en `/registro`** (desde planes Familia) aún no se usa.
+- **Migraciones a mano**: el MCP de Supabase no accede a este proyecto (solo ve "gifter"), así
+  que cada migración nueva se pega en el SQL Editor. Escribirlas **re-ejecutables** (if not
+  exists / drop ... if exists) para que un intento a medias no bloquee el siguiente.
 - **Avisos de hidratación** en navegador por extensiones del cliente (LanguageTool), no del código.
 
 ## 8. Cómo arrancar el proyecto
@@ -174,7 +183,8 @@ El esquema y los datos viven en `supabase/`. Para aplicarlos a un proyecto:
 Verificación: `node scripts/verify-db.mjs` (catálogo + mentores),
 `node scripts/verify-auth.mjs` (trigger + RLS + guard) y
 `node scripts/verify-credits.mjs` (ledger + compra mock + `student_modulo`) y
-`node scripts/verify-roles.mjs` (guardas de rol + verificación de mentores).
+`node scripts/verify-roles.mjs` (guardas de rol + verificación de mentores),
+`node scripts/verify-family.mjs` (vinculación familia + consentimiento).
 Admin: `node scripts/make-admin.mjs <email>` (el usuario debe existir).
 `node scripts/verify-confirm.mjs` (enlace de confirmación; requiere `npm run dev`).
 Tras tocar migraciones o seed: `node scripts/build-apply-all.mjs`.
