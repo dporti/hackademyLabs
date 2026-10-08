@@ -391,7 +391,8 @@
         "q": "Per què una sessió costa entre 25 i 35 crèdits?",
         "a": "Depèn del nivell del mentor (Mentor, Mentor Pro o Mentor Expert). Tu tries amb qui."
       }
-    }
+    },
+    "cancelLink": "Cancel·lacions"
   },
   "mentorPanel": {
     "statusTitle": "Estat del teu perfil",
@@ -911,7 +912,7 @@
     "ticketsTitle": "Tiquets",
     "ticketTitle": "Tiquet",
     "newTicketTitle": "Nou dubte",
-    "newTicketHelp": "Com més concreta sigui la teva pregunta, millor resposta tindràs. Els crèdits es descompten en enviar-la; si cap mentor l'agafa, pots cancel·lar-la i te'ls retornem.",
+    "newTicketHelp": "Com més concreta sigui la teva pregunta, millor resposta tindràs. Els crèdits es descompten en enviar-la; te’ls retornem si la cancel·les abans que un mentor l’agafi o si no et responen dins del termini.",
     "ticketKindLabel": "Tipus de tiquet",
     "subjectLabel": "Assumpte",
     "bodyLabel": "El teu dubte",
@@ -1011,6 +1012,80 @@
       "notConfirmed": "La sessió no està confirmada.",
       "notStarted": "La sessió encara no ha començat.",
       "noPrice": "Aquest producte encara no té preu."
-    }
+    },
+    "cancelOverdue": "Sense resposta en termini: cancel·lar i recuperar crèdits",
+    "overdueNotice": "El mentor no ha respost dins del termini. Pots esperar o cancel·lar el tiquet i recuperar els teus crèdits.",
+    "policyLink": "Política de cancel·lació"
+  },
+  "cancelPolicy": {
+    "metaTitle": "Política de cancel·lació",
+    "metaDescription": "Quan pots cancel·lar un tiquet o una sessió i quan et retornem els crèdits.",
+    "eyebrow": "// cancel·lacions i devolucions",
+    "title": "Política de cancel·lació",
+    "subtitle": "Regles clares i automàtiques: si et correspon la devolució, els crèdits tornen al teu saldo a l'instant, sense haver de demanar res a ningú.",
+    "updated": "Darrera actualització: 8 d'octubre de 2026",
+    "refundFull": "Devolució íntegra",
+    "refundNone": "Sense devolució",
+    "tickets": {
+      "title": "Tiquets",
+      "intro": "Els crèdits es descompten en enviar el dubte. Tiquet normal: resposta en menys de 24 h. Tiquet Express: en menys de 2 h.",
+      "t1": {
+        "case": "Cancel·les un tiquet que cap mentor ha agafat",
+        "detail": "Des de la pàgina del tiquet, amb «Cancel·lar i recuperar crèdits»."
+      },
+      "t2": {
+        "case": "Un mentor el va agafar però no t'ha respost dins del termini",
+        "detail": "Quan venç el termini (2 h o 24 h) sense resposta, pots cancel·lar-lo des del tiquet. Al mentor no se li paga."
+      },
+      "t3": {
+        "case": "El mentor ja t'ha respost",
+        "detail": "La resposta és el servei. Si et queda algun dubte, torna a preguntar al mateix tiquet sense cost extra."
+      }
+    },
+    "sesiones": {
+      "title": "Sessions 1:1 i flash",
+      "intro": "Els crèdits es descompten en sol·licitar la sessió. El mentor la confirma o la rebutja. Les hores són de Madrid.",
+      "s1": {
+        "case": "Cancel·les abans que el mentor confirmi",
+        "detail": "En qualsevol moment, des de «Les meves sessions»."
+      },
+      "s2": {
+        "case": "Cancel·les una sessió confirmada amb 24 h o més d'antelació",
+        "detail": "El mentor encara pot oferir aquesta franja a un altre alumne."
+      },
+      "s3": {
+        "case": "Cancel·les amb menys de 24 h o no et presentes",
+        "detail": "El mentor ha reservat aquest temps per a tu. A partir de les 24 h prèvies ja no es pot cancel·lar des de la plataforma."
+      },
+      "s4": {
+        "case": "El mentor rebutja la teva sol·licitud o cancel·la la sessió",
+        "detail": "Tant és quan: si la cancel·la el mentor, sempre se't retorna tot."
+      },
+      "s5": {
+        "case": "El mentor no respon la teva sol·licitud",
+        "detail": "Mentre no la confirmi pots cancel·lar-la i recuperar els crèdits, també si ja ha passat l'hora."
+      }
+    },
+    "credits": {
+      "title": "Crèdits",
+      "c1": {
+        "title": "Les devolucions van al teu saldo",
+        "text": "Es veuen a l'instant a «Moviments» del teu panell com a «Devolució». Pots fer-los servir en qualsevol altre tiquet o sessió."
+      },
+      "c2": {
+        "title": "Caduquen als 12 mesos",
+        "text": "Els crèdits de cada pack caduquen als 12 mesos de la compra."
+      },
+      "c3": {
+        "title": "No es canvien per diners",
+        "text": "Els crèdits no es reemborsen en diners, excepte el dret de desistiment: 14 dies des de la compra per als crèdits que no hagis fet servir."
+      },
+      "c4": {
+        "title": "Compres de prova",
+        "text": "Mentre la plataforma estigui en mode prova, les compres de packs són simulades i no es cobra res."
+      }
+    },
+    "note": "Text provisional pendent de revisió legal. Les regles d'aquesta pàgina són les que aplica la plataforma automàticament.",
+    "toPricing": "Veure preus i packs"
   }
 }

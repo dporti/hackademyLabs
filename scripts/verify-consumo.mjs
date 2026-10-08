@@ -254,6 +254,30 @@ async function main() {
   const c2b = await admin.rpc("cancel_ticket", { p_student: alumno.id, p_ticket: t2.data });
   check("no se devuelve dos veces", failsWith(c2b, "cannotCancel"));
 
+  // Política de cancelación: cogido y sin respuesta → solo cancelable con el plazo vencido.
+  antes = await saldo();
+  const t3 = await admin.rpc("create_ticket", {
+    p_student: alumno.id,
+    p_modulo_code: "0485",
+    p_kind: "ticket_express",
+    p_subject: "Sin respuesta",
+    p_body: "El mentor lo coge y no contesta a tiempo.",
+  });
+  await admin.rpc("claim_ticket", { p_mentor: mentor.id, p_ticket: t3.data });
+  check(
+    "cogido y en plazo → no se cancela",
+    failsWith(await admin.rpc("cancel_ticket", { p_student: alumno.id, p_ticket: t3.data }), "cannotCancel"),
+  );
+  // Simula que vence el plazo (solo para la prueba).
+  await admin
+    .from("ticket")
+    .update({ due_at: new Date(Date.now() - 60_000).toISOString() })
+    .eq("id", t3.data);
+  const c3 = await admin.rpc("cancel_ticket", { p_student: alumno.id, p_ticket: t3.data });
+  check("cogido con plazo vencido sin respuesta → devuelve 6", !c3.error && (await saldo()) === antes, c3.error?.message);
+  const { data: earn3 } = await admin.from("mentor_earning").select("id").eq("ticket_id", t3.data);
+  check("…y el mentor no cobra", (earn3 ?? []).length === 0);
+
   const sinSaldo = await admin.rpc("create_ticket", {
     p_student: pobre.id,
     p_modulo_code: "0485",

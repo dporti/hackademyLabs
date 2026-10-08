@@ -2,6 +2,7 @@
 
 import { startTransition, useActionState, useState } from "react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { createTicketAction, type ConsumoState } from "@/app/actions/consumo";
 import { Button } from "@/components/ui/button";
 import { INPUT_CLASS, LABEL_CLASS } from "@/components/ui/field";
@@ -124,7 +125,10 @@ export function NewTicketForm({
       </label>
 
       <p className="rounded-md border border-dashed p-3 text-xs text-muted-foreground">
-        {t("integrityNotice")} {t("contactNotice")}
+        {t("integrityNotice")} {t("contactNotice")}{" "}
+        <Link href="/cancelacion" className="text-primary underline-offset-4 hover:underline">
+          {t("policyLink")}
+        </Link>
       </p>
 
       <div className="flex flex-wrap items-center gap-3">

@@ -168,7 +168,12 @@ export default async function PreciosPage({ params }: PageProps<"/[locale]/preci
             );
           })}
         </div>
-        <p className="mt-3 text-xs text-muted-foreground">{t("creditsNote")}</p>
+        <p className="mt-3 text-xs text-muted-foreground">
+          {t("creditsNote")}{" "}
+          <Link href="/cancelacion" className="text-primary underline-offset-4 hover:underline">
+            {t("cancelLink")}
+          </Link>
+        </p>
       </section>
 
       {/* ─────────────────────────── Suscripciones ─────────────────────────── */}

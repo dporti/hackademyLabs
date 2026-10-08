@@ -38,7 +38,7 @@ export default async function TicketPage({
 
   const detail = await getTicketDetail(id, user.id);
   if (!detail) notFound();
-  const { ticket, messages, nombres } = detail;
+  const { ticket, messages, nombres, vencido } = detail;
   const t = await getTranslations("consumo");
   const sp = await searchParams;
 
@@ -113,6 +113,16 @@ export default async function TicketPage({
         {!ticket.mentor_id && ticket.status === "abierto" && esAlumno && (
           <p className="text-sm text-muted-foreground">{t("waitingMentor")}</p>
         )}
+        {ticket.mentor_id && vencido && ticket.status === "abierto" && esAlumno && (
+          <p className="text-sm text-[var(--ra-ambar)]">{t("overdueNotice")}</p>
+        )}
+        {esAlumno && activo && (
+          <p className="text-xs text-muted-foreground">
+            <Link href="/cancelacion" className="underline-offset-4 hover:underline">
+              {t("policyLink")}
+            </Link>
+          </p>
+        )}
 
         {/* Acciones */}
         <div className="flex flex-wrap gap-3">
@@ -124,11 +134,12 @@ export default async function TicketPage({
               variant="default"
             />
           )}
-          {esAlumno && ticket.status === "abierto" && !ticket.mentor_id && (
+          {/* Política de cancelación: libre → siempre; cogido → solo con el plazo vencido. */}
+          {esAlumno && ticket.status === "abierto" && !ticket.answered_at && (!ticket.mentor_id || vencido) && (
             <ActionButton
               action={cancelTicketAction}
               fields={{ locale, ticket: ticket.id }}
-              label={t("cancelTicket")}
+              label={ticket.mentor_id ? t("cancelOverdue") : t("cancelTicket")}
               variant="outline"
             />
           )}

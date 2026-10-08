@@ -114,7 +114,11 @@ identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reser
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-Nada abierto a medias.
+- **Política de cancelación** · 2026-10-08 · página pública `/cancelacion` (es/ca) enlazada desde
+  precios y los formularios de ticket/sesión, y regla nueva: el alumno puede cancelar con
+  devolución un ticket **cogido pero sin respuesta en plazo** (antes se quedaba sin créditos).
+  **Pendiente aplicar** `supabase/migrations/20261008090200_cancel_policy.sql` y pasar
+  `verify-consumo` (incluye el caso nuevo).
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: productos empaquetados** (simulacro, Rescate 48h, Plan Módulo, reparto por
@@ -173,6 +177,12 @@ Nada abierto a medias.
   rechaza (rechazo = devolución). Cancelación del alumno con devolución si no está confirmada
   o faltan ≥ 24 h; el mentor siempre puede cancelar devolviendo. Ganancia al marcar "hecha" ·
   2026-10-08.
+- **Política de cancelación** (pública en `/cancelacion`, refleja lo que aplican las RPC):
+  ticket libre o cogido sin respuesta en plazo → devolución íntegra; respondido → no (repregunta
+  gratis). Sesión: sin confirmar o confirmada con ≥ 24 h → íntegra; < 24 h o no presentarse → no;
+  cancela/rechaza el mentor → siempre íntegra. Créditos no canjeables por dinero salvo
+  desistimiento 14 días sobre créditos sin usar · texto provisional, **a revisar legalmente** ·
+  2026-10-08.
 - **Sala de videollamada provisional = Jitsi** (`meet.jit.si`, nombre aleatorio, solo visible
   para las partes) hasta tener aula integrada · 2026-10-08.
 
@@ -224,6 +234,9 @@ Nada abierto a medias.
 - **Tickets/sesiones sin automatismos**: no hay devolución automática si un ticket cogido no
   se responde en plazo, ni si una solicitud de sesión caduca sin respuesta (el alumno puede
   cancelarla), ni autocompletado de sesiones que el mentor no marca. Falta un job.
+- **Incidencias de sesión sin flujo**: si el mentor no se presenta o hay un fallo técnico grave
+  no hay botón de reclamación ni canal de contacto; la política pública no lo promete. Decidir
+  regla (¿devolución + sin pago al mentor?) y canal.
 - **Sin disponibilidad del mentor**: el alumno propone hora libre; no hay agenda/franjas.
 - **Sin notificaciones** (email) de ticket respondido / sesión confirmada.
 - **Filtro anti-contacto** básico (emails, teléfonos españoles, enlaces a apps); el texto de

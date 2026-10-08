@@ -391,7 +391,8 @@
         "q": "¿Por qué una sesión cuesta entre 25 y 35 créditos?",
         "a": "Depende del nivel del mentor (Mentor, Mentor Pro o Mentor Experto). Tú eliges con quién."
       }
-    }
+    },
+    "cancelLink": "Cancelaciones"
   },
   "mentorPanel": {
     "statusTitle": "Estado de tu perfil",
@@ -911,7 +912,7 @@
     "ticketsTitle": "Tickets",
     "ticketTitle": "Ticket",
     "newTicketTitle": "Nueva duda",
-    "newTicketHelp": "Cuanto más concreta sea tu pregunta, mejor respuesta tendrás. Los créditos se descuentan al enviarla; si ningún mentor la coge, puedes cancelarla y te los devolvemos.",
+    "newTicketHelp": "Cuanto más concreta sea tu pregunta, mejor respuesta tendrás. Los créditos se descuentan al enviarla; te los devolvemos si la cancelas antes de que un mentor la coja o si no te responden dentro del plazo.",
     "ticketKindLabel": "Tipo de ticket",
     "subjectLabel": "Asunto",
     "bodyLabel": "Tu duda",
@@ -1011,6 +1012,80 @@
       "notConfirmed": "La sesión no está confirmada.",
       "notStarted": "La sesión aún no ha empezado.",
       "noPrice": "Este producto aún no tiene precio."
-    }
+    },
+    "cancelOverdue": "Sin respuesta en plazo: cancelar y recuperar créditos",
+    "overdueNotice": "El mentor no ha respondido dentro del plazo. Puedes esperar o cancelar el ticket y recuperar tus créditos.",
+    "policyLink": "Política de cancelación"
+  },
+  "cancelPolicy": {
+    "metaTitle": "Política de cancelación",
+    "metaDescription": "Cuándo puedes cancelar un ticket o una sesión y cuándo te devolvemos los créditos.",
+    "eyebrow": "// cancelaciones y devoluciones",
+    "title": "Política de cancelación",
+    "subtitle": "Reglas claras y automáticas: si te corresponde la devolución, los créditos vuelven a tu saldo al momento, sin pedir nada a nadie.",
+    "updated": "Última actualización: 8 de octubre de 2026",
+    "refundFull": "Devolución íntegra",
+    "refundNone": "Sin devolución",
+    "tickets": {
+      "title": "Tickets",
+      "intro": "Los créditos se descuentan al enviar la duda. Ticket normal: respuesta en menos de 24 h. Ticket Express: en menos de 2 h.",
+      "t1": {
+        "case": "Cancelas un ticket que ningún mentor ha cogido",
+        "detail": "Desde la página del ticket, con «Cancelar y recuperar créditos»."
+      },
+      "t2": {
+        "case": "Un mentor lo cogió pero no te ha respondido dentro del plazo",
+        "detail": "Cuando vence el plazo (2 h o 24 h) sin respuesta, puedes cancelarlo desde el ticket. Al mentor no se le paga."
+      },
+      "t3": {
+        "case": "El mentor ya te ha respondido",
+        "detail": "La respuesta es el servicio. Si te queda alguna duda, repregunta en el mismo ticket sin coste extra."
+      }
+    },
+    "sesiones": {
+      "title": "Sesiones 1:1 y flash",
+      "intro": "Los créditos se descuentan al solicitar la sesión. El mentor la confirma o la rechaza. Las horas son de Madrid.",
+      "s1": {
+        "case": "Cancelas antes de que el mentor confirme",
+        "detail": "En cualquier momento, desde «Mis sesiones»."
+      },
+      "s2": {
+        "case": "Cancelas una sesión confirmada con 24 h o más de antelación",
+        "detail": "El mentor aún puede ofrecer ese hueco a otro alumno."
+      },
+      "s3": {
+        "case": "Cancelas con menos de 24 h o no te presentas",
+        "detail": "El mentor ha reservado ese tiempo para ti. A partir de las 24 h previas ya no se puede cancelar desde la plataforma."
+      },
+      "s4": {
+        "case": "El mentor rechaza tu solicitud o cancela la sesión",
+        "detail": "Da igual cuándo: si la cancela el mentor, siempre se te devuelve todo."
+      },
+      "s5": {
+        "case": "El mentor no responde a tu solicitud",
+        "detail": "Mientras no la confirme puedes cancelarla y recuperar los créditos, también si ya ha pasado la hora."
+      }
+    },
+    "credits": {
+      "title": "Créditos",
+      "c1": {
+        "title": "Las devoluciones van a tu saldo",
+        "text": "Se ven al momento en «Movimientos» de tu panel como «Devolución». Puedes usarlos en cualquier otro ticket o sesión."
+      },
+      "c2": {
+        "title": "Caducan a los 12 meses",
+        "text": "Los créditos de cada pack caducan a los 12 meses de la compra."
+      },
+      "c3": {
+        "title": "No se cambian por dinero",
+        "text": "Los créditos no se reembolsan en dinero, salvo el derecho de desistimiento: 14 días desde la compra para los créditos que no hayas usado."
+      },
+      "c4": {
+        "title": "Compras de prueba",
+        "text": "Mientras la plataforma esté en modo prueba, las compras de packs son simuladas y no se cobra nada."
+      }
+    },
+    "note": "Texto provisional pendiente de revisión legal. Las reglas de esta página son las que aplica la plataforma automáticamente.",
+    "toPricing": "Ver precios y packs"
   }
 }

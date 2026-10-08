@@ -136,6 +136,8 @@ export interface TicketDetail {
   ticket: TicketRow;
   messages: TicketMessage[];
   nombres: Nombres;
+  // Plazo de respuesta vencido sin respuesta del mentor (el alumno puede cancelar).
+  vencido: boolean;
 }
 
 // null si no existe o la RLS no deja verlo.
@@ -153,7 +155,9 @@ export async function getTicketDetail(id: string, viewerId: string): Promise<Tic
     viewerId === ticket.student_id
       ? await nombresMentores(sb, unicos([ticket.mentor_id]))
       : await nombresAlumnos(sb, [ticket.student_id]);
-  return { ticket, messages: (msgs ?? []) as TicketMessage[], nombres };
+  const vencido =
+    !ticket.answered_at && !!ticket.due_at && new Date(ticket.due_at).getTime() <= Date.now();
+  return { ticket, messages: (msgs ?? []) as TicketMessage[], nombres, vencido };
 }
 
 // ─────────────────────────────── Reservas ───────────────────────────────
