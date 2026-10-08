@@ -8,6 +8,7 @@ import { AddModuloForm } from "@/components/panel/add-modulo-form";
 import { StudentFamily } from "@/components/panel/student-family";
 import { WeeklyReportCard } from "@/components/panel/weekly-report-card";
 import type { StudentDashboard } from "@/lib/student";
+import type { getPendientesAlumno } from "@/lib/consumo";
 import type { Modulo, Pack } from "@/lib/db-types";
 
 // Panel del alumno (F1.4): saldo, compra mock de packs, módulos que prepara e
@@ -15,16 +16,20 @@ import type { Modulo, Pack } from "@/lib/db-types";
 export async function StudentPanel({
   locale,
   dashboard,
+  pendientes,
   packs,
   catalogo,
 }: {
   locale: string;
   dashboard: StudentDashboard;
+  pendientes: Awaited<ReturnType<typeof getPendientesAlumno>>;
   packs: Pack[];
   catalogo: Pick<Modulo, "code" | "name">[];
 }) {
   const t = await getTranslations("panel");
   const tp = await getTranslations("pricing");
+  const tc = await getTranslations("consumo");
+  const tprod = await getTranslations("products");
   const { balance, ledger, modulos } = dashboard;
 
   const eur = (n: number) =>
@@ -54,6 +59,39 @@ export async function StudentPanel({
           </span>
         </p>
         <p className="mt-2 text-xs text-muted-foreground">{tp("creditsNote")}</p>
+      </section>
+
+      {/* ─────────────────────────── Pedir ayuda ─────────────────────────── */}
+      <section aria-labelledby="ayuda">
+        <h2 id="ayuda" className="font-display text-xl font-semibold">
+          {tc("helpTitle")}
+        </h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <Link
+            href="/panel/tickets"
+            className="rounded-xl border bg-card p-5 transition hover:border-primary/50"
+          >
+            <span className="font-semibold">{tc("ticketsTitle")}</span>
+            <p className="mt-1 text-sm text-muted-foreground">{tc("ticketsCardHelp")}</p>
+            {pendientes.ticketsRespondidos > 0 && (
+              <p className="mt-2 font-mono text-xs text-primary">
+                {tc("answeredCount", { n: pendientes.ticketsRespondidos })}
+              </p>
+            )}
+          </Link>
+          <Link
+            href="/panel/sesiones"
+            className="rounded-xl border bg-card p-5 transition hover:border-primary/50"
+          >
+            <span className="font-semibold">{tc("sessionsTitle")}</span>
+            <p className="mt-1 text-sm text-muted-foreground">{tc("sessionsCardHelp")}</p>
+            {pendientes.sesionesProximas > 0 && (
+              <p className="mt-2 font-mono text-xs text-primary">
+                {tc("upcomingCount", { n: pendientes.sesionesProximas })}
+              </p>
+            )}
+          </Link>
+        </div>
       </section>
 
       {/* ─────────────────────────── Comprar packs ─────────────────────────── */}
@@ -190,6 +228,12 @@ export async function StudentPanel({
                       {t(`ledgerType.${m.type}`)}
                       {m.pack && (
                         <span className="text-muted-foreground"> · {m.pack.name}</span>
+                      )}
+                      {!m.pack && m.product_kind && (
+                        <span className="text-muted-foreground">
+                          {" "}
+                          · {tprod(`${m.product_kind}.name`)}
+                        </span>
                       )}
                     </td>
                     <td className="px-4 py-2 font-mono text-xs whitespace-nowrap text-muted-foreground">

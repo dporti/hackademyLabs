@@ -3,19 +3,25 @@ import { Link } from "@/i18n/navigation";
 import { MentorProfileForm } from "@/components/panel/mentor-profile-form";
 import { MentorStatusBadge } from "@/components/panel/mentor-status-badge";
 import type { MentorSelf } from "@/lib/mentor";
+import type { MentorEarnings, getPendientesMentor } from "@/lib/consumo";
 import type { Modulo } from "@/lib/db-types";
 
 // Panel del mentor (F1.5, básico): estado de verificación, nivel y edición de perfil.
 export async function MentorPanel({
   locale,
   mentor,
+  pendientes,
+  earnings,
   catalogo,
 }: {
   locale: string;
   mentor: MentorSelf;
+  pendientes: Awaited<ReturnType<typeof getPendientesMentor>>;
+  earnings: MentorEarnings;
   catalogo: Pick<Modulo, "code" | "name">[];
 }) {
   const t = await getTranslations("mentorPanel");
+  const tc = await getTranslations("consumo");
 
   return (
     <div className="mt-8 space-y-10">
@@ -48,6 +54,49 @@ export async function MentorPanel({
           </Link>
         )}
       </section>
+
+      {mentor.status === "verificado" && (
+        <section aria-labelledby="trabajo">
+          <h2 id="trabajo" className="font-display text-xl font-semibold">
+            {tc("workTitle")}
+          </h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            <Link
+              href="/panel/tickets"
+              className="rounded-xl border bg-card p-5 transition hover:border-primary/50"
+            >
+              <span className="font-semibold">{tc("ticketsTitle")}</span>
+              <p className="mt-2 font-mono text-sm text-primary">
+                {tc("poolCount", { n: pendientes.bolsa })}
+              </p>
+              <p className="font-mono text-sm text-muted-foreground">
+                {tc("toAnswerCount", { n: pendientes.ticketsPorResponder })}
+              </p>
+            </Link>
+            <Link
+              href="/panel/sesiones"
+              className="rounded-xl border bg-card p-5 transition hover:border-primary/50"
+            >
+              <span className="font-semibold">{tc("sessionsTitle")}</span>
+              <p className="mt-2 font-mono text-sm text-primary">
+                {tc("requestsCount", { n: pendientes.solicitudes })}
+              </p>
+            </Link>
+            <div className="hud-grid rounded-xl border border-primary/30 bg-card p-5">
+              <span className="text-sm text-muted-foreground">{tc("earningsMonth")}</span>
+              <p className="mt-1 font-mono text-3xl font-bold text-primary">
+                {earnings.monthCredits}
+                <span className="ml-1 text-sm font-normal text-muted-foreground">
+                  {tc("creditsUnit")}
+                </span>
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {tc("earningsHelp", { n: earnings.monthItems, total: earnings.totalCredits })}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section aria-labelledby="perfil">
         <h2 id="perfil" className="font-display text-xl font-semibold">

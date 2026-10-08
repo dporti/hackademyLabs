@@ -12,6 +12,8 @@ supabase/
     20261006090500_future_scaffolding.sql Tablas de fases futuras (tickets, Bit, informes…)
     20261007090100_student_modulo.sql     Módulos que prepara el alumno (F1.4)
     20261007090200_role_guards.sql        Guardas de rol/verificación (F1.5)
+    20261007090300_family_link.sql        Vinculación familia ↔ alumno + consentimiento
+    20261008090100_tickets_bookings.sql   Tickets y reservas: tarifas, RPC de cobro, ganancias (F2.1)
   seed.sql                                Catálogo + RA (0485/0484) + 3 mentores de prueba
   apply_all.sql                           Todo junto, re-ejecutable (generado)
 ```
@@ -36,6 +38,10 @@ con `supabase db push`, o el MCP de Supabase). Copia URL y keys a `.env.local`.
 ## Reglas que refleja el esquema
 - **Ledger inmutable**: `credit_ledger` sin UPDATE/DELETE (triggers lo bloquean).
   El saldo se calcula con `credit_balance(student)` / `my_credit_balance()`.
+- **Consumo de créditos (F2.1)**: tickets y reservas se crean, cancelan y completan
+  SOLO con RPC (`create_ticket`, `create_booking`…) ejecutables por service role; cobro
+  y alta en la misma transacción, precio desde `product_price`, devoluciones como
+  movimiento `devolucion` y ganancias del mentor en `mentor_earning` (inmutable).
 - **RLS en todo**: catálogo de lectura pública; datos personales solo el dueño/admin.
 - **Anti-bypass**: mentores públicos vía vista `mentor_public` (sin email/contacto).
 - **Verificación de mentor**: solo admin cambia `status`/`level`; un alta de mentor

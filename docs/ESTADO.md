@@ -1,7 +1,7 @@
 # Estado del proyecto — Tutor247
 
 > Documento vivo. Se actualiza al cerrar cada tarea o fase.
-> Última actualización: 2026-10-07.
+> Última actualización: 2026-10-08.
 
 ## 1. Resumen
 Tutor247 es una plataforma web de FP de informática (SMX, ASIR/ASIX, DAM, DAW) que
@@ -9,8 +9,8 @@ no vende clases sueltas sino "te sacamos el módulo": catálogo por módulo ofic
 diagnóstico (Mapa de Dominio por RA) → plan inverso → mentor verificado → seguimiento
 hasta el examen. Monetiza con créditos (ledger inmutable) y suscripciones (IA "Bit" y
 acompañamiento a familias).
-**Fase actual del roadmap: Fase 1 (MVP base).** Hechas F1.1–F1.5 + identidad visual.
-Fase 1 completa en lo básico; quedan pulidos (auth HUD, familias, header con sesión).
+**Fase actual del roadmap: Fase 2 (consumo).** Fase 1 (MVP base) cerrada: F1.1–F1.5,
+identidad visual, familias, informes y web vendible. En curso F2.1 (tickets y reservas).
 
 ## 2. Hecho
 - **Fase 0 — Scaffold** · 2026-10-06 · `9a5d25e`
@@ -92,14 +92,29 @@ Fase 1 completa en lo básico; quedan pulidos (auth HUD, familias, header con se
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin).
+- **F2.1 — Tickets y reservas = consumo de créditos** · iniciado 2026-10-08 · código hecho,
+  **pendiente de aplicar la migración** `supabase/migrations/20261008090100_tickets_bookings.sql`
+  en el SQL Editor y verificar (`node scripts/verify-consumo.mjs` + navegador alumno/mentor).
+  - BD: tarifas en `product_price` (por nivel de mentor), RPC atómicas de cobro/devolución
+    (`create_ticket`, `cancel_ticket`, `claim_ticket`, `release_ticket`, `post_ticket_message`,
+    `close_ticket`, `create_booking`, `respond_booking`, `cancel_booking`, `complete_booking`)
+    solo ejecutables por service role; bloqueo por alumno (sin saldo negativo); índices únicos
+    (un gasto y una devolución por ticket/reserva); `ticket_message`; `mentor_earning`
+    inmutable (atribución al responder/completar); `my_student_names` (mentor ve solo nombre de
+    pila). **Seguridad**: quitadas las políticas del scaffolding que dejaban al alumno crear
+    tickets/reservas sin pagar o cambiarles el estado.
+  - UI: `/panel/tickets` (alumno: nueva duda + lista; mentor: bolsa + asignados),
+    `/panel/tickets/[id]` (hilo, cancelar, resolver, coger/soltar), `/panel/sesiones` (solicitar
+    con mentor y hora de Madrid; mentor acepta/rechaza/hecha; sala Jitsi provisional), accesos y
+    contadores en el panel, ganancias del mes en el panel del mentor, concepto del producto en el
+    historial del ledger. Filtro anti-contacto (`src/lib/contact-filter.ts`). i18n es/ca.
+  - Comprobado: `tsc`, lint y `npm run build` OK. Falta la verificación contra BD.
 
 ## 4. Próximos pasos (orden de prioridad)
-0. **SIGUIENTE (acordado 2026-10-07): tickets + reservas = consumo de créditos.** Tickets
-   (duda → mentor responde → gasto en ledger), reservas de sesión 1:1/flash, productos
-   empaquetados (simulacro, Rescate 48h, Plan Módulo) y atribución al mentor. Tablas `ticket` y
-   `booking` ya existen (scaffolding). Después: Bit (tutor IA con Claude) → Stripe real →
-   deploy en Vercel → legal (aviso legal, RGPD, cookies, términos).
+0. **Cerrar F2.1**: aplicar la migración de tickets/reservas, verificar y probar en navegador.
+   Después: **productos empaquetados** (simulacro, Rescate 48h, Plan Módulo, reparto por
+   tareas) → Bit (tutor IA con Claude) → Stripe real → deploy en Vercel → legal (aviso legal,
+   RGPD, cookies, términos).
 1. **Crear tu usuario admin real**: regístrate en `/registro` y ejecuta
    `node scripts/make-admin.mjs tu@email`.
 2. **Configurar Supabase Auth** (panel): Site URL y Redirect URLs (`http://localhost:3000/**`
@@ -141,6 +156,20 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
   cookies de usuarios borrados/revocados); coste extra asumible (el proxy ya llama a getUser) ·
   2026-10-07.
 - **`apply_all.sql` se genera** con `scripts/build-apply-all.mjs` (no editar a mano) · 2026-10-07.
+- **Consumo vía RPC con service role**: el servidor autentica y llama a la RPC con el id del
+  usuario; cobro + alta en una transacción. Ninguna RPC de consumo es ejecutable desde el
+  cliente · 2026-10-08.
+- **Tarifas F2.1 = extremo bajo** (ticket normal 3, Express 6; flash 12/13/15 y 1:1 25/30/35
+  por nivel mentor/pro/experto) en `product_price` · a validar · 2026-10-08.
+- **Tickets**: se cobran al enviar; el alumno recupera los créditos si cancela antes de que un
+  mentor lo coja; la repregunta no se cobra; la ganancia del mentor se apunta en su 1.ª
+  respuesta. SLA 2 h / 24 h de reloj (horario aún por decidir) · 2026-10-08.
+- **Reservas**: el alumno propone hora (Madrid, ≥ 3 h y ≤ 90 días), el mentor confirma o
+  rechaza (rechazo = devolución). Cancelación del alumno con devolución si no está confirmada
+  o faltan ≥ 24 h; el mentor siempre puede cancelar devolviendo. Ganancia al marcar "hecha" ·
+  2026-10-08.
+- **Sala de videollamada provisional = Jitsi** (`meet.jit.si`, nombre aleatorio, solo visible
+  para las partes) hasta tener aula integrada · 2026-10-08.
 
 ## 6. Decisiones pendientes (las decide el usuario)
 - Nombre y marca definitivos.
@@ -187,6 +216,13 @@ Nada abierto a medias. El último bloque cerrado fue F1.5 (panel mentor + admin)
 - **RA orientativos**: los de 0485/0484 y los 5 killer nuevos (`supabase/data/ra-killer.json`)
   hay que validarlos con el BOE/decreto; el diagnóstico solo cubre módulos con RA cargados (7).
 - **"Días activos" del informe es manual**: no hay registro de actividad del alumno todavía.
+- **Tickets/sesiones sin automatismos**: no hay devolución automática si un ticket cogido no
+  se responde en plazo, ni si una solicitud de sesión caduca sin respuesta (el alumno puede
+  cancelarla), ni autocompletado de sesiones que el mentor no marca. Falta un job.
+- **Sin disponibilidad del mentor**: el alumno propone hora libre; no hay agenda/franjas.
+- **Sin notificaciones** (email) de ticket respondido / sesión confirmada.
+- **Filtro anti-contacto** básico (emails, teléfonos españoles, enlaces a apps); el texto de
+  sustitución se guarda en español en BD.
 - **Avisos de hidratación** en navegador por extensiones del cliente (LanguageTool), no del código.
 
 ## 8. Cómo arrancar el proyecto
@@ -211,7 +247,8 @@ Verificación: `node scripts/verify-db.mjs` (catálogo + mentores),
 `node scripts/verify-auth.mjs` (trigger + RLS + guard) y
 `node scripts/verify-credits.mjs` (ledger + compra mock + `student_modulo`) y
 `node scripts/verify-roles.mjs` (guardas de rol + verificación de mentores),
-`node scripts/verify-family.mjs` (vinculación familia + consentimiento).
+`node scripts/verify-family.mjs` (vinculación familia + consentimiento),
+`node scripts/verify-consumo.mjs` (tickets, reservas, cobros, devoluciones, ganancias).
 RA de catálogo: `node scripts/seed-ra.mjs` (carga `supabase/data/ra-killer.json`).
 Admin: `node scripts/make-admin.mjs <email>` (el usuario debe existir).
 `node scripts/verify-confirm.mjs` (enlace de confirmación; requiere `npm run dev`).

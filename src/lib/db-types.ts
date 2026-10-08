@@ -111,6 +111,8 @@ export interface CreditLedgerEntry {
   product_kind: ProductKind | null;
   mentor_id: string | null;
   pack_id: string | null;
+  ticket_id: string | null;
+  booking_id: string | null;
   expires_at: string | null;
   note: string | null;
   created_at: string;
@@ -122,4 +124,62 @@ export interface StudentModulo {
   modulo_id: string;
   exam_date: string | null;
   created_at: string;
+}
+
+// ───────────────────────── Tickets y reservas (F2.1) ─────────────────────────
+export type TicketKind = "ticket_normal" | "ticket_express";
+export type TicketStatus = "abierto" | "respondido" | "cerrado" | "cancelado";
+export type BookingKind = "sesion_1a1" | "sesion_flash";
+export type BookingStatus =
+  | "solicitada"
+  | "confirmada"
+  | "hecha"
+  | "rechazada"
+  | "cancelada";
+
+export interface Ticket {
+  id: string;
+  student_id: string;
+  mentor_id: string | null;
+  modulo_id: string | null;
+  kind: TicketKind;
+  subject: string | null;
+  body: string | null;
+  status: TicketStatus;
+  credits: number | null;
+  due_at: string | null;
+  answered_at: string | null;
+  closed_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface TicketMessage {
+  id: string;
+  ticket_id: string;
+  author_id: string;
+  body: string;
+  created_at: string;
+}
+
+export interface Booking {
+  id: string;
+  student_id: string;
+  mentor_id: string;
+  modulo_id: string | null;
+  product_kind: BookingKind;
+  starts_at: string;
+  ends_at: string;
+  status: BookingStatus;
+  credits: number | null;
+  note: string | null;
+  meeting_url: string | null;
+  cancelled_by: string | null;
+  created_at: string;
+}
+
+export interface ProductPrice {
+  kind: ProductKind;
+  level: MentorLevel;
+  credits: number;
 }

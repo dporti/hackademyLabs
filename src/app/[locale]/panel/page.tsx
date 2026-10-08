@@ -4,6 +4,7 @@ import { getSessionUser, localePath } from "@/lib/auth";
 import { getStudentDashboard } from "@/lib/student";
 import { getMentorSelf, getMentoresAdmin } from "@/lib/mentor";
 import { getFamilyDashboard } from "@/lib/family";
+import { getMentorEarnings, getPendientesAlumno, getPendientesMentor } from "@/lib/consumo";
 import { getReportableStudents } from "@/lib/report-admin";
 import { mondayOf } from "@/lib/report";
 import { buscarModulos, getPacks } from "@/lib/catalog";
@@ -35,10 +36,11 @@ export default async function PanelPage({
 
   let contenido: React.ReactNode = null;
   if (profile?.role === "alumno") {
-    const [dashboard, packs, catalogo] = await Promise.all([
+    const [dashboard, packs, catalogo, pendientes] = await Promise.all([
       getStudentDashboard(user.id),
       getPacks(),
       buscarModulos(""),
+      getPendientesAlumno(user.id),
     ]);
     // Sin student_profile no puede tener ledger ni módulos: primero onboarding
     // (renderizado aquí, no redirect: ver OnboardingContent).
@@ -48,20 +50,25 @@ export default async function PanelPage({
       <StudentPanel
         locale={locale}
         dashboard={dashboard}
+        pendientes={pendientes}
         packs={packs}
         catalogo={catalogo.map((m) => ({ code: m.code, name: m.name }))}
       />
     );
   } else if (profile?.role === "mentor") {
-    const [mentor, catalogo] = await Promise.all([
+    const [mentor, catalogo, pendientes, earnings] = await Promise.all([
       getMentorSelf(user.id),
       buscarModulos(""),
+      getPendientesMentor(user.id),
+      getMentorEarnings(user.id),
     ]);
     if (!mentor) return <OnboardingContent locale={locale} role="mentor" />;
     contenido = (
       <MentorPanel
         locale={locale}
         mentor={mentor}
+        pendientes={pendientes}
+        earnings={earnings}
         catalogo={catalogo.map((m) => ({ code: m.code, name: m.name }))}
       />
     );

@@ -5,6 +5,7 @@
 drop view if exists public.mentor_public;
 
 drop table if exists
+  public.mentor_earning, public.ticket_message, public.product_price,
   public.mentor_payout, public.mentor_badge, public.badge, public.referral,
   public.weekly_report, public.message, public.conversation, public.ticket,
   public.booking, public.ra_assessment, public.diagnostic, public.study_plan,
@@ -31,6 +32,22 @@ drop function if exists public.my_family_students() cascade;
 drop function if exists public.block_ledger_mutation() cascade;
 drop function if exists public.credit_balance(uuid) cascade;
 drop function if exists public.my_credit_balance() cascade;
+drop function if exists public.product_credits(product_kind, mentor_level) cascade;
+drop function if exists public.block_earning_mutation() cascade;
+drop function if exists public.mentor_teaches(uuid) cascade;
+drop function if exists public.my_student_names(uuid[]) cascade;
+drop function if exists public.lock_student_credits(uuid) cascade;
+drop function if exists public.is_verified_mentor_of(uuid, uuid) cascade;
+drop function if exists public.create_ticket(uuid, text, product_kind, text, text) cascade;
+drop function if exists public.cancel_ticket(uuid, uuid) cascade;
+drop function if exists public.claim_ticket(uuid, uuid) cascade;
+drop function if exists public.release_ticket(uuid, uuid) cascade;
+drop function if exists public.post_ticket_message(uuid, uuid, text) cascade;
+drop function if exists public.close_ticket(uuid, uuid) cascade;
+drop function if exists public.create_booking(uuid, uuid, text, product_kind, timestamp, text) cascade;
+drop function if exists public.respond_booking(uuid, uuid, boolean) cascade;
+drop function if exists public.cancel_booking(uuid, uuid) cascade;
+drop function if exists public.complete_booking(uuid, uuid) cascade;
 
 drop type if exists
   consent_type, plan_kind, product_kind, ledger_type, ra_status,
