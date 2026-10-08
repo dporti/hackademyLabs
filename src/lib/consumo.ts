@@ -32,8 +32,12 @@ function conTiempos(rows: unknown[]): BookingRow[] {
 }
 
 // Valor mínimo del selector de fecha de reserva: ahora + 3 h en hora de Madrid
-// ("AAAA-MM-DDTHH:MM"), igual que exige la RPC.
+// ("AAAA-MM-DDTHH:MM"), igual que exige la RPC. Redondeado al cuarto de hora
+// siguiente: el input usa step=900 y el navegador toma `min` como base del paso
+// (con min 02:20 rechazaría 17:30).
 export function minReservaLocal() {
+  const cuarto = 15 * 60_000;
+  const t = Math.ceil((Date.now() + 3 * 3600_000) / cuarto) * cuarto;
   const p = Object.fromEntries(
     new Intl.DateTimeFormat("en-GB", {
       timeZone: "Europe/Madrid",
@@ -44,7 +48,7 @@ export function minReservaLocal() {
       minute: "2-digit",
       hourCycle: "h23",
     })
-      .formatToParts(new Date(Date.now() + 3 * 3600_000))
+      .formatToParts(new Date(t))
       .map((x) => [x.type, x.value]),
   );
   return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}`;

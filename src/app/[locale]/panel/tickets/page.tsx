@@ -199,7 +199,9 @@ async function TicketList({
                 >
                   <TicketResumen ticket={tk} locale={locale} />
                   <span className="text-xs text-muted-foreground">
-                    {otro ? `${otherLabel}: ${nombres[otro] || "—"}` : t("unassigned")}
+                    {otro
+                      ? `${otherLabel}: ${nombres[otro] || "—"}`
+                      : tk.status === "abierto" && t("unassigned")}
                   </span>
                 </Link>
               </li>

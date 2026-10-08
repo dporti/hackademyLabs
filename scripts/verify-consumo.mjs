@@ -356,6 +356,13 @@ async function main() {
   const upE = await admin.from("mentor_earning").update({ credits: 999 }).eq("booking_id", b3.data);
   check("mentor_earning inmutable", !!upE.error, upE.error?.message);
 
+  // Los mentores de prueba no deben quedar visibles en el catálogo público.
+  const { error: pendErr } = await admin
+    .from("mentor_profile")
+    .update({ status: "pendiente", verified_at: null })
+    .in("profile_id", [mentor.id, otro.id]);
+  check("mentores de prueba vuelven a pendiente (fuera de /mentores)", !pendErr, pendErr?.message);
+
   for (const s of [alumno, pobre, mentor, otro]) await s.sb.auth.signOut();
 }
 

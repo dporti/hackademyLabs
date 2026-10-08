@@ -10,7 +10,7 @@ diagnóstico (Mapa de Dominio por RA) → plan inverso → mentor verificado →
 hasta el examen. Monetiza con créditos (ledger inmutable) y suscripciones (IA "Bit" y
 acompañamiento a familias).
 **Fase actual del roadmap: Fase 2 (consumo).** Fase 1 (MVP base) cerrada: F1.1–F1.5,
-identidad visual, familias, informes y web vendible. En curso F2.1 (tickets y reservas).
+identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reservas).
 
 ## 2. Hecho
 - **Fase 0 — Scaffold** · 2026-10-06 · `9a5d25e`
@@ -88,13 +88,8 @@ identidad visual, familias, informes y web vendible. En curso F2.1 (tickets y re
   productos. Landing `/hazte-mentor`. Fichas de módulo con CTA a su diagnóstico y productos.
   RA de los 5 módulos killer restantes cargados (orientativos). Sin testimonios ni cifras
   inventadas.
-- **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
-  2026-10-07 hasta `0562a0e`.
-
-## 3. En curso
-- **F2.1 — Tickets y reservas = consumo de créditos** · iniciado 2026-10-08 · código hecho,
-  **pendiente de aplicar la migración** `supabase/migrations/20261008090100_tickets_bookings.sql`
-  en el SQL Editor y verificar (`node scripts/verify-consumo.mjs` + navegador alumno/mentor).
+- **F2.1 — Tickets y reservas = consumo de créditos** · 2026-10-08 · `902b7c7` + arreglos tras
+  prueba en navegador. Migración `20261008090100_tickets_bookings.sql` aplicada.
   - BD: tarifas en `product_price` (por nivel de mentor), RPC atómicas de cobro/devolución
     (`create_ticket`, `cancel_ticket`, `claim_ticket`, `release_ticket`, `post_ticket_message`,
     `close_ticket`, `create_booking`, `respond_booking`, `cancel_booking`, `complete_booking`)
@@ -108,11 +103,21 @@ identidad visual, familias, informes y web vendible. En curso F2.1 (tickets y re
     con mentor y hora de Madrid; mentor acepta/rechaza/hecha; sala Jitsi provisional), accesos y
     contadores en el panel, ganancias del mes en el panel del mentor, concepto del producto en el
     historial del ledger. Filtro anti-contacto (`src/lib/contact-filter.ts`). i18n es/ca.
-  - Comprobado: `tsc`, lint y `npm run build` OK. Falta la verificación contra BD.
+  - Verificado: `verify-consumo` 56/56 (re-ejecutable; deja los mentores de prueba en
+    pendiente), sin regresión en verify-db/auth/credits/roles/family; navegador (es + ca): alumno
+    envía ticket (email ocultado) → mentora lo coge y responde (teléfono ocultado) → reserva flash
+    con precio por nivel → mentora acepta → sala Jitsi; cancelar ticket devuelve créditos.
+    Arreglado en la prueba: `min` del selector de fecha no alineado con `step` (el navegador
+    bloqueaba el envío), radios desmarcados tras el reset de React 19 (formularios con
+    `onSubmit` + `startTransition`), "Esperando mentor" en tickets cancelados.
+- **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
+  2026-10-07 hasta `0562a0e`.
+
+## 3. En curso
+Nada abierto a medias.
 
 ## 4. Próximos pasos (orden de prioridad)
-0. **Cerrar F2.1**: aplicar la migración de tickets/reservas, verificar y probar en navegador.
-   Después: **productos empaquetados** (simulacro, Rescate 48h, Plan Módulo, reparto por
+0. **SIGUIENTE: productos empaquetados** (simulacro, Rescate 48h, Plan Módulo, reparto por
    tareas) → Bit (tutor IA con Claude) → Stripe real → deploy en Vercel → legal (aviso legal,
    RGPD, cookies, términos).
 1. **Crear tu usuario admin real**: regístrate en `/registro` y ejecuta

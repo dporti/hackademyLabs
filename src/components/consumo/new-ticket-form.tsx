@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { startTransition, useActionState, useState } from "react";
 import { useTranslations } from "next-intl";
 import { createTicketAction, type ConsumoState } from "@/app/actions/consumo";
 import { Button } from "@/components/ui/button";
@@ -33,7 +33,16 @@ export function NewTicketForm({
   const sinSaldo = balance < prices[kind];
 
   return (
-    <form action={action} className="space-y-4">
+    <form
+      onSubmit={(e) => {
+        // Sin <form action>: React 19 resetea el formulario tras la acción y los
+        // radios controlados quedan desmarcados aunque el estado siga elegido.
+        e.preventDefault();
+        const fd = new FormData(e.currentTarget);
+        startTransition(() => action(fd));
+      }}
+      className="space-y-4"
+    >
       <input type="hidden" name="locale" value={locale} />
 
       <label className="block space-y-1">
