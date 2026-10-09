@@ -30,7 +30,13 @@ export function ActionButton({
       {Object.entries(fields).map(([k, v]) => (
         <input key={k} type="hidden" name={k} value={v} />
       ))}
-      <Button type="submit" variant={variant} size={size} disabled={pending}>
+      <Button
+        type="submit"
+        variant={variant}
+        size={size}
+        disabled={pending}
+        className={size === "sm" ? "h-10 rounded-[10px] px-4 text-sm font-semibold" : "h-11 rounded-[10px] px-5 font-semibold"}
+      >
         {pending ? t("working") : label}
       </Button>
       {(state.ok || state.error) && (

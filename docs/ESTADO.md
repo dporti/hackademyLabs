@@ -194,12 +194,23 @@ referencia en `docs/diseno/`.
     (Chrome headless por CDP): panel y créditos a 1440 y 390 px sin scroll horizontal; añadir módulo
     con fecha muestra «11 días» en ámbar. Panel de mentor/familia/admin: solo la barra lateral nueva
     (su contenido se rediseña en la fase 6).
+- **Fusión del diseño · fase 5: tickets y sesiones** · 2026-10-09 (sin tocar RPC ni cobros)
+  - `/panel/tickets` (SOS.html): «Ayuda inmediata», formulario con Ticket Express / normal en
+    tarjetas grandes y «SOS en directo» como Próximamente; «Mis tickets» en columna lateral. Mentor:
+    bolsa y asignados con tarjetas nuevas. Detalle: hilo tipo chat (mentor en cian), avisos en ámbar.
+  - `/panel/sesiones` (Reserva.html): formulario en 4 pasos (módulo y mentor con avatar, tipo, día y
+    hora, qué trabajar) con resumen fijo (mentor, tipo, fecha, coste, saldo después) y botón.
+    `?mentor=<id>` deja el mentor elegido: «Reservar» de la ficha y la tarjeta de mentor ya lo usan.
+  - Botones de acción a 40–44 px. Textos sin «RA» (placeholder y chat de la portada).
+  - Verificado: lint + build; verify-consumo OK; con sesión del alumno de prueba: ticket creado desde
+    la UI, visto en lista y detalle, y cancelado con devolución (saldo 317 → 320); 1440 y 390 px sin
+    scroll horizontal; mentor preseleccionado con `?mentor=`.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-- **Fusión del diseño** (Checkpoint Academy) · fases 0–4 cerradas 2026-10-09; siguiente:
-  fase 5 — Tickets y sesiones.
+- **Fusión del diseño** (Checkpoint Academy) · fases 0–5 cerradas 2026-10-09; siguiente:
+  fase 6 — Paneles de mentor, familia y admin.
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
@@ -218,7 +229,7 @@ referencia en `docs/diseno/`.
      `/cancelacion`.
    - [x] **Fase 4 — Panel del alumno** (2026-10-09): `AppShell` por rol, panel con datos actuales,
      `/panel/creditos` nueva (saldo, caducidades, compra mock, ledger).
-   - [ ] **Fase 5 — Tickets y sesiones**: `/panel/tickets` (SOS.html) y `/panel/sesiones`
+   - [x] **Fase 5 — Tickets y sesiones** (2026-10-09): `/panel/tickets` (SOS.html) y `/panel/sesiones`
      (Reserva.html) sin tocar RPC ni cobros.
    - [ ] **Fase 6 — Paneles de mentor, familia (oscuro) y admin**.
    - [ ] **Fase 7 — Backend nuevo I**: `/panel/mapa` (progreso por RA guardado) y rol `tutor`
@@ -373,8 +384,6 @@ referencia en `docs/diseno/`.
 - **RA orientativos**: los de 0485/0484 y los 5 killer nuevos (`supabase/data/ra-killer.json`)
   hay que validarlos con el BOE/decreto; el diagnóstico solo cubre módulos con RA cargados (7).
 - **"Días activos" del informe es manual**: no hay registro de actividad del alumno todavía.
-- **Mentores sin «reservar con este mentor»**: los botones llevan a `/panel/sesiones` sin preseleccionar
-  al mentor (falta `?mentor=` en el formulario de sesiones).
 - **Nombres de módulo y RA solo en español** en BD: en catalán la búsqueda por nombre catalán no
   encuentra (sí por código y por código catalán).
 - **Dev server y mensajes nuevos**: tras añadir claves a `messages/*.json`, las páginas cacheadas del

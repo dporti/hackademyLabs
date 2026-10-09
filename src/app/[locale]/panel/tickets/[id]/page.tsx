@@ -79,30 +79,34 @@ export default async function TicketPage({
             </span>
             <TicketStatusBadge status={ticket.status} label={t(`ticketStatus.${ticket.status}`)} />
           </div>
-          <h1 className="mt-2 font-display text-2xl font-bold tracking-tight break-words">{ticket.subject}</h1>
+          <h1 className="mt-3 font-heading text-[28px] leading-tight font-bold tracking-tight break-words sm:text-[34px]">{ticket.subject}</h1>
           <p className="mt-1 font-mono text-xs text-muted-foreground">
             {fecha(ticket.created_at)}
             {ticket.due_at && !ticket.answered_at && activo && ` · ${t("dueAt", { date: fecha(ticket.due_at) })}`}
           </p>
           {sp.oculto === "1" && (
-            <p className="mt-3 text-xs text-[var(--ra-ambar)]">{t("redactedNotice")}</p>
+            <p className="mt-3 text-xs text-warning">{t("redactedNotice")}</p>
           )}
         </header>
 
         {/* Pregunta inicial + hilo */}
         <ol className="space-y-4">
-          <li className="rounded-lg border bg-card p-4">
-            <p className="text-xs font-medium text-muted-foreground">{autor(ticket.student_id)}</p>
+          <li className="rounded-2xl rounded-tl-sm border bg-card p-5">
+            <p className="font-mono text-xs tracking-wider text-label uppercase">
+              {autor(ticket.student_id)} · {t("question")}
+            </p>
             <p className="mt-2 font-mono text-sm whitespace-pre-wrap break-words">{ticket.body}</p>
           </li>
           {messages.map((m) => (
             <li
               key={m.id}
-              className={`rounded-lg border p-4 ${
-                m.author_id === ticket.student_id ? "bg-card" : "border-primary/30 bg-primary/5"
+              className={`rounded-2xl border p-5 ${
+                m.author_id === ticket.student_id
+                  ? "rounded-tl-sm bg-card"
+                  : "ml-6 rounded-tr-sm border-tint-primary-border bg-tint-primary"
               }`}
             >
-              <p className="text-xs font-medium text-muted-foreground">
+              <p className="font-mono text-xs tracking-wider text-label uppercase">
                 {autor(m.author_id)} · <span className="font-mono">{fecha(m.created_at)}</span>
               </p>
               <p className="mt-2 font-mono text-sm whitespace-pre-wrap break-words">{m.body}</p>
@@ -114,7 +118,7 @@ export default async function TicketPage({
           <p className="text-sm text-muted-foreground">{t("waitingMentor")}</p>
         )}
         {ticket.mentor_id && vencido && ticket.status === "abierto" && esAlumno && (
-          <p className="text-sm text-[var(--ra-ambar)]">{t("overdueNotice")}</p>
+          <p className="rounded-xl border border-tint-warning-border bg-tint-warning p-4 text-sm text-warning">{t("overdueNotice")}</p>
         )}
         {esAlumno && activo && (
           <p className="text-xs text-muted-foreground">
@@ -162,7 +166,7 @@ export default async function TicketPage({
         </div>
 
         {(esAlumno || esMentor) && activo && (
-          <section aria-label={t("reply")}>
+          <section aria-label={t("reply")} className="rounded-2xl border bg-card p-5">
             <TicketReplyForm
               locale={locale}
               ticketId={ticket.id}

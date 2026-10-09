@@ -96,7 +96,7 @@ export function MentorCard({
           )}
           {bookLabel && (
             <Link
-              href="/panel/sesiones"
+              href={`/panel/sesiones?mentor=${id}`}
               className="relative z-10 inline-flex min-h-10 flex-1 items-center justify-center rounded-[10px] bg-primary text-sm font-bold text-primary-foreground hover:bg-primary/85"
             >
               {bookLabel}

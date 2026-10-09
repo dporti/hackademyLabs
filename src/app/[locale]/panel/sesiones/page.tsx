@@ -1,6 +1,5 @@
 import { redirect } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import { getSessionUser, localePath } from "@/lib/auth";
 import { buscarModulos, getMentores } from "@/lib/catalog";
 import {
@@ -47,6 +46,8 @@ export default async function SesionesPage({
   const t = await getTranslations("consumo");
   const sp = await searchParams;
   const moduloParam = typeof sp.modulo === "string" ? sp.modulo : undefined;
+  // Desde la ficha de un mentor: /panel/sesiones?mentor=<id> lo deja elegido.
+  const mentorParam = typeof sp.mentor === "string" ? sp.mentor : undefined;
 
   let contenido: React.ReactNode;
   if (role === "alumno") {
@@ -64,16 +65,16 @@ export default async function SesionesPage({
     const def = modulos.some((m) => m.code === moduloParam) ? moduloParam : undefined;
     contenido = (
       <>
-        <section aria-labelledby="nueva" className="hud-grid rounded-xl border border-primary/30 bg-card p-6">
-          <h2 id="nueva" className="font-display text-xl font-semibold">
+        <section aria-labelledby="nueva" className="rounded-3xl border bg-card p-5 sm:p-7">
+          <h2 id="nueva" className="mb-6 font-heading text-2xl font-bold">
             {t("newSessionTitle")}
           </h2>
-          <p className="mt-1 mb-5 text-sm text-muted-foreground">{t("newSessionHelp")}</p>
           <NewBookingForm
             locale={locale}
             modulos={modulos}
             balance={ctx.balance}
             defaultModulo={def}
+            defaultMentor={mentorParam}
             minDate={minReservaLocal()}
             mentores={mentores.map((m) => ({
               id: m.profile_id,
@@ -128,10 +129,12 @@ export default async function SesionesPage({
     <div className="w-full">
       <div className="w-full space-y-10">
         <header>
-          <Link href="/panel" className="font-mono text-xs text-muted-foreground hover:text-primary">
-            ← {t("backToPanel")}
-          </Link>
-          <h1 className="mt-2 font-display text-2xl font-bold tracking-tight">{t("sessionsTitle")}</h1>
+          <h1 className="font-heading text-[32px] leading-tight font-bold tracking-tight sm:text-[40px]">
+            {t("sessionsTitle")}
+          </h1>
+          <p className="mt-2 text-muted-foreground">
+            {role === "alumno" ? t("sessionsPageSubtitle") : t("mentorSessionsSubtitle")}
+          </p>
         </header>
         {contenido}
       </div>
@@ -167,7 +170,7 @@ async function BookingList({
 
   return (
     <section aria-label={title}>
-      <h2 className="font-display text-xl font-semibold">{title}</h2>
+      <h2 className="font-heading text-2xl font-bold">{title}</h2>
       {bookings.length === 0 ? (
         <p className="mt-2 text-sm text-muted-foreground">{empty}</p>
       ) : (
@@ -178,17 +181,17 @@ async function BookingList({
             const terminada = b.ended;
             const fields = { locale, booking: b.id };
             return (
-              <li key={b.id} className="rounded-lg border bg-card p-4">
+              <li key={b.id} className="rounded-2xl border bg-card p-5">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
-                      {b.modulo && <span className="font-mono text-xs text-primary">{b.modulo.code}</span>}
+                      {b.modulo && <span className="font-mono text-xs font-semibold text-primary">{b.modulo.code}</span>}
                       <span className="font-mono text-xs text-muted-foreground">
                         {t(`kind.${b.product_kind}`)} · {t("creditsN", { n: b.credits ?? 0 })}
                       </span>
                       <BookingStatusBadge status={b.status} label={t(`bookingStatus.${b.status}`)} />
                     </div>
-                    <p className="mt-1 font-medium">
+                    <p className="mt-1.5 font-semibold first-letter:uppercase">
                       {fecha(b.starts_at)}
                       <span className="text-muted-foreground">
                         {" "}
@@ -201,7 +204,7 @@ async function BookingList({
                         href={b.meeting_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-2 inline-block text-sm text-primary hover:underline"
+                        className="mt-3 inline-flex min-h-10 items-center rounded-[10px] bg-primary px-4 text-sm font-bold text-primary-foreground hover:bg-primary/85"
                       >
                         {t("joinRoom")} →
                       </a>

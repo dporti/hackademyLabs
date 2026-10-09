@@ -155,7 +155,7 @@ export default async function MentorPage({ params }: PageProps<"/[locale]/mentor
             <p className="mt-2 text-xs text-label">{t("servicesNote")}</p>
             <div className="mt-5 space-y-2.5">
               <Link
-                href="/panel/sesiones"
+                href={`/panel/sesiones?mentor=${m.profile_id}`}
                 className="flex min-h-12 items-center justify-center rounded-xl bg-primary font-bold text-primary-foreground transition-colors hover:bg-primary/85"
               >
                 {t("bookSession")}

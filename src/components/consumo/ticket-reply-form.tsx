@@ -41,7 +41,7 @@ export function TicketReplyForm({
         className={`${INPUT_CLASS} font-mono`}
       />
       <div className="flex flex-wrap items-center gap-3">
-        <Button type="submit" disabled={pending || !body.trim()}>
+        <Button type="submit" disabled={pending || !body.trim()} className="h-11 rounded-[10px] px-5 font-bold">
           {pending ? t("working") : t("send")}
         </Button>
         <p aria-live="polite" className="text-xs">
