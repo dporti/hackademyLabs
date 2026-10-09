@@ -2,11 +2,13 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/brand/logo";
 import { NAV_LINKS } from "@/components/site-header";
+import { CONTACTO } from "@/lib/contacto";
 
 // Pie global: marca + lema, enlaces de producto y ayuda, y la línea ética.
 export function SiteFooter() {
   const t = useTranslations("footer");
   const n = useTranslations("nav");
+  const c = useTranslations("contacto");
 
   const ayuda = [
     { href: "/ciclos", label: t("cycles") },
@@ -22,6 +24,20 @@ export function SiteFooter() {
         <div className="space-y-3">
           <Logo />
           <p className="max-w-sm text-sm text-muted-foreground">{t("brandLine")}</p>
+          <p className="text-sm text-muted-foreground">
+            {c("footer")}:{" "}
+            <a href={CONTACTO.telefonoHref} className="font-mono text-foreground hover:text-primary">
+              {CONTACTO.telefono}
+            </a>
+            {CONTACTO.email && (
+              <>
+                {" · "}
+                <a href={`mailto:${CONTACTO.email}`} className="text-foreground hover:text-primary">
+                  {CONTACTO.email}
+                </a>
+              </>
+            )}
+          </p>
         </div>
         <FooterCol title={t("product")} links={NAV_LINKS.map((l) => ({ href: l.href, label: n(l.key) }))} />
         <FooterCol title={t("help")} links={ayuda} />

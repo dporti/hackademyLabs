@@ -990,7 +990,10 @@
     "scopeAll": "Tot el mòdul",
     "scopePart": "Només alguns temes (p. ex. un parcial)",
     "scopePartHelp": "Desmarca el que no entra: el pla i les hores es calculen només amb el que t'examinen.",
-    "inExam": "Entra al meu examen"
+    "inExam": "Entra al meu examen",
+    "byTerm": "Dreceres per avaluació (es poden combinar)",
+    "term": "{n}a avaluació",
+    "byTermNote": "Repartiment orientatiu: cada centre l'organitza a la seva manera. Ajusta tema a tema si al teu institut és diferent."
   },
   "products": {
     "diagnostico": {
@@ -1469,7 +1472,29 @@
         "d": "Si apareix alguna cosa seriosa, avisem la família i recomanem professionals."
       },
       "howTitle": "Com comencem",
-      "faqTitle": "Preguntes de famílies"
+      "faqTitle": "Preguntes de famílies",
+      "painTitle": "Us sona?",
+      "pain": {
+        "p1": {
+          "quote": "No tenim temps d'estar-li a sobre cada dia.",
+          "answer": "El seu tutor de referència fa aquest seguiment per vosaltres: li organitza la setmana, revisa entregues i us explica com va."
+        },
+        "p2": {
+          "quote": "No entenem el que estudia: Java, xarxes, bases de dades…",
+          "answer": "No cal. L'informe setmanal està escrit perquè s'entengui sense saber informàtica: com va, què ha treballat i quines dates vénen."
+        },
+        "p3": {
+          "quote": "Ens assabentem que va malament quan ja arriben les notes.",
+          "answer": "Us avisem abans: si es despenja o un examen pinta malament, ho sabeu a temps per posar-hi remei."
+        },
+        "p4": {
+          "quote": "No trobem ningú de confiança que li faci un seguiment.",
+          "answer": "Tutors i mentors que són docents o professionals d'FP, verificats, i tot dins la plataforma."
+        }
+      },
+      "contactTitle": "Preferiu parlar-ho amb una persona?",
+      "contactText": "Expliqueu-nos què estudia el vostre fill i què us preocupa. Us expliquem com el podem ajudar, sense compromís.",
+      "safetyTitle": "Seguretat i confiança"
     },
     "plans": {
       "label": "Plans",
@@ -1862,5 +1887,11 @@
       "RA5": "Ping y tracert · Detectar averías · Mantenimiento",
       "RA6": "Riesgos laborales · Reciclaje de residuos"
     }
+  },
+  "contacto": {
+    "call": "Trucar al {phone}",
+    "whatsapp": "Escriure per WhatsApp",
+    "note": "Atenció a famílies i alumnes. Aquest contacte és només de Checkpoint Academy: les classes i dubtes amb mentors van sempre per la plataforma.",
+    "footer": "Contacte"
   }
 }

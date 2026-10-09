@@ -12,6 +12,7 @@ import type { ModuloDiagnosticable } from "@/lib/catalog";
 import type { ProductKind, RaStatus } from "@/lib/db-types";
 import { cn } from "@/lib/utils";
 import { temaRa } from "@/lib/temas";
+import { EVALUACIONES } from "@/lib/evaluaciones";
 
 // Diagnóstico gratis SIN cuenta (docs: "widget ¿Qué módulo te preocupa? → mini
 // diagnóstico → Mapa de Dominio → oferta"). Autoevaluación por RA → Mapa en vivo →
@@ -99,6 +100,23 @@ export function Diagnostico({
       else n.add(ra);
       return n;
     });
+  // Atajos por evaluación: una evaluación está activa si todos sus temas entran. Si aún
+  // entra todo, el primer clic deja solo esa evaluación; después, cada clic la suma o quita.
+  const evaluaciones = (code && EVALUACIONES[code]) || [];
+  const evActiva = (ras: string[]) => ras.every((ra) => !fuera.has(ra));
+  const alternarEv = (ras: string[]) => {
+    if (!modulo) return;
+    if (fuera.size === 0) {
+      setFuera(new Set(modulo.ra.map((r) => r.code).filter((c) => !ras.includes(c))));
+      return;
+    }
+    setFuera((prev) => {
+      const n = new Set(prev);
+      if (evActiva(ras)) ras.forEach((ra) => n.add(ra));
+      else ras.forEach((ra) => n.delete(ra));
+      return n;
+    });
+  };
   const [examen, setExamen] = useState(
     inicial.examen && inicial.examen > hoy ? inicial.examen : sumarDias(hoy, 30),
   );
@@ -250,6 +268,33 @@ export function Diagnostico({
                 </label>
               ))}
             </div>
+            {soloParte && evaluaciones.length > 0 && (
+              <div className="mt-4">
+                <p className="text-sm font-medium">{t("byTerm")}</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {evaluaciones.map((ras, i) => {
+                    const activa = fuera.size > 0 && evActiva(ras);
+                    return (
+                      <button
+                        key={i}
+                        type="button"
+                        aria-pressed={activa}
+                        onClick={() => alternarEv(ras)}
+                        className={cn(
+                          "min-h-10 rounded-[10px] border px-3 text-sm transition-colors",
+                          activa
+                            ? "border-primary bg-tint-primary text-foreground"
+                            : "border-border text-muted-foreground hover:border-primary/60 hover:text-foreground",
+                        )}
+                      >
+                        {t("term", { n: i + 1 })}
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="mt-2 text-xs text-label">{t("byTermNote")}</p>
+              </div>
+            )}
             {soloParte && <p className="mt-3 text-sm text-muted-foreground">{t("scopePartHelp")}</p>}
           </fieldset>
 

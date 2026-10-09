@@ -5,6 +5,7 @@ import { SectionLabel } from "@/components/brand/section-label";
 import { ComingSoon } from "@/components/brand/coming-soon";
 import { InformeSemanal } from "@/components/brand/informe-semanal";
 import { Faq } from "@/components/brand/faq";
+import { ContactCard } from "@/components/brand/contact-card";
 import { getPlanes } from "@/lib/catalog";
 import type { PlanKind } from "@/lib/db-types";
 
@@ -153,7 +154,22 @@ export default async function Tutor247Page({ params }: PageProps<"/[locale]/tuto
         </h2>
         <p className="mt-3 max-w-2xl text-lg text-muted-foreground">{t("families.text")}</p>
 
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* ¿Os suena? Lo que viven muchas familias con un hijo en FP de informática. */}
+        <h3 className="mt-10 font-heading text-2xl font-bold">{t("families.painTitle")}</h3>
+        <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+          {(["p1", "p2", "p3", "p4"] as const).map((k) => (
+            <li key={k} className="rounded-2xl border bg-card p-5">
+              <p className="font-heading text-lg font-semibold">«{t(`families.pain.${k}.quote`)}»</p>
+              <p className="mt-2 text-sm text-muted-foreground">{t(`families.pain.${k}.answer`)}</p>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-6">
+          <ContactCard title={t("families.contactTitle")} text={t("families.contactText")} />
+        </div>
+
+        <h3 className="mt-14 font-heading text-2xl font-bold">{t("families.safetyTitle")}</h3>
+        <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {(["s1", "s2", "s3", "s4", "s5"] as const).map((k) => (
             <li key={k} className="rounded-2xl border bg-card p-5">
               <h3 className="flex items-start gap-2.5 font-semibold">

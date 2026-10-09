@@ -990,7 +990,10 @@
     "scopeAll": "Todo el módulo",
     "scopePart": "Solo algunos temas (p. ej. un parcial)",
     "scopePartHelp": "Desmarca lo que no entra: el plan y las horas se calculan solo con lo que te examinan.",
-    "inExam": "Entra en mi examen"
+    "inExam": "Entra en mi examen",
+    "byTerm": "Atajos por evaluación (se pueden combinar)",
+    "term": "{n}.ª evaluación",
+    "byTermNote": "Reparto orientativo: cada centro lo organiza a su manera. Ajusta tema a tema si en tu instituto es distinto."
   },
   "products": {
     "diagnostico": {
@@ -1469,7 +1472,29 @@
         "d": "Si aparece algo serio, avisamos a la familia y recomendamos profesionales."
       },
       "howTitle": "Cómo empezamos",
-      "faqTitle": "Preguntas de familias"
+      "faqTitle": "Preguntas de familias",
+      "painTitle": "¿Os suena?",
+      "pain": {
+        "p1": {
+          "quote": "No tenemos tiempo de estar encima de él cada día.",
+          "answer": "Su tutor de referencia hace ese seguimiento por vosotros: le organiza la semana, revisa entregas y os cuenta cómo va."
+        },
+        "p2": {
+          "quote": "No entendemos lo que estudia: Java, redes, bases de datos…",
+          "answer": "No hace falta. El informe semanal está escrito para que se entienda sin saber informática: cómo va, qué ha trabajado y qué fechas vienen."
+        },
+        "p3": {
+          "quote": "Nos enteramos de que va mal cuando ya llegan las notas.",
+          "answer": "Os avisamos antes: si se descuelga o un examen pinta mal, lo sabéis a tiempo para poner remedio."
+        },
+        "p4": {
+          "quote": "No encontramos a nadie de confianza que le haga un seguimiento.",
+          "answer": "Tutores y mentores que son docentes o profesionales de FP, verificados, y todo dentro de la plataforma."
+        }
+      },
+      "contactTitle": "¿Preferís hablarlo con una persona?",
+      "contactText": "Contadnos qué estudia vuestro hijo y qué os preocupa. Os explicamos cómo le podemos ayudar, sin compromiso.",
+      "safetyTitle": "Seguridad y confianza"
     },
     "plans": {
       "label": "Planes",
@@ -1862,5 +1887,11 @@
       "RA5": "Ping y tracert · Detectar averías · Mantenimiento",
       "RA6": "Riesgos laborales · Reciclaje de residuos"
     }
+  },
+  "contacto": {
+    "call": "Llamar al {phone}",
+    "whatsapp": "Escribir por WhatsApp",
+    "note": "Atención a familias y alumnos. Este contacto es solo de Checkpoint Academy: las clases y dudas con mentores van siempre por la plataforma.",
+    "footer": "Contacto"
   }
 }
