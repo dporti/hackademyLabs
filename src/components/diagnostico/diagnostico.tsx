@@ -476,6 +476,9 @@ export function Diagnostico({
               <Link href={`/modulos/${modulo.code}`} className={`${btnPrimary} glow`}>
                 {t("ctaMentors", { code: modulo.code })}
               </Link>
+              <Link href={`/pregunta?m=${modulo.code}`} className={btnOutline}>
+                {t("ctaFreeQuestion")}
+              </Link>
               <Link href="/precios" className={btnOutline}>
                 {t("ctaPricing")}
               </Link>

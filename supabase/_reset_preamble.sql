@@ -5,7 +5,7 @@
 drop view if exists public.mentor_public;
 
 drop table if exists
-  public.mentor_earning, public.ticket_message, public.product_price,
+  public.lead, public.mentor_earning, public.ticket_message, public.product_price,
   public.mentor_payout, public.mentor_badge, public.badge, public.referral,
   public.weekly_report, public.message, public.conversation, public.ticket,
   public.booking, public.ra_assessment, public.diagnostic, public.study_plan,
@@ -30,6 +30,7 @@ drop function if exists public.leave_family() cascade;
 drop function if exists public.my_linked_family() cascade;
 drop function if exists public.my_family_students() cascade;
 drop function if exists public.block_ledger_mutation() cascade;
+drop function if exists public.grant_welcome_credits() cascade;
 drop function if exists public.credit_balance(uuid) cascade;
 drop function if exists public.my_credit_balance() cascade;
 drop function if exists public.product_credits(product_kind, mentor_level) cascade;
@@ -51,7 +52,8 @@ drop function if exists public.complete_booking(uuid, uuid) cascade;
 
 drop type if exists
   consent_type, plan_kind, product_kind, ledger_type, ra_status,
-  mentor_status, mentor_level, student_mode, user_role, grade_level
+  mentor_status, mentor_level, student_mode, user_role, grade_level,
+  lead_kind, lead_status
   cascade;
 
 -- Borra los usuarios de prueba para que el seed los recree y dispare el trigger.

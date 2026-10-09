@@ -6,6 +6,7 @@ import { ComingSoon } from "@/components/brand/coming-soon";
 import { InformeSemanal } from "@/components/brand/informe-semanal";
 import { Faq } from "@/components/brand/faq";
 import { ContactCard } from "@/components/brand/contact-card";
+import { LeadForm } from "@/components/leads/lead-form";
 import { getPlanes } from "@/lib/catalog";
 import type { PlanKind } from "@/lib/db-types";
 
@@ -166,6 +167,11 @@ export default async function Tutor247Page({ params }: PageProps<"/[locale]/tuto
         </ul>
         <div className="mt-6">
           <ContactCard title={t("families.contactTitle")} text={t("families.contactText")} />
+        </div>
+        <div id="llamada" className="mt-4 scroll-mt-24 rounded-3xl border bg-card p-5 sm:p-7">
+          <h3 className="font-heading text-xl font-bold">{t("families.callbackTitle")}</h3>
+          <p className="mt-1 mb-5 text-sm text-muted-foreground">{t("families.callbackText")}</p>
+          <LeadForm kind="llamada" />
         </div>
 
         <h3 className="mt-14 font-heading text-2xl font-bold">{t("families.safetyTitle")}</h3>

@@ -258,6 +258,20 @@ referencia en `docs/diseno/`.
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
+- **Contacto sin cuenta + bienvenida** · 2026-10-09 · código hecho; **pendiente aplicar**
+  `supabase/migrations/20261009090100_leads_welcome.sql` en el SQL Editor y pasar
+  `node scripts/verify-leads.mjs`.
+  - `/pregunta` («Tu primera duda, gratis»): formulario sin cuenta (alumno/familia, módulo, duda,
+    nombre opcional, email o teléfono, consentimiento). Entradas: SOS del menú, portada (bloque SOS),
+    ficha de módulo, final del diagnóstico. Bit también la conoce.
+  - `/tutor247#llamada`: «Quiero que me llaméis» (teléfono + cuándo) bajo la tarjeta de contacto.
+  - Tabla `lead` (RLS: nadie desde el cliente; solo el admin con su sesión), insertada por una server
+    action con service role; antispam con campo trampa + 5 envíos/hora por IP. Admin: sección
+    «Contactos sin cuenta» (nuevos primero, enlace mailto/tel, marcar contactado/cerrar/reabrir) y
+    cifra «Contactos nuevos».
+  - Bienvenida: trigger en `student_profile` que inserta 3 créditos `bonus` (nota `bienvenida`,
+    caducan a 12 meses), uno por alumno (índice único). Avisado en el registro y en /precios.
+  - Respuesta a los contactos: manual por ahora (falta servicio de email).
 - **Fusión del diseño** (Checkpoint Academy) · fases 0–6 cerradas 2026-10-09; siguiente: despliegue en Vercel, legal y Stripe real
   (o fases 7–9, backend nuevo).
 

@@ -60,7 +60,7 @@ export function SiteHeader() {
             <LocaleSwitcher />
           </span>
           <Link
-            href="/panel/tickets"
+            href="/pregunta"
             aria-label={t("sosAria")}
             className={`${BTN} hidden border border-sos font-mono font-bold text-sos-text hover:bg-tint-sos md:inline-flex`}
           >
@@ -83,7 +83,7 @@ export function SiteHeader() {
               ...NAV_LINKS.map((l) => ({ href: l.href, label: t(l.key) })),
               { href: MENTOR_LINK.href, label: t(MENTOR_LINK.key) },
               { href: "/diagnostico", label: t("freeTest") },
-              { href: "/panel/tickets", label: t("sosAria") },
+              { href: "/pregunta", label: t("sosAria") },
             ]}
           >
             <LocaleSwitcher />

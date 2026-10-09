@@ -80,7 +80,7 @@ export default async function PreciosPage({ params }: PageProps<"/[locale]/preci
           </div>
           <div>
             <ul className="space-y-3 text-[15px]">
-              {(["free1", "free2", "free3"] as const).map((k) => (
+              {(["free1", "free2", "free3", "free4"] as const).map((k) => (
                 <li key={k} className="flex gap-2.5">
                   <Check aria-hidden className="mt-0.5 size-4 shrink-0 text-accent-pass" strokeWidth={3} />
                   {t(k)}

@@ -120,6 +120,12 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
                 >
                   {t("ctaPrepare")}
                 </a>
+                <Link
+                  href={`/pregunta?m=${modulo.code}`}
+                  className="inline-flex min-h-12 items-center rounded-xl px-3 font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  {t("ctaFreeQuestion")} →
+                </Link>
               </div>
               <p className="mt-3 text-sm text-label">{t("ctaNote")}</p>
 

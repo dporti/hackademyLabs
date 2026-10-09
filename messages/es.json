@@ -302,7 +302,8 @@
       "tag": "Ticket SOS",
       "text": "¿Examen mañana y no entiendes los JOIN? El primer mentor disponible de tu módulo te atenderá en una videollamada exprés.",
       "now": "Mientras tanto: Ticket Express, tu duda resuelta por escrito en menos de 2 h.",
-      "cta": "Enviar un Ticket Express"
+      "cta": "Enviar un Ticket Express",
+      "free": "Pregunta gratis, sin cuenta"
     },
     "founder": {
       "label": "Quién hay detrás",
@@ -364,7 +365,7 @@
     "tutor247": "Tutor247",
     "tariffs": "Planes",
     "sos": "SOS",
-    "sosAria": "SOS: pide ayuda urgente con una duda",
+    "sosAria": "SOS: pregunta gratis a un mentor",
     "freeTest": "Test gratis",
     "menu": "Menú",
     "mainNav": "Navegación principal",
@@ -432,7 +433,8 @@
     "temasTitle": "Qué vas a trabajar",
     "seePlans": "Ver planes y precios",
     "errorsTitle": "Los 5 errores que suspenden {code}",
-    "errorsText": "Los vemos cada año en el examen. Si los tienes claros, ya vas por delante."
+    "errorsText": "Los vemos cada año en el examen. Si los tienes claros, ya vas por delante.",
+    "ctaFreeQuestion": "Pregunta gratis"
   },
   "search": {
     "title": "Buscar módulo",
@@ -684,7 +686,8 @@
     "free3": "Plan semana a semana hasta la fecha de tu examen",
     "freeCta": "Haz el test gratis",
     "humanTitle": "Mentores cuando te hagan falta",
-    "humanText": "Una duda, una clase o un simulacro: pagas solo lo que usas, con créditos (1 crédito ≈ 1 €) que valen 12 meses y para cualquier mentor."
+    "humanText": "Una duda, una clase o un simulacro: pagas solo lo que usas, con créditos (1 crédito ≈ 1 €) que valen 12 meses y para cualquier mentor.",
+    "free4": "3 créditos de regalo al crear tu cuenta: tu primera duda a un mentor, gratis"
   },
   "mentorPanel": {
     "statusTitle": "Estado de tu perfil",
@@ -754,7 +757,8 @@
     "statPending": "Mentores pendientes",
     "statVerified": "Mentores verificados",
     "statRejected": "Rechazados",
-    "statReportable": "Alumnos con informe"
+    "statReportable": "Alumnos con informe",
+    "statLeads": "Contactos nuevos"
   },
   "family": {
     "report": {
@@ -993,7 +997,8 @@
     "inExam": "Entra en mi examen",
     "byTerm": "Atajos por evaluación (se pueden combinar)",
     "term": "{n}.ª evaluación",
-    "byTermNote": "Reparto orientativo: cada centro lo organiza a su manera. Ajusta tema a tema si en tu instituto es distinto."
+    "byTermNote": "Reparto orientativo: cada centro lo organiza a su manera. Ajusta tema a tema si en tu instituto es distinto.",
+    "ctaFreeQuestion": "Pregunta gratis a un mentor"
   },
   "products": {
     "diagnostico": {
@@ -1494,7 +1499,9 @@
       },
       "contactTitle": "¿Preferís hablarlo con una persona?",
       "contactText": "Contadnos qué estudia vuestro hijo y qué os preocupa. Os explicamos cómo le podemos ayudar, sin compromiso.",
-      "safetyTitle": "Seguridad y confianza"
+      "safetyTitle": "Seguridad y confianza",
+      "callbackTitle": "O dejadnos vuestro teléfono y os llamamos",
+      "callbackText": "Sin compromiso. Os contamos cómo funciona y si encaja con vuestro hijo."
     },
     "plans": {
       "label": "Planes",
@@ -1917,5 +1924,96 @@
       "refusal": "Sobre eso no puedo ayudarte. Si lo necesitas, habla con una persona del equipo.",
       "error": "Algo ha fallado. Inténtalo de nuevo."
     }
+  },
+  "lead": {
+    "quien": "Soy…",
+    "quienOpt": {
+      "alumno": "Alumno/a",
+      "familia": "Familia"
+    },
+    "modulo": "Módulo",
+    "moduloAny": "No lo sé / otro",
+    "message": "Tu duda",
+    "messagePh": "Cuéntanos qué no entiendes y qué has probado. Puedes pegar código.",
+    "messageCall": "¿Qué os preocupa? (opcional)",
+    "messageCallPh": "Ej.: está en 1.º de SMX y va mal en Redes; nos cuesta saber cómo va.",
+    "name": "Nombre (opcional)",
+    "contact": "Email o teléfono",
+    "contactPh": "tu@email.com o 6XX XXX XXX",
+    "phone": "Teléfono",
+    "phonePh": "6XX XXX XXX",
+    "when": "¿Cuándo os va mejor que llamemos? (opcional)",
+    "whenPh": "Ej.: tardes a partir de las 18:00",
+    "consent": "Acepto que Checkpoint Academy use estos datos solo para responderme.",
+    "minorNote": "Si tienes menos de 14 años, pide a tu familia que nos escriba.",
+    "sending": "Enviando…",
+    "submit": {
+      "pregunta": "Enviar mi duda gratis",
+      "llamada": "Quiero que me llaméis"
+    },
+    "ok": {
+      "pregunta": "¡Recibido! Un mentor revisará tu duda.",
+      "llamada": "¡Recibido! Os llamaremos pronto."
+    },
+    "okText": "Te contestaremos por el email o teléfono que nos has dejado. Si creas una cuenta, tienes 3 créditos de regalo para tu siguiente duda.",
+    "errors": {
+      "invalid": "Revisa el formulario: cuéntanos tu duda con algo más de detalle.",
+      "contact": "Escribe un email o un teléfono válido para poder responderte.",
+      "consent": "Necesitamos tu permiso para usar estos datos y responderte.",
+      "rateLimited": "Has enviado varios mensajes seguidos. Prueba dentro de un rato.",
+      "server": "No hemos podido enviarlo. Inténtalo de nuevo o escríbenos por WhatsApp."
+    }
+  },
+  "pregunta": {
+    "metaTitle": "Pregunta gratis a un mentor",
+    "metaDescription": "Tu primera duda de FP de informática, gratis y sin crear cuenta: un mentor del módulo te responde.",
+    "eyebrow": "Sin cuenta · sin pagar",
+    "title": "Tu primera duda, gratis",
+    "subtitle": "¿Algo de Java, SQL, redes o Linux que no te sale? Cuéntanoslo y un mentor del módulo te responde. Sin crear cuenta y sin tarjeta.",
+    "formTitle": "Pregunta gratis",
+    "s1": {
+      "t": "Nos cuentas tu duda",
+      "d": "Con el módulo y lo que has probado. Cuanto más concreta, mejor."
+    },
+    "s2": {
+      "t": "Te responde un mentor",
+      "d": "Por email o WhatsApp. Te explica cómo hacerlo; no hace la práctica por ti."
+    },
+    "s3": {
+      "t": "Si te sirve, sigues",
+      "d": "Crea tu cuenta y tienes 3 créditos de regalo para tu siguiente duda."
+    },
+    "hasAccount": "¿Ya tienes cuenta?",
+    "hasAccountLink": "Envía un ticket desde tu panel",
+    "orCall": "¿Prefieres hablar con una persona?"
+  },
+  "welcome": {
+    "badge": "3 créditos de regalo",
+    "text": "Al crear tu cuenta de alumno te regalamos 3 créditos: tu primera duda a un mentor, gratis."
+  },
+  "adminLeads": {
+    "title": "Contactos sin cuenta",
+    "help": "Dudas gratis y peticiones de llamada que llegan desde la web. Respóndelas por email o teléfono y márcalas.",
+    "empty": "No hay contactos todavía.",
+    "kind": {
+      "pregunta": "Pregunta gratis",
+      "llamada": "Quiere que le llamen"
+    },
+    "status": {
+      "nuevo": "Nuevo",
+      "contactado": "Contactado",
+      "cerrado": "Cerrado"
+    },
+    "quien": {
+      "alumno": "Alumno",
+      "familia": "Familia"
+    },
+    "when": "Cuándo llamar",
+    "mark": {
+      "contactado": "Marcar contactado",
+      "cerrado": "Cerrar",
+      "nuevo": "Reabrir"
+    },
+    "newCount": "{n, plural, =0 {Sin contactos nuevos} one {# contacto nuevo} other {# contactos nuevos}}"
   }
 }

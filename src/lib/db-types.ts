@@ -183,3 +183,23 @@ export interface ProductPrice {
   level: MentorLevel;
   credits: number;
 }
+
+// Contacto sin cuenta: "Pregunta gratis" o "Quiero que me llaméis" (tabla lead).
+export type LeadKind = "pregunta" | "llamada";
+export type LeadStatus = "nuevo" | "contactado" | "cerrado";
+export interface Lead {
+  id: string;
+  kind: LeadKind;
+  status: LeadStatus;
+  name: string | null;
+  contact: string;
+  quien: "alumno" | "familia" | null;
+  modulo_code: string | null;
+  message: string | null;
+  preferred_time: string | null;
+  consent: boolean;
+  locale: string;
+  admin_note: string | null;
+  created_at: string;
+  handled_at: string | null;
+}

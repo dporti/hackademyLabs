@@ -4,6 +4,7 @@ import { hasSession, localePath } from "@/lib/auth";
 import { Link } from "@/i18n/navigation";
 import { RegistroForm } from "@/components/auth/registro-form";
 import { AuthShell } from "@/components/auth/auth-shell";
+import { Gift } from "lucide-react";
 
 // Lee ?rol= para preseleccionar → ruta dinámica.
 export const instant = false;
@@ -28,6 +29,7 @@ export default async function RegistroPage({
   const sp = await searchParams;
   const rol = typeof sp.rol === "string" ? sp.rol : "alumno";
   const t = await getTranslations("auth");
+  const tw = await getTranslations("welcome");
 
   return (
     <AuthShell
@@ -42,6 +44,10 @@ export default async function RegistroPage({
         </>
       }
     >
+      <p className="mb-5 flex items-center gap-2 rounded-xl border border-tint-pass-border bg-tint-pass px-3 py-2.5 text-sm">
+        <Gift aria-hidden className="size-4 shrink-0 text-accent-pass" />
+        {tw("text")}
+      </p>
       <RegistroForm locale={locale} defaultRole={rol} />
     </AuthShell>
   );

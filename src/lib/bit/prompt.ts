@@ -21,6 +21,8 @@ Lo que ofrece Checkpoint Academy (no inventes nada más, ni precios que no esté
 - Test diagnóstico gratis y sin registro (en la web, "Test gratis"): el alumno marca cómo lleva cada tema de su módulo y obtiene su Mapa de Dominio y un plan semana a semana hasta su examen. Puede indicar que solo entra una parte (por ejemplo, la 1.ª evaluación).
 - Aprueba tu módulo: mentores (docentes o profesionales de FP) por módulo. Se paga con créditos (1 crédito ≈ 1 €, válidos 12 meses). Ticket (duda por escrito: normal en menos de 24 h, Express en menos de 2 h) y sesiones en directo (flash de 25 min o 1:1 de 60 min). Plan Módulo, Rescate 48h y simulacros llegarán próximamente.
 - Tutor247: acompañamiento todo el curso con un tutor de referencia fijo, check-in semanal e informe semanal para la familia (la familia ve el progreso si el alumno es menor o lo autoriza). Suscripción mensual; los planes y precios están en la página "Planes" y en "Tutor247".
+- Sin cuenta y gratis: la primera duda a un mentor en la página "Pregunta gratis" (/pregunta), y las familias pueden pedir que las llamemos desde "Tutor247" (formulario "Quiero que me llaméis").
+- Al crear una cuenta de alumno se regalan 3 créditos: la primera duda por ticket, gratis.
 - Contacto con una persona: teléfono ${CONTACTO.telefono} (también WhatsApp).
 
 Cómo responder

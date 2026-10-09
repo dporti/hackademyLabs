@@ -6,7 +6,8 @@ import { iniciales } from "@/components/brand/mentor-card";
 import type { MentorAdminRow } from "@/lib/mentor";
 import type { ReportableStudent } from "@/lib/report-admin";
 import { AdminReportForm } from "@/components/panel/admin-report-form";
-import type { MentorLevel, MentorStatus } from "@/lib/db-types";
+import type { Lead, MentorLevel, MentorStatus } from "@/lib/db-types";
+import { AdminLeads } from "@/components/panel/admin-leads";
 
 const LEVELS: MentorLevel[] = ["mentor", "pro", "experto"];
 
@@ -18,11 +19,13 @@ export async function AdminPanel({
   locale,
   mentores,
   reportStudents,
+  leads,
   defaultWeek,
 }: {
   locale: string;
   mentores: MentorAdminRow[];
   reportStudents: ReportableStudent[];
+  leads: Lead[];
   defaultWeek: string;
 }) {
   const tr = await getTranslations("adminReport");
@@ -38,7 +41,7 @@ export async function AdminPanel({
     { label: t("statPending"), value: cuenta("pendiente"), destacada: cuenta("pendiente") > 0 },
     { label: t("statVerified"), value: cuenta("verificado") },
     { label: t("statRejected"), value: cuenta("rechazado") },
-    { label: t("statReportable"), value: reportStudents.length },
+    { label: t("statLeads"), value: leads.filter((l) => l.status === "nuevo").length, destacada: leads.some((l) => l.status === "nuevo") },
   ];
 
   return (
@@ -56,6 +59,9 @@ export async function AdminPanel({
           </div>
         ))}
       </section>
+
+      {/* Contactos sin cuenta: lo más urgente (alguien espera respuesta). */}
+      <AdminLeads locale={locale} leads={leads} />
 
       {/* ─────────────────────── Verificación de mentores ─────────────────────── */}
       <section aria-labelledby="mentores">

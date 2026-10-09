@@ -539,12 +539,20 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
               <p className="mt-3 text-lg">{t("sos.text")}</p>
               <p className="mt-2 text-sm text-muted-foreground">{t("sos.now")}</p>
             </div>
-            <Link
-              href="/panel/tickets"
-              className="inline-flex min-h-12 items-center justify-center rounded-xl border border-sos px-5 font-mono font-bold text-sos-text transition-colors hover:bg-sos/10"
-            >
-              {t("sos.cta")}
-            </Link>
+            <div className="flex flex-col gap-2">
+              <Link
+                href="/pregunta"
+                className="inline-flex min-h-12 items-center justify-center rounded-xl bg-sos px-5 font-bold text-white transition-colors hover:bg-sos/85"
+              >
+                {t("sos.free")}
+              </Link>
+              <Link
+                href="/panel/tickets"
+                className="inline-flex min-h-11 items-center justify-center rounded-xl border border-sos px-5 font-mono text-sm font-bold text-sos-text transition-colors hover:bg-sos/10"
+              >
+                {t("sos.cta")}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

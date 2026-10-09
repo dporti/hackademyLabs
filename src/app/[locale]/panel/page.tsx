@@ -13,6 +13,7 @@ import {
 } from "@/lib/consumo";
 import { getReportableStudents } from "@/lib/report-admin";
 import { mondayOf } from "@/lib/report";
+import { getLeads } from "@/lib/leads";
 import { buscarModulos } from "@/lib/catalog";
 import { StudentPanel } from "@/components/panel/student-panel";
 import { MentorPanel } from "@/components/panel/mentor-panel";
@@ -86,15 +87,17 @@ export default async function PanelPage({
     if (!dashboard.family) return <OnboardingContent embedded locale={locale} role="familia" />;
     contenido = <FamilyPanel locale={locale} dashboard={dashboard} />;
   } else if (profile?.role === "admin") {
-    const [mentores, reportStudents] = await Promise.all([
+    const [mentores, reportStudents, leads] = await Promise.all([
       getMentoresAdmin(),
       getReportableStudents(),
+      getLeads(),
     ]);
     contenido = (
       <AdminPanel
         locale={locale}
         mentores={mentores}
         reportStudents={reportStudents}
+        leads={leads}
         defaultWeek={mondayOf(new Date().toISOString().slice(0, 10))}
       />
     );

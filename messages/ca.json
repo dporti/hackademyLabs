@@ -302,7 +302,8 @@
       "tag": "Ticket SOS",
       "text": "Examen demà i no entens els JOIN? El primer mentor disponible del teu mòdul t'atendrà en una videotrucada exprés.",
       "now": "Mentrestant: Ticket Express, el teu dubte resolt per escrit en menys de 2 h.",
-      "cta": "Enviar un Ticket Express"
+      "cta": "Enviar un Ticket Express",
+      "free": "Pregunta gratis, sense compte"
     },
     "founder": {
       "label": "Qui hi ha darrere",
@@ -364,7 +365,7 @@
     "tutor247": "Tutor247",
     "tariffs": "Plans",
     "sos": "SOS",
-    "sosAria": "SOS: demana ajuda urgent amb un dubte",
+    "sosAria": "SOS: pregunta gratis a un mentor",
     "freeTest": "Test gratis",
     "menu": "Menú",
     "mainNav": "Navegació principal",
@@ -432,7 +433,8 @@
     "temasTitle": "Què treballaràs",
     "seePlans": "Veure plans i preus",
     "errorsTitle": "Els 5 errors que fan suspendre {code}",
-    "errorsText": "Els veiem cada any a l'examen. Si els tens clars, ja vas per davant."
+    "errorsText": "Els veiem cada any a l'examen. Si els tens clars, ja vas per davant.",
+    "ctaFreeQuestion": "Pregunta gratis"
   },
   "search": {
     "title": "Cerca mòdul",
@@ -684,7 +686,8 @@
     "free3": "Pla setmana a setmana fins a la data del teu examen",
     "freeCta": "Fes el test gratis",
     "humanTitle": "Mentors quan els necessitis",
-    "humanText": "Un dubte, una classe o un simulacre: pagues només el que fas servir, amb crèdits (1 crèdit ≈ 1 €) que valen 12 mesos i per a qualsevol mentor."
+    "humanText": "Un dubte, una classe o un simulacre: pagues només el que fas servir, amb crèdits (1 crèdit ≈ 1 €) que valen 12 mesos i per a qualsevol mentor.",
+    "free4": "3 crèdits de regal en crear el teu compte: el teu primer dubte a un mentor, gratis"
   },
   "mentorPanel": {
     "statusTitle": "Estat del teu perfil",
@@ -754,7 +757,8 @@
     "statPending": "Mentors pendents",
     "statVerified": "Mentors verificats",
     "statRejected": "Rebutjats",
-    "statReportable": "Alumnes amb informe"
+    "statReportable": "Alumnes amb informe",
+    "statLeads": "Contactes nous"
   },
   "family": {
     "report": {
@@ -993,7 +997,8 @@
     "inExam": "Entra al meu examen",
     "byTerm": "Dreceres per avaluació (es poden combinar)",
     "term": "{n}a avaluació",
-    "byTermNote": "Repartiment orientatiu: cada centre l'organitza a la seva manera. Ajusta tema a tema si al teu institut és diferent."
+    "byTermNote": "Repartiment orientatiu: cada centre l'organitza a la seva manera. Ajusta tema a tema si al teu institut és diferent.",
+    "ctaFreeQuestion": "Pregunta gratis a un mentor"
   },
   "products": {
     "diagnostico": {
@@ -1494,7 +1499,9 @@
       },
       "contactTitle": "Preferiu parlar-ho amb una persona?",
       "contactText": "Expliqueu-nos què estudia el vostre fill i què us preocupa. Us expliquem com el podem ajudar, sense compromís.",
-      "safetyTitle": "Seguretat i confiança"
+      "safetyTitle": "Seguretat i confiança",
+      "callbackTitle": "O deixeu-nos el vostre telèfon i us truquem",
+      "callbackText": "Sense compromís. Us expliquem com funciona i si encaixa amb el vostre fill."
     },
     "plans": {
       "label": "Plans",
@@ -1917,5 +1924,96 @@
       "refusal": "D'això no et puc ajudar. Si ho necessites, parla amb una persona de l'equip.",
       "error": "Alguna cosa ha fallat. Torna-ho a provar."
     }
+  },
+  "lead": {
+    "quien": "Soc…",
+    "quienOpt": {
+      "alumno": "Alumne/a",
+      "familia": "Família"
+    },
+    "modulo": "Mòdul",
+    "moduloAny": "No ho sé / un altre",
+    "message": "El teu dubte",
+    "messagePh": "Explica'ns què no entens i què has provat. Pots enganxar codi.",
+    "messageCall": "Què us preocupa? (opcional)",
+    "messageCallPh": "Ex.: fa 1r d'SMX i va malament a Xarxes; ens costa saber com va.",
+    "name": "Nom (opcional)",
+    "contact": "Email o telèfon",
+    "contactPh": "tu@email.com o 6XX XXX XXX",
+    "phone": "Telèfon",
+    "phonePh": "6XX XXX XXX",
+    "when": "Quan us va millor que truquem? (opcional)",
+    "whenPh": "Ex.: tardes a partir de les 18:00",
+    "consent": "Accepto que Checkpoint Academy faci servir aquestes dades només per respondre'm.",
+    "minorNote": "Si tens menys de 14 anys, demana a la teva família que ens escrigui.",
+    "sending": "Enviant…",
+    "submit": {
+      "pregunta": "Enviar el meu dubte gratis",
+      "llamada": "Vull que em truqueu"
+    },
+    "ok": {
+      "pregunta": "Rebut! Un mentor revisarà el teu dubte.",
+      "llamada": "Rebut! Us trucarem aviat."
+    },
+    "okText": "Et respondrem per l'email o el telèfon que ens has deixat. Si crees un compte, tens 3 crèdits de regal per al teu proper dubte.",
+    "errors": {
+      "invalid": "Revisa el formulari: explica'ns el teu dubte amb una mica més de detall.",
+      "contact": "Escriu un email o un telèfon vàlid per poder respondre't.",
+      "consent": "Necessitem el teu permís per fer servir aquestes dades i respondre't.",
+      "rateLimited": "Has enviat diversos missatges seguits. Prova-ho d'aquí a una estona.",
+      "server": "No l'hem pogut enviar. Torna-ho a provar o escriu-nos per WhatsApp."
+    }
+  },
+  "pregunta": {
+    "metaTitle": "Pregunta gratis a un mentor",
+    "metaDescription": "El teu primer dubte d'FP d'informàtica, gratis i sense crear compte: un mentor del mòdul et respon.",
+    "eyebrow": "Sense compte · sense pagar",
+    "title": "El teu primer dubte, gratis",
+    "subtitle": "Alguna cosa de Java, SQL, xarxes o Linux que no et surt? Explica-ho i un mentor del mòdul et respon. Sense crear compte i sense targeta.",
+    "formTitle": "Pregunta gratis",
+    "s1": {
+      "t": "Ens expliques el teu dubte",
+      "d": "Amb el mòdul i el que has provat. Com més concret, millor."
+    },
+    "s2": {
+      "t": "Et respon un mentor",
+      "d": "Per email o WhatsApp. T'explica com fer-ho; no fa la pràctica per tu."
+    },
+    "s3": {
+      "t": "Si et serveix, continues",
+      "d": "Crea el teu compte i tens 3 crèdits de regal per al teu proper dubte."
+    },
+    "hasAccount": "Ja tens compte?",
+    "hasAccountLink": "Envia un tiquet des del teu panell",
+    "orCall": "Prefereixes parlar amb una persona?"
+  },
+  "welcome": {
+    "badge": "3 crèdits de regal",
+    "text": "En crear el teu compte d'alumne et regalem 3 crèdits: el teu primer dubte a un mentor, gratis."
+  },
+  "adminLeads": {
+    "title": "Contactes sense compte",
+    "help": "Dubtes gratis i peticions de trucada que arriben des del web. Respon-les per email o telèfon i marca-les.",
+    "empty": "Encara no hi ha contactes.",
+    "kind": {
+      "pregunta": "Pregunta gratis",
+      "llamada": "Vol que el truquin"
+    },
+    "status": {
+      "nuevo": "Nou",
+      "contactado": "Contactat",
+      "cerrado": "Tancat"
+    },
+    "quien": {
+      "alumno": "Alumne",
+      "familia": "Família"
+    },
+    "when": "Quan trucar",
+    "mark": {
+      "contactado": "Marcar contactat",
+      "cerrado": "Tancar",
+      "nuevo": "Reobrir"
+    },
+    "newCount": "{n, plural, =0 {Sense contactes nous} one {# contacte nou} other {# contactes nous}}"
   }
 }
