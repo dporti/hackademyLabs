@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { RaBadge } from "@/components/brand/ra-badge";
+import { SectionLabel } from "@/components/brand/section-label";
 
 // Política de cancelación y devoluciones (estática). Describe EXACTAMENTE lo que
 // aplican las RPC de supabase/migrations/20261008090100_tickets_bookings.sql y
@@ -25,10 +26,10 @@ export default async function CancelacionPage({ params }: PageProps<"/[locale]/c
 
   return (
     <main className="flex-1">
-      <section className="hud-grid border-b border-border/60">
-        <div className="mx-auto max-w-4xl px-4 py-14">
-          <p className="font-mono text-xs text-primary">{t("eyebrow")}</p>
-          <h1 className="mt-2 font-display text-4xl font-bold tracking-tight">{t("title")}</h1>
+      <section className="hud-grid border-b border-divider">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 py-14">
+          <SectionLabel>{t("eyebrow")}</SectionLabel>
+          <h1 className="mt-4 font-heading text-[40px] leading-[1.05] font-bold tracking-tight sm:text-[54px]">{t("title")}</h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">{t("subtitle")}</p>
           <p className="mt-4 font-mono text-xs text-muted-foreground">{t("updated")}</p>
         </div>
@@ -37,11 +38,11 @@ export default async function CancelacionPage({ params }: PageProps<"/[locale]/c
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-14">
         {BLOQUES.map((b) => (
           <section key={b.id} aria-labelledby={b.id}>
-            <h2 id={b.id} className="font-display text-2xl font-bold tracking-tight">
+            <h2 id={b.id} className="font-heading text-[28px] leading-tight font-bold tracking-tight sm:text-[34px]">
               {t(`${b.id}.title`)}
             </h2>
             <p className="mt-2 text-muted-foreground">{t(`${b.id}.intro`)}</p>
-            <ul className="mt-6 divide-y rounded-xl border bg-card">
+            <ul className="mt-6 divide-y divide-divider rounded-2xl border bg-card">
               {b.casos.map(([id, refund]) => (
                 <li key={id} className="flex flex-col gap-2 p-5 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                   <div>
@@ -61,7 +62,7 @@ export default async function CancelacionPage({ params }: PageProps<"/[locale]/c
         ))}
 
         <section aria-labelledby="creditos">
-          <h2 id="creditos" className="font-display text-2xl font-bold tracking-tight">
+          <h2 id="creditos" className="font-heading text-[28px] leading-tight font-bold tracking-tight sm:text-[34px]">
             {t("credits.title")}
           </h2>
           <ul className="mt-6 space-y-4">
@@ -74,7 +75,7 @@ export default async function CancelacionPage({ params }: PageProps<"/[locale]/c
           </ul>
         </section>
 
-        <section className="rounded-xl border border-dashed p-5 text-sm text-muted-foreground">
+        <section className="rounded-2xl border border-dashed p-6 text-sm text-muted-foreground">
           <p>{t("note")}</p>
           <p className="mt-3">
             <Link href="/precios" className="text-primary underline-offset-4 hover:underline">
