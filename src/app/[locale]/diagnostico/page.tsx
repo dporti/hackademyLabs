@@ -74,6 +74,7 @@ async function Herramienta({
       inicial={{
         modulo: str(sp.m) ?? str(sp.modulo),
         estados: (str(sp.e) ?? "").slice(0, 20),
+        parte: (str(sp.p) ?? "").replace(/[^01]/g, "").slice(0, 20),
         examen: examen && /^\d{4}-\d{2}-\d{2}$/.test(examen) ? examen : null,
         horas: Number.isFinite(horas) ? horas : null,
       }}

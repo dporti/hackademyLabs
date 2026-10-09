@@ -962,8 +962,8 @@
     },
     "week": "Setmana {n}",
     "from": "des del {date}",
-    "study": "estudiar",
-    "review": "repassar",
+    "study": "Estudiar",
+    "review": "Repassar",
     "mockExam": "Simulacre d'examen",
     "buffer": "Marge per repassar",
     "recTitle": "El que et recomanem",
@@ -985,7 +985,12 @@
     "progress": "{n} de {total} respostos",
     "mapDrawing": "El teu mapa s'està dibuixant",
     "resultLabel": "Resultat",
-    "eyebrow": "Test diagnòstic gratis"
+    "eyebrow": "Test diagnòstic gratis",
+    "scopeTitle": "Què entra al teu examen?",
+    "scopeAll": "Tot el mòdul",
+    "scopePart": "Només alguns temes (p. ex. un parcial)",
+    "scopePartHelp": "Desmarca el que no entra: el pla i les hores es calculen només amb el que t'examinen.",
+    "inExam": "Entra al meu examen"
   },
   "products": {
     "diagnostico": {
@@ -1792,5 +1797,70 @@
     "historyEmpty": "Encara no tens moviments.",
     "lastMoves": "Últims moviments",
     "seeAll": "Veure'ls tots"
+  },
+  "subtemasRa": {
+    "0485": {
+      "RA1": "Variables y tipos primitivos · Operadores · Conversiones (casting) · Entrada por teclado (Scanner)",
+      "RA2": "Estructura de un programa · Compilar y ejecutar · Primeros ejercicios",
+      "RA3": "if / else y switch · Bucles for, while y do-while · Depurar con breakpoints",
+      "RA4": "Métodos con parámetros y return · Ámbito de variables · Recursividad",
+      "RA5": "Arrays y matrices · String y StringBuilder · ArrayList y HashMap",
+      "RA6": "Clases y objetos · Constructores y encapsulación · Herencia e interfaces · Polimorfismo",
+      "RA7": "Leer y escribir ficheros · try / catch / finally · try-with-resources · Excepciones propias"
+    },
+    "0484": {
+      "RA1": "Tipos de bases de datos · Qué hace un SGBD · Instalar MySQL",
+      "RA2": "Diagrama entidad-relación · Paso a tablas · Formas normales (1FN, 2FN, 3FN)",
+      "RA3": "CREATE TABLE · Claves primarias y ajenas · Restricciones (NOT NULL, CHECK) · ALTER",
+      "RA4": "SELECT con WHERE y ORDER BY · INNER y LEFT JOIN · GROUP BY y HAVING · Subconsultas",
+      "RA5": "INSERT · UPDATE · DELETE · Transacciones (COMMIT y ROLLBACK)",
+      "RA6": "Usuarios y GRANT · Vistas · Copias de seguridad (mysqldump)",
+      "RA7": "Procedimientos almacenados · Funciones · Triggers · Cursores"
+    },
+    "0373": {
+      "RA1": "Etiquetas y atributos · Documento bien formado · HTML frente a XML",
+      "RA2": "Estructura HTML5 · Formularios · CSS básico",
+      "RA3": "RSS y Atom · Sindicación de contenidos",
+      "RA4": "DTD · XML Schema (XSD) · Validar un documento",
+      "RA5": "XSLT · Plantillas y for-each · Pasar de XML a HTML",
+      "RA6": "XPath · XQuery · Bases de datos XML",
+      "RA7": "Qué es un ERP · Importar y exportar datos"
+    },
+    "0613": {
+      "RA1": "Cliente-servidor · Servidor web (Apache) · Instalar PHP",
+      "RA2": "Sintaxis PHP · Variables y tipos · PHP dentro de HTML",
+      "RA3": "Condicionales y bucles · Arrays · Funciones",
+      "RA4": "Formularios (GET y POST) · Validar datos · Sesiones y cookies",
+      "RA5": "Patrón MVC · Separar vista y lógica · Plantillas",
+      "RA6": "PDO y MySQL · Consultas preparadas · Evitar inyección SQL",
+      "RA7": "APIs REST · JSON · Consumir y crear servicios",
+      "RA8": "Páginas dinámicas · AJAX desde el servidor",
+      "RA9": "Laravel: rutas, controladores y Eloquent"
+    },
+    "0486": {
+      "RA1": "Ficheros de texto y binarios · Serialización · Ficheros XML y JSON",
+      "RA2": "JDBC · Conexión · Statement y PreparedStatement · Transacciones",
+      "RA3": "Hibernate · Mapeo de entidades · Relaciones · HQL",
+      "RA4": "Bases de datos objeto-relacionales · Tipos y colecciones",
+      "RA5": "MongoDB · Documentos y colecciones · Consultas CRUD",
+      "RA6": "Patrón DAO · Componentes de acceso a datos"
+    },
+    "0370": {
+      "RA1": "Modelo OSI y TCP/IP · Direcciones IPv4 · Máscaras · Subnetting",
+      "RA2": "Cableado · Wifi · Configurar equipos en red",
+      "RA3": "Configurar un switch · STP · Seguridad de puertos",
+      "RA4": "Configurar un router · Rutas estáticas · Packet Tracer",
+      "RA5": "VLAN · Enlaces troncales · Enrutamiento entre VLAN",
+      "RA6": "OSPF · RIP · Tablas de rutas",
+      "RA7": "NAT · PAT · Salida a Internet · VPN básica"
+    },
+    "0225": {
+      "RA1": "Topologías · Componentes de una red · Modelo OSI",
+      "RA2": "Cableado estructurado · Armarios y paneles",
+      "RA3": "Crimpar RJ45 (T568A y T568B) · Comprobar cables",
+      "RA4": "Direcciones IP y máscaras · Puerta de enlace · Switches y wifi",
+      "RA5": "Ping y tracert · Detectar averías · Mantenimiento",
+      "RA6": "Riesgos laborales · Reciclaje de residuos"
+    }
   }
 }

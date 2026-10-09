@@ -33,6 +33,8 @@ const PROXIMAMENTE = new Set<ProductKind>(["rescate_48h", "plan_modulo", "simula
 export interface DiagnosticoInicial {
   modulo: string | null;
   estados: string; // "vva-r…"
+  // Solo una parte del temario entra en el examen: "1" entra / "0" no, por RA. "" = todo.
+  parte: string;
   examen: string | null;
   horas: number | null;
 }
@@ -62,6 +64,8 @@ export function Diagnostico({
   const td = useTranslations("dominio");
   const tr = useTranslations("temasRa");
   const tema = (ra: string) => (code ? temaRa(tr, code, ra) : null);
+  const ts = useTranslations("subtemasRa");
+  const subtemas = (ra: string) => (code ? temaRa(ts, code, ra) : null);
   const tp = useTranslations("products");
   const locale = useLocale();
 
@@ -78,6 +82,23 @@ export function Diagnostico({
         .filter(([, v]) => v),
     );
   });
+  // ¿Entra todo el módulo o solo algunos temas (p. ej. un primer parcial)?
+  const [soloParte, setSoloParte] = useState(
+    () => !!modulos.find((x) => x.code === inicial.modulo) && inicial.parte.includes("0"),
+  );
+  const [fuera, setFuera] = useState<Set<string>>(() => {
+    const m = modulos.find((x) => x.code === inicial.modulo);
+    if (!m || !inicial.parte.includes("0")) return new Set();
+    return new Set(m.ra.filter((_, i) => inicial.parte[i] === "0").map((r) => r.code));
+  });
+  const entra = (ra: string) => !soloParte || !fuera.has(ra);
+  const alternar = (ra: string) =>
+    setFuera((prev) => {
+      const n = new Set(prev);
+      if (n.has(ra)) n.delete(ra);
+      else n.add(ra);
+      return n;
+    });
   const [examen, setExamen] = useState(
     inicial.examen && inicial.examen > hoy ? inicial.examen : sumarDias(hoy, 30),
   );
@@ -86,24 +107,27 @@ export function Diagnostico({
   );
   const [copiado, setCopiado] = useState(false);
 
-  const respondidos = modulo ? modulo.ra.filter((r) => estados[r.code]).length : 0;
-  const completo = !!modulo && respondidos === modulo.ra.length;
+  // Solo cuentan los temas que entran en el examen.
+  const rasExamen = modulo ? modulo.ra.filter((r) => entra(r.code)) : [];
+  const respondidos = rasExamen.filter((r) => estados[r.code]).length;
+  const completo = !!modulo && rasExamen.length > 0 && respondidos === rasExamen.length;
 
   // Estado → URL (compartible, sin recargar).
   useEffect(() => {
     const p = new URLSearchParams();
     if (code) p.set("m", code);
     if (modulo) p.set("e", modulo.ra.map((r) => (estados[r.code] ? ENC[estados[r.code]] : "-")).join(""));
+    if (modulo && soloParte) p.set("p", modulo.ra.map((r) => (fuera.has(r.code) ? "0" : "1")).join(""));
     if (completo) {
       p.set("x", examen);
       p.set("h", String(horas));
     }
     const qs = p.toString();
     window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
-  }, [code, modulo, estados, completo, examen, horas]);
+  }, [code, modulo, estados, completo, examen, horas, soloParte, fuera]);
 
   const mapa: RaProgress[] = modulo
-    ? modulo.ra.map((r) => ({
+    ? rasExamen.map((r) => ({
         code: r.code,
         label: tema(r.code) ?? "",
         status: estados[r.code] ? A_ESTADO[estados[r.code]] : "ambar",
@@ -117,7 +141,7 @@ export function Diagnostico({
   const plan: PlanInverso | null =
     completo && modulo
       ? calcularPlan({
-          ras: modulo.ra,
+          ras: rasExamen,
           estados: Object.fromEntries(Object.entries(estados).map(([k, v]) => [k, A_ESTADO[v]])),
           hoy,
           examen,
@@ -160,6 +184,8 @@ export function Diagnostico({
               onClick={() => {
                 setCode(m.code);
                 setEstados({});
+                setSoloParte(false);
+                setFuera(new Set());
               }}
               className="card-interactive flex min-h-28 flex-col items-start rounded-2xl border bg-card p-5 text-left focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
             >
@@ -185,7 +211,7 @@ export function Diagnostico({
       <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1.15fr_1fr]">
         <section aria-labelledby="paso-ra">
           <p className="font-mono text-xs font-semibold tracking-[0.2em] text-primary uppercase">
-            {t("progress", { n: respondidos, total: modulo.ra.length })} · {modulo.code} {modulo.name}
+            {t("progress", { n: respondidos, total: rasExamen.length })} · {modulo.code} {modulo.name}
           </p>
           <div className="mt-3 flex flex-wrap items-baseline justify-between gap-3">
             <h2 id="paso-ra" className="font-heading text-3xl font-bold">
@@ -201,13 +227,52 @@ export function Diagnostico({
           </div>
           <p className="mt-2 text-muted-foreground">{t("raHelp")}</p>
 
-          <ol className="mt-6 space-y-3">
+          <fieldset className="mt-6 rounded-2xl border bg-card p-5">
+            <legend className="sr-only">{t("scopeTitle")}</legend>
+            <p className="font-heading text-lg font-semibold">{t("scopeTitle")}</p>
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              {([false, true] as const).map((parte) => (
+                <label
+                  key={String(parte)}
+                  className={cn(
+                    "flex min-h-11 cursor-pointer items-center gap-3 rounded-[10px] border px-3 text-sm transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring",
+                    soloParte === parte ? "border-primary bg-tint-primary text-foreground" : "border-border text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  <input
+                    type="radio"
+                    name="alcance"
+                    checked={soloParte === parte}
+                    onChange={() => setSoloParte(parte)}
+                    className="accent-[var(--primary)]"
+                  />
+                  {parte ? t("scopePart") : t("scopeAll")}
+                </label>
+              ))}
+            </div>
+            {soloParte && <p className="mt-3 text-sm text-muted-foreground">{t("scopePartHelp")}</p>}
+          </fieldset>
+
+          <ol className="mt-4 space-y-3">
             {modulo.ra.map((r) => (
-              <li key={r.code} className="rounded-2xl border bg-card p-5">
+              <li key={r.code} className={cn("rounded-2xl border bg-card p-5", !entra(r.code) && "opacity-60")}>
                 <p className="flex items-baseline justify-between gap-3">
                   <span className="font-heading text-lg font-semibold">{tema(r.code) ?? r.description}</span>
                   <span className="shrink-0 font-mono text-xs text-label">{r.code}</span>
                 </p>
+                {subtemas(r.code) && <p className="mt-1 text-sm text-muted-foreground">{subtemas(r.code)}</p>}
+                {soloParte && (
+                  <label className="mt-3 flex min-h-10 w-fit cursor-pointer items-center gap-2 text-sm">
+                    <input
+                      type="checkbox"
+                      checked={entra(r.code)}
+                      onChange={() => alternar(r.code)}
+                      className="size-4 accent-[var(--primary)]"
+                    />
+                    {t("inExam")}
+                  </label>
+                )}
+                {entra(r.code) && (
                 <div
                   role="radiogroup"
                   aria-label={t("raAria", { code: r.code })}
@@ -243,6 +308,7 @@ export function Diagnostico({
                     );
                   })}
                 </div>
+                )}
               </li>
             ))}
           </ol>
@@ -255,7 +321,7 @@ export function Diagnostico({
           </p>
           <MapaDominio code={modulo.code} name={modulo.name} ras={mapa} nota={false} />
           <p className="mt-3 text-xs text-muted-foreground">
-            {completo ? t("orientative") : t("mapProgress", { n: respondidos, total: modulo.ra.length })}
+            {completo ? t("orientative") : t("mapProgress", { n: respondidos, total: rasExamen.length })}
           </p>
         </aside>
       </div>
@@ -320,12 +386,19 @@ export function Diagnostico({
                 </p>
                 <ul className="mt-3 space-y-1.5 text-sm">
                   {s.items.map((it) => (
-                    <li key={it.code + it.repaso} className="flex justify-between gap-2">
-                      <span>
-                        <span className="font-mono text-primary">{it.code}</span>{" "}
-                        {it.repaso ? t("review") : t("study")}
-                      </span>
-                      <span className="font-mono text-xs text-label">{it.horas} h</span>
+                    <li key={it.code + it.repaso} className="border-b border-divider pb-2 last:border-0 last:pb-0">
+                      <p className="flex justify-between gap-2">
+                        <span>
+                          <span className={it.repaso ? "text-label" : "text-primary"}>
+                            {it.repaso ? t("review") : t("study")}:
+                          </span>{" "}
+                          <span className="font-medium">{tema(it.code) ?? it.code}</span>
+                        </span>
+                        <span className="shrink-0 font-mono text-xs text-label">{it.horas} h</span>
+                      </p>
+                      {!it.repaso && subtemas(it.code) && (
+                        <p className="mt-0.5 text-xs text-muted-foreground">{subtemas(it.code)}</p>
+                      )}
                     </li>
                   ))}
                   {s.simulacro && <li className="font-medium text-warning">{t("mockExam")}</li>}

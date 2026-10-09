@@ -225,6 +225,14 @@ referencia en `docs/diseno/`.
     vinculada a `test.alumno` con consentimiento + informe de la semana), `test.visual.admin` (rol
     admin), una sesión flash confirmada con Laura y un ticket de 0485 asignado a Laura (pagados con
     créditos de `test.alumno`). `apply_all.sql` los limpia al reaplicar.
+- **Diagnóstico: examen parcial y plan concreto** · 2026-10-09
+  - Paso «¿Qué entra en tu examen?»: todo el módulo o solo algunos temas (p. ej. un primer parcial),
+    con una casilla por tema. Mapa, horas, veredicto, semanas y recomendación se calculan solo con lo
+    que entra. Se guarda en la URL (`?p=1111000`, un 1/0 por tema; sin `p` = todo).
+  - Plan inverso con el nombre del tema y sus subtemas (i18n `subtemasRa`, p. ej. «SELECT con WHERE y
+    ORDER BY · INNER y LEFT JOIN · GROUP BY y HAVING · Subconsultas») en vez de «RA4 estudiar»; los
+    subtemas también salen en cada tema del test. Cubre los 7 módulos con test.
+  - Verificado: lint + build; captura de 0484 con 4 temas en el examen (13 h en 4 semanas).
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
@@ -359,7 +367,8 @@ referencia en `docs/diseno/`.
   renombrar en BD (`plan.name`) y revisar features (hoy en español y con «Acompaña»).
 - «Agendar llamada gratis» del mockup: no hay agenda; hoy los CTA de /tutor247 van a `/registro?rol=familia`.
 - Foto del fundador para `FounderBlock` (hoy iniciales).
-- Revisar los textos de «5 errores que suspenden» y los temas por módulo (`errores`, `temas`, `temasRa`).
+- Revisar los textos de «5 errores que suspenden», temas y subtemas por módulo (`errores`, `temas`,
+  `temasRa`, `subtemasRa`).
 - Descripción corta y dificultad por módulo (las tarjetas del mockup las muestran; hoy no hay datos).
 - Precio real del crédito y % de reparto con mentores (60–70 %).
 - Confirmar precios de packs/planes y condiciones de la garantía "Seguimos contigo".
