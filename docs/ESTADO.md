@@ -304,6 +304,15 @@ referencia en `docs/diseno/`.
      (`/panel/bit`, API de Claude + RAG por módulo), referidos. Planificar aparte.
    - [ ] **Fase 9 — Backend nuevo III**: aula integrada (sustituye a Jitsi) y móvil
      (PWA / WhatsApp). Planificar aparte.
+   **Próximos objetivos acordados (2026-10-09)**, en este orden: desplegar en Vercel → páginas legales
+   (privacidad, cookies, aviso legal, condiciones) → Stripe real → **aula integrada**:
+   - Fase A: videollamada dentro de la web (`/panel/aula/[sesión]`), solo alumno y mentor de la reserva y
+     cerca de la hora; sustituye a Jitsi (enlace público) y puede marcar la sesión como hecha.
+     Proveedor recomendado: Daily.co (alternativa Whereby Embedded). Necesita cuenta + clave en .env.local.
+   - Fase B: editor de código compartido (tiempo real) + pizarra + subir ficheros (Supabase/Yjs o Liveblocks).
+   - Fase C: Modo Examen (sin pegar), resumen de la sesión con Bit; grabación solo con consentimiento
+     (menores) o no hacerla.
+   - Decisiones de David: 1:1 o también grupos (≤ 5), grabación sí/no, si el mentor abre la sala antes.
    Después: productos empaquetados (simulacro, Rescate 48h, Plan Módulo, reparto por tareas)
    → Stripe real → deploy en Vercel → legal (aviso legal, RGPD, cookies, términos).
 1. **Crear tu usuario admin real**: regístrate en `/registro` y ejecuta
