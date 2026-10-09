@@ -1,7 +1,9 @@
 import { Suspense } from "react";
 import { connection } from "next/server";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Check } from "lucide-react";
 import { getModulosDiagnosticables } from "@/lib/catalog";
+import { SectionLabel } from "@/components/brand/section-label";
 import { Diagnostico } from "@/components/diagnostico/diagnostico";
 import { PageSkeleton } from "@/components/page-skeleton";
 
@@ -24,23 +26,24 @@ export default async function DiagnosticoPage({
 
   return (
     <main className="flex-1">
-      <section className="hud-grid border-b border-border/60">
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <h1 className="max-w-3xl font-display text-4xl leading-tight font-bold tracking-tight sm:text-5xl">
+      <section className="hud-grid border-b border-divider">
+        <div className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6">
+          <SectionLabel>{t("eyebrow")}</SectionLabel>
+          <h1 className="mt-4 max-w-4xl font-heading text-[40px] leading-[1.05] font-bold tracking-tight sm:text-[54px]">
             {t("title")}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">{t("subtitle")}</p>
-          <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
             {(["b1", "b2", "b3"] as const).map((b) => (
               <li key={b} className="flex items-center gap-2">
-                <span aria-hidden className="size-1.5 rounded-full bg-primary" />
+                <Check aria-hidden className="size-4 text-accent-pass" strokeWidth={3} />
                 {t(`badges.${b}`)}
               </li>
             ))}
           </ul>
         </div>
       </section>
-      <div className="mx-auto max-w-6xl px-4 py-10">
+      <div className="mx-auto max-w-[1200px] px-4 py-12 sm:px-6">
         <Suspense fallback={<PageSkeleton />}>
           <Herramienta searchParams={searchParams} />
         </Suspense>

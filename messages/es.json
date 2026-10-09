@@ -911,13 +911,8 @@
     "notListedLink": "busca su ficha y sus mentores.",
     "raTitle": "¿Cómo llevas {code}?",
     "changeModule": "Cambiar de módulo",
-    "raHelp": "Sé sincero: nadie lo ve más que tú. Son los resultados de aprendizaje con los que te evalúan.",
+    "raHelp": "Sé sincero: nadie lo ve más que tú. Son los resultados de aprendizaje con los que te evalúan. Sin nota, sin juicio: solo para saber por dónde empezar.",
     "raAria": "Cómo llevas el {code}",
-    "answer": {
-      "verde": "Lo domino",
-      "ambar": "A medias",
-      "rojo": "Ni idea"
-    },
     "mapProgress": "{n} de {total} respondidos",
     "mapDone": "Este es tu Mapa de Dominio.",
     "orientative": "Orientativo: es tu autoevaluación, no una nota oficial.",
@@ -960,7 +955,11 @@
     "ctaShare": "Copiar enlace",
     "copied": "Enlace copiado",
     "saveHint": "¿Quieres guardarlo y que Bit te recuerde cada semana qué toca?",
-    "saveLink": "Crea tu cuenta gratis"
+    "saveLink": "Crea tu cuenta gratis",
+    "progress": "{n} de {total} respondidos",
+    "mapDrawing": "Tu mapa se está dibujando",
+    "resultLabel": "Resultado",
+    "eyebrow": "Test diagnóstico gratis"
   },
   "products": {
     "diagnostico": {
@@ -1339,7 +1338,8 @@
       "rojo": "Problema"
     },
     "mapaAria": "Mapa de Dominio de {code} {name}",
-    "nota": "Orientativo: no es una nota oficial."
+    "nota": "Orientativo: no es una nota oficial.",
+    "pendiente": "Pendiente"
   },
   "tutor247": {
     "metaTitle": "Tutor247: un tutor que no te suelta en tu FP de informática",

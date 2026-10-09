@@ -911,13 +911,8 @@
     "notListedLink": "busca la seva fitxa i els seus mentors.",
     "raTitle": "Com portes {code}?",
     "changeModule": "Canviar de mòdul",
-    "raHelp": "Sigues sincer: ningú ho veu més que tu. Són els resultats d'aprenentatge amb què t'avaluen.",
+    "raHelp": "Sigues sincer: ningú ho veu més que tu. Són els resultats d'aprenentatge amb què t'avaluen. Sense nota, sense judici: només per saber per on començar.",
     "raAria": "Com portes el {code}",
-    "answer": {
-      "verde": "Ho domino",
-      "ambar": "A mitges",
-      "rojo": "Ni idea"
-    },
     "mapProgress": "{n} de {total} respostos",
     "mapDone": "Aquest és el teu Mapa de Domini.",
     "orientative": "Orientatiu: és la teva autoavaluació, no una nota oficial.",
@@ -960,7 +955,11 @@
     "ctaShare": "Copiar enllaç",
     "copied": "Enllaç copiat",
     "saveHint": "Vols desar-lo i que en Bit et recordi cada setmana què toca?",
-    "saveLink": "Crea el teu compte gratis"
+    "saveLink": "Crea el teu compte gratis",
+    "progress": "{n} de {total} respostos",
+    "mapDrawing": "El teu mapa s'està dibuixant",
+    "resultLabel": "Resultat",
+    "eyebrow": "Test diagnòstic gratis"
   },
   "products": {
     "diagnostico": {
@@ -1339,7 +1338,8 @@
       "rojo": "Problema"
     },
     "mapaAria": "Mapa de Domini de {code} {name}",
-    "nota": "Orientatiu: no és una nota oficial."
+    "nota": "Orientatiu: no és una nota oficial.",
+    "pendiente": "Pendent"
   },
   "tutor247": {
     "metaTitle": "Tutor247: un tutor que no et deixa sol a la teva FP d'informàtica",

@@ -9,6 +9,8 @@ export interface RaProgress {
   progress: number; // 0–100
   // Nivel explícito; si falta se deduce de status + progress.
   nivel?: NivelDominio;
+  // Aún sin evaluar (p. ej. en el diagnóstico antes de responder).
+  pendiente?: boolean;
 }
 
 // Panel HUD con el Mapa de Dominio de un módulo: cada RA con su barra de progreso y
@@ -27,7 +29,7 @@ export function MapaDominio({
 }) {
   const t = useTranslations("dominio");
   const niveles = ras.map((r) => r.nivel ?? nivelDesdeEstado(r.status, r.progress));
-  const dominados = niveles.filter((n) => n === "domino").length;
+  const dominados = niveles.filter((n, i) => n === "domino" && !ras[i].pendiente).length;
 
   return (
     <section
@@ -47,8 +49,10 @@ export function MapaDominio({
       <ul className="mt-3 space-y-2.5">
         {ras.map((ra, i) => {
           const nivel = niveles[i];
-          const { color, glyph } = NIVEL_META[nivel];
-          const texto = t(`nivel.${nivel}`);
+          const { color, glyph } = ra.pendiente
+            ? { color: "var(--label)", glyph: "·" }
+            : NIVEL_META[nivel];
+          const texto = ra.pendiente ? t("pendiente") : t(`nivel.${nivel}`);
           return (
             <li key={ra.code} className="flex items-center gap-3">
               <span className="w-10 shrink-0 font-mono text-xs text-muted-foreground">
