@@ -1,7 +1,7 @@
 # Estado del proyecto — Tutor247
 
 > Documento vivo. Se actualiza al cerrar cada tarea o fase.
-> Última actualización: 2026-10-08.
+> Última actualización: 2026-10-09.
 
 ## 1. Resumen
 Tutor247 es una plataforma web de FP de informática (SMX, ASIR/ASIX, DAM, DAW) que
@@ -11,6 +11,8 @@ hasta el examen. Monetiza con créditos (ledger inmutable) y suscripciones (IA "
 acompañamiento a familias).
 **Fase actual del roadmap: Fase 2 (consumo).** Fase 1 (MVP base) cerrada: F1.1–F1.5,
 identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reservas).
+**En marcha: "Fusión del diseño"** → marca Checkpoint Academy (Aprueba tu módulo + Tutor247),
+referencia en `docs/diseno/`.
 
 ## 2. Hecho
 - **Fase 0 — Scaffold** · 2026-10-06 · `9a5d25e`
@@ -121,9 +123,33 @@ identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reser
   `verify-consumo` (incluye el caso nuevo).
 
 ## 4. Próximos pasos (orden de prioridad)
-0. **SIGUIENTE: productos empaquetados** (simulacro, Rescate 48h, Plan Módulo, reparto por
-   tareas) → Bit (tutor IA con Claude) → Stripe real → deploy en Vercel → legal (aviso legal,
-   RGPD, cookies, términos).
+0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
+   `docs/diseno/DISENO.md`; prompts por fase en `docs/diseno/PROMPTS.md`). Cada fase cierra con
+   lint + build + `verify-*` afectados + navegador (es y ca) + commit + ESTADO.md.
+   - [x] **Fase 0** — Cerrar lo pendiente y preparar el terreno (CLAUDE.md + ESTADO.md).
+   - [ ] **Fase 1 — Marca y tokens**: tokens del tema oscuro único (§4), `--warning`/`--sos`,
+     eliminar `family`; Mapa de Dominio a 4 niveles; appName/metadatos a Checkpoint Academy,
+     `Logo`, header y footer nuevos; `/styleguide` actualizado.
+   - [ ] **Fase 2 — Portada y Tutor247**: home con las 15 secciones de §6 (ModelCard,
+     TrustStrip, BeforeAfter, PathFinder, ComparisonTable, FounderBlock, Faq; testimonios
+     ocultos); `/tutor247` con `#familias`; `/familias` → 308.
+   - [ ] **Fase 3 — Resto de públicas**: `/modulos`, `/ciclos`, `/modulos/[code]` («5 errores
+     que suspenden»: proponer modelo antes de migrar), `/mentores`, `/mentores/[id]`,
+     `/precios` (dos modelos), `/diagnostico`, auth (`AuthShell`), `/hazte-mentor`,
+     `/cancelacion`.
+   - [ ] **Fase 4 — Panel del alumno**: `AppShell` por rol, panel con datos actuales,
+     `/panel/creditos` nueva (saldo, caducidades, compra mock, ledger).
+   - [ ] **Fase 5 — Tickets y sesiones**: `/panel/tickets` (SOS.html) y `/panel/sesiones`
+     (Reserva.html) sin tocar RPC ni cobros.
+   - [ ] **Fase 6 — Paneles de mentor, familia (oscuro) y admin**.
+   - [ ] **Fase 7 — Backend nuevo I**: `/panel/mapa` (progreso por RA guardado) y rol `tutor`
+     con cartera (`PanelTutor.html`). Planificar aparte.
+   - [ ] **Fase 8 — Backend nuevo II**: `/panel/logros` (XP, insignias, racha), Bit
+     (`/panel/bit`, API de Claude + RAG por módulo), referidos. Planificar aparte.
+   - [ ] **Fase 9 — Backend nuevo III**: aula integrada (sustituye a Jitsi) y móvil
+     (PWA / WhatsApp). Planificar aparte.
+   Después: productos empaquetados (simulacro, Rescate 48h, Plan Módulo, reparto por tareas)
+   → Stripe real → deploy en Vercel → legal (aviso legal, RGPD, cookies, términos).
 1. **Crear tu usuario admin real**: regístrate en `/registro` y ejecuta
    `node scripts/make-admin.mjs tu@email`.
 2. **Configurar Supabase Auth** (panel): Site URL y Redirect URLs (`http://localhost:3000/**`
@@ -144,7 +170,7 @@ identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reser
 - **Multi-ciclo**: módulo con código único vinculado a varios ciclos (N:M `ciclo_modulo`) ·
   p. ej. 0373 en DAM/DAW/ASIR · 2026-10-06.
 - **i18n**: es sin prefijo, ca con prefijo (`localePrefix: as-needed`) · 2026-10-06.
-- **Diseño "HUD Terminal" (opción A)**: cian/violeta + táctica, Space Grotesk; verde acid
+- ~~**Diseño "HUD Terminal" (opción A)**~~ (sustituida 2026-10-09 por Checkpoint Academy): cian/violeta + táctica, Space Grotesk; verde acid
   solo para aprobado; family claro con teal · elegido por el usuario · 2026-10-06.
 - **Precios Fase 1 = extremo bajo de los rangos** de los docs (Compañero 9,90 / Acompaña 79
   / Acompaña+ 149) · a validar · 2026-10-06.
@@ -185,9 +211,22 @@ identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reser
   2026-10-08.
 - **Sala de videollamada provisional = Jitsi** (`meet.jit.si`, nombre aleatorio, solo visible
   para las partes) hasta tener aula integrada · 2026-10-08.
+- **Diseño: `docs/diseno/` es la referencia visual y `DISENO.md` manda en el aspecto** (datos,
+  lógica, seguridad e i18n siguen CLAUDE.md) · sustituye a "HUD Terminal (opción A)" · 2026-10-09.
+- **Marca: Checkpoint Academy**, con **Tutor247** como segundo producto; `hackademyLabs` solo
+  nombre del repo · decidido por el usuario · 2026-10-09.
+- **Colores: cian `#2EF2FF` = Aprueba tu módulo** (primario); **magenta `#FF3DCB` = Tutor247**
+  (sustituye al violeta); verde `#7CFF5B` solo aprobado · 2026-10-09.
+- **Tema oscuro único**: se elimina el tema claro `family`; landing y panel de familia en
+  oscuro con magenta de acento, vigilando AA · 2026-10-09.
+- **Fuentes**: Space Grotesk títulos · Inter texto y paneles · JetBrains Mono códigos, RA,
+  cifras y etiquetas · 2026-10-09.
+- **Ruta de Tutor247: `/tutor247`**; `/familias` redirige (308) a `/tutor247#familias` ·
+  2026-10-09.
 
 ## 6. Decisiones pendientes (las decide el usuario)
-- Nombre y marca definitivos.
+- ~~Nombre y marca definitivos~~ → Checkpoint Academy + Tutor247 (2026-10-09).
+- Plazas del programa piloto (CTA final de la portada).
 - Precio real del crédito y % de reparto con mentores (60–70 %).
 - Confirmar precios de packs/planes y condiciones de la garantía "Seguimos contigo".
 - Mapeo real de equivalencias catalanas (M/UF) y validación de RA con el BOE/decreto.
@@ -218,7 +257,7 @@ identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reser
   router del cliente cachea la redirección. Patrón usado: renderizar el contenido en sitio.
 - (Descartado) "el primer click no envía" en las pruebas: era la automatización de Chrome
   (el primer click solo activa la ventana; `document.hasFocus()` = false). No es bug.
-- **Header oscuro en páginas claras** (`/familias`): el header es global (layout) y no sabe la
+- **Header oscuro en páginas claras** (`/familias`) — desaparece en la fase 1 de "Fusión del diseño" (tema oscuro único): el header es global (layout) y no sabe la
   ruta; se ve correcto pero no "family". Revisar si se quiere un header claro en esa zona.
 - **`?plan=` en `/registro`** (desde planes Familia) aún no se usa.
 - **Migraciones a mano**: el MCP de Supabase no accede a este proyecto (solo ve "gifter"), así

@@ -1,6 +1,7 @@
-# Tutor247 — Guía del proyecto (CLAUDE.md)
+# Checkpoint Academy (+ Tutor247) — Guía del proyecto (CLAUDE.md)
 
-Plataforma web de FP de informática (SMX, ASIR/ASIX, DAM, DAW). Modelo:
+Plataforma web de FP de informática (SMX, ASIR/ASIX, DAM, DAW). Marca **Checkpoint
+Academy** con dos productos: **Aprueba tu módulo** y **Tutor247**. Modelo:
 **"No vendemos clases: te sacamos el módulo."** Catálogo por módulo oficial →
 plan → mentor → seguimiento hasta el examen.
 
@@ -35,6 +36,7 @@ Si el código contradice los docs, ganan los docs (o preguntar).
 ## Estructura de carpetas
 ```
 docs/                         Documentos de negocio (fuente de verdad)
+  diseno/                     Referencia visual: DISENO.md (manda en el aspecto) + pantallas/
 messages/                     Traducciones i18n: es.json, ca.json
 patches/                      Parches a dependencias (patch-package)
 src/
@@ -79,21 +81,34 @@ Rutas: `/` = español (sin prefijo), `/ca` = catalán.
 - **Menores / consentimiento:** modo Familia para <18; compartir informes con la
   familia de un alumno mayor de edad requiere su consentimiento explícito.
 
-## Identidad visual (HUD Terminal)
-Una marca, dos zonas. Tokens en `src/app/globals.css`, activados con `data-theme`:
-- `data-theme="student"` — HUD oscuro. Fondo casi negro, **cian** `#22D3EE` primario +
-  **violeta** `#A78BFA`, glow sutil (`box-shadow`), esquinas poco redondeadas.
-  Verde acid `#9EF01A` (`--accent-pass`) **solo** para "aprobado/dominado".
-- `data-theme="family"` — claro y sobrio. Fondo `#F7F9FB`, acento **teal** `#0E7490`,
-  neón solo puntual. Transmite confianza.
-- Default del `<body>` = `student`. Las rutas de familia se envuelven en `data-theme="family"`.
-- Semáforo RA: `--ra-verde` / `--ra-ambar` / `--ra-rojo` (más oscuros en family para AA).
-- Tipografía: **Space Grotesk** (títulos `--font-heading`), **Inter** (texto `--font-sans`),
-  **JetBrains Mono** (códigos/RA/cifras `--font-mono`).
-- Utilidades: `.glow`, `.glow-pass`, `.hud-grid`, `.animate-hud-in`. Todo respeta
-  `prefers-reduced-motion`. El estado de RA nunca se transmite solo por color (texto + forma).
-- Referencia viva: `/styleguide` (muestra ambos temas; `noindex`).
-- Componentes de marca: `src/components/brand/` (RaBadge, MapaDominio).
+## Identidad visual (Checkpoint Academy)
+**Referencia visual: `docs/diseno/`.** `docs/diseno/DISENO.md` **manda en el aspecto**
+(marca, colores, tokens, componentes, composición de pantallas); `docs/diseno/pantallas/*.html`
+son la maqueta (no se copian tal cual: se reconstruyen con componentes, tokens e i18n).
+Datos, lógica, seguridad e i18n siguen este CLAUDE.md. Si chocan, preguntar a David.
+
+Decisiones de marca (cerradas 2026-10-09, DISENO.md §2):
+- **Marca: Checkpoint Academy**, con **Tutor247** como segundo producto. `hackademyLabs`
+  queda solo como nombre del repositorio.
+- **Dos modelos, dos colores**: **cian `#2EF2FF`** (`--primary`) = **Aprueba tu módulo**
+  (créditos / Plan Módulo); **magenta `#FF3DCB`** (`--secondary`, sustituye al violeta) =
+  **Tutor247** (suscripción, acompañamiento todo el curso). Verde `#7CFF5B`
+  (`--accent-pass`) **solo** para aprobado/dominado/"va bien".
+- **Tema oscuro único** (`data-theme="student"`): **se elimina el tema `family`**; landing y
+  panel de familia van en oscuro con magenta de acento, vigilando contraste AA.
+- **Fuentes**: **Space Grotesk** títulos (`--font-heading`), **Inter** texto y paneles
+  (`--font-sans`), **JetBrains Mono** códigos, RA, cifras y etiquetas (`--font-mono`).
+- **Ruta de Tutor247: `/tutor247`**; `/familias` redirige (308) a `/tutor247#familias`.
+
+Más reglas:
+- Tokens en `src/app/globals.css` (tabla completa en DISENO.md §4). Mapa de Dominio a
+  **4 niveles** (Aún no / Con ayuda / Casi / Lo domino), siempre con texto + forma, nunca
+  solo color. Todo respeta `prefers-reduced-motion`.
+- Lo no construido (Bit, aula, Modo Examen, Rescate 48h, SOS en directo…) = "Próximamente"
+  en la web pública y oculto en el panel. Sin testimonios ni cifras inventadas.
+- Referencia viva: `/styleguide` (`noindex`). Componentes de marca: `src/components/brand/`.
+- **Transición:** hasta cerrar la fase 1 de "Fusión del diseño" (ver `docs/ESTADO.md`) el
+  código aún tiene los tokens HUD antiguos (cian `#22D3EE`, violeta, tema `family`).
 
 ## Parches de dependencias
 `patches/next-intl+4.14.9.patch`: hace lazy el `require('@swc/core')` del plugin de

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Checkpoint Academy — Aula en Modo Examen</title>
+</head>
+<body>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#07080F}a{color:#2EF2FF}a:hover{color:#9AFAFF}</style>
+
+<div style="background: #07080F; color: #E8EAF2; font-family: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif; min-height: 100vh; display: flex; flex-direction: column">
+
+<header style="border-bottom: 1px solid #5A2450; background: #0E0812">
+<div style="padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px">
+<div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+<a href="Panel.html" style="min-height: 40px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 10px; border: 1px solid #3A3F5C; color: #C5C9DA; text-decoration: none; font-size: 14px">← Panel</a>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; padding: 8px 12px; border-radius: 8px; background: #FF3DCB; color: #120A14; font-weight: 600">MODO EXAMEN</div>
+<div style="font-size: 16px; font-weight: 500">Programación · UF3 Ficheros</div>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 13px">
+<span style="padding: 7px 10px; border-radius: 8px; border: 1px solid #5A2450; color: #FF8BE0">⊘ Pegado desactivado</span>
+<span style="padding: 7px 10px; border-radius: 8px; border: 1px solid #5A2450; color: #FF8BE0">⊘ Sin IA</span>
+<span style="padding: 7px 14px; border-radius: 8px; border: 1px solid #2EF2FF; color: #2EF2FF; font-size: 18px; font-weight: 600">14:32</span>
+</div>
+</div>
+</header>
+
+<div style="flex: 1; display: flex; flex-wrap: wrap; gap: 16px; padding: 16px 24px 28px">
+
+<section style="flex: 1 1 280px; max-width: 360px; min-width: 0; background: #0E1019; border: 1px solid #23263A; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A90A8">EJERCICIO 2 DE 3</div>
+<div style="font-size: 20px; font-weight: 700; line-height: 1.3">Cuenta las líneas de un fichero</div>
+<div style="font-size: 15px; line-height: 1.6; color: #C5C9DA">Escribe un método que reciba la ruta de un fichero de texto y devuelva cuántas líneas tiene. Si el fichero no existe, debe devolver -1 sin que el programa se detenga.</div>
+<div style="border-top: 1px solid #23263A; padding-top: 14px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A90A8">QUÉ SE EVALÚA</div>
+<div style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: #C5C9DA">
+<div>✓ Lectura con BufferedReader</div>
+<div>✓ Control de excepciones</div>
+<div>○ Cierre del recurso</div>
+</div>
+</div>
+<div style="margin-top: auto; display: flex; gap: 6px">
+<div style="flex: 1; height: 6px; border-radius: 3px; background: #2EF2FF"></div>
+<div style="flex: 1; height: 6px; border-radius: 3px; background: #FF3DCB"></div>
+<div style="flex: 1; height: 6px; border-radius: 3px; background: #23263A"></div>
+</div>
+</section>
+
+<section style="flex: 999 1 520px; min-width: 0; background: #090A12; border: 1px solid #23263A; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 10px 14px; border-bottom: 1px solid #23263A">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8A90A8">ContadorLineas.java</span>
+<div style="display: flex; gap: 8px">
+<button style="min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #3A3F5C; background: transparent; color: #E8EAF2; font-family: 'JetBrains Mono', monospace; font-size: 13px">▶ Ejecutar</button>
+</div>
+</div>
+<pre style="margin: 0; padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 15px; line-height: 1.75; color: #C5C9DA; white-space: pre-wrap; flex: 1"><span style="color: #4A5070">1 </span> <span style="color: #FF3DCB">public static int</span> contarLineas(String ruta) {
+<span style="color: #4A5070">2 </span>   <span style="color: #FF3DCB">int</span> n = 0;
+<span style="color: #4A5070">3 </span>   <span style="color: #FF3DCB">try</span> (BufferedReader br = <span style="color: #FF3DCB">new</span> BufferedReader(<span style="color: #FF3DCB">new</span> FileReader(ruta))) {
+<span style="color: #4A5070">4 </span>     <span style="color: #FF3DCB">while</span> (br.readLine() != <span style="color: #FF3DCB">null</span>) {
+<span style="color: #4A5070">5 </span>       n++;
+<span style="color: #4A5070">6 </span>     }
+<span style="color: #4A5070">7 </span>   } <span style="color: #FF3DCB">catch</span> (IOException e) {
+<span style="color: #4A5070">8 </span>     <span style="color: #FF3DCB">return</span> -1;
+<span style="color: #4A5070">9 </span>   }
+<span style="color: #4A5070">10</span>   <span style="color: #FF3DCB">return</span> n;<span style="display: inline-block; width: 9px; height: 18px; background: #2EF2FF; vertical-align: middle; margin-left: 2px"></span>
+<span style="color: #4A5070">11</span> }</pre>
+<div style="border-top: 1px solid #23263A; padding: 12px 16px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; background: #07080F">
+<div style="color: #8A90A8">$ java ContadorLineas notas.txt</div>
+<div style="color: #2EF2FF">42</div>
+</div>
+</section>
+
+<section style="flex: 1 1 280px; max-width: 340px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="height: 190px; border-radius: 16px; background: #151826; border: 1px solid #23263A; position: relative; display: flex; align-items: center; justify-content: center">
+<div style="width: 72px; height: 72px; border-radius: 50%; border: 2px solid #2EF2FF; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700">LM</div>
+<div style="position: absolute; left: 12px; bottom: 10px; font-size: 13px; color: #C5C9DA">Laura M. · mentora DAM</div>
+<div style="position: absolute; right: 12px; top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #2EF2FF">● observando</div>
+</div>
+<div style="background: #0E1019; border: 1px solid #23263A; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A90A8">CÓMO RAZONAS</div>
+<div style="font-size: 14px; line-height: 1.5; color: #C5C9DA">Has usado try-with-resources sin ayuda: el cierre del fichero queda resuelto.</div>
+<div style="font-size: 14px; line-height: 1.5; color: #C5C9DA">Has tardado 4 min en el bucle de lectura.</div>
+</div>
+<div style="background: #120A14; border: 1px solid #5A2450; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FF8BE0">AL ENTREGAR · EXPLÍCAMELO TÚ</div>
+<div style="font-size: 15px; line-height: 1.5">¿Por qué no hace falta llamar a br.close()? Explícalo en voz alta en 2 minutos.</div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FFB020">Sello «Lo entiendo» +40 XP</div>
+</div>
+<button style="min-height: 52px; border-radius: 12px; border: none; background: #2EF2FF; color: #05060B; font-weight: 700; font-size: 17px; font-family: inherit">Entregar ejercicio</button>
+</section>
+
+</div>
+</div>
+
+</body>
+</html>
