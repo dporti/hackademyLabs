@@ -217,14 +217,20 @@ referencia en `docs/diseno/`.
     informes semanales. Métricas de negocio, incidencias y demanda: sin datos, no se muestran.
   - `Button` de shadcn con objetivos de 40–48 px en toda la app (iguala formularios antiguos).
   - `src/lib/tiempo.ts` (`horasHasta`): Date.now() fuera de los componentes (regla react-hooks/purity).
-  - Verificado: lint + build; verify-roles y verify-family OK. **Sin revisión en navegador** de los
-    tres paneles (pendiente: entrar con mentor, familia y admin de prueba).
+  - Verificado: lint + build; verify-roles y verify-family OK; revisión en navegador (Chrome headless
+    con sesión) de los tres paneles a 1440 y 390 px, sin scroll horizontal: mentora Laura (verificada,
+    con sesión confirmada y ticket asignado), familia de prueba vinculada al alumno de prueba con un
+    informe, y admin de prueba.
+  - Datos de prueba creados para la revisión (todo `@tutor247.dev`): `test.visual.familia` (familia
+    vinculada a `test.alumno` con consentimiento + informe de la semana), `test.visual.admin` (rol
+    admin), una sesión flash confirmada con Laura y un ticket de 0485 asignado a Laura (pagados con
+    créditos de `test.alumno`). `apply_all.sql` los limpia al reaplicar.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-- **Fusión del diseño** (Checkpoint Academy) · fases 0–6 cerradas 2026-10-09 (fase 6 sin revisión visual); siguiente:
-  revisar en navegador los paneles de mentor, familia y admin; después fases 7–9 (backend nuevo).
+- **Fusión del diseño** (Checkpoint Academy) · fases 0–6 cerradas 2026-10-09; siguiente: despliegue en Vercel, legal y Stripe real
+  (o fases 7–9, backend nuevo).
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
@@ -245,7 +251,7 @@ referencia en `docs/diseno/`.
      `/panel/creditos` nueva (saldo, caducidades, compra mock, ledger).
    - [x] **Fase 5 — Tickets y sesiones** (2026-10-09): `/panel/tickets` (SOS.html) y `/panel/sesiones`
      (Reserva.html) sin tocar RPC ni cobros.
-   - [x] **Fase 6 — Paneles de mentor, familia (oscuro) y admin** (2026-10-09, `0202380`; falta revisión visual).
+   - [x] **Fase 6 — Paneles de mentor, familia (oscuro) y admin** (2026-10-09, `0202380`; revisada en navegador).
    - [ ] **Fase 7 — Backend nuevo I**: `/panel/mapa` (progreso por RA guardado) y rol `tutor`
      con cartera (`PanelTutor.html`). Planificar aparte.
    - [ ] **Fase 8 — Backend nuevo II**: `/panel/logros` (XP, insignias, racha), Bit
