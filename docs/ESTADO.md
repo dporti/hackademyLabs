@@ -176,12 +176,15 @@ referencia en `docs/diseno/`.
   - **Precios más suaves**: menú «Planes»; sin cifras de créditos en portada, fichas de módulo ni
     tarjetas de mentor (siguen en /precios y en la ficha de cada mentor); /precios empieza por lo gratis
     (test, Mapa y plan) y quita los rangos de «¿cuánto me cuesta aprobar?».
+- **«Los 5 errores que suspenden»** · 2026-10-09 · bloque en la ficha de los 7 módulos killer
+  (0485, 0484, 0225, 0370, 0373, 0613, 0486) con fragmento de código y explicación. Textos en i18n
+  (`messages/*.json` → `errores`), opción B elegida por David: **pendiente de que David los revise**.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
 - **Fusión del diseño** (Checkpoint Academy) · fases 0–3 cerradas 2026-10-09; siguiente:
-  fase 4 — Panel del alumno. Pendiente de David: «5 errores que suspenden» (ver decisiones pendientes).
+  fase 4 — Panel del alumno.
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
@@ -310,9 +313,7 @@ referencia en `docs/diseno/`.
   renombrar en BD (`plan.name`) y revisar features (hoy en español y con «Acompaña»).
 - «Agendar llamada gratis» del mockup: no hay agenda; hoy los CTA de /tutor247 van a `/registro?rol=familia`.
 - Foto del fundador para `FounderBlock` (hoy iniciales).
-- **«5 errores que suspenden» por módulo** (Modulo.html). Propuesta: tabla `modulo_error` (modulo_id,
-  sort_order, codigo corto, texto es/ca) con lectura pública y edición solo admin, + seed de 0485 y
-  0484. Alternativa más simple: columna `jsonb` en `modulo`. No se crea migración sin tu visto bueno.
+- Revisar los textos de «5 errores que suspenden» y los temas por módulo (`errores`, `temas`, `temasRa`).
 - Descripción corta y dificultad por módulo (las tarjetas del mockup las muestran; hoy no hay datos).
 - Precio real del crédito y % de reparto con mentores (60–70 %).
 - Confirmar precios de packs/planes y condiciones de la garantía "Seguimos contigo".

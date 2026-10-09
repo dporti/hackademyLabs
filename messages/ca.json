@@ -430,7 +430,9 @@
     "mentorsTitle": "Professors que se saben aquest mòdul",
     "mentorsAll": "Veure tots els mentors",
     "temasTitle": "Què treballaràs",
-    "seePlans": "Veure plans i preus"
+    "seePlans": "Veure plans i preus",
+    "errorsTitle": "Els 5 errors que fan suspendre {code}",
+    "errorsText": "Els veiem cada any a l'examen. Si els tens clars, ja vas per davant."
   },
   "search": {
     "title": "Cerca mòdul",
@@ -1539,6 +1541,162 @@
       "RA4": "Instalar equipos en red e IP",
       "RA5": "Averías y mantenimiento de la red",
       "RA6": "Prevención de riesgos"
+    }
+  },
+  "errores": {
+    "0485": {
+      "e1": {
+        "codigo": "i <= v.length",
+        "texto": "El bucle se pasa una posición y salta ArrayIndexOutOfBoundsException."
+      },
+      "e2": {
+        "codigo": "s1 == s2",
+        "texto": "Comparar Strings con == en vez de equals(): a veces funciona y en el examen no."
+      },
+      "e3": {
+        "codigo": "static everywhere",
+        "texto": "Ponerlo todo static para que compile, sin entender qué es un objeto."
+      },
+      "e4": {
+        "codigo": "catch (Exception e) {}",
+        "texto": "Un catch vacío: el error desaparece de la pantalla, pero el fallo sigue ahí."
+      },
+      "e5": {
+        "codigo": "b = a",
+        "texto": "Creer que asignar un objeto lo copia, cuando solo copia la referencia."
+      }
+    },
+    "0484": {
+      "e1": {
+        "codigo": "JOIN sin ON",
+        "texto": "Olvidar la condición del JOIN y obtener el producto cartesiano: miles de filas."
+      },
+      "e2": {
+        "codigo": "GROUP BY",
+        "texto": "Poner en el SELECT columnas que no están en el GROUP BY ni en una función de agregado."
+      },
+      "e3": {
+        "codigo": "WHERE vs HAVING",
+        "texto": "Filtrar un COUNT o un SUM en el WHERE en lugar de en el HAVING."
+      },
+      "e4": {
+        "codigo": "= NULL",
+        "texto": "Comparar con = NULL en vez de IS NULL: la consulta no devuelve nada."
+      },
+      "e5": {
+        "codigo": "1:N al revés",
+        "texto": "Poner la clave ajena en el lado equivocado al pasar del modelo E/R a tablas."
+      }
+    },
+    "0225": {
+      "e1": {
+        "codigo": "/24 ≠ /26",
+        "texto": "Calcular mal la máscara y meter dos equipos en subredes distintas."
+      },
+      "e2": {
+        "codigo": ".0 y .255",
+        "texto": "Asignar a un equipo la dirección de red o la de broadcast."
+      },
+      "e3": {
+        "codigo": "puerta de enlace",
+        "texto": "Olvidar la puerta de enlace: el equipo ve la red local pero no sale a Internet."
+      },
+      "e4": {
+        "codigo": "T568A / T568B",
+        "texto": "Mezclar las normas de cableado en los dos extremos del mismo cable."
+      },
+      "e5": {
+        "codigo": "switch ≠ router",
+        "texto": "Confundir qué hace un switch y qué hace un router en el esquema de red."
+      }
+    },
+    "0370": {
+      "e1": {
+        "codigo": "subnetting",
+        "texto": "Hacer las subredes a mano sin método y equivocarse en los rangos de hosts."
+      },
+      "e2": {
+        "codigo": "VLAN sin trunk",
+        "texto": "Crear las VLAN pero no configurar el enlace troncal entre switches."
+      },
+      "e3": {
+        "codigo": "ruta por defecto",
+        "texto": "Olvidar la ruta por defecto en el router: la red no llega a Internet."
+      },
+      "e4": {
+        "codigo": "show running-config",
+        "texto": "No guardar la configuración del router: al reiniciar, se pierde todo."
+      },
+      "e5": {
+        "codigo": "OSPF área 0",
+        "texto": "Configurar OSPF sin el área 0 o con redes mal anunciadas."
+      }
+    },
+    "0373": {
+      "e1": {
+        "codigo": "<a><b></a></b>",
+        "texto": "Cerrar las etiquetas en mal orden: el XML deja de estar bien formado."
+      },
+      "e2": {
+        "codigo": "bien formado ≠ válido",
+        "texto": "Confundir un XML bien formado con uno válido según su DTD o XSD."
+      },
+      "e3": {
+        "codigo": "//",
+        "texto": "Usar // en XPath sin saber qué selecciona y traer nodos de más."
+      },
+      "e4": {
+        "codigo": "xsl:for-each",
+        "texto": "Perderse con el nodo contexto dentro de un bucle en XSLT."
+      },
+      "e5": {
+        "codigo": "minOccurs",
+        "texto": "Olvidar minOccurs y maxOccurs en el XSD y validar documentos que no deberían."
+      }
+    },
+    "0613": {
+      "e1": {
+        "codigo": "$_GET sin filtrar",
+        "texto": "Meter lo que llega del formulario directamente en la consulta: inyección SQL."
+      },
+      "e2": {
+        "codigo": "session_start()",
+        "texto": "Llamar a session_start() después de haber enviado HTML: la sesión no funciona."
+      },
+      "e3": {
+        "codigo": "include vs require",
+        "texto": "No saber cuándo usar include o require y romper la aplicación sin aviso."
+      },
+      "e4": {
+        "codigo": "echo en el modelo",
+        "texto": "Mezclar HTML, SQL y lógica en el mismo fichero en lugar de separar con MVC."
+      },
+      "e5": {
+        "codigo": "password en claro",
+        "texto": "Guardar contraseñas sin password_hash()."
+      }
+    },
+    "0486": {
+      "e1": {
+        "codigo": "close()",
+        "texto": "No cerrar la conexión ni los ficheros: la aplicación se queda sin recursos."
+      },
+      "e2": {
+        "codigo": "Statement + concatenar",
+        "texto": "Montar la consulta concatenando texto en vez de usar PreparedStatement."
+      },
+      "e3": {
+        "codigo": "commit",
+        "texto": "Olvidar el commit (o el rollback) en una transacción y perder los cambios."
+      },
+      "e4": {
+        "codigo": "LazyInitialization",
+        "texto": "Acceder a una relación de Hibernate con la sesión ya cerrada."
+      },
+      "e5": {
+        "codigo": "mapeo",
+        "texto": "Mapear mal las relaciones uno a muchos y duplicar o perder datos."
+      }
     }
   }
 }

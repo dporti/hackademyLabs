@@ -52,6 +52,10 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
   const tt = await getTranslations("temas");
   const tr = await getTranslations("temasRa");
   const temas = temasDe(tt, modulo.code);
+  const te = await getTranslations("errores");
+  const errores = (["e1", "e2", "e3", "e4", "e5"] as const)
+    .filter((k) => te.has(`${modulo.code}.${k}.codigo`))
+    .map((k) => ({ codigo: te(`${modulo.code}.${k}.codigo`), texto: te(`${modulo.code}.${k}.texto`) }));
   const diagnosticable = modulo.ra.length > 0;
   const mentores = await getMentoresByModulo(modulo.id);
   const ciclosTxt = modulo.ciclo_modulo
@@ -211,6 +215,29 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
               </li>
             ))}
           </ol>
+        </section>
+      )}
+
+      {/* ───────────────── Los 5 errores que suspenden (i18n `errores`) ───────────────── */}
+      {errores.length > 0 && (
+        <section className="mx-auto max-w-[1200px] px-4 pb-16 sm:px-6">
+          <div className="rounded-3xl border border-tint-sos-border bg-tint-sos p-6 sm:p-8">
+            <h2 className="font-mono text-sm font-bold tracking-[0.15em] text-sos-text uppercase">
+              {t("errorsTitle", { code: modulo.code })}
+            </h2>
+            <p className="mt-2 text-muted-foreground">{t("errorsText")}</p>
+            <ol className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-5">
+              {errores.map((er, i) => (
+                <li key={er.codigo} className="flex flex-col rounded-2xl border bg-card p-4">
+                  <span className="font-mono text-xs text-label">0{i + 1}</span>
+                  <code className="mt-2 w-fit rounded-md bg-surface-2 px-2 py-1 font-mono text-sm text-sos-text [font-variant-ligatures:none]">
+                    {er.codigo}
+                  </code>
+                  <p className="mt-3 text-sm [overflow-wrap:anywhere]">{er.texto}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
         </section>
       )}
 
