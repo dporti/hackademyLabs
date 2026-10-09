@@ -720,7 +720,23 @@
       "badUrl": "El vídeo debe ser un enlace https válido.",
       "noProfile": "Completa tu onboarding primero.",
       "generic": "Algo ha fallado. Inténtalo de nuevo."
-    }
+    },
+    "statsAria": "Cifras del mes",
+    "statPool": "Bolsa",
+    "statPoolUnit": "dudas sin coger",
+    "statToAnswer": "Por responder",
+    "statToAnswerUnit": "tickets asignados",
+    "statRequests": "Solicitudes",
+    "statRequestsUnit": "sesiones por confirmar",
+    "nextSession": "Próxima sesión",
+    "noNextSession": "No tienes sesiones confirmadas próximamente.",
+    "agendaTitle": "Agenda",
+    "agendaEmpty": "Nada en la agenda de momento.",
+    "inboxTitle": "Bandeja de tickets",
+    "inboxEmpty": "No tienes tickets pendientes de responder.",
+    "dueIn": "vence en {h} h",
+    "overdue": "plazo vencido",
+    "seeAll": "Ver todo"
   },
   "adminPanel": {
     "mentorsTitle": "Verificación de mentores",
@@ -733,7 +749,12 @@
       "rechazado": "Rechazar",
       "pendiente": "Volver a pendiente"
     },
-    "setLevel": "Aplicar nivel"
+    "setLevel": "Aplicar nivel",
+    "statsAria": "Resumen",
+    "statPending": "Mentores pendientes",
+    "statVerified": "Mentores verificados",
+    "statRejected": "Rechazados",
+    "statReportable": "Alumnos con informe"
   },
   "family": {
     "report": {
@@ -826,7 +847,18 @@
     "newCode": "Generar un código nuevo",
     "plansHint": "¿Queréis tutor de referencia e informes semanales?",
     "plansLink": "Ver planes Familia",
-    "olderReports": "{n, plural, one {# informe anterior} other {# informes anteriores}}"
+    "olderReports": "{n, plural, one {# informe anterior} other {# informes anteriores}}",
+    "following": "Seguimiento de",
+    "status": "Estado",
+    "overall": {
+      "verde": "Va bien",
+      "ambar": "Un punto a vigilar",
+      "rojo": "Necesita ayuda"
+    },
+    "upcomingTitle": "Próximas fechas",
+    "noExamDates": "Aún no hay fechas de examen.",
+    "examOf": "Examen de {code} {name}",
+    "privacy": "Vuestro hijo sabe qué información veis. Sus conversaciones con mentores y tutores son privadas: aquí solo veis el progreso."
   },
   "studentFamily": {
     "title": "Familia",

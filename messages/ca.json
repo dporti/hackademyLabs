@@ -720,7 +720,23 @@
       "badUrl": "El vídeo ha de ser un enllaç https vàlid.",
       "noProfile": "Completa primer l'onboarding.",
       "generic": "Alguna cosa ha fallat. Torna-ho a provar."
-    }
+    },
+    "statsAria": "Xifres del mes",
+    "statPool": "Borsa",
+    "statPoolUnit": "dubtes sense agafar",
+    "statToAnswer": "Per respondre",
+    "statToAnswerUnit": "tiquets assignats",
+    "statRequests": "Sol·licituds",
+    "statRequestsUnit": "sessions per confirmar",
+    "nextSession": "Propera sessió",
+    "noNextSession": "No tens sessions confirmades properament.",
+    "agendaTitle": "Agenda",
+    "agendaEmpty": "Res a l'agenda de moment.",
+    "inboxTitle": "Safata de tiquets",
+    "inboxEmpty": "No tens tiquets pendents de respondre.",
+    "dueIn": "venç en {h} h",
+    "overdue": "termini vençut",
+    "seeAll": "Veure-ho tot"
   },
   "adminPanel": {
     "mentorsTitle": "Verificació de mentors",
@@ -733,7 +749,12 @@
       "rechazado": "Rebutjar",
       "pendiente": "Tornar a pendent"
     },
-    "setLevel": "Aplicar nivell"
+    "setLevel": "Aplicar nivell",
+    "statsAria": "Resum",
+    "statPending": "Mentors pendents",
+    "statVerified": "Mentors verificats",
+    "statRejected": "Rebutjats",
+    "statReportable": "Alumnes amb informe"
   },
   "family": {
     "report": {
@@ -826,7 +847,18 @@
     "newCode": "Generar un codi nou",
     "plansHint": "Voleu tutor de referència i informes setmanals?",
     "plansLink": "Veure plans Família",
-    "olderReports": "{n, plural, one {# informe anterior} other {# informes anteriors}}"
+    "olderReports": "{n, plural, one {# informe anterior} other {# informes anteriors}}",
+    "following": "Seguiment de",
+    "status": "Estat",
+    "overall": {
+      "verde": "Va bé",
+      "ambar": "Un punt a vigilar",
+      "rojo": "Necessita ajuda"
+    },
+    "upcomingTitle": "Properes dates",
+    "noExamDates": "Encara no hi ha dates d'examen.",
+    "examOf": "Examen de {code} {name}",
+    "privacy": "El vostre fill sap quina informació veieu. Les seves converses amb mentors i tutors són privades: aquí només veieu el progrés."
   },
   "studentFamily": {
     "title": "Família",

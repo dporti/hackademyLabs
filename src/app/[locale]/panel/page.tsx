@@ -4,7 +4,13 @@ import { getSessionUser, localePath } from "@/lib/auth";
 import { getStudentDashboard } from "@/lib/student";
 import { getMentorSelf, getMentoresAdmin } from "@/lib/mentor";
 import { getFamilyDashboard } from "@/lib/family";
-import { getMentorEarnings, getPendientesAlumno, getPendientesMentor } from "@/lib/consumo";
+import {
+  getMentorBookings,
+  getMentorEarnings,
+  getMentorTickets,
+  getPendientesAlumno,
+  getPendientesMentor,
+} from "@/lib/consumo";
 import { getReportableStudents } from "@/lib/report-admin";
 import { mondayOf } from "@/lib/report";
 import { buscarModulos } from "@/lib/catalog";
@@ -58,6 +64,11 @@ export default async function PanelPage({
       getMentorEarnings(user.id),
     ]);
     if (!mentor) return <OnboardingContent embedded locale={locale} role="mentor" />;
+    // Agenda y bandeja solo para mentores verificados (los demás aún no reciben trabajo).
+    const [agenda, bandeja] =
+      mentor.status === "verificado"
+        ? await Promise.all([getMentorBookings(user.id), getMentorTickets(user.id)])
+        : [null, null];
     contenido = (
       <MentorPanel
         locale={locale}
@@ -65,6 +76,9 @@ export default async function PanelPage({
         pendientes={pendientes}
         earnings={earnings}
         catalogo={catalogo.map((m) => ({ code: m.code, name: m.name }))}
+        bookings={agenda?.bookings}
+        tickets={bandeja?.mine}
+        nombres={{ ...agenda?.nombres, ...bandeja?.nombres }}
       />
     );
   } else if (profile?.role === "familia") {
