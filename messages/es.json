@@ -1893,5 +1893,29 @@
     "whatsapp": "Escribir por WhatsApp",
     "note": "Atención a familias y alumnos. Este contacto es solo de Checkpoint Academy: las clases y dudas con mentores van siempre por la plataforma.",
     "footer": "Contacto"
+  },
+  "bit": {
+    "open": "Pregunta a Bit",
+    "title": "Bit · asistente IA",
+    "subtitle": "Soy una IA. Para algo serio, te paso con una persona.",
+    "close": "Cerrar el chat",
+    "welcome": "¡Hola! Soy Bit, la IA de Checkpoint Academy. Puedo explicarte algo de tu módulo (Java, SQL, redes…) o contarte cómo te ayudamos. No hago prácticas ni exámenes, pero te ayudo a entenderlos.",
+    "suggestions": {
+      "s1": "No entiendo los JOIN en SQL",
+      "s2": "¿Cómo funciona Tutor247 para mi hijo?",
+      "s3": "¿Por dónde empiezo si tengo examen pronto?"
+    },
+    "placeholder": "Escribe tu pregunta…",
+    "send": "Enviar",
+    "thinking": "Pensando…",
+    "disclaimer": "Bit puede equivocarse. No compartas datos personales.",
+    "errors": {
+      "noKey": "Bit aún no está activado en esta web.",
+      "rateLimited": "Has hecho muchas preguntas seguidas. Prueba en un rato.",
+      "badRequest": "No he podido leer tu mensaje. Inténtalo de nuevo.",
+      "busy": "Bit está muy ocupado ahora mismo. Prueba en unos segundos.",
+      "refusal": "Sobre eso no puedo ayudarte. Si lo necesitas, habla con una persona del equipo.",
+      "error": "Algo ha fallado. Inténtalo de nuevo."
+    }
   }
 }

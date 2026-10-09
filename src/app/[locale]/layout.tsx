@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { BitChat } from "@/components/bit/bit-chat";
 import "../globals.css";
 
 // Títulos: Space Grotesk.
@@ -64,6 +65,7 @@ export default async function LocaleLayout({
           <SiteHeader />
           {children}
           <SiteFooter />
+          <BitChat />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1893,5 +1893,29 @@
     "whatsapp": "Escriure per WhatsApp",
     "note": "Atenció a famílies i alumnes. Aquest contacte és només de Checkpoint Academy: les classes i dubtes amb mentors van sempre per la plataforma.",
     "footer": "Contacte"
+  },
+  "bit": {
+    "open": "Pregunta a en Bit",
+    "title": "Bit · assistent IA",
+    "subtitle": "Soc una IA. Per a una cosa seriosa, et passo amb una persona.",
+    "close": "Tancar el xat",
+    "welcome": "Hola! Soc en Bit, la IA de Checkpoint Academy. Et puc explicar alguna cosa del teu mòdul (Java, SQL, xarxes…) o explicar-te com t'ajudem. No faig pràctiques ni exàmens, però t'ajudo a entendre'ls.",
+    "suggestions": {
+      "s1": "No entenc els JOIN en SQL",
+      "s2": "Com funciona Tutor247 per al meu fill?",
+      "s3": "Per on començo si tinc examen aviat?"
+    },
+    "placeholder": "Escriu la teva pregunta…",
+    "send": "Enviar",
+    "thinking": "Pensant…",
+    "disclaimer": "En Bit es pot equivocar. No comparteixis dades personals.",
+    "errors": {
+      "noKey": "En Bit encara no està activat en aquesta web.",
+      "rateLimited": "Has fet moltes preguntes seguides. Prova-ho d'aquí a una estona.",
+      "badRequest": "No he pogut llegir el teu missatge. Torna-ho a provar.",
+      "busy": "En Bit està molt ocupat ara mateix. Prova-ho d'aquí a uns segons.",
+      "refusal": "D'això no et puc ajudar. Si ho necessites, parla amb una persona de l'equip.",
+      "error": "Alguna cosa ha fallat. Torna-ho a provar."
+    }
   }
 }

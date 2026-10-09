@@ -233,6 +233,27 @@ referencia en `docs/diseno/`.
     ORDER BY · INNER y LEFT JOIN · GROUP BY y HAVING · Subconsultas») en vez de «RA4 estudiar»; los
     subtemas también salen en cada tema del test. Cubre los 7 módulos con test.
   - Verificado: lint + build; captura de 0484 con 4 temas en el examen (13 h en 4 semanas).
+- **Atajos por evaluación + contacto para familias** · 2026-10-09 · `6d8d488`
+  - Diagnóstico: botones «1.ª/2.ª/3.ª evaluación» (combinables) que marcan los temas de cada una.
+    Reparto orientativo en `src/lib/evaluaciones.ts` (3 evaluaciones en 1.º, 2 en 2.º).
+  - `/tutor247#familias`: «¿Os suena?» (sin tiempo, no entienden lo que estudia, se enteran tarde,
+    no encuentran a alguien de confianza) + tarjeta de contacto. Teléfono 634 48 40 29 (llamada y
+    WhatsApp) en `src/lib/contacto.ts` y en el pie. Email por `NEXT_PUBLIC_CONTACT_EMAIL` (vacío =
+    no se muestra; falta decidir el dominio).
+- **Bit, asistente IA (chat)** · 2026-10-09
+  - Widget flotante «Pregunta a Bit» en todas las páginas (`components/bit/bit-chat.tsx`):
+    conversación en `sessionStorage`, sugerencias, streaming, avisos de error, accesible (diálogo,
+    Escape, aria-live). Ruta `POST /api/bit` con el SDK oficial (`@anthropic-ai/sdk`), modelo
+    `claude-opus-5-5` con esfuerzo `low` y `fallbacks: "default"` (beta
+    `server-side-fallback-2026-07-01`) por si el modelo declina; prompt de sistema cacheado.
+  - Instrucciones (`lib/bit/prompt.ts`): socrático, nunca hace prácticas ni exámenes, dice que es IA,
+    solo la oferta real (lo no construido como «próximamente»), deriva a una persona (teléfono), tono
+    para familias, sin pedir datos personales, 112 si hay riesgo.
+  - Límites: 30 mensajes/hora por IP en memoria (freno, no garantía en Vercel), últimos 12 turnos,
+    2000 caracteres por mensaje.
+  - **Falta la clave**: `ANTHROPIC_API_KEY` en `.env.local` (y en Vercel). Sin ella la ruta responde
+    `noKey` y el widget lo avisa. Probado: build, ruta sin clave (503 noKey) y widget en navegador.
+    **No probado con respuestas reales** (sin clave).
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
@@ -362,6 +383,9 @@ referencia en `docs/diseno/`.
 
 ## 6. Decisiones pendientes (las decide el usuario)
 - ~~Nombre y marca definitivos~~ → Checkpoint Academy + Tutor247 (2026-10-09).
+- Bit: dar la clave `ANTHROPIC_API_KEY`; decidir si queda abierto a cualquier visitante o solo con
+  cuenta (coste), y si el modelo sigue siendo Opus 5.5 o uno más barato (Sonnet/Haiku 5.5).
+- Email de contacto (dominio) para `NEXT_PUBLIC_CONTACT_EMAIL`; confirmar que el 634 48 40 29 tiene WhatsApp.
 - Plazas del programa piloto (CTA final de la portada; hoy «plazas limitadas», sin número).
 - Planes Tutor247: precio del Autónomo; ¿Familia/Familia+ a 89/159 € (mockup) o 79/149 € (BD)?;
   renombrar en BD (`plan.name`) y revisar features (hoy en español y con «Acompaña»).
