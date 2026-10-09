@@ -118,7 +118,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
                 id="hero-modulo"
                 name="m"
                 defaultValue=""
-                className="min-h-12 flex-1 rounded-xl border border-border bg-card px-4 text-[15px] outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring"
+                className="min-h-12 min-w-0 flex-1 rounded-xl border border-border bg-card px-4 text-[15px] outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <option value="">{t("hero.searchLabel")}</option>
                 {diagnosticables.map((m) => (

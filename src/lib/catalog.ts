@@ -9,6 +9,8 @@ import type {
   Pack,
   Plan,
   MentorPublic,
+  MentorLevel,
+  ProductKind,
 } from "./db-types";
 
 // Capa de acceso al catálogo. Lectura pública (anon) y cacheada: el catálogo
@@ -254,4 +256,32 @@ export async function getModulosDiagnosticables(): Promise<ModuloDiagnosticable[
       .sort((a, b) => a.sort_order - b.sort_order)
       .map(({ code, description }) => ({ code, description })),
   }));
+}
+
+// ─────────────────────────────── Tarifas ────────────────────────────────
+// Créditos por producto y nivel de mentor (tabla pública product_price), para las
+// páginas públicas de mentores. Misma fuente que cobran las RPC de consumo.
+export type TarifasPublicas = Partial<Record<ProductKind, Partial<Record<MentorLevel, number>>>>;
+
+export async function getTarifasPublicas(): Promise<TarifasPublicas> {
+  "use cache";
+  cacheLife("hours");
+  const sb = createPublicClient();
+  const { data, error } = await sb.from("product_price").select("kind, level, credits");
+  if (error) throw error;
+  const out: TarifasPublicas = {};
+  for (const p of (data ?? []) as { kind: ProductKind; level: MentorLevel; credits: number }[]) {
+    (out[p.kind] ??= {})[p.level] = p.credits;
+  }
+  return out;
+}
+
+// Todos los módulos (código y nombre) para selectores (filtros de mentores…).
+export async function getAllModulos(): Promise<Pick<Modulo, "code" | "name">[]> {
+  "use cache";
+  cacheLife("hours");
+  const sb = createPublicClient();
+  const { data, error } = await sb.from("modulo").select("code, name").order("code");
+  if (error) throw error;
+  return (data ?? []) as Pick<Modulo, "code" | "name">[];
 }
