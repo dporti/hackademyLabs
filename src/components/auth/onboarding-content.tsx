@@ -11,9 +11,12 @@ import type { UserRole } from "@/lib/db-types";
 export async function OnboardingContent({
   locale,
   role,
+  embedded = false,
 }: {
   locale: string;
   role: UserRole;
+  // true dentro de /panel (el AppShell ya da el marco).
+  embedded?: boolean;
 }) {
   const t = await getTranslations("onboarding");
   const subtitle =
@@ -30,7 +33,7 @@ export async function OnboardingContent({
       : [];
 
   return (
-    <AuthShell title={t("title")} subtitle={subtitle} width="lg">
+    <AuthShell title={t("title")} subtitle={subtitle} width="lg" embedded={embedded}>
       <OnboardingForm locale={locale} role={role} modulos={modulos} />
     </AuthShell>
   );

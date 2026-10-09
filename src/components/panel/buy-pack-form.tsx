@@ -28,7 +28,7 @@ export function BuyPackForm({
       <input type="hidden" name="pack" value={slug} />
       <Button
         type="submit"
-        className={`w-full ${featured ? "glow" : ""}`}
+        className={`h-11 w-full rounded-[10px] font-bold ${featured ? "glow" : ""}`}
         variant={featured ? "default" : "secondary"}
         disabled={pending}
       >

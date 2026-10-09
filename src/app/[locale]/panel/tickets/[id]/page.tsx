@@ -61,8 +61,8 @@ export default async function TicketPage({
   };
 
   return (
-    <main className="w-full flex-1 bg-background text-foreground">
-      <div className="mx-auto w-full max-w-3xl space-y-8 px-4 py-12">
+    <div className="w-full">
+      <div className="w-full max-w-3xl space-y-8">
         <header>
           <Link href="/panel/tickets" className="font-mono text-xs text-muted-foreground hover:text-primary">
             ← {t("ticketsTitle")}
@@ -174,6 +174,6 @@ export default async function TicketPage({
           </section>
         )}
       </div>
-    </main>
+    </div>
   );
 }

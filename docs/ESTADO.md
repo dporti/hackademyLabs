@@ -179,12 +179,27 @@ referencia en `docs/diseno/`.
 - **«Los 5 errores que suspenden»** · 2026-10-09 · bloque en la ficha de los 7 módulos killer
   (0485, 0484, 0225, 0370, 0373, 0613, 0486) con fragmento de código y explicación. Textos en i18n
   (`messages/*.json` → `errores`), opción B elegida por David: **pendiente de que David los revise**.
+- **Fusión del diseño · fase 4: panel del alumno** · 2026-10-09
+  - `panel/layout.tsx` con AppShell (`app-shell-nav.tsx`): barra lateral por rol (alumno: Mi panel,
+    Tickets, Sesiones, Créditos con contadores; mentor: Mi panel, Tickets de mis módulos, Sesiones),
+    tarjeta de saldo con «Recargar» y «Salir»; en móvil, menú desplegable. Tickets, sesiones y créditos
+    lo heredan (sin `<main>` anidado). Onboarding dentro del panel solo con la tarjeta.
+  - Panel del alumno: resumen (saldo, próximo examen con días, tickets respondidos, sesiones
+    próximas), módulos con fecha, días que faltan (ámbar ≤ 21, SOS ≤ 7), temas y atajos (test con la
+    fecha, preguntar duda), pedir ayuda, familia, informes y últimos 5 movimientos.
+  - `/panel/creditos` nueva: saldo, próxima caducidad (pack que antes caduca), gasto del mes, recarga
+    (compra simulada) e historial completo (`LedgerTable`). Referidos y facturas no existen: no salen.
+  - `getSessionUser` con `cache()` de React (layout y página comparten la lectura).
+  - Verificado: lint + build; verify-credits/roles/family/consumo OK; con sesión del alumno de prueba
+    (Chrome headless por CDP): panel y créditos a 1440 y 390 px sin scroll horizontal; añadir módulo
+    con fecha muestra «11 días» en ámbar. Panel de mentor/familia/admin: solo la barra lateral nueva
+    (su contenido se rediseña en la fase 6).
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-- **Fusión del diseño** (Checkpoint Academy) · fases 0–3 cerradas 2026-10-09; siguiente:
-  fase 4 — Panel del alumno.
+- **Fusión del diseño** (Checkpoint Academy) · fases 0–4 cerradas 2026-10-09; siguiente:
+  fase 5 — Tickets y sesiones.
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
@@ -201,7 +216,7 @@ referencia en `docs/diseno/`.
      que suspenden»: proponer modelo antes de migrar), `/mentores`, `/mentores/[id]`,
      `/precios` (dos modelos), `/diagnostico`, auth (`AuthShell`), `/hazte-mentor`,
      `/cancelacion`.
-   - [ ] **Fase 4 — Panel del alumno**: `AppShell` por rol, panel con datos actuales,
+   - [x] **Fase 4 — Panel del alumno** (2026-10-09): `AppShell` por rol, panel con datos actuales,
      `/panel/creditos` nueva (saldo, caducidades, compra mock, ledger).
    - [ ] **Fase 5 — Tickets y sesiones**: `/panel/tickets` (SOS.html) y `/panel/sesiones`
      (Reserva.html) sin tocar RPC ni cobros.
@@ -364,6 +379,9 @@ referencia en `docs/diseno/`.
   encuentra (sí por código y por código catalán).
 - **Dev server y mensajes nuevos**: tras añadir claves a `messages/*.json`, las páginas cacheadas del
   dev siguen mostrando la clave hasta reiniciar `npm run dev` (en build no pasa).
+- **`Panel.html` del mockup está vacío** (0 bytes): el AppShell sigue la barra lateral de `Creditos.html`.
+- **Formularios antiguos dentro del panel** (añadir módulo, vincular familia): funcionan, pero con
+  botones pequeños del estilo anterior; se igualan en la fase 6.
 - **Features de planes en BD solo en español** (se ven en /ca/tutor247 y /ca/precios).
 - **Promesas de la portada a validar**: «certificado negativo para trabajar con menores» y «mentores
   verificados» son políticas (no hay flujo que lo compruebe en la plataforma todavía).

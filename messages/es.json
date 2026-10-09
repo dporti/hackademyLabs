@@ -612,7 +612,15 @@
     },
     "reportsTitle": "Tus informes semanales",
     "reportsHelp": "Esto es exactamente lo que recibe tu familia.",
-    "you": "Tú"
+    "you": "Tú",
+    "nextExam": "Próximo examen",
+    "daysLeft": "{n, plural, =0 {Hoy} one {Mañana} other {# días}}",
+    "noExamYet": "Añade la fecha de tu examen",
+    "answered": "respondidos",
+    "upcoming": "próximas",
+    "summaryAria": "Resumen",
+    "doDiagnostic": "Hacer el test",
+    "askDoubt": "Preguntar una duda"
   },
   "pricing": {
     "title": "Precios",
@@ -1698,5 +1706,46 @@
         "texto": "Mapear mal las relaciones uno a muchos y duplicar o perder datos."
       }
     }
+  },
+  "appShell": {
+    "navAria": "Menú del panel",
+    "menu": "Menú del panel",
+    "role": {
+      "alumno": "Alumno",
+      "mentor": "Mentor",
+      "familia": "Familia",
+      "admin": "Admin",
+      "tutor": "Tutor"
+    },
+    "items": {
+      "inicio": "Mi panel",
+      "creditos": "Créditos",
+      "tickets": "Tickets",
+      "sesiones": "Sesiones",
+      "bolsa": "Tickets de mis módulos"
+    },
+    "balance": "Saldo",
+    "balanceValue": "{n} créditos",
+    "recharge": "Recargar",
+    "logout": "Salir"
+  },
+  "creditos": {
+    "metaTitle": "Créditos",
+    "title": "Créditos",
+    "subtitle": "1 crédito ≈ 1 €. Válidos 12 meses y para cualquier mentor.",
+    "balance": "Saldo",
+    "balanceUnit": "créditos",
+    "nextExpiry": "Los créditos del {pack} ({n} cr) caducan el {date}",
+    "noExpiry": "Sin créditos comprados que vayan a caducar.",
+    "month": "Este mes",
+    "monthSpent": "{n} cr gastados",
+    "monthDetail": "{tickets, plural, =0 {} one {# ticket} other {# tickets}}{sep}{sesiones, plural, =0 {} one {# sesión} other {# sesiones}}",
+    "monthNone": "Aún no has gastado créditos este mes.",
+    "rechargeTitle": "Recargar",
+    "rechargeText": "Cuanto más grande el pack, más créditos de regalo.",
+    "historyTitle": "Movimientos",
+    "historyEmpty": "Aún no tienes movimientos.",
+    "lastMoves": "Últimos movimientos",
+    "seeAll": "Ver todos"
   }
 }

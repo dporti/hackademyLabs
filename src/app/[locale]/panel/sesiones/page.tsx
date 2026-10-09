@@ -125,8 +125,8 @@ export default async function SesionesPage({
   }
 
   return (
-    <main className="w-full flex-1 bg-background text-foreground">
-      <div className="mx-auto w-full max-w-5xl space-y-10 px-4 py-12">
+    <div className="w-full">
+      <div className="w-full space-y-10">
         <header>
           <Link href="/panel" className="font-mono text-xs text-muted-foreground hover:text-primary">
             ← {t("backToPanel")}
@@ -135,7 +135,7 @@ export default async function SesionesPage({
         </header>
         {contenido}
       </div>
-    </main>
+    </div>
   );
 }
 

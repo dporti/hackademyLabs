@@ -612,7 +612,15 @@
     },
     "reportsTitle": "Els teus informes setmanals",
     "reportsHelp": "Això és exactament el que rep la teva família.",
-    "you": "Tu"
+    "you": "Tu",
+    "nextExam": "Proper examen",
+    "daysLeft": "{n, plural, =0 {Avui} one {Demà} other {# dies}}",
+    "noExamYet": "Afegeix la data del teu examen",
+    "answered": "resposts",
+    "upcoming": "properes",
+    "summaryAria": "Resum",
+    "doDiagnostic": "Fer el test",
+    "askDoubt": "Preguntar un dubte"
   },
   "pricing": {
     "title": "Preus",
@@ -1698,5 +1706,46 @@
         "texto": "Mapear mal las relaciones uno a muchos y duplicar o perder datos."
       }
     }
+  },
+  "appShell": {
+    "navAria": "Menú del panell",
+    "menu": "Menú del panell",
+    "role": {
+      "alumno": "Alumne",
+      "mentor": "Mentor",
+      "familia": "Família",
+      "admin": "Admin",
+      "tutor": "Tutor"
+    },
+    "items": {
+      "inicio": "El meu panell",
+      "creditos": "Crèdits",
+      "tickets": "Tiquets",
+      "sesiones": "Sessions",
+      "bolsa": "Tiquets dels meus mòduls"
+    },
+    "balance": "Saldo",
+    "balanceValue": "{n} crèdits",
+    "recharge": "Recarregar",
+    "logout": "Sortir"
+  },
+  "creditos": {
+    "metaTitle": "Crèdits",
+    "title": "Crèdits",
+    "subtitle": "1 crèdit ≈ 1 €. Vàlids 12 mesos i per a qualsevol mentor.",
+    "balance": "Saldo",
+    "balanceUnit": "crèdits",
+    "nextExpiry": "Els crèdits del {pack} ({n} cr) caduquen el {date}",
+    "noExpiry": "Sense crèdits comprats que hagin de caducar.",
+    "month": "Aquest mes",
+    "monthSpent": "{n} cr gastats",
+    "monthDetail": "{tickets, plural, =0 {} one {# tiquet} other {# tiquets}}{sep}{sesiones, plural, =0 {} one {# sessió} other {# sessions}}",
+    "monthNone": "Encara no has gastat crèdits aquest mes.",
+    "rechargeTitle": "Recarregar",
+    "rechargeText": "Com més gran el pack, més crèdits de regal.",
+    "historyTitle": "Moviments",
+    "historyEmpty": "Encara no tens moviments.",
+    "lastMoves": "Últims moviments",
+    "seeAll": "Veure'ls tots"
   }
 }

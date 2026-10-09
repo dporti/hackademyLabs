@@ -7,9 +7,7 @@ import { getFamilyDashboard } from "@/lib/family";
 import { getMentorEarnings, getPendientesAlumno, getPendientesMentor } from "@/lib/consumo";
 import { getReportableStudents } from "@/lib/report-admin";
 import { mondayOf } from "@/lib/report";
-import { buscarModulos, getPacks } from "@/lib/catalog";
-import { signOutAction } from "@/app/actions/auth";
-import { Button } from "@/components/ui/button";
+import { buscarModulos } from "@/lib/catalog";
 import { StudentPanel } from "@/components/panel/student-panel";
 import { MentorPanel } from "@/components/panel/mentor-panel";
 import { AdminPanel } from "@/components/panel/admin-panel";
@@ -31,27 +29,24 @@ export default async function PanelPage({
   const { user, profile } = session!;
 
   const t = await getTranslations("panel");
-  const ta = await getTranslations("auth");
   const name = profile?.full_name ?? profile?.email ?? "";
 
   let contenido: React.ReactNode = null;
   if (profile?.role === "alumno") {
-    const [dashboard, packs, catalogo, pendientes] = await Promise.all([
+    const [dashboard, catalogo, pendientes] = await Promise.all([
       getStudentDashboard(user.id),
-      getPacks(),
       buscarModulos(""),
       getPendientesAlumno(user.id),
     ]);
     // Sin student_profile no puede tener ledger ni módulos: primero onboarding
     // (renderizado aquí, no redirect: ver OnboardingContent).
     if (!dashboard.hasProfile)
-      return <OnboardingContent locale={locale} role="alumno" />;
+      return <OnboardingContent embedded locale={locale} role="alumno" />;
     contenido = (
       <StudentPanel
         locale={locale}
         dashboard={dashboard}
         pendientes={pendientes}
-        packs={packs}
         catalogo={catalogo.map((m) => ({ code: m.code, name: m.name }))}
       />
     );
@@ -62,7 +57,7 @@ export default async function PanelPage({
       getPendientesMentor(user.id),
       getMentorEarnings(user.id),
     ]);
-    if (!mentor) return <OnboardingContent locale={locale} role="mentor" />;
+    if (!mentor) return <OnboardingContent embedded locale={locale} role="mentor" />;
     contenido = (
       <MentorPanel
         locale={locale}
@@ -74,7 +69,7 @@ export default async function PanelPage({
     );
   } else if (profile?.role === "familia") {
     const dashboard = await getFamilyDashboard(user.id);
-    if (!dashboard.family) return <OnboardingContent locale={locale} role="familia" />;
+    if (!dashboard.family) return <OnboardingContent embedded locale={locale} role="familia" />;
     contenido = <FamilyPanel locale={locale} dashboard={dashboard} />;
   } else if (profile?.role === "admin") {
     const [mentores, reportStudents] = await Promise.all([
@@ -93,28 +88,15 @@ export default async function PanelPage({
 
   return (
     // La zona de familia usa el acento magenta de Tutor247 (data-accent="tutor").
-    <main
-      data-accent={profile?.role === "familia" ? "tutor" : undefined}
-      className="w-full flex-1 bg-background text-foreground"
-    >
-      <div className="mx-auto w-full max-w-5xl px-4 py-12">
-        <div className="flex items-center justify-between gap-4">
-          <h1 className="font-display text-2xl font-bold tracking-tight">
-            {t("greeting", { name })}
-          </h1>
-          <form action={signOutAction}>
-            <input type="hidden" name="locale" value={locale} />
-            <Button type="submit" variant="outline" size="sm">
-              {ta("logout")}
-            </Button>
-          </form>
-        </div>
-        {contenido ?? (
-          <p className="mt-4 text-muted-foreground">
-            {t("roleLabel")}: <span className="font-medium">{profile?.role}</span>
-          </p>
-        )}
-      </div>
-    </main>
+    <div data-accent={profile?.role === "familia" ? "tutor" : undefined} className="w-full">
+      <h1 className="font-heading text-[32px] leading-tight font-bold tracking-tight sm:text-[40px]">
+        {t("greeting", { name })}
+      </h1>
+      {contenido ?? (
+        <p className="mt-4 text-muted-foreground">
+          {t("roleLabel")}: <span className="font-medium">{profile?.role}</span>
+        </p>
+      )}
+    </div>
   );
 }

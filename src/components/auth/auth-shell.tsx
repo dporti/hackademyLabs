@@ -12,15 +12,26 @@ export function AuthShell({
   width = "sm",
   children,
   footer,
+  embedded = false,
 }: {
   title: string;
   subtitle?: string;
   width?: "sm" | "lg";
   children: ReactNode;
   footer?: ReactNode;
+  // Dentro del panel (ya hay AppShell): solo la tarjeta, sin <main> ni panel de marca.
+  embedded?: boolean;
 }) {
   const t = useTranslations("auth");
   const f = useTranslations("footer");
+  const tarjeta = (
+    <div className="rounded-3xl border bg-card p-6 sm:p-8">
+      <h1 className="font-heading text-3xl font-bold tracking-tight">{title}</h1>
+      {subtitle && <p className="mt-2 text-muted-foreground">{subtitle}</p>}
+      <div className="mt-6">{children}</div>
+    </div>
+  );
+  if (embedded) return <div className="max-w-xl">{tarjeta}</div>;
   return (
     <main className="flex-1">
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_minmax(0,560px)] lg:py-16">
@@ -43,11 +54,7 @@ export function AuthShell({
         </aside>
 
         <div className={`animate-hud-in mx-auto w-full ${width === "lg" ? "max-w-xl" : "max-w-md"} lg:py-6`}>
-          <div className="rounded-3xl border bg-card p-6 sm:p-8">
-            <h1 className="font-heading text-3xl font-bold tracking-tight">{title}</h1>
-            {subtitle && <p className="mt-2 text-muted-foreground">{subtitle}</p>}
-            <div className="mt-6">{children}</div>
-          </div>
+          {tarjeta}
           {footer && <p className="mt-5 text-center text-sm text-muted-foreground">{footer}</p>}
         </div>
       </div>
