@@ -1,5 +1,5 @@
-// Clases compartidas de campos de formulario (look HUD: fondo card, foco cian).
+// Clases compartidas de campos de formulario (Checkpoint: 44 px de alto, foco cian).
 export const INPUT_CLASS =
-  "w-full rounded-md border border-input bg-card px-3 py-2 text-sm outline-none transition focus-visible:border-primary/60 focus-visible:ring-2 focus-visible:ring-ring";
+  "min-h-11 w-full rounded-[10px] border border-border bg-background px-4 py-2 text-[15px] outline-none transition [color-scheme:dark] placeholder:text-[#6b7190] focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring";
 
 export const LABEL_CLASS = "text-sm font-medium";

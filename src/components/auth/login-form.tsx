@@ -54,7 +54,7 @@ export function LoginForm({
         </p>
       )}
 
-      <Button type="submit" disabled={pending} className="glow w-full">
+      <Button type="submit" disabled={pending} className="glow h-12 w-full rounded-xl text-[15px] font-bold">
         {pending ? t("loggingIn") : t("login")}
       </Button>
     </form>

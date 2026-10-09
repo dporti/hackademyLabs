@@ -541,6 +541,12 @@
       "generic": "Alguna cosa ha fallat. Torna-ho a provar.",
       "emailNotConfirmed": "Encara no has confirmat el correu. Revisa la safata (i el correu brossa) i prem l'enllaç.",
       "link": "L'enllaç de confirmació no és vàlid o ha caducat. Entra o registra't de nou."
+    },
+    "shellTitle": "Aprèn amb IA. Demostra-ho sense ella.",
+    "shell": {
+      "b1": "Diagnòstic gratis del teu mòdul",
+      "b2": "Pla invers des de la data del teu examen",
+      "b3": "Mentors verificats d'FP"
     }
   },
   "onboarding": {

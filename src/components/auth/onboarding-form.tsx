@@ -133,7 +133,7 @@ export function OnboardingForm({
         </p>
       )}
 
-      <Button type="submit" disabled={pending} className="glow w-full">
+      <Button type="submit" disabled={pending} className="glow h-12 w-full rounded-xl text-[15px] font-bold">
         {t("finish")}
       </Button>
     </form>

@@ -541,6 +541,12 @@
       "generic": "Algo ha fallado. Inténtalo de nuevo.",
       "emailNotConfirmed": "Aún no has confirmado tu email. Revisa tu bandeja (y spam) y pulsa el enlace.",
       "link": "El enlace de confirmación no es válido o ha caducado. Entra o regístrate de nuevo."
+    },
+    "shellTitle": "Aprende con IA. Demuéstralo sin ella.",
+    "shell": {
+      "b1": "Diagnóstico gratis de tu módulo",
+      "b2": "Plan inverso desde la fecha de tu examen",
+      "b3": "Mentores verificados de FP"
     }
   },
   "onboarding": {

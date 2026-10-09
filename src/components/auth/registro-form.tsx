@@ -43,7 +43,7 @@ export function RegistroForm({
           {ROLES.map((r) => (
             <label
               key={r}
-              className="flex cursor-pointer items-start gap-3 rounded-lg border bg-card p-3 transition-colors hover:border-primary/40 has-[:checked]:border-primary has-[:checked]:bg-primary/5 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring"
+              className="flex min-h-14 cursor-pointer items-start gap-3 rounded-xl border bg-card p-4 transition-colors hover:border-primary/40 has-[:checked]:border-primary has-[:checked]:bg-tint-primary has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring"
             >
               <input
                 type="radio"
@@ -107,7 +107,7 @@ export function RegistroForm({
         </p>
       )}
 
-      <Button type="submit" disabled={pending} className="glow w-full">
+      <Button type="submit" disabled={pending} className="glow h-12 w-full rounded-xl text-[15px] font-bold">
         {pending ? t("registering") : t("register")}
       </Button>
     </form>
