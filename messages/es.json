@@ -8,7 +8,8 @@
     "metaTitle": "Checkpoint Academy — Aprende con IA. Demuéstralo sin ella.",
     "metaDescription": "FP de Informática (SMX, ASIR, DAM, DAW): aprueba tu módulo con un plan hasta el examen, mentores verificados y Tutor247, el acompañamiento que no te suelta.",
     "comingSoon": "Próximamente",
-    "example": "Ejemplo"
+    "example": "Ejemplo",
+    "killerShort": "Más suspendido"
   },
   "home": {
     "hero": {
@@ -374,7 +375,20 @@
     "gradeMedio": "Grado medio",
     "gradeSuperior": "Grado superior",
     "course": "Curso {n}",
-    "modulesCount": "{n} módulos"
+    "modulesCount": "{n} módulos",
+    "eyebrow": "Catálogo oficial · LOE",
+    "heroTitle": "¿Qué módulo te preocupa?",
+    "heroText": "Trabajamos por módulo oficial, con su código y sus resultados de aprendizaje. Elige el tuyo y te enseñamos qué entra en el examen y cómo prepararlo.",
+    "searchLabel": "Buscar módulo",
+    "searchPlaceholder": "Busca por nombre o código: Programación, 0484, M03…",
+    "searchCta": "Buscar",
+    "notSure": "No lo sé: haz el test",
+    "filterAria": "Filtrar por ciclo",
+    "filterAll": "Todos",
+    "catHint": "¿Estudias en Cataluña? Busca también por tu código de módulo catalán (M03, M05…).",
+    "finalText": "¿No sabes por dónde empezar? El test gratuito te dice en 2 minutos qué dominas y qué no de tu módulo.",
+    "finalCta": "Hacer el test gratis",
+    "empty": "No hay módulos para este filtro."
   },
   "module": {
     "learningResults": "Resultados de Aprendizaje (RA)",

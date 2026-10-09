@@ -83,12 +83,24 @@ export async function getAllModuloCodes(): Promise<string[]> {
   return (data ?? []).map((m) => m.code);
 }
 
-// Búsqueda de módulos por código o nombre (dinámica: depende de la query).
+// Búsqueda de módulos por código, nombre o código catalán (M03…). Dinámica: depende
+// de la query. El término se limpia de los caracteres con significado en los filtros
+// de PostgREST (coma, paréntesis, comodines) para que no altere la consulta.
 export async function buscarModulos(q: string): Promise<Modulo[]> {
   const sb = createPublicClient();
-  const term = q.trim();
+  const term = q.replace(/[,()*%\\]/g, " ").trim().slice(0, 60);
   let query = sb.from("modulo").select("*").order("code");
-  if (term) query = query.or(`code.ilike.%${term}%,name.ilike.%${term}%`);
+  if (term) {
+    const { data: eq, error: eqError } = await sb
+      .from("modulo_equiv_cat")
+      .select("modulo_id")
+      .ilike("codigo_cat", `%${term}%`);
+    if (eqError) throw eqError;
+    const ids = (eq ?? []).map((e) => e.modulo_id);
+    const filtros = [`code.ilike.%${term}%`, `name.ilike.%${term}%`];
+    if (ids.length > 0) filtros.push(`id.in.(${ids.join(",")})`);
+    query = query.or(filtros.join(","));
+  }
   const { data, error } = await query;
   if (error) throw error;
   return (data ?? []) as Modulo[];

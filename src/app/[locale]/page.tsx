@@ -340,7 +340,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
               <h3 className="font-heading text-xl font-semibold">{t("approve.killerTitle")}</h3>
               <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {killer.map((m) => (
-                  <ModuleCard key={m.code} modulo={m} killerLabel={c("killer")} />
+                  <ModuleCard key={m.code} modulo={m} killerLabel={c("killerShort")} viewLabel={c("viewModule")} />
                 ))}
               </div>
               <Link

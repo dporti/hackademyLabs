@@ -8,7 +8,8 @@
     "metaTitle": "Checkpoint Academy — Aprèn amb IA. Demostra-ho sense ella.",
     "metaDescription": "FP d'Informàtica (SMX, ASIX, DAM, DAW): aprova el teu mòdul amb un pla fins a l'examen, mentors verificats i Tutor247, l'acompanyament que no et deixa sol.",
     "comingSoon": "Properament",
-    "example": "Exemple"
+    "example": "Exemple",
+    "killerShort": "Més suspès"
   },
   "home": {
     "hero": {
@@ -374,7 +375,20 @@
     "gradeMedio": "Grau mitjà",
     "gradeSuperior": "Grau superior",
     "course": "Curs {n}",
-    "modulesCount": "{n} mòduls"
+    "modulesCount": "{n} mòduls",
+    "eyebrow": "Catàleg oficial · LOE",
+    "heroTitle": "Quin mòdul et preocupa?",
+    "heroText": "Treballem per mòdul oficial, amb el seu codi i els seus resultats d'aprenentatge. Tria el teu i t'ensenyem què entra a l'examen i com preparar-lo.",
+    "searchLabel": "Cercar mòdul",
+    "searchPlaceholder": "Cerca per nom o codi: Programació, 0484, M03…",
+    "searchCta": "Cercar",
+    "notSure": "No ho sé: fes el test",
+    "filterAria": "Filtrar per cicle",
+    "filterAll": "Tots",
+    "catHint": "Estudies a Catalunya? Cerca també pel codi de mòdul català (M03, M05…).",
+    "finalText": "No saps per on començar? El test gratuït et diu en 2 minuts què domines i què no del teu mòdul.",
+    "finalCta": "Fer el test gratis",
+    "empty": "No hi ha mòduls per a aquest filtre."
   },
   "module": {
     "learningResults": "Resultats d'Aprenentatge (RA)",
