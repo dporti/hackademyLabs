@@ -621,7 +621,7 @@
     "buy": "Comprar",
     "subscribe": "Suscribirme",
     "creditsNote": "Los créditos caducan a los 12 meses.",
-    "heroTitle": "Pagas por aprobar tu módulo, no por horas de clase",
+    "heroTitle": "Paga por aprobar, no por horas sueltas",
     "ctaCalc": "Calcula lo que te costaría",
     "scenariosTitle": "¿Cuánto me cuesta aprobar?",
     "scenariosSubtitle": "Depende de cuánto te falte y de cuánto tiempo tengas. Estos son los casos más habituales.",
@@ -677,7 +677,20 @@
         "a": "Depende del nivel del mentor (Mentor, Mentor Pro o Mentor Experto). Tú eliges con quién."
       }
     },
-    "cancelLink": "Cancelaciones"
+    "cancelLink": "Cancelaciones",
+    "eyebrow": "Tarifas",
+    "heroText": "Lo humano se paga con créditos: 1 crédito ≈ 1 €, válidos 12 meses y para cualquier mentor. La IA y el acompañamiento, con suscripción.",
+    "anchorAprueba": "Aprueba tu módulo",
+    "anchorTutor": "Tutor247",
+    "humanLabel": "Lo humano",
+    "aiLabel": "La IA, siempre contigo",
+    "aiTitle": "Suscripción IA",
+    "aiText": "Bit, el tutor IA socrático, llega próximamente. Los planes ya están definidos.",
+    "tutorLabel": "Tutor247",
+    "tutorTitle": "Alguien que no te suelta hasta el examen",
+    "tutorText": "Para quien le cuesta la constancia, estudia online o quiere que su hijo tenga a alguien encima. Un tutor fijo + mentores por módulo.",
+    "tutorMore": "Saber más",
+    "tutorNote": "Precios orientativos pendientes de validar. Las sesiones extra se pagan con créditos."
   },
   "mentorPanel": {
     "statusTitle": "Estado de tu perfil",

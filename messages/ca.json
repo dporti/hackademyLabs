@@ -621,7 +621,7 @@
     "buy": "Comprar",
     "subscribe": "Subscriure'm",
     "creditsNote": "Els crèdits caduquen als 12 mesos.",
-    "heroTitle": "Pagues per aprovar el teu mòdul, no per hores de classe",
+    "heroTitle": "Paga per aprovar, no per hores soltes",
     "ctaCalc": "Calcula el que et costaria",
     "scenariosTitle": "Quant em costa aprovar?",
     "scenariosSubtitle": "Depèn de quant et falti i de quant temps tinguis. Aquests són els casos més habituals.",
@@ -677,7 +677,20 @@
         "a": "Depèn del nivell del mentor (Mentor, Mentor Pro o Mentor Expert). Tu tries amb qui."
       }
     },
-    "cancelLink": "Cancel·lacions"
+    "cancelLink": "Cancel·lacions",
+    "eyebrow": "Tarifes",
+    "heroText": "El que és humà es paga amb crèdits: 1 crèdit ≈ 1 €, vàlids 12 mesos i per a qualsevol mentor. La IA i l'acompanyament, amb subscripció.",
+    "anchorAprueba": "Aprova el teu mòdul",
+    "anchorTutor": "Tutor247",
+    "humanLabel": "El que és humà",
+    "aiLabel": "La IA, sempre amb tu",
+    "aiTitle": "Subscripció IA",
+    "aiText": "En Bit, el tutor IA socràtic, arriba properament. Els plans ja estan definits.",
+    "tutorLabel": "Tutor247",
+    "tutorTitle": "Algú que no et deixa fins a l'examen",
+    "tutorText": "Per a qui li costa la constància, estudia en línia o vol que el seu fill tingui algú a sobre. Un tutor fix + mentors per mòdul.",
+    "tutorMore": "Saber-ne més",
+    "tutorNote": "Preus orientatius pendents de validar. Les sessions extra es paguen amb crèdits."
   },
   "mentorPanel": {
     "statusTitle": "Estat del teu perfil",
