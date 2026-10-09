@@ -7,7 +7,7 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/mentores">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "mentors" });
-  return { title: `${t("title")} · Tutor247`, description: t("subtitle") };
+  return { title: t("title"), description: t("subtitle") };
 }
 
 export default async function MentoresPage({

@@ -1,10 +1,12 @@
 {
   "common": {
-    "appName": "Tutor247",
+    "appName": "Checkpoint Academy",
     "tagline": "No et fem classes. Et traiem el mòdul.",
     "killer": "Mòdul amb més suspensos",
     "viewModule": "Veure mòdul",
-    "viewProfile": "Veure perfil"
+    "viewProfile": "Veure perfil",
+    "metaTitle": "Checkpoint Academy — Aprèn amb IA. Demostra-ho sense ella.",
+    "metaDescription": "FP d'Informàtica (SMX, ASIX, DAM, DAW): aprova el teu mòdul amb un pla fins a l'examen, mentors verificats i Tutor247, l'acompanyament que no et deixa sol."
   },
   "home": {
     "heroSubtitle": "Tria el teu mòdul d'FP d'informàtica. Et diem què et falta, et donem un pla fins a l'examen i un mentor que domina aquest mòdul.",
@@ -14,7 +16,7 @@
     "worryTitle": "Quin mòdul et preocupa?",
     "searchLabel": "Cercar",
     "searchPlaceholder": "Codi o nom: 0485, bases de dades…",
-    "mapaCaption": "Així es veu el teu mòdul després del diagnòstic: cada resultat d'aprenentatge, en verd, ambre o vermell.",
+    "mapaCaption": "Així es veu el teu mòdul després del diagnòstic: cada resultat d'aprenentatge amb el seu nivell (encara no, amb ajuda, gairebé o ho domino).",
     "painTitle": "Et sona alguna?",
     "pain": {
       "d1": {
@@ -75,7 +77,7 @@
     },
     "bit": {
       "title": "Bit: algú amb tu a qualsevol hora",
-      "subtitle": "En Bit és la IA de Tutor247. Coneix el teu mòdul, el teu Mapa de Domini i la data de l'examen. Et recorda què toca avui i resol el que és senzill. El que és difícil, li passa al teu mentor.",
+      "subtitle": "En Bit és la IA de Checkpoint Academy. Coneix el teu mòdul, el teu Mapa de Domini i la data de l'examen. Et recorda què toca avui i resol el que és senzill. El que és difícil, li passa al teu mentor.",
       "points": {
         "p1": {
           "title": "24/7, també per WhatsApp.",
@@ -95,11 +97,11 @@
         }
       },
       "chatTitle": "Bit",
-      "chatSubtitle": "IA de Tutor247 · 0485 Programació",
+      "chatSubtitle": "IA de Checkpoint Academy · 0485 Programació",
       "example": "Exemple",
       "chat": {
         "m1": "Fes-me la pràctica 3 de 0485, que l'entrego demà.",
-        "m2": "Soc en Bit, la IA de Tutor247. La pràctica no te la faig: és teva i te l'avaluaran. Però la treus tu en una estona. Què demana el primer exercici?",
+        "m2": "Soc en Bit, la IA de Checkpoint Academy. La pràctica no te la faig: és teva i te l'avaluaran. Però la treus tu en una estona. Què demana el primer exercici?",
         "m3": "Un bucle que sumi els nombres parells de l'1 al 100. No em surt.",
         "m4": "Anem per parts: com saps si un nombre és parell? Pista: pensa en el residu de dividir entre 2.",
         "m5": "Això mateix, n % 2 == 0! Ara posa-ho dins del for i prova-ho primer de l'1 al 10.",
@@ -155,14 +157,17 @@
     "finalText": "Fes el diagnòstic gratis i descobreix en 2 minuts què et falta i si hi arribes."
   },
   "nav": {
-    "cycles": "Cicles",
-    "modules": "Mòduls",
     "mentors": "Mentors",
-    "pricing": "Preus",
     "login": "Entra",
     "panel": "El meu panell",
-    "families": "Famílies",
-    "diagnostic": "Diagnòstic gratis"
+    "approve": "Aprova el teu mòdul",
+    "tutor247": "Tutor247",
+    "tariffs": "Tarifes",
+    "sos": "SOS",
+    "sosAria": "SOS: demana ajuda urgent amb un dubte",
+    "freeTest": "Test gratis",
+    "menu": "Menú",
+    "mainNav": "Navegació principal"
   },
   "catalog": {
     "title": "Cicles i mòduls",
@@ -559,7 +564,7 @@
       },
       "q2": {
         "q": "I si el meu fill ja és major d'edat?",
-        "a": "Pot fer servir Tutor247 igualment, però és ell qui decideix quins informes es comparteixen amb vosaltres. Sense el seu consentiment, no compartim res."
+        "a": "Pot fer servir Checkpoint Academy igualment, però és ell qui decideix quins informes es comparteixen amb vosaltres. Sense el seu consentiment, no compartim res."
       },
       "q3": {
         "q": "Li feu els treballs?",
@@ -594,7 +599,7 @@
     "linkHelp": "El vincle el confirma el teu fill des del seu compte: així sap en tot moment què compartim amb vosaltres.",
     "codeAria": "Codi d'invitació",
     "codeExpires": "Vàlid fins al {date}. Un sol ús.",
-    "step1": "Demana-li que entri a Tutor247 amb el seu compte d'alumne (si no en té, que es registri com a alumne).",
+    "step1": "Demana-li que entri a Checkpoint Academy amb el seu compte d'alumne (si no en té, que es registri com a alumne).",
     "step2": "Al seu panell, a «Família», que escrigui aquest codi.",
     "step3": "Si és major d'edat, decidirà si comparteix el seu progrés amb vosaltres.",
     "createCode": "Generar codi",
@@ -605,7 +610,7 @@
   },
   "studentFamily": {
     "title": "Família",
-    "notLinked": "Si la teva família t'acompanya a Tutor247, t'haurà donat un codi. Escriu-lo aquí per vincular els vostres comptes.",
+    "notLinked": "Si la teva família t'acompanya a Checkpoint Academy, t'haurà donat un codi. Escriu-lo aquí per vincular els vostres comptes.",
     "codeLabel": "Codi de la teva família",
     "shareConsent": "Accepto compartir el meu progrés amb la meva família (puc retirar-ho quan vulgui).",
     "whatIsShared": "La teva família veurà: mòduls que prepares, dates d'examen, saldo de crèdits i informes setmanals. Mai els teus missatges ni els teus dubtes.",
@@ -686,11 +691,6 @@
       "verde": "Ho domino",
       "ambar": "A mitges",
       "rojo": "Ni idea"
-    },
-    "map": {
-      "verde": "DOMINAT",
-      "ambar": "A MITGES",
-      "rojo": "FLUIX"
     },
     "mapProgress": "{n} de {total} respostos",
     "mapDone": "Aquest és el teu Mapa de Domini.",
@@ -786,7 +786,7 @@
     "metaTitle": "Fes-te mentor d'FP d'informàtica",
     "metaDescription": "Ensenya el mòdul que domines. Alumnes sense buscar-los, cobrament garantit i una IA que et treu la feina repetitiva.",
     "heroTitle": "Ensenya el mòdul que domines. Nosaltres et portem els alumnes.",
-    "heroSubtitle": "Si ets docent d'FP, desenvolupador o sysadmin i domines un mòdul, a Tutor247 només t'ocupes d'ensenyar. La captació, els cobraments i la paperassa són cosa nostra.",
+    "heroSubtitle": "Si ets docent d'FP, desenvolupador o sysadmin i domines un mòdul, a Checkpoint Academy només t'ocupes d'ensenyar. La captació, els cobraments i la paperassa són cosa nostra.",
     "cta": "Vull ser mentor",
     "ctaNote": "Registrar-te és gratis. El teu perfil es publica quan el verifiquem.",
     "whyTitle": "Per què ensenyar amb nosaltres",
@@ -912,7 +912,7 @@
     "ticketsTitle": "Tiquets",
     "ticketTitle": "Tiquet",
     "newTicketTitle": "Nou dubte",
-    "newTicketHelp": "Com més concreta sigui la teva pregunta, millor resposta tindràs. Els crèdits es descompten en enviar-la; te’ls retornem si la cancel·les abans que un mentor l’agafi o si no et responen dins del termini.",
+    "newTicketHelp": "Com més concreta sigui la teva pregunta, millor resposta tindràs. Els crèdits es descompten en enviar-la; te'ls retornem si la cancel·les abans que un mentor l'agafi o si no et responen dins del termini.",
     "ticketKindLabel": "Tipus de tiquet",
     "subjectLabel": "Assumpte",
     "bodyLabel": "El teu dubte",
@@ -1087,5 +1087,32 @@
     },
     "note": "Text provisional pendent de revisió legal. Les regles d'aquesta pàgina són les que aplica la plataforma automàticament.",
     "toPricing": "Veure preus i packs"
+  },
+  "footer": {
+    "brandLine": "Checkpoint Academy — Aprèn amb IA. Demostra-ho sense ella.",
+    "ethics": "No fem les teves pràctiques. T'ensenyem a fer-les.",
+    "product": "Producte",
+    "help": "Ajuda",
+    "cycles": "Cicles i mòduls",
+    "diagnostic": "Test gratis",
+    "families": "Famílies",
+    "becomeMentor": "Fes-te mentor",
+    "cancellation": "Política de cancel·lació",
+    "rights": "© Checkpoint Academy"
+  },
+  "dominio": {
+    "nivel": {
+      "aun_no": "Encara no",
+      "con_ayuda": "Amb ajuda",
+      "casi": "Gairebé",
+      "domino": "Ho domino"
+    },
+    "status": {
+      "verde": "Va bé",
+      "ambar": "Atenció",
+      "rojo": "Problema"
+    },
+    "mapaAria": "Mapa de Domini de {code} {name}",
+    "nota": "Orientatiu: no és una nota oficial."
   }
 }

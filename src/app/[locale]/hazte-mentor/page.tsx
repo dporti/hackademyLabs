@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 export async function generateMetadata({ params }: PageProps<"/[locale]/hazte-mentor">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "joinMentor" });
-  return { title: `${t("metaTitle")} · Tutor247`, description: t("metaDescription") };
+  return { title: t("metaTitle"), description: t("metaDescription") };
 }
 
 export default async function HazteMentorPage({ params }: PageProps<"/[locale]/hazte-mentor">) {

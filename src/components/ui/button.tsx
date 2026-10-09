@@ -11,7 +11,8 @@ const buttonVariants = cva(
         outline:
           "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+          // Neutra a propósito: --secondary es el magenta de Tutor247 (DISENO.md §4).
+          "border-border bg-surface-2 text-foreground hover:bg-[color-mix(in_oklch,var(--surface-2),var(--foreground)_6%)] aria-expanded:bg-surface-2",
         ghost:
           "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
         destructive:

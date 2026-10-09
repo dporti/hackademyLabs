@@ -2,7 +2,8 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+/* Tema oscuro único: la variante dark: de Tailwind aplica siempre. */
+@custom-variant dark (&:where(*));
 
 @theme inline {
   --color-background: var(--background);
@@ -12,9 +13,29 @@
   --font-heading: var(--font-space-grotesk);
   --font-display: var(--font-space-grotesk);
 
-  /* Tokens de marca Tutor247 (HUD Terminal) */
+  /* Tokens de marca Checkpoint Academy */
   --color-surface-2: var(--surface-2);
   --color-accent-pass: var(--accent-pass);
+  --color-secondary-text: var(--secondary-text);
+  --color-label: var(--label);
+  --color-divider: var(--divider);
+  --color-warning: var(--warning);
+  --color-sos: var(--sos);
+  --color-sos-text: var(--sos-text);
+  --color-tint-primary: var(--tint-primary);
+  --color-tint-primary-border: var(--tint-primary-border);
+  --color-tint-secondary: var(--tint-secondary);
+  --color-tint-secondary-border: var(--tint-secondary-border);
+  --color-tint-warning: var(--tint-warning);
+  --color-tint-warning-border: var(--tint-warning-border);
+  --color-tint-sos: var(--tint-sos);
+  --color-tint-sos-border: var(--tint-sos-border);
+  --color-tint-pass: var(--tint-pass);
+  --color-tint-pass-border: var(--tint-pass-border);
+  --color-nivel-aun-no: var(--nivel-aun-no);
+  --color-nivel-con-ayuda: var(--nivel-con-ayuda);
+  --color-nivel-casi: var(--nivel-casi);
+  --color-nivel-domino: var(--nivel-domino);
   --color-ra-verde: var(--ra-verde);
   --color-ra-ambar: var(--ra-ambar);
   --color-ra-rojo: var(--ra-rojo);
@@ -56,151 +77,101 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-:root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
+/* ═══════════════════ Tema de marca Checkpoint Academy ═══════════════════
+   Tema oscuro único (DISENO.md §4). Se aplica en :root (portales, overscroll) y en
+   data-theme="student" (body). Dos productos, dos colores:
+   - cian   (--primary)   = Aprueba tu módulo
+   - magenta (--secondary) = Tutor247
+   data-accent="tutor" en un contenedor convierte su --primary en magenta (zona Tutor247
+   y familias). Verde (--accent-pass) SOLO para aprobado / dominado / "va bien". */
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
-/* ═══════════════════════ Temas de marca Tutor247 ═══════════════════════
-   Una sola marca, dos zonas. Se activan con data-theme en un contenedor:
-   - "student": HUD oscuro, neón cian/violeta, verde acid solo para aprobado.
-   - "family":  claro, sobrio y confiable, neón solo como acento puntual.
-   Ambos sobrescriben los tokens que consumen los componentes shadcn. */
-
+:root,
 [data-theme="student"] {
-  --background: #05070a;
-  --surface-2: #0e141b;
-  --foreground: #e6edf3;
-  --card: #0b1016;
-  --card-foreground: #e6edf3;
-  --popover: #0b1016;
-  --popover-foreground: #e6edf3;
+  --background: #07080f;
+  --surface-2: #151826;
+  --foreground: #e8eaf2;
+  --card: #0e1019;
+  --card-foreground: #e8eaf2;
+  --popover: #0e1019;
+  --popover-foreground: #e8eaf2;
 
-  --primary: #22d3ee; /* cian neón */
-  --primary-foreground: #04121a;
-  --secondary: #a78bfa; /* violeta */
-  --secondary-foreground: #120a24;
+  --primary: #2ef2ff; /* cian: Aprueba tu módulo */
+  --primary-foreground: #05060b;
+  --secondary: #ff3dcb; /* magenta: Tutor247 */
+  --secondary-foreground: #120a14;
+  --secondary-text: #ff8be0; /* magenta para texto pequeño */
 
-  --muted: #121a24;
-  --muted-foreground: #8b97a7;
-  --accent: #121a24;
-  --accent-foreground: #e6edf3;
-  --accent-pass: #9ef01a; /* verde acid: SOLO aprobado/dominado */
+  --muted: #151826;
+  --muted-foreground: #a9aec4; /* texto secundario: nunca más oscuro en texto */
+  --label: #8a90a8; /* etiquetas */
+  --accent: #151826;
+  --accent-foreground: #e8eaf2;
+  --accent-pass: #7cff5b; /* verde: SOLO aprobado/dominado */
+  --warning: #ffb020; /* «con ayuda», atención, retos */
+  --sos: #ff5a36; /* ticket SOS / urgente */
+  --sos-text: #ff7a5c;
 
-  --destructive: #fb5069;
-  --border: #1a2230;
-  --input: #1a2230;
-  --ring: #22d3ee;
+  --destructive: #ff5a36;
+  --border: #23263a;
+  --divider: #1c1f30;
+  --input: #23263a;
+  --ring: #2ef2ff;
 
-  /* Semáforo del Mapa de Dominio */
-  --ra-verde: #5be59a;
-  --ra-ambar: #fbbf24;
-  --ra-rojo: #fb5069;
+  /* Fondos tintados de los bloques destacados de cada familia de color */
+  --tint-primary: #0a1419;
+  --tint-primary-border: #1f4c55;
+  --tint-secondary: #120a14;
+  --tint-secondary-border: #5a2450;
+  --tint-warning: #1a1408;
+  --tint-warning-border: #5a3a10;
+  --tint-sos: #160b0a;
+  --tint-sos-border: #5a2418;
+  --tint-pass: #0a120a;
+  --tint-pass-border: #2a5a1a;
 
-  --radius: 0.5rem; /* esquinas poco redondeadas (táctico) */
-  --glow-primary: 0 0 0 1px color-mix(in oklab, var(--primary) 50%, transparent),
-    0 0 18px -2px color-mix(in oklab, var(--primary) 55%, transparent);
+  /* Mapa de Dominio: 4 niveles (siempre con texto + forma) */
+  --nivel-aun-no: #ff8be0;
+  --nivel-con-ayuda: #ffb020;
+  --nivel-casi: #7fd8e0;
+  --nivel-domino: #2ef2ff;
+
+  /* Semáforo genérico (estados de tickets, mentores, informes…) */
+  --ra-verde: var(--accent-pass);
+  --ra-ambar: var(--warning);
+  --ra-rojo: var(--sos-text);
+
+  /* shadcn: barra lateral y gráficas */
+  --sidebar: #0e1019;
+  --sidebar-foreground: #e8eaf2;
+  --sidebar-primary: #2ef2ff;
+  --sidebar-primary-foreground: #05060b;
+  --sidebar-accent: #151826;
+  --sidebar-accent-foreground: #e8eaf2;
+  --sidebar-border: #1c1f30;
+  --sidebar-ring: #2ef2ff;
+  --chart-1: #2ef2ff;
+  --chart-2: #ff3dcb;
+  --chart-3: #ffb020;
+  --chart-4: #7cff5b;
+  --chart-5: #7fd8e0;
+
+  --radius: 0.7rem; /* lg ≈ 11 px botones · xl ≈ 16 px tarjetas · 2xl ≈ 20 px bloques */
+  --glow-primary: 0 0 0 1px color-mix(in oklab, var(--primary) 45%, transparent),
+    0 0 60px rgb(46 242 255 / 0.1);
+  --glow-secondary: 0 0 0 1px color-mix(in oklab, var(--secondary) 45%, transparent),
+    0 0 60px rgb(255 61 203 / 0.1);
   --glow-pass: 0 0 18px -2px color-mix(in oklab, var(--accent-pass) 60%, transparent);
   color-scheme: dark;
 }
 
-[data-theme="family"] {
-  --background: #f7f9fb;
-  --surface-2: #eef2f6;
-  --foreground: #0e1726;
-  --card: #ffffff;
-  --card-foreground: #0e1726;
-  --popover: #ffffff;
-  --popover-foreground: #0e1726;
-
-  --primary: #0e7490; /* teal (cian oscurecido → AA sobre blanco) */
-  --primary-foreground: #ffffff;
-  --secondary: #5b46d6; /* violeta puntual */
-  --secondary-foreground: #ffffff;
-
-  --muted: #eef2f6;
-  --muted-foreground: #51607a;
-  --accent: #eef2f6;
-  --accent-foreground: #0e1726;
-  --accent-pass: #15803d;
-
-  --destructive: #dc2626;
-  --border: #dce3ec;
-  --input: #dce3ec;
-  --ring: #0e7490;
-
-  --ra-verde: #15803d;
-  --ra-ambar: #b45309;
-  --ra-rojo: #dc2626;
-
-  --radius: 0.625rem;
-  --glow-primary: 0 1px 2px rgb(14 23 38 / 0.06), 0 2px 8px rgb(14 23 38 / 0.06);
-  --glow-pass: none;
-  color-scheme: light;
+/* Zona Tutor247 / familias: el color principal pasa a ser el magenta. */
+[data-accent="tutor"] {
+  --primary: #ff3dcb;
+  --primary-foreground: #120a14;
+  --ring: #ff3dcb;
+  --tint-primary: #120a14;
+  --tint-primary-border: #5a2450;
+  --glow-primary: var(--glow-secondary);
 }
 
 @layer base {
@@ -223,6 +194,9 @@
   .glow {
     box-shadow: var(--glow-primary);
   }
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
   .glow-pass {
     box-shadow: var(--glow-pass);
   }
@@ -238,12 +212,12 @@
     border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
     box-shadow: 0 0 24px -10px color-mix(in oklab, var(--primary) 70%, transparent);
   }
-  /* Rejilla HUD sutil de fondo (solo zona student). */
+  /* Rejilla HUD de fondo (portada y CTA final): líneas #10121C cada 48 px. */
   .hud-grid {
     background-image:
-      linear-gradient(to right, color-mix(in oklab, var(--border) 60%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in oklab, var(--border) 60%, transparent) 1px, transparent 1px);
-    background-size: 44px 44px;
+      linear-gradient(to right, #10121c 1px, transparent 1px),
+      linear-gradient(to bottom, #10121c 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 }
 

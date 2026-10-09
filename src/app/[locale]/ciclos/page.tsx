@@ -5,7 +5,7 @@ import { getCiclosConModulos } from "@/lib/catalog";
 export async function generateMetadata({ params }: PageProps<"/[locale]/ciclos">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "catalog" });
-  return { title: `${t("title")} · Tutor247`, description: t("subtitle") };
+  return { title: t("title"), description: t("subtitle") };
 }
 
 export default async function CiclosPage({

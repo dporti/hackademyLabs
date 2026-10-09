@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { Button } from "@/components/ui/button";
 import { hasSession } from "@/lib/auth";
 
 // Botón de cuenta del header: "Mi panel" con sesión, "Entrar" sin ella. Lee cookies,
@@ -11,14 +10,12 @@ export async function HeaderSession() {
   const logged = await hasSession();
 
   return (
-    <Button
-      size="sm"
-      variant={logged ? "default" : "outline"}
-      nativeButton={false}
-      render={<Link href={logged ? "/panel" : "/entrar"} />}
+    <Link
+      href={logged ? "/panel" : "/entrar"}
+      className="inline-flex min-h-11 items-center justify-center rounded-[10px] bg-primary px-4 text-[15px] font-bold whitespace-nowrap text-primary-foreground transition-colors hover:bg-primary/85"
     >
       {logged ? t("panel") : t("login")}
-    </Button>
+    </Link>
   );
 }
 
@@ -28,7 +25,7 @@ export function HeaderSessionFallback() {
   return (
     <span
       aria-hidden
-      className="inline-block h-7 w-20 animate-pulse rounded-md border border-border/60 bg-muted/30"
+      className="inline-block h-11 w-24 animate-pulse rounded-[10px] border border-border/60 bg-muted/30"
     />
   );
 }

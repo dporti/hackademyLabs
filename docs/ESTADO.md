@@ -117,19 +117,34 @@ referencia en `docs/diseno/`.
   con devolución un ticket **cogido pero sin respuesta en plazo**. Migración
   `20261008090200_cancel_policy.sql` aplicada. Verificado: `verify-consumo` 59/59 (caso nuevo
   incluido: devuelve créditos y el mentor no cobra).
+- **Fusión del diseño · fase 1: marca y tokens** · 2026-10-09
+  - Tema oscuro único con los tokens de DISENO.md §4 en `:root` + `[data-theme="student"]`
+    (fuera el `:root` claro y `.dark` de shadcn y el tema `family`); nuevos `--warning`, `--sos`,
+    `--sos-text`, `--secondary-text`, `--label`, `--divider`, fondos `tint-*`, `--nivel-*`,
+    `.glow-secondary`; rejilla HUD 48 px. Zona Tutor247/familias con `data-accent="tutor"`
+    (primario magenta): `/familias`, panel de familia, informes del alumno, franja de la home.
+  - Mapa de Dominio a 4 niveles (`src/lib/dominio.ts`; `MapaDominio` y `RaBadge nivel`), con
+    texto + forma, i18n y aviso "orientativo, no nota oficial". Datos sin cambios (se mapean).
+  - Marca: appName y metadatos es/ca (plantilla `%s · Checkpoint Academy` en el layout), menciones
+    a la plataforma en los textos → Checkpoint Academy; `Logo`, `SectionLabel`; header nuevo
+    (Aprueba tu módulo, Tutor247, Mentores, Tarifas, SOS, Test gratis, cuenta; menú móvil
+    accesible) y footer nuevo; `/styleguide` rehecho.
+  - Verificado: lint + build OK; navegador es/ca (styleguide, home, `/ca/familias`, `/entrar`),
+    móvil 360/390 px sin scroll horizontal, menú móvil (aria-expanded, enlaces), 1024/1280 px.
+    No probado con sesión: panel de familia/alumno (solo cambia el atributo de tema).
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-- **Fusión del diseño** (Checkpoint Academy) · fase 0 cerrada 2026-10-09 (`3cf27c8`); siguiente:
-  fase 1 — Marca y tokens.
+- **Fusión del diseño** (Checkpoint Academy) · fases 0 y 1 cerradas 2026-10-09; siguiente:
+  fase 2 — Portada y Tutor247.
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
    `docs/diseno/DISENO.md`; prompts por fase en `docs/diseno/PROMPTS.md`). Cada fase cierra con
    lint + build + `verify-*` afectados + navegador (es y ca) + commit + ESTADO.md.
    - [x] **Fase 0** — Cerrar lo pendiente y preparar el terreno (CLAUDE.md + ESTADO.md).
-   - [ ] **Fase 1 — Marca y tokens**: tokens del tema oscuro único (§4), `--warning`/`--sos`,
+   - [x] **Fase 1 — Marca y tokens** (2026-10-09): tokens del tema oscuro único (§4), `--warning`/`--sos`,
      eliminar `family`; Mapa de Dominio a 4 niveles; appName/metadatos a Checkpoint Academy,
      `Logo`, header y footer nuevos; `/styleguide` actualizado.
    - [ ] **Fase 2 — Portada y Tutor247**: home con las 15 secciones de §6 (ModelCard,
@@ -224,6 +239,13 @@ referencia en `docs/diseno/`.
 - **Fuentes**: Space Grotesk títulos · Inter texto y paneles · JetBrains Mono códigos, RA,
   cifras y etiquetas · 2026-10-09.
 - **Ruta de Tutor247: `/tutor247`**; `/familias` redirige (308) a `/tutor247#familias` ·
+  2026-10-09. Hasta la fase 2, "Tutor247" del header apunta a `/familias`.
+- **Zona Tutor247 = `data-accent="tutor"`** (cambia `--primary` a magenta) en vez de un segundo
+  tema · reutiliza todos los componentes sin variantes nuevas · 2026-10-09.
+- **Variante `secondary` de Button/Badge = neutra** (superficie gris), aunque `--secondary` sea el
+  magenta: evita que cualquier botón secundario parezca "Tutor247" · 2026-10-09.
+- **4 niveles desde el semáforo guardado**: verde → Lo domino, rojo → Aún no, ámbar → Casi si
+  progreso ≥ 60 % o Con ayuda si no. Sin migración hasta tener progreso por RA (fase 7) ·
   2026-10-09.
 
 ## 6. Decisiones pendientes (las decide el usuario)
@@ -272,6 +294,10 @@ referencia en `docs/diseno/`.
 - **RA orientativos**: los de 0485/0484 y los 5 killer nuevos (`supabase/data/ra-killer.json`)
   hay que validarlos con el BOE/decreto; el diagnóstico solo cubre módulos con RA cargados (7).
 - **"Días activos" del informe es manual**: no hay registro de actividad del alumno todavía.
+- **`/styleguide` con textos en español en el código** (página interna `noindex`); excepción
+  consciente a la regla de i18n.
+- **Diagnóstico con 3 opciones** (verde/ámbar/rojo) aunque el Mapa muestre 4 niveles: el
+  autodiagnóstico se rehace en la fase 3.
 - **Tickets/sesiones sin automatismos**: no hay devolución automática si un ticket cogido no
   se responde en plazo, ni si una solicitud de sesión caduca sin respuesta (el alumno puede
   cancelarla), ni autocompletado de sesiones que el mentor no marca. Falta un job.

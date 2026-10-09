@@ -20,7 +20,7 @@ export const instant = false;
 export async function generateMetadata({ params }: PageProps<"/[locale]/panel/tickets/[id]">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "consumo" });
-  return { title: `${t("ticketTitle")} · Tutor247`, robots: { index: false } };
+  return { title: t("ticketTitle"), robots: { index: false } };
 }
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;

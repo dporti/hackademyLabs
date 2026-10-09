@@ -26,7 +26,7 @@ const rango = (items: [ProductKind, number][]) =>
 export async function generateMetadata({ params }: PageProps<"/[locale]/precios">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pricing" });
-  return { title: `${t("title")} · Tutor247`, description: t("subtitle") };
+  return { title: t("title"), description: t("subtitle") };
 }
 
 export default async function PreciosPage({ params }: PageProps<"/[locale]/precios">) {

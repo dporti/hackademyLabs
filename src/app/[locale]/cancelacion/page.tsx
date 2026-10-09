@@ -9,7 +9,7 @@ import { RaBadge } from "@/components/brand/ra-badge";
 export async function generateMetadata({ params }: PageProps<"/[locale]/cancelacion">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "cancelPolicy" });
-  return { title: `${t("metaTitle")} · Tutor247`, description: t("metaDescription") };
+  return { title: t("metaTitle"), description: t("metaDescription") };
 }
 
 // Casos por bloque. `refund` decide el distintivo (texto + forma + color).

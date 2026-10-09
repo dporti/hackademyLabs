@@ -24,7 +24,7 @@ export const instant = false;
 export async function generateMetadata({ params }: PageProps<"/[locale]/panel/tickets">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "consumo" });
-  return { title: `${t("ticketsTitle")} · Tutor247`, robots: { index: false } };
+  return { title: t("ticketsTitle"), robots: { index: false } };
 }
 
 export default async function TicketsPage({

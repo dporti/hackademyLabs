@@ -92,9 +92,9 @@ export default async function PanelPage({
   }
 
   return (
-    // La zona de familia usa el tema claro (data-theme="family").
+    // La zona de familia usa el acento magenta de Tutor247 (data-accent="tutor").
     <main
-      data-theme={profile?.role === "familia" ? "family" : undefined}
+      data-accent={profile?.role === "familia" ? "tutor" : undefined}
       className="w-full flex-1 bg-background text-foreground"
     >
       <div className="mx-auto w-full max-w-5xl px-4 py-12">

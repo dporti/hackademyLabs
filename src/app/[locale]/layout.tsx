@@ -2,36 +2,42 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import "../globals.css";
 
-// Títulos: Space Grotesk (tech sin caer en "gamer" genérico).
+// Títulos: Space Grotesk.
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
 
-// Texto: Inter (legible, neutra).
+// Texto y paneles: Inter.
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
 
-// Datos/HUD: JetBrains Mono (códigos de módulo, RA, cifras).
+// Códigos de módulo, RA, cifras y etiquetas: JetBrains Mono.
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "Tutor247 — Te sacamos el módulo",
-  description:
-    "Plataforma de FP de informática: catálogo por módulo oficial, mentores verificados y seguimiento hasta el examen.",
-};
+// Metadatos por idioma; las páginas ponen su título y la plantilla añade la marca.
+export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "common" });
+  return {
+    title: { default: t("metaTitle"), template: `%s · ${t("appName")}` },
+    description: t("metaDescription"),
+    applicationName: t("appName"),
+  };
+}
 
 // Pre-genera las rutas estáticas por idioma (SEO).
 export function generateStaticParams() {
@@ -57,6 +63,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <SiteHeader />
           {children}
+          <SiteFooter />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -17,7 +17,7 @@ export async function generateMetadata({
   const m = await getMentorById(id);
   if (!m) return {};
   return {
-    title: `${m.full_name} — ${m.headline ?? "Mentor"} · Tutor247`,
+    title: `${m.full_name} — ${m.headline ?? "Mentor"}`,
     description: m.bio ?? m.headline ?? undefined,
   };
 }

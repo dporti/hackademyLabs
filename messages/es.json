@@ -1,10 +1,12 @@
 {
   "common": {
-    "appName": "Tutor247",
+    "appName": "Checkpoint Academy",
     "tagline": "No te damos clases. Te sacamos el módulo.",
     "killer": "Módulo con más suspensos",
     "viewModule": "Ver módulo",
-    "viewProfile": "Ver perfil"
+    "viewProfile": "Ver perfil",
+    "metaTitle": "Checkpoint Academy — Aprende con IA. Demuéstralo sin ella.",
+    "metaDescription": "FP de Informática (SMX, ASIR, DAM, DAW): aprueba tu módulo con un plan hasta el examen, mentores verificados y Tutor247, el acompañamiento que no te suelta."
   },
   "home": {
     "heroSubtitle": "Elige tu módulo de FP de informática. Te decimos qué te falta, te damos un plan hasta el examen y un mentor que domina ese módulo.",
@@ -14,7 +16,7 @@
     "worryTitle": "¿Qué módulo te preocupa?",
     "searchLabel": "Buscar",
     "searchPlaceholder": "Código o nombre: 0485, bases de datos…",
-    "mapaCaption": "Así se ve tu módulo tras el diagnóstico: cada resultado de aprendizaje, en verde, ámbar o rojo.",
+    "mapaCaption": "Así se ve tu módulo tras el diagnóstico: cada resultado de aprendizaje con su nivel (aún no, con ayuda, casi o lo domino).",
     "painTitle": "¿Te suena alguna?",
     "pain": {
       "d1": {
@@ -75,7 +77,7 @@
     },
     "bit": {
       "title": "Bit: alguien contigo a cualquier hora",
-      "subtitle": "Bit es la IA de Tutor247. Conoce tu módulo, tu Mapa de Dominio y la fecha de tu examen. Te recuerda qué toca hoy y resuelve lo sencillo. Lo difícil, se lo pasa a tu mentor.",
+      "subtitle": "Bit es la IA de Checkpoint Academy. Conoce tu módulo, tu Mapa de Dominio y la fecha de tu examen. Te recuerda qué toca hoy y resuelve lo sencillo. Lo difícil, se lo pasa a tu mentor.",
       "points": {
         "p1": {
           "title": "24/7, también por WhatsApp.",
@@ -95,11 +97,11 @@
         }
       },
       "chatTitle": "Bit",
-      "chatSubtitle": "IA de Tutor247 · 0485 Programación",
+      "chatSubtitle": "IA de Checkpoint Academy · 0485 Programación",
       "example": "Ejemplo",
       "chat": {
         "m1": "Hazme la práctica 3 de 0485, que la entrego mañana.",
-        "m2": "Soy Bit, la IA de Tutor247. La práctica no te la hago: es tuya y te la van a evaluar. Pero la sacas tú en un rato. ¿Qué pide el primer ejercicio?",
+        "m2": "Soy Bit, la IA de Checkpoint Academy. La práctica no te la hago: es tuya y te la van a evaluar. Pero la sacas tú en un rato. ¿Qué pide el primer ejercicio?",
         "m3": "Un bucle que sume los números pares del 1 al 100. No me sale.",
         "m4": "Vamos por partes: ¿cómo sabes si un número es par? Pista: piensa en el resto de dividir entre 2.",
         "m5": "¡Eso es, n % 2 == 0! Ahora mételo dentro del for y pruébalo primero del 1 al 10.",
@@ -155,14 +157,17 @@
     "finalText": "Haz el diagnóstico gratis y descubre en 2 minutos qué te falta y si llegas."
   },
   "nav": {
-    "cycles": "Ciclos",
-    "modules": "Módulos",
     "mentors": "Mentores",
-    "pricing": "Precios",
     "login": "Entrar",
     "panel": "Mi panel",
-    "families": "Familias",
-    "diagnostic": "Diagnóstico gratis"
+    "approve": "Aprueba tu módulo",
+    "tutor247": "Tutor247",
+    "tariffs": "Tarifas",
+    "sos": "SOS",
+    "sosAria": "SOS: pide ayuda urgente con una duda",
+    "freeTest": "Test gratis",
+    "menu": "Menú",
+    "mainNav": "Navegación principal"
   },
   "catalog": {
     "title": "Ciclos y módulos",
@@ -559,7 +564,7 @@
       },
       "q2": {
         "q": "¿Y si mi hijo ya es mayor de edad?",
-        "a": "Puede usar Tutor247 igual, pero es él quien decide qué informes se comparten con vosotros. Sin su consentimiento, no compartimos nada."
+        "a": "Puede usar Checkpoint Academy igual, pero es él quien decide qué informes se comparten con vosotros. Sin su consentimiento, no compartimos nada."
       },
       "q3": {
         "q": "¿Le hacéis los trabajos?",
@@ -594,7 +599,7 @@
     "linkHelp": "El vínculo lo confirma tu hijo desde su cuenta: así sabe en todo momento qué compartimos con vosotros.",
     "codeAria": "Código de invitación",
     "codeExpires": "Válido hasta el {date}. Un solo uso.",
-    "step1": "Pídele que entre en Tutor247 con su cuenta de alumno (si no la tiene, que se registre como alumno).",
+    "step1": "Pídele que entre en Checkpoint Academy con su cuenta de alumno (si no la tiene, que se registre como alumno).",
     "step2": "En su panel, en «Familia», que escriba este código.",
     "step3": "Si es mayor de edad, decidirá si comparte su progreso con vosotros.",
     "createCode": "Generar código",
@@ -605,7 +610,7 @@
   },
   "studentFamily": {
     "title": "Familia",
-    "notLinked": "Si tu familia te acompaña en Tutor247, te habrá dado un código. Escríbelo aquí para vincular vuestras cuentas.",
+    "notLinked": "Si tu familia te acompaña en Checkpoint Academy, te habrá dado un código. Escríbelo aquí para vincular vuestras cuentas.",
     "codeLabel": "Código de tu familia",
     "shareConsent": "Acepto compartir mi progreso con mi familia (puedo retirarlo cuando quiera).",
     "whatIsShared": "Tu familia verá: módulos que preparas, fechas de examen, saldo de créditos e informes semanales. Nunca tus mensajes ni tus dudas.",
@@ -686,11 +691,6 @@
       "verde": "Lo domino",
       "ambar": "A medias",
       "rojo": "Ni idea"
-    },
-    "map": {
-      "verde": "DOMINADO",
-      "ambar": "A MEDIAS",
-      "rojo": "FLOJO"
     },
     "mapProgress": "{n} de {total} respondidos",
     "mapDone": "Este es tu Mapa de Dominio.",
@@ -786,7 +786,7 @@
     "metaTitle": "Hazte mentor de FP de informática",
     "metaDescription": "Enseña el módulo que dominas. Alumnos sin buscarlos, cobro garantizado y una IA que te quita el trabajo repetitivo.",
     "heroTitle": "Enseña el módulo que dominas. Nosotros te traemos los alumnos.",
-    "heroSubtitle": "Si eres docente de FP, desarrollador o sysadmin y dominas un módulo, en Tutor247 solo te ocupas de enseñar. La captación, los cobros y el papeleo son cosa nuestra.",
+    "heroSubtitle": "Si eres docente de FP, desarrollador o sysadmin y dominas un módulo, en Checkpoint Academy solo te ocupas de enseñar. La captación, los cobros y el papeleo son cosa nuestra.",
     "cta": "Quiero ser mentor",
     "ctaNote": "Registrarte es gratis. Tu perfil se publica cuando lo verificamos.",
     "whyTitle": "Por qué enseñar con nosotros",
@@ -1087,5 +1087,32 @@
     },
     "note": "Texto provisional pendiente de revisión legal. Las reglas de esta página son las que aplica la plataforma automáticamente.",
     "toPricing": "Ver precios y packs"
+  },
+  "footer": {
+    "brandLine": "Checkpoint Academy — Aprende con IA. Demuéstralo sin ella.",
+    "ethics": "No hacemos tus prácticas. Te enseñamos a hacerlas.",
+    "product": "Producto",
+    "help": "Ayuda",
+    "cycles": "Ciclos y módulos",
+    "diagnostic": "Test gratis",
+    "families": "Familias",
+    "becomeMentor": "Hazte mentor",
+    "cancellation": "Política de cancelación",
+    "rights": "© Checkpoint Academy"
+  },
+  "dominio": {
+    "nivel": {
+      "aun_no": "Aún no",
+      "con_ayuda": "Con ayuda",
+      "casi": "Casi",
+      "domino": "Lo domino"
+    },
+    "status": {
+      "verde": "Va bien",
+      "ambar": "Atención",
+      "rojo": "Problema"
+    },
+    "mapaAria": "Mapa de Dominio de {code} {name}",
+    "nota": "Orientativo: no es una nota oficial."
   }
 }

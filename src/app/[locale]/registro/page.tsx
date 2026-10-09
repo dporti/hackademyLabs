@@ -13,7 +13,7 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/registro">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "auth" });
-  return { title: `${t("registerTitle")} · Tutor247` };
+  return { title: t("registerTitle") };
 }
 
 export default async function RegistroPage({

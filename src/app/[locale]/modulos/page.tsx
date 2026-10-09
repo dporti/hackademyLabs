@@ -12,7 +12,7 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/modulos">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "search" });
-  return { title: `${t("title")} · Tutor247`, description: t("placeholder") };
+  return { title: t("title"), description: t("placeholder") };
 }
 
 export default async function ModulosPage({

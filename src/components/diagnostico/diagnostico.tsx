@@ -108,11 +108,6 @@ export function Diagnostico({
     new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", timeZone: "UTC" }).format(
       new Date(`${d}T00:00:00Z`),
     );
-  const statusLabels = {
-    verde: t("map.verde"),
-    ambar: t("map.ambar"),
-    rojo: t("map.rojo"),
-  };
 
   async function copiarEnlace() {
     try {
@@ -227,7 +222,7 @@ export function Diagnostico({
             code={modulo.code}
             name={modulo.name}
             ras={mapa}
-            statusLabels={statusLabels}
+            nota={false}
           />
           <p className="mt-2 text-xs text-muted-foreground">
             {completo ? t("mapDone") : t("mapProgress", { n: respondidos, total: modulo.ra.length })}

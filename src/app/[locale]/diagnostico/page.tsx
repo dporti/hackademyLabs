@@ -11,7 +11,7 @@ import { PageSkeleton } from "@/components/page-skeleton";
 export async function generateMetadata({ params }: PageProps<"/[locale]/diagnostico">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "diagnostico" });
-  return { title: `${t("metaTitle")} · Tutor247`, description: t("metaDescription") };
+  return { title: t("metaTitle"), description: t("metaDescription") };
 }
 
 export default async function DiagnosticoPage({

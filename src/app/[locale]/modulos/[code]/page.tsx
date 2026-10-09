@@ -29,7 +29,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "module" });
   const vars = { code: modulo.code, name: modulo.name };
   return {
-    title: `${t("metaTitle", vars)} · Tutor247`,
+    title: t("metaTitle", vars),
     description: modulo.description ?? t("metaDescription", vars),
   };
 }

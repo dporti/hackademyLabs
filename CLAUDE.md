@@ -106,9 +106,18 @@ Más reglas:
   solo color. Todo respeta `prefers-reduced-motion`.
 - Lo no construido (Bit, aula, Modo Examen, Rescate 48h, SOS en directo…) = "Próximamente"
   en la web pública y oculto en el panel. Sin testimonios ni cifras inventadas.
-- Referencia viva: `/styleguide` (`noindex`). Componentes de marca: `src/components/brand/`.
-- **Transición:** hasta cerrar la fase 1 de "Fusión del diseño" (ver `docs/ESTADO.md`) el
-  código aún tiene los tokens HUD antiguos (cian `#22D3EE`, violeta, tema `family`).
+- **Zona Tutor247 / familias**: envolver en `data-accent="tutor"` → `--primary` pasa a
+  magenta (botones, enlaces, glow). No existe ya `data-theme="family"`.
+- **`--secondary` = magenta de marca**, pero la variante `secondary` de `Button`/`Badge` es
+  **neutra** a propósito (superficie gris): no usarla para "Tutor247".
+- Mapa de Dominio: `src/lib/dominio.ts` (`nivelDesdeEstado` traduce el `RaStatus` guardado
+  a los 4 niveles). `RaBadge nivel=…` para niveles; `RaBadge status=…` = semáforo genérico
+  (tickets, mentores, informes) con `--ra-verde/ambar/rojo`.
+- Utilidades: `.glow`, `.glow-secondary`, `.glow-pass`, `.hud-grid`, `.animate-hud-in`; colores
+  `tint-*`, `warning`, `sos`, `sos-text`, `label`, `divider`, `nivel-*`.
+- Header/footer globales: `site-header.tsx` (+ `mobile-menu.tsx`) y `site-footer.tsx`.
+- Referencia viva: `/styleguide` (`noindex`). Componentes de marca: `src/components/brand/`
+  (`Logo`, `SectionLabel`, `MapaDominio`, `RaBadge`…).
 
 ## Parches de dependencias
 `patches/next-intl+4.14.9.patch`: hace lazy el `require('@swc/core')` del plugin de

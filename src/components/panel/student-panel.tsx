@@ -185,7 +185,7 @@ export async function StudentPanel({
 
       {/* ─────────────────────── Informes semanales ─────────────────────── */}
       {dashboard.reports.length > 0 && (
-        <section aria-labelledby="informes" data-theme="family" className="rounded-xl bg-background p-5">
+        <section aria-labelledby="informes" data-accent="tutor" className="rounded-2xl border border-tint-secondary-border bg-tint-secondary p-5">
           <h2 id="informes" className="font-display text-xl font-semibold">
             {t("reportsTitle")}
           </h2>

@@ -12,7 +12,7 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/familias">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "family" });
-  return { title: `${t("metaTitle")} · Tutor247`, description: t("metaDescription") };
+  return { title: t("metaTitle"), description: t("metaDescription") };
 }
 
 export default async function FamiliasPage({
@@ -35,7 +35,7 @@ export default async function FamiliasPage({
   const faqs = ["q1", "q2", "q3", "q4"] as const;
 
   return (
-    <main data-theme="family" className="flex-1 bg-background text-foreground">
+    <main data-accent="tutor" className="flex-1 bg-background text-foreground">
       {/* ───────────────────────────── Hero ───────────────────────────── */}
       <section className="border-b">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 lg:grid-cols-[1.1fr_1fr] lg:py-20">

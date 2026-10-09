@@ -29,7 +29,7 @@ export const instant = false;
 export async function generateMetadata({ params }: PageProps<"/[locale]/panel/sesiones">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "consumo" });
-  return { title: `${t("sessionsTitle")} · Tutor247`, robots: { index: false } };
+  return { title: t("sessionsTitle"), robots: { index: false } };
 }
 
 export default async function SesionesPage({

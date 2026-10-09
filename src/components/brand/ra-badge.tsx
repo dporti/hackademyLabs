@@ -1,21 +1,26 @@
+import { useTranslations } from "next-intl";
 import type { RaStatus } from "@/lib/db-types";
+import { NIVEL_META, type NivelDominio } from "@/lib/dominio";
 
-// Badge de estado de un RA. El estado se transmite con texto + forma + color
-// (nunca solo color) para cumplir accesibilidad.
-const META: Record<RaStatus, { color: string; label: string; glyph: string }> = {
-  verde: { color: "var(--ra-verde)", label: "Dominado", glyph: "●" },
-  ambar: { color: "var(--ra-ambar)", label: "En curso", glyph: "◐" },
-  rojo: { color: "var(--ra-rojo)", label: "Flojo", glyph: "○" },
+// Badge de estado. Dos usos:
+// - `nivel`: nivel del Mapa de Dominio (4 niveles: Aún no / Con ayuda / Casi / Lo domino).
+// - `status`: semáforo genérico verde/ámbar/rojo (estados de tickets, mentores, informes…).
+// El estado se transmite con texto + forma + color (nunca solo color).
+const STATUS_META: Record<RaStatus, { color: string; glyph: string }> = {
+  verde: { color: "var(--ra-verde)", glyph: "●" },
+  ambar: { color: "var(--ra-ambar)", glyph: "◐" },
+  rojo: { color: "var(--ra-rojo)", glyph: "○" },
 };
 
-export function RaBadge({
-  status,
-  label,
-}: {
-  status: RaStatus;
-  label?: string;
-}) {
-  const m = META[status];
+type Props = { label?: string } & (
+  | { nivel: NivelDominio; status?: never }
+  | { status: RaStatus; nivel?: never }
+);
+
+export function RaBadge({ status, nivel, label }: Props) {
+  const t = useTranslations("dominio");
+  const m = nivel ? NIVEL_META[nivel] : STATUS_META[status!];
+  const texto = label ?? (nivel ? t(`nivel.${nivel}`) : t(`status.${status!}`));
   return (
     <span
       className="inline-flex items-center gap-1.5 rounded-md border px-2 py-0.5 text-xs font-medium"
@@ -26,7 +31,7 @@ export function RaBadge({
       }}
     >
       <span aria-hidden>{m.glyph}</span>
-      {label ?? m.label}
+      {texto}
     </span>
   );
 }

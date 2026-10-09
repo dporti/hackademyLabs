@@ -1,50 +1,43 @@
+import { useTranslations } from "next-intl";
 import type { RaStatus } from "@/lib/db-types";
+import { NIVEL_META, nivelDesdeEstado, type NivelDominio } from "@/lib/dominio";
 
 export interface RaProgress {
   code: string;
   label: string;
   status: RaStatus;
   progress: number; // 0–100
+  // Nivel explícito; si falta se deduce de status + progress.
+  nivel?: NivelDominio;
 }
 
-const COLOR: Record<RaStatus, string> = {
-  verde: "var(--ra-verde)",
-  ambar: "var(--ra-ambar)",
-  rojo: "var(--ra-rojo)",
-};
-const LABEL: Record<RaStatus, string> = {
-  verde: "DOMINADO",
-  ambar: "EN CURSO",
-  rojo: "FLOJO",
-};
-
-// Panel tipo HUD con el Mapa de Dominio de un módulo: cada RA con su barra de
-// progreso y estado verde/ámbar/rojo. Pensado para la zona de estudiantes.
+// Panel HUD con el Mapa de Dominio de un módulo: cada RA con su barra de progreso y
+// su nivel (Aún no / Con ayuda / Casi / Lo domino) en texto + forma + color.
+// Es orientativo, no una nota oficial: se dice en el pie (`nota`).
 export function MapaDominio({
   code,
   name,
   ras,
-  statusLabels = LABEL,
+  nota = true,
 }: {
   code: string;
   name: string;
   ras: RaProgress[];
-  // Etiquetas traducidas del semáforo (por defecto, en español).
-  statusLabels?: Record<RaStatus, string>;
+  nota?: boolean;
 }) {
-  const dominados = ras.filter((r) => r.status === "verde").length;
+  const t = useTranslations("dominio");
+  const niveles = ras.map((r) => r.nivel ?? nivelDesdeEstado(r.status, r.progress));
+  const dominados = niveles.filter((n) => n === "domino").length;
 
   return (
     <section
-      className="animate-hud-in rounded-lg border bg-card p-4 sm:p-5"
-      aria-label={`Mapa de Dominio de ${code} ${name}`}
+      className="animate-hud-in rounded-2xl border bg-card p-4 sm:p-5"
+      aria-label={t("mapaAria", { code, name })}
     >
-      <header className="flex flex-wrap items-baseline justify-between gap-2 border-b border-border/70 pb-3">
+      <header className="flex flex-wrap items-baseline justify-between gap-2 border-b border-divider pb-3">
         <div className="flex items-baseline gap-2">
           <span className="font-mono text-sm text-primary">{code}</span>
-          <h3 className="text-sm font-semibold tracking-wide uppercase">
-            {name}
-          </h3>
+          <h3 className="text-sm font-semibold tracking-wide uppercase">{name}</h3>
         </div>
         <span className="font-mono text-xs text-muted-foreground">
           [ {dominados} / {ras.length} RA ]
@@ -52,37 +45,41 @@ export function MapaDominio({
       </header>
 
       <ul className="mt-3 space-y-2.5">
-        {ras.map((ra) => (
-          <li key={ra.code} className="flex items-center gap-3">
-            <span className="w-10 shrink-0 font-mono text-xs text-muted-foreground">
-              {ra.code}
-            </span>
-            <div
-              className="relative h-2 flex-1 overflow-hidden rounded-full bg-muted"
-              role="progressbar"
-              aria-valuenow={ra.progress}
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-label={`${ra.code} ${statusLabels[ra.status]}`}
-            >
+        {ras.map((ra, i) => {
+          const nivel = niveles[i];
+          const { color, glyph } = NIVEL_META[nivel];
+          const texto = t(`nivel.${nivel}`);
+          return (
+            <li key={ra.code} className="flex items-center gap-3">
+              <span className="w-10 shrink-0 font-mono text-xs text-muted-foreground">
+                {ra.code}
+              </span>
+              <div
+                className="relative h-2 flex-1 overflow-hidden rounded-full bg-muted"
+                role="progressbar"
+                aria-valuenow={ra.progress}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-label={`${ra.code} ${texto}`}
+              >
+                <span
+                  className="absolute inset-y-0 left-0 rounded-full"
+                  style={{ width: `${ra.progress}%`, backgroundColor: color }}
+                />
+              </div>
               <span
-                className="absolute inset-y-0 left-0 rounded-full"
-                style={{
-                  width: `${ra.progress}%`,
-                  backgroundColor: COLOR[ra.status],
-                  boxShadow: `0 0 10px -1px color-mix(in oklab, ${COLOR[ra.status]} 60%, transparent)`,
-                }}
-              />
-            </div>
-            <span
-              className="w-20 shrink-0 text-right font-mono text-[10px] tracking-wider"
-              style={{ color: COLOR[ra.status] }}
-            >
-              {statusLabels[ra.status]}
-            </span>
-          </li>
-        ))}
+                className="flex w-24 shrink-0 items-center justify-end gap-1 font-mono text-[11px] tracking-wide"
+                style={{ color }}
+              >
+                <span aria-hidden>{glyph}</span>
+                {texto}
+              </span>
+            </li>
+          );
+        })}
       </ul>
+
+      {nota && <p className="mt-3 text-xs text-label">{t("nota")}</p>}
     </section>
   );
 }

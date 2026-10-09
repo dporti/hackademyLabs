@@ -2,59 +2,83 @@ import { Suspense } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LocaleSwitcher } from "@/components/locale-switcher";
+import { Logo } from "@/components/brand/logo";
+import { MobileMenu } from "@/components/mobile-menu";
 import {
   HeaderSession,
   HeaderSessionFallback,
 } from "@/components/header-session";
 
+// Enlaces principales (mockup Main.html). Tutor247 apunta a /familias hasta que exista
+// /tutor247 (fase 2 de "Fusión del diseño"; entonces /familias redirigirá allí).
+export const NAV_LINKS = [
+  { href: "/modulos", key: "approve" },
+  { href: "/familias", key: "tutor247" },
+  { href: "/mentores", key: "mentors" },
+  { href: "/precios", key: "tariffs" },
+] as const;
+
+// Sin display: cada botón decide cuándo se muestra (hidden + sm:/md:inline-flex).
+const BTN =
+  "min-h-11 items-center justify-center rounded-[10px] px-4 text-[15px] transition-colors";
+
 export function SiteHeader() {
   const t = useTranslations("nav");
-  const c = useTranslations("common");
 
   return (
-    <header className="sticky top-0 z-20 border-b border-border/80 bg-background/95 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-6xl items-center gap-6 px-4">
-        <Link href="/" className="flex items-center gap-2">
-          {/* Logomark HUD */}
-          <span
-            aria-hidden
-            className="grid size-6 place-items-center rounded-[5px] font-mono text-[11px] font-bold text-primary-foreground"
-            style={{
-              backgroundColor: "var(--primary)",
-              boxShadow: "var(--glow-primary)",
-            }}
-          >
-            T
-          </span>
-          <span className="font-display text-lg font-bold tracking-tight">
-            {c("appName")}
-          </span>
+    <header className="sticky top-0 z-20 border-b border-divider bg-background/95 backdrop-blur-md">
+      <div className="mx-auto flex max-w-[1200px] items-center gap-6 px-4 py-3 sm:px-6">
+        <Link href="/" className="shrink-0 rounded-[10px]">
+          <Logo responsive />
         </Link>
-        <nav className="hidden items-center gap-5 text-sm text-muted-foreground sm:flex">
-          <Link href="/diagnostico" className="font-medium text-primary transition-colors hover:text-foreground">
-            {t("diagnostic")}
-          </Link>
-          <Link href="/ciclos" className="transition-colors hover:text-foreground">
-            {t("cycles")}
-          </Link>
-          <Link href="/modulos" className="transition-colors hover:text-foreground">
-            {t("modules")}
-          </Link>
-          <Link href="/mentores" className="transition-colors hover:text-foreground">
-            {t("mentors")}
-          </Link>
-          <Link href="/precios" className="transition-colors hover:text-foreground">
-            {t("pricing")}
-          </Link>
-          <Link href="/familias" className="transition-colors hover:text-foreground">
-            {t("families")}
-          </Link>
+
+        <nav
+          aria-label={t("mainNav")}
+          className="hidden items-center gap-6 text-[15px] text-[#c5c9da] lg:flex"
+        >
+          {NAV_LINKS.map((l) => (
+            <Link
+              key={l.key}
+              href={l.href}
+              className="border-b-2 border-transparent py-1.5 transition-colors hover:border-primary hover:text-foreground"
+            >
+              {t(l.key)}
+            </Link>
+          ))}
         </nav>
-        <div className="ml-auto flex items-center gap-3">
-          <LocaleSwitcher />
+
+        <div className="ml-auto flex items-center gap-2.5">
+          <span className="hidden sm:block">
+            <LocaleSwitcher />
+          </span>
+          <Link
+            href="/panel/tickets"
+            aria-label={t("sosAria")}
+            className={`${BTN} hidden border border-sos font-mono font-bold text-sos-text hover:bg-tint-sos md:inline-flex`}
+          >
+            <span aria-hidden className="mr-1.5">●</span>
+            {t("sos")}
+          </Link>
+          <Link
+            href="/diagnostico"
+            className={`${BTN} hidden border border-[#3a3f5c] font-medium text-foreground hover:border-primary sm:inline-flex`}
+          >
+            {t("freeTest")}
+          </Link>
           <Suspense fallback={<HeaderSessionFallback />}>
             <HeaderSession />
           </Suspense>
+          <MobileMenu
+            label={t("menu")}
+            navLabel={t("mainNav")}
+            links={[
+              ...NAV_LINKS.map((l) => ({ href: l.href, label: t(l.key) })),
+              { href: "/diagnostico", label: t("freeTest") },
+              { href: "/panel/tickets", label: t("sosAria") },
+            ]}
+          >
+            <LocaleSwitcher />
+          </MobileMenu>
         </div>
       </div>
     </header>

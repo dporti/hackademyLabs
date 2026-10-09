@@ -41,7 +41,6 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   const c = await getTranslations("common");
   const tp = await getTranslations("products");
   const tm = await getTranslations("mentors");
-  const td = await getTranslations("diagnostico");
   const [killer, diagnosticables, mentores] = await Promise.all([
     getModulosKiller(),
     getModulosDiagnosticables(),
@@ -121,11 +120,6 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
               code="0485"
               name="Programación"
               ras={HERO_RA}
-              statusLabels={{
-                verde: td("map.verde"),
-                ambar: td("map.ambar"),
-                rojo: td("map.rojo"),
-              }}
             />
             <p className="mt-2 text-center text-xs text-muted-foreground">{t("mapaCaption")}</p>
           </div>
@@ -312,8 +306,8 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         </section>
       )}
 
-      {/* ─────────────────── Franja familias (tema claro) ─────────────── */}
-      <section data-theme="family" className="bg-background">
+      {/* ─────────────────── Franja familias (acento Tutor247) ─────────────── */}
+      <section data-accent="tutor" className="border-y border-tint-secondary-border bg-tint-secondary">
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-5 px-4 py-14 sm:flex-row sm:items-center sm:justify-between">
           <div className="max-w-xl">
             <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">

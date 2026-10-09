@@ -13,7 +13,7 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/entrar">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "auth" });
-  return { title: `${t("loginTitle")} · Tutor247` };
+  return { title: t("loginTitle") };
 }
 
 // Errores admitidos por URL (lista cerrada: nada de texto arbitrario en la UI).
