@@ -205,12 +205,26 @@ referencia en `docs/diseno/`.
   - Verificado: lint + build; verify-consumo OK; con sesión del alumno de prueba: ticket creado desde
     la UI, visto en lista y detalle, y cancelado con devolución (saldo 317 → 320); 1440 y 390 px sin
     scroll horizontal; mentor preseleccionado con `?mentor=`.
+- **Fusión del diseño · fase 6: paneles de mentor, familia y admin** · 2026-10-09 · `0202380`
+  - Mentor (PanelMentor.html): cifras del mes (créditos, bolsa, por responder, solicitudes), próxima
+    sesión con sala, agenda (confirmadas y por confirmar), bandeja de tickets asignados con plazo
+    (ámbar ≤ 2 h, rojo vencido) y perfil plegado. Brief de Bit, alertas de riesgo y generador de
+    material: ocultos hasta que exista Bit.
+  - Familia (Familia.html, oscuro con acento magenta): por hijo, estado del último informe, próximas
+    fechas, módulos con temas, saldo e informes; vincular y aviso de privacidad en columna lateral.
+    Tutor de referencia y plan/pagos sin datos: no se muestran.
+  - Admin (Admin.html): cifras de mentores (pendientes en ámbar), verificación con avatar y nivel,
+    informes semanales. Métricas de negocio, incidencias y demanda: sin datos, no se muestran.
+  - `Button` de shadcn con objetivos de 40–48 px en toda la app (iguala formularios antiguos).
+  - `src/lib/tiempo.ts` (`horasHasta`): Date.now() fuera de los componentes (regla react-hooks/purity).
+  - Verificado: lint + build; verify-roles y verify-family OK. **Sin revisión en navegador** de los
+    tres paneles (pendiente: entrar con mentor, familia y admin de prueba).
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-- **Fusión del diseño** (Checkpoint Academy) · fases 0–5 cerradas 2026-10-09; siguiente:
-  fase 6 — Paneles de mentor, familia y admin.
+- **Fusión del diseño** (Checkpoint Academy) · fases 0–6 cerradas 2026-10-09 (fase 6 sin revisión visual); siguiente:
+  revisar en navegador los paneles de mentor, familia y admin; después fases 7–9 (backend nuevo).
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
@@ -231,7 +245,7 @@ referencia en `docs/diseno/`.
      `/panel/creditos` nueva (saldo, caducidades, compra mock, ledger).
    - [x] **Fase 5 — Tickets y sesiones** (2026-10-09): `/panel/tickets` (SOS.html) y `/panel/sesiones`
      (Reserva.html) sin tocar RPC ni cobros.
-   - [ ] **Fase 6 — Paneles de mentor, familia (oscuro) y admin**.
+   - [x] **Fase 6 — Paneles de mentor, familia (oscuro) y admin** (2026-10-09, `0202380`; falta revisión visual).
    - [ ] **Fase 7 — Backend nuevo I**: `/panel/mapa` (progreso por RA guardado) y rol `tutor`
      con cartera (`PanelTutor.html`). Planificar aparte.
    - [ ] **Fase 8 — Backend nuevo II**: `/panel/logros` (XP, insignias, racha), Bit
@@ -389,8 +403,6 @@ referencia en `docs/diseno/`.
 - **Dev server y mensajes nuevos**: tras añadir claves a `messages/*.json`, las páginas cacheadas del
   dev siguen mostrando la clave hasta reiniciar `npm run dev` (en build no pasa).
 - **`Panel.html` del mockup está vacío** (0 bytes): el AppShell sigue la barra lateral de `Creditos.html`.
-- **Formularios antiguos dentro del panel** (añadir módulo, vincular familia): funcionan, pero con
-  botones pequeños del estilo anterior; se igualan en la fase 6.
 - **Features de planes en BD solo en español** (se ven en /ca/tutor247 y /ca/precios).
 - **Promesas de la portada a validar**: «certificado negativo para trabajar con menores» y «mentores
   verificados» son políticas (no hay flujo que lo compruebe en la plataforma todavía).
