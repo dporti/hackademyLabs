@@ -35,9 +35,9 @@ export function MentorCard({
         <span
           className="rounded-md border px-2 py-0.5 text-xs font-medium"
           style={{
-            color: "var(--secondary)",
-            borderColor: "color-mix(in oklab, var(--secondary) 40%, transparent)",
-            backgroundColor: "color-mix(in oklab, var(--secondary) 12%, transparent)",
+            color: "var(--primary)",
+            borderColor: "color-mix(in oklab, var(--primary) 40%, transparent)",
+            backgroundColor: "color-mix(in oklab, var(--primary) 12%, transparent)",
           }}
         >
           {levelLabel ?? LEVEL_LABEL[level]}

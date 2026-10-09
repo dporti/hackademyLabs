@@ -215,7 +215,7 @@ export default async function PreciosPage({ params }: PageProps<"/[locale]/preci
                       variant="outline"
                       className="mt-4"
                       nativeButton={false}
-                      render={<Link href={familia ? "/familias#planes" : `/registro?plan=${pl.kind}`} />}
+                      render={<Link href={familia ? "/tutor247#planes" : `/registro?plan=${pl.kind}`} />}
                     >
                       {familia ? t("seeFamilies") : t("subscribe")}
                     </Button>

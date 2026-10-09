@@ -6,155 +6,354 @@
     "viewModule": "Veure mòdul",
     "viewProfile": "Veure perfil",
     "metaTitle": "Checkpoint Academy — Aprèn amb IA. Demostra-ho sense ella.",
-    "metaDescription": "FP d'Informàtica (SMX, ASIX, DAM, DAW): aprova el teu mòdul amb un pla fins a l'examen, mentors verificats i Tutor247, l'acompanyament que no et deixa sol."
+    "metaDescription": "FP d'Informàtica (SMX, ASIX, DAM, DAW): aprova el teu mòdul amb un pla fins a l'examen, mentors verificats i Tutor247, l'acompanyament que no et deixa sol.",
+    "comingSoon": "Properament",
+    "example": "Exemple"
   },
   "home": {
-    "heroSubtitle": "Tria el teu mòdul d'FP d'informàtica. Et diem què et falta, et donem un pla fins a l'examen i un mentor que domina aquest mòdul.",
-    "ctaDiagnostic": "Fes el diagnòstic gratis",
-    "ctaNote": "2 minuts. Sense registre. Sense targeta.",
-    "familyCta": "Soc mare o pare",
-    "worryTitle": "Quin mòdul et preocupa?",
-    "searchLabel": "Cercar",
-    "searchPlaceholder": "Codi o nom: 0485, bases de dades…",
-    "mapaCaption": "Així es veu el teu mòdul després del diagnòstic: cada resultat d'aprenentatge amb el seu nivell (encara no, amb ajuda, gairebé o ho domino).",
-    "painTitle": "Et sona alguna?",
-    "pain": {
-      "d1": {
-        "quote": "Vaig perdut a Programació i no sé per on començar.",
-        "answer": "Fes el diagnòstic de 0485: en 2 minuts veus quins RA et falten i en quin ordre atacar-los.",
-        "cta": "Diagnosticar 0485"
+    "hero": {
+      "eyebrow": "La revolució de les classes en línia · FP Informàtica",
+      "title": "Aprèn amb IA. Demostra-ho sense ella.",
+      "text": "No et prohibim la IA: t'ensenyem a fer-la servir al teu favor. Mentors que són professors d'FP, una IA que et fa pensar i simulacres on demostres que ho saps fer tu. Per a SMX, ASIX, DAM i DAW.",
+      "searchLabel": "Quin mòdul et preocupa?",
+      "searchPlaceholder": "Tria el teu mòdul",
+      "searchCta": "Test gratis",
+      "note": "Diagnòstic en 2 minuts · Sense registre ni targeta · Et diu què domines i què no",
+      "statCycles": "cicles: SMX, ASIX, DAM i DAW",
+      "statModules": "mòduls oficials amb els seus RA",
+      "statBit": "en Bit, el teu tutor IA",
+      "statMentor": "mentor especialista del teu mòdul"
+    },
+    "demo": {
+      "file": "examen_UF2.java",
+      "comment": "// per què peta aquí?",
+      "bitLabel": "BIT · IA · 23:47",
+      "bitMsg": "No et dono la solució: si l'array mesura 5, quin és l'últim índex vàlid?",
+      "mentorLabel": "MENTOR · DEMÀ 18:00",
+      "mentorMsg": "Ho repassem a la sessió i fem un mini-simulacre sense IA.",
+      "aria": "Exemple: en Bit i un mentor ajuden amb un error en un bucle de Java"
+    },
+    "models": {
+      "label": "Dues maneres d'arribar a l'aprovat · tria la teva",
+      "aprueba": {
+        "tag": "Aprova el teu mòdul",
+        "audience": "Per a qui va a per un objectiu",
+        "title1": "No et fem classes.",
+        "title2": "Et traiem el mòdul.",
+        "text": "Tens un mòdul travessat i un examen amb data. Et donem un pla, un mentor que domina aquest mòdul i simulacres fins al dia D.",
+        "b1": "Diagnòstic i Mapa de Domini del teu mòdul",
+        "b2": "Pla invers des de la data del teu examen",
+        "b3": "Mentor especialista i Ticket Express (menys de 2 h)",
+        "b4": "Pla Mòdul amb garantia «Seguim amb tu»",
+        "cta1": "Tria el teu mòdul",
+        "cta2": "Test gratis"
       },
-      "d2": {
-        "quote": "Tinc l'examen d'aquí a 10 dies i no hi arribo.",
-        "answer": "Posa la data i et diem si hi arribes. Si no, el Rescat 48h: tres sessions, tiquets il·limitats i un simulacre corregit.",
-        "cta": "Hi arribo a l'examen?"
-      },
-      "d3": {
-        "quote": "Estudio a distància i ningú no em resol els dubtes a temps.",
-        "answer": "Tiquet Express: escrius el dubte o enganxes el codi i un mentor et respon en menys de 2 hores.",
-        "cta": "Veure Tiquet Express"
-      },
-      "d4": {
-        "quote": "Em fa pànic la defensa del projecte.",
-        "answer": "Defensa de projecte: assages amb un mentor que et fa les preguntes del tribunal i et dona feedback.",
-        "cta": "Veure Defensa de projecte"
+      "tutor": {
+        "tag": "Tutor247",
+        "audience": "Per a qui necessita seguiment",
+        "title1": "Sempre hi ha algú.",
+        "title2": "I no et deixa sol.",
+        "text": "Et costa portar el ritme, estudies en línia o et desorganitzes amb les entregues. Un tutor fix et coneix, t'organitza i et fa seguiment cada setmana.",
+        "b1": "Tutor de referència humà amb check-in setmanal",
+        "b2": "En Bit, la teva IA 24/7: et recorda, et pregunta, t'empeny",
+        "b3": "Mentors per mòdul quan cal classe tècnica",
+        "b4": "Informe setmanal per a la teva família (si vols)",
+        "cta1": "Coneix Tutor247",
+        "cta2": "Soc mare o pare"
       }
     },
-    "processTitle": "Com et traiem el mòdul",
-    "s1t": "Diagnòstic",
-    "s1d": "Marques com portes cada resultat d'aprenentatge. Surt el teu Mapa de Domini en verd, ambre i vermell.",
-    "s2t": "Pla invers",
-    "s2d": "Poses la data de l'examen. Calculem què treballar cada setmana i si tens temps.",
-    "s3t": "Mentor i seguiment",
-    "s3d": "Un mentor verificat del teu mòdul i en Bit, el teu copilot 24/7, et porten fins a l'examen.",
-    "diffTitle": "No és una acadèmia ni un professor particular",
-    "diffSubtitle": "Treballem com treballa el teu cicle: per mòdul oficial i per resultats d'aprenentatge.",
-    "diff": {
-      "catalogo": {
-        "title": "El teu mòdul, pel seu codi",
-        "text": "0485, 0484, 0613… Cada mòdul amb els seus resultats d'aprenentatge oficials. No «classes de programació» genèriques."
+    "ticker": {
+      "p1": "No et fem classes. Et traiem el mòdul",
+      "p2": "L'examen té data. El teu pla també",
+      "p3": "La IA al teu favor, no en el teu lloc",
+      "p4": "Estudiar en línia no és estudiar sol",
+      "p5": "A l'examen no hi ha ChatGPT"
+    },
+    "trust": {
+      "aria": "Garanties",
+      "t1": "Per a instituts presencials i escoles en línia",
+      "t2": "Mentors verificats abans de fer classe",
+      "t3": "Certificat negatiu per treballar amb menors",
+      "t4": "Crèdits vàlids 12 mesos"
+    },
+    "problem": {
+      "label": "El problema",
+      "title1": "La IA t'ho fa tot.",
+      "title2": "I després arriba l'examen.",
+      "text": "A l'FP d'informàtica se suspèn per no saber-ho fer sol, no per falta d'hores de classe.",
+      "without": "Sense Checkpoint",
+      "with": "Amb Checkpoint",
+      "w1": "Copies la pràctica amb ChatGPT i a l'examen et quedes en blanc",
+      "w2": "Classes soltes sense saber què entra a l'examen",
+      "w3": "T'assabentes que vas malament quan ja tens la nota",
+      "w4": "Estudies en línia i ningú et pregunta si vas al dia",
+      "c1": "Entens el codi i l'escrius tu, sense IA, en simulacres",
+      "c2": "Un pla amb data i els RA que entren, setmana a setmana",
+      "c3": "El teu Mapa de Domini et diu on ets",
+      "c4": "Un tutor que no et deixa fins a l'examen"
+    },
+    "modes": {
+      "label": "Com estudies?",
+      "title": "Vas a classe o estudies en línia: el problema és diferent",
+      "text": "Per això l'ajuda també ho és.",
+      "problems": "El que et passa",
+      "doing": "El que fem",
+      "presencial": {
+        "tag": "Estudies presencial",
+        "title": "El que no dona temps d'explicar a classe, t'ho expliquem aquí",
+        "quote": "Vaig a classe, però a Programació em vaig perdre a l'octubre i ja no aixeco el cap.",
+        "p1": "El profe va ràpid i sou 30",
+        "p2": "Et fa vergonya preguntar el «bàsic»",
+        "p3": "Les pràctiques s'acumulen abans de l'examen",
+        "d1": "Mentor que reforça el que feu aquella setmana",
+        "d2": "Simulacres de l'estil del teu mòdul",
+        "d3": "Ticket Express la nit abans de l'examen",
+        "cta": "T'encaixa: Aprova el teu mòdul"
       },
-      "mapa": {
-        "title": "Mapa de Domini",
-        "text": "Veus d'un cop d'ull què domines i què no. És l'abans i el després del teu mòdul."
-      },
-      "plan": {
-        "title": "Pla invers",
-        "text": "Comencem per la data de l'examen i anem enrere. Les classes es converteixen en un projecte amb data."
-      },
-      "urgencia": {
-        "title": "Ajuda quan apreta",
-        "text": "Tiquet Express en menys de 2 hores i Rescat 48h abans de l'examen. Per quan de debò ho necessites."
-      },
-      "mentores": {
-        "title": "Mentors verificats",
-        "text": "Docents d'FP i professionals que dominen el teu mòdul, amb entrevista i prova tècnica abans d'entrar."
-      },
-      "etica": {
-        "title": "Mai fem les teves pràctiques",
-        "text": "T'ajudem a entendre i a aprovar. Ni la plataforma ni la IA fan pràctiques ni exàmens per tu."
+      "online": {
+        "tag": "Estudies en línia",
+        "title": "Estudiar en línia no hauria de ser estudiar sol",
+        "quote": "Em vaig matricular a distància per compaginar-ho amb la feina i fa tres setmanes que no obro el temari.",
+        "p1": "Ningú et pregunta si vas al dia",
+        "p2": "Els fòrums triguen dies a respondre",
+        "p3": "La constància depèn només de tu",
+        "d1": "Tutor que et fa seguiment cada setmana",
+        "d2": "En Bit t'empeny cada dia amb les teves hores reals",
+        "d3": "Pla que es recalcula si et retardes",
+        "cta": "T'encaixa: Tutor247"
       }
     },
-    "bit": {
-      "title": "Bit: algú amb tu a qualsevol hora",
-      "subtitle": "En Bit és la IA de Checkpoint Academy. Coneix el teu mòdul, el teu Mapa de Domini i la data de l'examen. Et recorda què toca avui i resol el que és senzill. El que és difícil, li passa al teu mentor.",
-      "points": {
-        "p1": {
-          "title": "24/7, també per WhatsApp.",
-          "text": "Recordatoris del pla i qüestionaris de 2 minuts."
-        },
-        "p2": {
-          "title": "Sempre es presenta com a IA.",
-          "text": "Saps en tot moment si parles amb en Bit o amb una persona."
-        },
-        "p3": {
-          "title": "T'ensenya, no et copia.",
-          "text": "Et guia amb preguntes i pistes; mai no et lliura una pràctica avaluable."
-        },
-        "p4": {
-          "title": "Humà garantit.",
-          "text": "El botó «Vull el meu mentor» sempre és a la vista."
-        }
-      },
-      "chatTitle": "Bit",
-      "chatSubtitle": "IA de Checkpoint Academy · 0485 Programació",
-      "example": "Exemple",
-      "chat": {
-        "m1": "Fes-me la pràctica 3 de 0485, que l'entrego demà.",
-        "m2": "Soc en Bit, la IA de Checkpoint Academy. La pràctica no te la faig: és teva i te l'avaluaran. Però la treus tu en una estona. Què demana el primer exercici?",
-        "m3": "Un bucle que sumi els nombres parells de l'1 al 100. No em surt.",
-        "m4": "Anem per parts: com saps si un nombre és parell? Pista: pensa en el residu de dividir entre 2.",
-        "m5": "Això mateix, n % 2 == 0! Ara posa-ho dins del for i prova-ho primer de l'1 al 10.",
-        "m6": "Si t'encalles, prem «Vull el meu mentor» i una persona et respon amb un Tiquet Express."
-      }
-    },
-    "productsTitle": "Pagues només pel que necessites",
-    "productsSubtitle": "El que és humà es paga amb crèdits (1 crèdit ≈ 1 €). Sense matrícula ni quotes obligatòries.",
-    "creditsRange": "{range} crèdits",
-    "productsCta": "Veure tots els preus",
-    "productsNote": "Els crèdits duren 12 mesos. Packs amb fins a un 20 % extra.",
-    "guaranteeTitle": "Garantia «Seguim amb tu»",
-    "guaranteeText": "Amb el Pla Mòdul, si compleixes el pla i tot i així suspens, preparar la recuperació et costa la meitat: et retornem el 50 % dels crèdits.",
-    "guaranteeSmall": "Complir el pla és assistir i fer almenys el 80 % de les tasques. Així de senzill.",
-    "mentorsTitle": "Mentors que dominen el teu mòdul",
-    "mentorsSubtitle": "Verificats amb entrevista i prova tècnica. Tries per mòdul, nivell i temps de resposta.",
-    "mentorsAll": "Veure tots els mentors",
-    "mentorJoin": "Ets docent d'FP o professional del sector?",
-    "mentorJoinLink": "Fes-te mentor",
-    "killerTitle": "Els mòduls que més s'encallen",
-    "killerSubtitle": "On hi ha més suspesos. Comença pel teu.",
-    "familyTitle": "El teu fill o filla estudia informàtica?",
-    "familyText": "Li donem un tutor que el coneix, l'organitza i l'acompanya. I a tu, un informe cada setmana.",
-    "familyCta2": "Veure com funciona per a famílies",
-    "faqTitle": "Preguntes freqüents",
-    "faq": {
+    "path": {
+      "label": "Troba el teu camí",
+      "title": "Què necessites tu?",
+      "text": "Tres preguntes i et diem per on començar.",
       "q1": {
-        "q": "Sou una acadèmia?",
-        "a": "No. No venem hores de classe: venem aprovar un mòdul concret. Diagnòstic, pla fins a l'examen, mentor d'aquest mòdul i seguiment."
+        "q": "Tens un examen amb data?",
+        "a": "Sí, tinc data",
+        "b": "No, em preocupa tot el curs"
       },
       "q2": {
-        "q": "Em feu les pràctiques?",
-        "a": "No, i és una línia vermella. T'ajudem a entendre-les i a fer-les tu: revisem el teu codi i t'expliquem què falla, però no el refem."
+        "q": "Et costa ser constant?",
+        "a": "No, si tinc pla, compleixo",
+        "b": "Sí, em costa molt"
       },
       "q3": {
-        "q": "Quant costa?",
-        "a": "El diagnòstic és gratis. El que és humà es paga amb crèdits (1 crèdit ≈ 1 €): un Tiquet Express són 6–8 crèdits i una sessió 1:1, 25–35. En Bit il·limitat, amb el pla Company (des de 9,90 €/mes)."
+        "q": "Qui s'encarrega dels teus estudis?",
+        "a": "Jo, soc major d'edat",
+        "b": "La meva família també"
+      },
+      "pending": "Respon les tres preguntes i et recomanem un camí.",
+      "result": "Et recomanem",
+      "aprueba": {
+        "title": "El teu és un objectiu amb data: anem a per ell",
+        "text": "Diagnòstic gratis del teu mòdul, un pla fins a l'examen i un mentor que domina aquest mòdul quan el necessitis.",
+        "cta": "Començar pel test gratis"
+      },
+      "tutor": {
+        "title": "El teu no és falta de capacitat: és que ningú t'acompanya",
+        "text": "Un tutor fix que et fa seguiment cada setmana. Si estudies en línia o la teva família vol estar tranquil·la, és el teu pla.",
+        "cta": "Conèixer Tutor247"
+      },
+      "restart": "Tornar a començar"
+    },
+    "approve": {
+      "label": "Aprova el teu mòdul",
+      "title1": "L'examen té data.",
+      "title2": "El teu pla també.",
+      "text": "Del «no ho entenc» a l'«aprovat» en cinc passos. Sense classes soltes sense rumb.",
+      "cta": "Comença pel test gratis",
+      "s1": {
+        "t": "Diagnòstic",
+        "d": "Test gratis del teu mòdul, per resultats d'aprenentatge."
+      },
+      "s2": {
+        "t": "Mapa de Domini",
+        "d": "Veus què domines, què gairebé i què encara no."
+      },
+      "s3": {
+        "t": "Pla invers",
+        "d": "Poses la data de l'examen i et diem què toca cada setmana."
+      },
+      "s4": {
+        "t": "Mentor + simulacres",
+        "d": "Sessions i tiquets amb un especialista; simulacres sense IA."
+      },
+      "s5": {
+        "t": "Aprovat",
+        "d": "I amb el Pla Mòdul, si compleixes i suspens, seguim amb tu."
+      },
+      "killerTitle": "Els mòduls que més se suspenen",
+      "killerAll": "Veure tots els mòduls de SMX, ASIX, DAM i DAW",
+      "prepTitle": "Com preparar-lo",
+      "creditsFrom": "des de {n} cr",
+      "creditsRange": "{range} cr",
+      "guarantee": "Garantia «Seguim amb tu»: amb el Pla Mòdul, si compleixes el pla i suspens, preparar la recuperació et costa la meitat."
+    },
+    "formula": {
+      "label": "La fórmula",
+      "title": "IA + mentor + tu = aprovat",
+      "text": "La IA t'ho fa tot, sí. Però a l'examen hi ets tu sol. Per això aquí la IA entrena amb tu i tu demostres que ho saps.",
+      "f1": {
+        "t": "IA al teu favor",
+        "d": "En Bit t'entrena amb preguntes i pistes. Mai et dona la pràctica feta."
+      },
+      "f2": {
+        "t": "Mentor expert",
+        "d": "Un professor d'FP valida que ho has entès i et prepara per a l'examen."
+      },
+      "f3": {
+        "t": "Tu demostres",
+        "d": "Mode Examen: sense IA, sense enganxar, amb temps. Com el dia D."
+      },
+      "examTag": "Mode Examen + Mapa de Domini",
+      "examTitle": "Saps exactament el que saps fer sol",
+      "examText": "Cada sessió acabarà amb un mini-simulacre amb l'enganxar desactivat. El teu mentor veu com raones i el teu Mapa de Domini s'actualitza: el que ja domines i el que encara no.",
+      "mapName": "Programació",
+      "mapCaption": "Exemple de Mapa de Domini"
+    },
+    "tutor": {
+      "label": "Tutor247 · el teu tutor 24/7",
+      "title": "Tu estudies. Nosaltres no et deixem.",
+      "text": "Per a qui sap que pot, però li costa la constància. Un tutor de referència que et coneix i et fa seguiment cada setmana, i una IA que serà amb tu cada dia.",
+      "weekAria": "Setmana tipus a Tutor247",
+      "d1": {
+        "day": "DL",
+        "text": "En Bit t'envia el pla de la setmana amb les teves hores reals"
+      },
+      "d2": {
+        "day": "DT",
+        "text": "Quiz llampec de 3 minuts"
+      },
+      "d3": {
+        "day": "DC",
+        "text": "Check-in de 20 min amb el teu tutor de referència"
+      },
+      "d4": {
+        "day": "DJ",
+        "text": "Sessió tècnica amb el mentor del mòdul que s'encalla"
+      },
+      "d5": {
+        "day": "DV",
+        "text": "El teu tutor revisa que les entregues van a temps"
+      },
+      "d6": {
+        "day": "DG",
+        "text": "Informe setmanal a la família (si ets menor o ho autoritzes)"
+      },
+      "cta1": "Coneix Tutor247",
+      "cta2": "Per a famílies",
+      "chatTitle": "Bit · Tutor247",
+      "chatSubtitle": "IA · el teu tutor també és aquí",
+      "bitLabel": "BIT · IA",
+      "youLabel": "TU",
+      "tutorLabel": "EL TEU TUTOR",
+      "m1": "Hola. Avui toca RA3 de Xarxes: subnetting, 20 min. Comences ara o a les 21:00?",
+      "m2": "A les 21, surto tard de la feina",
+      "m3": "Fet. T'escric a les 21:00 amb 3 preguntes ràpides per escalfar.",
+      "m4": "He vist que aquesta setmana has complert 4 de 5 dies. Així s'arriba. Demà parlem 20 min de l'entrega de divendres.",
+      "chatNote": "En Bit sempre diu que és una IA. El teu tutor respon en horari garantit."
+    },
+    "compare": {
+      "label": "Quin és el meu?",
+      "title": "Tria en 10 segons",
+      "caption": "Comparativa entre Aprova el teu mòdul i Tutor247",
+      "r1": {
+        "k": "Per a qui",
+        "a": "Tens un examen i un mòdul concret per treure",
+        "t": "Et costa la constància, estudies en línia o ets menor i la teva família vol seguiment"
+      },
+      "r2": {
+        "k": "Què compres",
+        "a": "Aprovar aquest mòdul",
+        "t": "Que algú t'acompanyi tot el curs"
+      },
+      "r3": {
+        "k": "Persona de referència",
+        "a": "Mentor especialista del mòdul",
+        "t": "Tutor fix + mentors per mòdul"
+      },
+      "r4": {
+        "k": "La IA",
+        "a": "Tutor socràtic i Mode Examen",
+        "t": "Bit 24/7: recordatoris, quizzes, empenta diària"
+      },
+      "r5": {
+        "k": "Com pagues",
+        "a": "Crèdits (packs) o Pla Mòdul",
+        "t": "Subscripció mensual"
+      },
+      "r6": {
+        "k": "Ideal si dius…",
+        "a": "«Tinc l'examen de Programació d'aquí a 3 setmanes»",
+        "t": "«Sé que puc, però no m'hi poso»"
+      },
+      "aiSoon": "La IA (Bit) arriba properament.",
+      "combine": "Es poden combinar: amb Tutor247 pots afegir sessions o tiquets amb crèdits abans d'un examen."
+    },
+    "mentors": {
+      "label": "Mentors",
+      "title": "Professors d'FP, no estudiants de pas",
+      "all": "Veure'ls tots",
+      "join": "Fas classe a l'FP o treballes al sector?",
+      "joinLink": "Fes-te mentor"
+    },
+    "sos": {
+      "tag": "Ticket SOS",
+      "text": "Examen demà i no entens els JOIN? El primer mentor disponible del teu mòdul t'atendrà en una videotrucada exprés.",
+      "now": "Mentrestant: Ticket Express, el teu dubte resolt per escrit en menys de 2 h.",
+      "cta": "Enviar un Ticket Express"
+    },
+    "founder": {
+      "label": "Qui hi ha darrere",
+      "title": "El va crear un professor d'FP que fa 18 anys que veu suspendre pel mateix",
+      "quote": "He fet Programació, Bases de dades, web i xarxes a SMX, ASIX, DAM i DAW, en presencial i a distància. Els alumnes no suspenen per falta de classes: suspenen perquè ningú comprova que ho saben fer sols, i perquè estudiant en línia és molt fàcil quedar-se enrere. Checkpoint existeix per això.",
+      "name": "David Porti Pujal",
+      "role": "Fundador · Professor d'FP Informàtica"
+    },
+    "testimonials": {
+      "label": "Alumnes i famílies",
+      "title": "El que s'emporten, en les seves paraules"
+    },
+    "faq": {
+      "label": "Preguntes",
+      "title": "El que tothom pregunta",
+      "q1": {
+        "q": "Em feu les pràctiques o els exàmens?",
+        "a": "No. Ni els mentors ni en Bit fan treballs avaluables. T'expliquem, et guiem i comprovem que ho saps fer tu. És la nostra línia vermella."
+      },
+      "q2": {
+        "q": "La IA em dona les respostes?",
+        "a": "No. En Bit (properament) funciona amb preguntes i pistes fins que arribes tu a la solució. Mai lliura la pràctica feta i sempre diu que és una IA; el que és difícil, li passa al teu mentor."
+      },
+      "q3": {
+        "q": "Qui són els mentors?",
+        "a": "Docents d'FP i professionals del sector que dominen el mòdul que imparteixen. Revisem el seu perfil abans que facin classe, i qui treballa amb menors aporta el certificat negatiu de delictes sexuals."
       },
       "q4": {
-        "q": "Caduquen els crèdits?",
-        "a": "Duren 12 mesos des de la compra."
+        "q": "Quina diferència hi ha entre Aprova el teu mòdul i Tutor247?",
+        "a": "Aprova el teu mòdul és per a un objectiu concret: un mòdul i un examen amb data; es paga amb crèdits. Tutor247 és acompanyament tot el curs amb un tutor fix; és una subscripció mensual. Es poden combinar."
       },
       "q5": {
-        "q": "Estudio a Catalunya: trobaré el meu mòdul?",
-        "a": "Sí. Cada mòdul mostra la seva equivalència catalana (M/UF) i pots cercar per codi o per nom."
+        "q": "Serveix si estudio a distància o a Catalunya?",
+        "a": "Sí. Funciona igual en presencial i a distància, i cada mòdul mostra la seva equivalència catalana (M/UF): el pots cercar per codi o per nom."
       },
       "q6": {
         "q": "I si suspenc?",
-        "a": "Amb el Pla Mòdul tens la garantia «Seguim amb tu»: si vas complir el pla, preparar la recuperació et costa la meitat."
+        "a": "Amb el Pla Mòdul tens la garantia «Seguim amb tu»: si vas complir el pla i suspens, preparar la recuperació et costa la meitat."
+      },
+      "q7": {
+        "q": "Soc mare o pare: què veuré?",
+        "a": "Un informe setmanal clar: com va, la seva constància, què ha treballat i les properes dates. Si és menor, el veieu sempre; si és major d'edat, només si ell ho autoritza. L'alumne sap sempre quina informació rebeu."
       }
     },
-    "finalTitle": "El teu examen té data. El teu pla també la pot tenir.",
-    "finalText": "Fes el diagnòstic gratis i descobreix en 2 minuts què et falta i si hi arribes."
+    "final": {
+      "tag": "Programa pilot · places limitades",
+      "title": "Copiar no és aprendre. Entendre-ho és aprovar.",
+      "text": "Comença per saber on ets. El diagnòstic és gratis, triga 2 minuts i et diu què domines i què no del teu mòdul.",
+      "cta1": "Fer el test gratis",
+      "cta2": "Vull un tutor",
+      "note": "Sense targeta · Sense permanència · Per a SMX, ASIX, DAM i DAW"
+    }
   },
   "nav": {
     "mentors": "Mentors",
@@ -449,19 +648,6 @@
     "setLevel": "Aplicar nivell"
   },
   "family": {
-    "metaTitle": "Famílies: acompanyament per a FP d'informàtica",
-    "metaDescription": "El teu fill estudia informàtica i tu no el pots ajudar. Li donem un tutor de referència que el coneix, l'organitza i l'acompanya. I a tu, un informe cada setmana.",
-    "eyebrow": "Per a mares, pares i tutors",
-    "heroTitle": "El teu fill estudia informàtica i tu no el pots ajudar. Nosaltres sí.",
-    "heroSubtitle": "Un tutor de referència que el coneix, l'organitza i l'acompanya fins a l'examen. I a vosaltres, un informe clar cada setmana.",
-    "ctaPrimary": "Començar",
-    "ctaPlans": "Veure plans",
-    "heroNote": "Estem a sobre perquè vosaltres no hàgiu d'estar-hi.",
-    "status": {
-      "verde": "Bé",
-      "ambar": "A vigilar",
-      "rojo": "En risc"
-    },
     "report": {
       "title": "Informe setmanal",
       "example": "Exemple",
@@ -482,29 +668,11 @@
       "tipLabel": "Què podeu fer aquesta setmana",
       "tip": "Demaneu-li que us expliqui què és una adreça IP: explicar-ho l'ajuda a fixar-ho."
     },
-    "includesTitle": "Què inclou",
-    "includesSubtitle": "La part acadèmica la donen mentors experts en cada mòdul. A més, algú està pendent del vostre fill cada setmana.",
-    "inc": {
-      "tutor": {
-        "title": "Un tutor de referència fix",
-        "a": "Una cara coneguda per a ell i per a vosaltres.",
-        "b": "Check-in setmanal de 15–20 min: lliuraments, exàmens i prioritats.",
-        "c": "Hàbits d'estudi i motivació. Coordina els mentors quan cal classe tècnica."
-      },
-      "bit": {
-        "title": "Bit, el seu copilot diari",
-        "a": "Recordatoris, repassos i dubtes cada dia.",
-        "b": "Avisa el tutor si detecta bloqueig o desmotivació.",
-        "c": "Mai no fa les pràctiques ni els exàmens per ell."
-      },
-      "family": {
-        "title": "Per a vosaltres",
-        "a": "Informe setmanal: com va, constància, què ha treballat i properes dates.",
-        "b": "Alertes només si importa: examen en risc, 3 dies sense activitat. Sense spam.",
-        "c": "Reunió mensual de 15 min amb el tutor i canal directe en horari definit."
-      }
+    "status": {
+      "verde": "Bé",
+      "ambar": "A vigilar",
+      "rojo": "En risc"
     },
-    "howTitle": "Com funciona",
     "how": {
       "s1": {
         "title": "Ens expliqueu del vostre fill",
@@ -523,40 +691,6 @@
         "text": "Sabeu com va sense haver de preguntar ni entendre d'informàtica."
       }
     },
-    "plansTitle": "Plans Família",
-    "plansSubtitle": "Subscripció mensual amb tot inclòs. Si cal més (un Rescat 48h abans d'un examen, sessions extra), es fan servir crèdits.",
-    "plusBadge": "Més complet",
-    "planCta": "Triar aquest pla",
-    "plansNote": "Per a tot el curs? Curs tranquil: Acompanya+ de setembre a juny amb un 15 % de descompte (pagament trimestral).",
-    "trustTitle": "Confiança i límits",
-    "trustSubtitle": "Treballem amb menors. Aquestes normes no es negocien.",
-    "trust": {
-      "c1": {
-        "title": "Certificat negatiu de delictes sexuals",
-        "text": "Obligatori per a tot tutor i mentor amb contacte amb menors."
-      },
-      "c2": {
-        "title": "Tot dins de la plataforma",
-        "text": "Sessions i missatges sempre pels nostres canals, mai pel WhatsApp personal del tutor."
-      },
-      "c3": {
-        "title": "Acompanyant, no terapeuta",
-        "text": "Si veiem senyals de malestar seriós, us avisem i us recomanem professionals."
-      },
-      "c4": {
-        "title": "No és un espia",
-        "text": "El vostre fill sap què es comparteix amb vosaltres. Sense confiança no hi ha acompanyament."
-      },
-      "c5": {
-        "title": "Integritat acadèmica",
-        "text": "Ningú no fa les seves pràctiques ni els seus exàmens. L'ensenyem a fer-los."
-      },
-      "c6": {
-        "title": "Dades i consentiment",
-        "text": "Consentiment dels tutors legals segons l'RGPD i tractament mínim de dades."
-      }
-    },
-    "faqTitle": "Preguntes freqüents",
     "faq": {
       "q1": {
         "q": "Cal que sàpiga informàtica?",
@@ -574,9 +708,7 @@
         "q": "Què passa si el veiem malament?",
         "a": "El tutor no fa suport psicològic. Si detecta assetjament, ansietat intensa o un altre risc, us avisa i us recomana professionals."
       }
-    },
-    "finalTitle": "Comenceu aquesta setmana",
-    "finalText": "Expliqueu-nos del vostre fill i us presentem el seu tutor de referència."
+    }
   },
   "familyPanel": {
     "studentsTitle": "Els vostres fills",
@@ -1114,5 +1246,122 @@
     },
     "mapaAria": "Mapa de Domini de {code} {name}",
     "nota": "Orientatiu: no és una nota oficial."
+  },
+  "tutor247": {
+    "metaTitle": "Tutor247: un tutor que no et deixa sol a la teva FP d'informàtica",
+    "metaDescription": "Tutor de referència fix amb check-in setmanal, mentors per mòdul i informe setmanal per a la família. Per a qui estudia en línia, es desorganitza o és menor.",
+    "hero": {
+      "tag": "Tutor247 · el teu tutor 24/7",
+      "title": "Sempre hi ha algú. I no et deixa sol.",
+      "text": "Un tutor fix que et coneix, t'organitza i et fa seguiment cada setmana. Perquè estudiar sol no vulgui dir estudiar sense ningú.",
+      "cta1": "Començar",
+      "cta2": "Veure plans",
+      "note": "Tutor humà amb horari i resposta garantida · Sense permanència"
+    },
+    "forYou": {
+      "label": "És per a tu?",
+      "title": "Tutor247 és per a qui sap que pot, però necessita algú",
+      "a": {
+        "tag": "Estudies en línia",
+        "quote": "Et vas matricular a distància per compaginar i la constància se t'escapa."
+      },
+      "b": {
+        "tag": "Et desorganitzes",
+        "quote": "Saps que pots, però les entregues se t'acumulen i arribes tard a tot."
+      },
+      "c": {
+        "tag": "Vas despenjat",
+        "quote": "Vas a classe presencial, però t'has despenjat i no saps per on reprendre-ho."
+      },
+      "d": {
+        "tag": "Ets mare o pare",
+        "quote": "El teu fill estudia informàtica, tu no el pots ajudar i no vols estar-hi a sobre."
+      }
+    },
+    "includes": {
+      "label": "Què inclou",
+      "title": "Una persona que et coneix + una IA que no dorm",
+      "i1": {
+        "t": "Tutor de referència",
+        "d": "Una persona fixa. Check-in setmanal de 15–20 min: organitza la teva setmana, revisa entregues i et motiva. Coordina els mentors quan cal."
+      },
+      "i2": {
+        "t": "Bit, IA 24/7",
+        "d": "T'escriurà amb el teu pla, et farà quizzes de 3 minuts, resoldrà dubtes senzills i avisarà el teu tutor si et bloqueges."
+      },
+      "i3": {
+        "t": "Mentors per mòdul",
+        "d": "Quan un mòdul s'encalla, sessió tècnica amb un especialista."
+      },
+      "i4": {
+        "t": "Seguiment visible",
+        "d": "Pla amb dates reals, Mapa de Domini i informe setmanal. Veus que avances."
+      }
+    },
+    "modes": {
+      "tag": "En línia · presencial",
+      "title": "Estudiar en línia exigeix una autonomia que ningú t'ensenya. Te l'entrenem.",
+      "b1": "En línia: rutina fixa i algú que et pregunta «com vas?» cada setmana",
+      "b2": "Presencial: reprens el que et vas perdre i arribes a l'examen amb el ritme de la teva classe",
+      "b3": "Tots dos: pla amb dates reals i un Mapa que t'ensenya que avances"
+    },
+    "families": {
+      "tag": "Per a famílies · seguretat",
+      "title": "Nosaltres hi estem a sobre perquè vosaltres no hàgiu d'estar-hi",
+      "text": "Un tutor de referència que coneix el vostre fill, l'organitza i l'acompanya fins a l'examen. I a vosaltres, un informe clar cada setmana.",
+      "s1": {
+        "t": "Certificat negatiu de delictes sexuals",
+        "d": "Obligatori per a tot tutor o mentor que treballa amb menors."
+      },
+      "s2": {
+        "t": "Tot dins la plataforma",
+        "d": "Mai el telèfon personal del tutor. Tot queda registrat."
+      },
+      "s3": {
+        "t": "En Bit diu que és una IA",
+        "d": "Sempre. I avisa una persona si detecta bloqueig o malestar."
+      },
+      "s4": {
+        "t": "Sense espiar",
+        "d": "L'alumne sap quina informació rep la seva família; si és major d'edat, decideix ell."
+      },
+      "s5": {
+        "t": "Coach, no terapeuta",
+        "d": "Si apareix alguna cosa seriosa, avisem la família i recomanem professionals."
+      },
+      "howTitle": "Com comencem",
+      "faqTitle": "Preguntes de famílies"
+    },
+    "plans": {
+      "label": "Plans",
+      "title": "Dos modes, un mateix compromís",
+      "note": "Preus orientatius pendents de validar. Sessions extra amb crèdits.",
+      "perMonth": "/mes",
+      "cta": "Començar",
+      "autonomo": {
+        "tag": "Per a tu",
+        "name": "Tutor247 Autònom",
+        "audience": "Major d'edat, estudies en línia o treballes.",
+        "f1": "Pla ajustat a les teves hores reals",
+        "f2": "Check-in quinzenal amb el teu tutor",
+        "f3": "Mentors per mòdul amb crèdits",
+        "f4": "Tu decideixes si es comparteix algun informe",
+        "price": "Preu per confirmar"
+      },
+      "familia": {
+        "tag": "Per a famílies",
+        "name": "Tutor247 Família",
+        "audience": "Alumne menor, normalment SMX o 1r de superior."
+      },
+      "familiaPlus": {
+        "tag": "Per a famílies",
+        "name": "Tutor247 Família+",
+        "audience": "Més sessions tècniques, tiquets i simulacres."
+      }
+    },
+    "final": {
+      "title": "Tu estudies. Nosaltres no et deixem.",
+      "cta": "Començar"
+    }
   }
 }

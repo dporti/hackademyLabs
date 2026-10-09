@@ -11,7 +11,7 @@ export function SiteFooter() {
   const ayuda = [
     { href: "/ciclos", label: t("cycles") },
     { href: "/diagnostico", label: t("diagnostic") },
-    { href: "/familias", label: t("families") },
+    { href: "/tutor247#familias", label: t("families") },
     { href: "/hazte-mentor", label: t("becomeMentor") },
     { href: "/cancelacion", label: t("cancellation") },
   ];

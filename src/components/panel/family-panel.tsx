@@ -167,7 +167,7 @@ export async function FamilyPanel({
 
       <p className="text-sm text-muted-foreground">
         {t("plansHint")}{" "}
-        <Link href="/familias#planes" className="text-primary underline-offset-4 hover:underline">
+        <Link href="/tutor247#planes" className="text-primary underline-offset-4 hover:underline">
           {t("plansLink")}
         </Link>
       </p>

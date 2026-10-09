@@ -132,12 +132,28 @@ referencia en `docs/diseno/`.
   - Verificado: lint + build OK; navegador es/ca (styleguide, home, `/ca/familias`, `/entrar`),
     móvil 360/390 px sin scroll horizontal, menú móvil (aria-expanded, enlaces), 1024/1280 px.
     No probado con sesión: panel de familia/alumno (solo cambia el atributo de tema).
+- **Fusión del diseño · fase 2: portada y Tutor247** · 2026-10-09
+  - Portada rehecha con las 15 secciones de DISENO.md §6: hero (selector de módulo → diagnóstico,
+    cifras de catálogo desde BD, demo de código con Bit y mentor), `ModelCard` ×2, `Ticker` +
+    `TrustStrip`, `BeforeAfter`, presencial/online, `PathFinder` (cliente, regla de §6), 5 pasos +
+    módulos killer y productos, la fórmula + Mapa de ejemplo, Tutor247 (semana tipo + chat con Bit y
+    tutor), `ComparisonTable`, mentores (BD) + bloque SOS, `FounderBlock`, `Testimonials` (creado,
+    oculto: lista vacía), `Faq` (acordeón accesible, 7 preguntas) y CTA final de piloto.
+  - `/tutor247` nueva (acento magenta): hero + informe de ejemplo, ¿es para ti?, qué incluye,
+    `#familias` (seguridad, cómo empezamos, FAQ de familias), `#planes` (Familia/Familia+ desde BD;
+    Autónomo «Próximamente», precio por confirmar). `/familias` y `/ca/familias` → 308 a
+    `/tutor247#familias` (next.config). Enlaces de header, footer, precios y panel de familia actualizados.
+  - Lo no construido con `ComingSoon`: Bit, Modo Examen, Plan Módulo, Rescate 48h, simulacro, SOS en
+    directo, plan Autónomo. Textos es/ca; claves antiguas de `home` y de la landing de familias podadas.
+  - Verificado: lint + build; DOM en navegador (PathFinder → recomendación correcta y acento, FAQ
+    aria-expanded/hidden, 7 killer, 3 mentores, sin testimonios); 360/768/1280 px sin scroll horizontal
+    (es/ca, portada y /tutor247); capturas a 1440 px de portada y /ca/tutor247; 308 comprobados.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-- **Fusión del diseño** (Checkpoint Academy) · fases 0 y 1 cerradas 2026-10-09; siguiente:
-  fase 2 — Portada y Tutor247.
+- **Fusión del diseño** (Checkpoint Academy) · fases 0, 1 y 2 cerradas 2026-10-09; siguiente:
+  fase 3 — Resto de páginas públicas.
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
@@ -147,7 +163,7 @@ referencia en `docs/diseno/`.
    - [x] **Fase 1 — Marca y tokens** (2026-10-09): tokens del tema oscuro único (§4), `--warning`/`--sos`,
      eliminar `family`; Mapa de Dominio a 4 niveles; appName/metadatos a Checkpoint Academy,
      `Logo`, header y footer nuevos; `/styleguide` actualizado.
-   - [ ] **Fase 2 — Portada y Tutor247**: home con las 15 secciones de §6 (ModelCard,
+   - [x] **Fase 2 — Portada y Tutor247** (2026-10-09): home con las 15 secciones de §6 (ModelCard,
      TrustStrip, BeforeAfter, PathFinder, ComparisonTable, FounderBlock, Faq; testimonios
      ocultos); `/tutor247` con `#familias`; `/familias` → 308.
    - [ ] **Fase 3 — Resto de públicas**: `/modulos`, `/ciclos`, `/modulos/[code]` («5 errores
@@ -239,9 +255,14 @@ referencia en `docs/diseno/`.
 - **Fuentes**: Space Grotesk títulos · Inter texto y paneles · JetBrains Mono códigos, RA,
   cifras y etiquetas · 2026-10-09.
 - **Ruta de Tutor247: `/tutor247`**; `/familias` redirige (308) a `/tutor247#familias` ·
-  2026-10-09. Hasta la fase 2, "Tutor247" del header apunta a `/familias`.
+  2026-10-09.
 - **Zona Tutor247 = `data-accent="tutor"`** (cambia `--primary` a magenta) en vez de un segundo
   tema · reutiliza todos los componentes sin variantes nuevas · 2026-10-09.
+- **Planes de familia con nombre comercial por i18n** (acompana → «Tutor247 Familia», acompana_plus →
+  «Tutor247 Familia+»); precio y features siguen saliendo de BD (79/149 €, no los 89/159 del mockup) ·
+  2026-10-09.
+- **Testimonios: componente listo y oculto** (`TESTIMONIOS = []`) hasta tener reales con permiso ·
+  2026-10-09.
 - **Variante `secondary` de Button/Badge = neutra** (superficie gris), aunque `--secondary` sea el
   magenta: evita que cualquier botón secundario parezca "Tutor247" · 2026-10-09.
 - **4 niveles desde el semáforo guardado**: verde → Lo domino, rojo → Aún no, ámbar → Casi si
@@ -250,7 +271,11 @@ referencia en `docs/diseno/`.
 
 ## 6. Decisiones pendientes (las decide el usuario)
 - ~~Nombre y marca definitivos~~ → Checkpoint Academy + Tutor247 (2026-10-09).
-- Plazas del programa piloto (CTA final de la portada).
+- Plazas del programa piloto (CTA final de la portada; hoy «plazas limitadas», sin número).
+- Planes Tutor247: precio del Autónomo; ¿Familia/Familia+ a 89/159 € (mockup) o 79/149 € (BD)?;
+  renombrar en BD (`plan.name`) y revisar features (hoy en español y con «Acompaña»).
+- «Agendar llamada gratis» del mockup: no hay agenda; hoy los CTA de /tutor247 van a `/registro?rol=familia`.
+- Foto del fundador para `FounderBlock` (hoy iniciales).
 - Precio real del crédito y % de reparto con mentores (60–70 %).
 - Confirmar precios de packs/planes y condiciones de la garantía "Seguimos contigo".
 - Mapeo real de equivalencias catalanas (M/UF) y validación de RA con el BOE/decreto.
@@ -294,6 +319,9 @@ referencia en `docs/diseno/`.
 - **RA orientativos**: los de 0485/0484 y los 5 killer nuevos (`supabase/data/ra-killer.json`)
   hay que validarlos con el BOE/decreto; el diagnóstico solo cubre módulos con RA cargados (7).
 - **"Días activos" del informe es manual**: no hay registro de actividad del alumno todavía.
+- **Features de planes en BD solo en español** (se ven en /ca/tutor247 y /ca/precios).
+- **Promesas de la portada a validar**: «certificado negativo para trabajar con menores» y «mentores
+  verificados» son políticas (no hay flujo que lo compruebe en la plataforma todavía).
 - **`/styleguide` con textos en español en el código** (página interna `noindex`); excepción
   consciente a la regla de i18n.
 - **Diagnóstico con 3 opciones** (verde/ámbar/rojo) aunque el Mapa muestre 4 niveles: el

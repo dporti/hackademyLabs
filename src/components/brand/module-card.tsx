@@ -15,7 +15,7 @@ export function ModuleCard({
   return (
     <Link
       href={`/modulos/${modulo.code}`}
-      className="card-interactive group flex flex-col rounded-lg border bg-card p-4"
+      className="card-interactive group flex flex-col rounded-2xl border bg-card p-4"
     >
       <div className="flex items-center justify-between gap-2">
         <span className="font-mono text-sm text-primary">{modulo.code}</span>

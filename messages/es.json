@@ -6,155 +6,354 @@
     "viewModule": "Ver módulo",
     "viewProfile": "Ver perfil",
     "metaTitle": "Checkpoint Academy — Aprende con IA. Demuéstralo sin ella.",
-    "metaDescription": "FP de Informática (SMX, ASIR, DAM, DAW): aprueba tu módulo con un plan hasta el examen, mentores verificados y Tutor247, el acompañamiento que no te suelta."
+    "metaDescription": "FP de Informática (SMX, ASIR, DAM, DAW): aprueba tu módulo con un plan hasta el examen, mentores verificados y Tutor247, el acompañamiento que no te suelta.",
+    "comingSoon": "Próximamente",
+    "example": "Ejemplo"
   },
   "home": {
-    "heroSubtitle": "Elige tu módulo de FP de informática. Te decimos qué te falta, te damos un plan hasta el examen y un mentor que domina ese módulo.",
-    "ctaDiagnostic": "Haz el diagnóstico gratis",
-    "ctaNote": "2 minutos. Sin registro. Sin tarjeta.",
-    "familyCta": "Soy madre o padre",
-    "worryTitle": "¿Qué módulo te preocupa?",
-    "searchLabel": "Buscar",
-    "searchPlaceholder": "Código o nombre: 0485, bases de datos…",
-    "mapaCaption": "Así se ve tu módulo tras el diagnóstico: cada resultado de aprendizaje con su nivel (aún no, con ayuda, casi o lo domino).",
-    "painTitle": "¿Te suena alguna?",
-    "pain": {
-      "d1": {
-        "quote": "Voy perdido en Programación y no sé por dónde empezar.",
-        "answer": "Haz el diagnóstico de 0485: en 2 minutos ves qué RA te faltan y en qué orden atacarlos.",
-        "cta": "Diagnosticar 0485"
+    "hero": {
+      "eyebrow": "La revolución de las clases online · FP Informática",
+      "title": "Aprende con IA. Demuéstralo sin ella.",
+      "text": "No te prohibimos la IA: te enseñamos a usarla a tu favor. Mentores que son profesores de FP, una IA que te hace pensar y simulacros donde demuestras que lo sabes hacer tú. Para SMX, ASIX, DAM y DAW.",
+      "searchLabel": "¿Qué módulo te preocupa?",
+      "searchPlaceholder": "Elige tu módulo",
+      "searchCta": "Test gratis",
+      "note": "Diagnóstico en 2 minutos · Sin registro ni tarjeta · Te dice qué dominas y qué no",
+      "statCycles": "ciclos: SMX, ASIX, DAM y DAW",
+      "statModules": "módulos oficiales con sus RA",
+      "statBit": "Bit, tu tutor IA",
+      "statMentor": "mentor especialista de tu módulo"
+    },
+    "demo": {
+      "file": "examen_UF2.java",
+      "comment": "// ¿por qué peta aquí?",
+      "bitLabel": "BIT · IA · 23:47",
+      "bitMsg": "No te doy la solución: si el array mide 5, ¿cuál es el último índice válido?",
+      "mentorLabel": "MENTOR · MAÑANA 18:00",
+      "mentorMsg": "Lo repasamos en la sesión y hacemos un mini-simulacro sin IA.",
+      "aria": "Ejemplo: Bit y un mentor ayudan con un error en un bucle de Java"
+    },
+    "models": {
+      "label": "Dos formas de llegar al aprobado · elige la tuya",
+      "aprueba": {
+        "tag": "Aprueba tu módulo",
+        "audience": "Para quien va a por un objetivo",
+        "title1": "No te damos clases.",
+        "title2": "Te sacamos el módulo.",
+        "text": "Tienes un módulo atravesado y un examen con fecha. Te damos un plan, un mentor que domina ese módulo y simulacros hasta el día D.",
+        "b1": "Diagnóstico y Mapa de Dominio de tu módulo",
+        "b2": "Plan inverso desde la fecha de tu examen",
+        "b3": "Mentor especialista y Ticket Express (menos de 2 h)",
+        "b4": "Plan Módulo con garantía «Seguimos contigo»",
+        "cta1": "Elige tu módulo",
+        "cta2": "Test gratis"
       },
-      "d2": {
-        "quote": "Tengo el examen en 10 días y no llego.",
-        "answer": "Pon la fecha y te decimos si llegas. Si no, el Rescate 48h: tres sesiones, tickets ilimitados y un simulacro corregido.",
-        "cta": "¿Llego al examen?"
-      },
-      "d3": {
-        "quote": "Estudio a distancia y nadie me resuelve las dudas a tiempo.",
-        "answer": "Ticket Express: escribes tu duda o pegas tu código y un mentor te responde en menos de 2 horas.",
-        "cta": "Ver Ticket Express"
-      },
-      "d4": {
-        "quote": "Me da pánico la defensa del proyecto.",
-        "answer": "Defensa de proyecto: ensayas con un mentor que te hace las preguntas del tribunal y te da feedback.",
-        "cta": "Ver Defensa de proyecto"
+      "tutor": {
+        "tag": "Tutor247",
+        "audience": "Para quien necesita seguimiento",
+        "title1": "Siempre hay alguien.",
+        "title2": "Y no te suelta.",
+        "text": "Te cuesta llevar el ritmo, estudias online o te desorganizas con las entregas. Un tutor fijo te conoce, te organiza y te hace seguimiento cada semana.",
+        "b1": "Tutor de referencia humano con check-in semanal",
+        "b2": "Bit, tu IA 24/7: te recuerda, te pregunta, te empuja",
+        "b3": "Mentores por módulo cuando hace falta clase técnica",
+        "b4": "Informe semanal para tu familia (si quieres)",
+        "cta1": "Conoce Tutor247",
+        "cta2": "Soy madre o padre"
       }
     },
-    "processTitle": "Cómo te sacamos el módulo",
-    "s1t": "Diagnóstico",
-    "s1d": "Marcas cómo llevas cada resultado de aprendizaje. Sale tu Mapa de Dominio en verde, ámbar y rojo.",
-    "s2t": "Plan inverso",
-    "s2d": "Pones la fecha del examen. Calculamos qué trabajar cada semana y si te da tiempo.",
-    "s3t": "Mentor y seguimiento",
-    "s3d": "Un mentor verificado de tu módulo y Bit, tu copiloto 24/7, te llevan hasta el examen.",
-    "diffTitle": "No es una academia ni un profesor particular",
-    "diffSubtitle": "Trabajamos como trabaja tu ciclo: por módulo oficial y por resultados de aprendizaje.",
-    "diff": {
-      "catalogo": {
-        "title": "Tu módulo, por su código",
-        "text": "0485, 0484, 0613… Cada módulo con sus resultados de aprendizaje oficiales. No «clases de programación» genéricas."
+    "ticker": {
+      "p1": "No te damos clases. Te sacamos el módulo",
+      "p2": "El examen tiene fecha. Tu plan también",
+      "p3": "La IA a tu favor, no en tu lugar",
+      "p4": "Estudiar online no es estudiar solo",
+      "p5": "En el examen no hay ChatGPT"
+    },
+    "trust": {
+      "aria": "Garantías",
+      "t1": "Para institutos presenciales y escuelas online",
+      "t2": "Mentores verificados antes de dar clase",
+      "t3": "Certificado negativo para trabajar con menores",
+      "t4": "Créditos válidos 12 meses"
+    },
+    "problem": {
+      "label": "El problema",
+      "title1": "La IA te lo hace todo.",
+      "title2": "Y luego llega el examen.",
+      "text": "En FP informática se suspende por no saber hacerlo solo, no por falta de horas de clase.",
+      "without": "Sin Checkpoint",
+      "with": "Con Checkpoint",
+      "w1": "Copias la práctica con ChatGPT y en el examen te quedas en blanco",
+      "w2": "Clases sueltas sin saber qué entra en el examen",
+      "w3": "Te enteras de que vas mal cuando ya tienes la nota",
+      "w4": "Estudias online y nadie te pregunta si vas al día",
+      "c1": "Entiendes el código y lo escribes tú, sin IA, en simulacros",
+      "c2": "Un plan con fecha y los RA que entran, semana a semana",
+      "c3": "Tu Mapa de Dominio te dice dónde estás",
+      "c4": "Un tutor que no te suelta hasta el examen"
+    },
+    "modes": {
+      "label": "¿Cómo estudias?",
+      "title": "Vas a clase o estudias online: el problema es distinto",
+      "text": "Por eso la ayuda también lo es.",
+      "problems": "Lo que te pasa",
+      "doing": "Lo que hacemos",
+      "presencial": {
+        "tag": "Estudias presencial",
+        "title": "Lo que no da tiempo a explicar en clase, te lo explicamos aquí",
+        "quote": "Voy a clase, pero en Programación me perdí en octubre y ya no levanto cabeza.",
+        "p1": "El profe va rápido y sois 30",
+        "p2": "Te da corte preguntar lo «básico»",
+        "p3": "Las prácticas se acumulan antes del examen",
+        "d1": "Mentor que refuerza lo que dais esa semana",
+        "d2": "Simulacros del estilo de tu módulo",
+        "d3": "Ticket Express la noche antes del examen",
+        "cta": "Te encaja: Aprueba tu módulo"
       },
-      "mapa": {
-        "title": "Mapa de Dominio",
-        "text": "Ves de un vistazo qué dominas y qué no. Es el antes y el después de tu módulo."
-      },
-      "plan": {
-        "title": "Plan inverso",
-        "text": "Empezamos por la fecha del examen y vamos hacia atrás. Las clases se convierten en un proyecto con fecha."
-      },
-      "urgencia": {
-        "title": "Ayuda cuando aprieta",
-        "text": "Ticket Express en menos de 2 horas y Rescate 48h antes del examen. Para cuando de verdad lo necesitas."
-      },
-      "mentores": {
-        "title": "Mentores verificados",
-        "text": "Docentes de FP y profesionales que dominan tu módulo, con entrevista y prueba técnica antes de entrar."
-      },
-      "etica": {
-        "title": "Nunca hacemos tus prácticas",
-        "text": "Te ayudamos a entender y a aprobar. Ni la plataforma ni la IA hacen prácticas ni exámenes por ti."
+      "online": {
+        "tag": "Estudias online",
+        "title": "Estudiar online no debería ser estudiar solo",
+        "quote": "Me matriculé a distancia para compaginarlo con el trabajo y llevo tres semanas sin abrir el temario.",
+        "p1": "Nadie te pregunta si vas al día",
+        "p2": "Los foros tardan días en responder",
+        "p3": "La constancia depende solo de ti",
+        "d1": "Tutor que te hace seguimiento cada semana",
+        "d2": "Bit te empuja cada día con tus horas reales",
+        "d3": "Plan que se recalcula si te retrasas",
+        "cta": "Te encaja: Tutor247"
       }
     },
-    "bit": {
-      "title": "Bit: alguien contigo a cualquier hora",
-      "subtitle": "Bit es la IA de Checkpoint Academy. Conoce tu módulo, tu Mapa de Dominio y la fecha de tu examen. Te recuerda qué toca hoy y resuelve lo sencillo. Lo difícil, se lo pasa a tu mentor.",
-      "points": {
-        "p1": {
-          "title": "24/7, también por WhatsApp.",
-          "text": "Recordatorios del plan y quizzes de 2 minutos."
-        },
-        "p2": {
-          "title": "Siempre se presenta como IA.",
-          "text": "Sabes en todo momento si hablas con Bit o con una persona."
-        },
-        "p3": {
-          "title": "Te enseña, no te copia.",
-          "text": "Te guía con preguntas y pistas; nunca te entrega una práctica evaluable."
-        },
-        "p4": {
-          "title": "Humano garantizado.",
-          "text": "El botón «Quiero a mi mentor» está siempre a la vista."
-        }
-      },
-      "chatTitle": "Bit",
-      "chatSubtitle": "IA de Checkpoint Academy · 0485 Programación",
-      "example": "Ejemplo",
-      "chat": {
-        "m1": "Hazme la práctica 3 de 0485, que la entrego mañana.",
-        "m2": "Soy Bit, la IA de Checkpoint Academy. La práctica no te la hago: es tuya y te la van a evaluar. Pero la sacas tú en un rato. ¿Qué pide el primer ejercicio?",
-        "m3": "Un bucle que sume los números pares del 1 al 100. No me sale.",
-        "m4": "Vamos por partes: ¿cómo sabes si un número es par? Pista: piensa en el resto de dividir entre 2.",
-        "m5": "¡Eso es, n % 2 == 0! Ahora mételo dentro del for y pruébalo primero del 1 al 10.",
-        "m6": "Si te atascas, pulsa «Quiero a mi mentor» y un humano te responde con un Ticket Express."
-      }
-    },
-    "productsTitle": "Pagas solo por lo que necesitas",
-    "productsSubtitle": "Lo humano se paga con créditos (1 crédito ≈ 1 €). Sin matrícula ni cuotas obligatorias.",
-    "creditsRange": "{range} créditos",
-    "productsCta": "Ver todos los precios",
-    "productsNote": "Los créditos duran 12 meses. Packs con hasta un 20 % extra.",
-    "guaranteeTitle": "Garantía «Seguimos contigo»",
-    "guaranteeText": "Con el Plan Módulo, si cumples el plan y aun así suspendes, preparar la recuperación te cuesta la mitad: te devolvemos el 50 % de los créditos.",
-    "guaranteeSmall": "Cumplir el plan es asistir y hacer al menos el 80 % de las tareas. Así de simple.",
-    "mentorsTitle": "Mentores que dominan tu módulo",
-    "mentorsSubtitle": "Verificados con entrevista y prueba técnica. Eliges por módulo, nivel y tiempo de respuesta.",
-    "mentorsAll": "Ver todos los mentores",
-    "mentorJoin": "¿Eres docente de FP o profesional del sector?",
-    "mentorJoinLink": "Hazte mentor",
-    "killerTitle": "Los módulos que más se atragantan",
-    "killerSubtitle": "Donde más suspensos hay. Empieza por el tuyo.",
-    "familyTitle": "¿Tu hijo o hija estudia informática?",
-    "familyText": "Le damos un tutor que le conoce, le organiza y le acompaña. Y a ti, un informe cada semana.",
-    "familyCta2": "Ver cómo funciona para familias",
-    "faqTitle": "Preguntas frecuentes",
-    "faq": {
+    "path": {
+      "label": "Encuentra tu camino",
+      "title": "¿Qué necesitas tú?",
+      "text": "Tres preguntas y te decimos con qué empezar.",
       "q1": {
-        "q": "¿Sois una academia?",
-        "a": "No. No vendemos horas de clase: vendemos aprobar un módulo concreto. Diagnóstico, plan hasta el examen, mentor de ese módulo y seguimiento."
+        "q": "¿Tienes un examen con fecha?",
+        "a": "Sí, tengo fecha",
+        "b": "No, me preocupa todo el curso"
       },
       "q2": {
-        "q": "¿Me hacéis las prácticas?",
-        "a": "No, y es una línea roja. Te ayudamos a entenderlas y a hacerlas tú: revisamos tu código y te explicamos qué falla, pero no lo rehacemos."
+        "q": "¿Te cuesta ser constante?",
+        "a": "No, si tengo plan, cumplo",
+        "b": "Sí, me cuesta mucho"
       },
       "q3": {
-        "q": "¿Cuánto cuesta?",
-        "a": "El diagnóstico es gratis. Lo humano se paga con créditos (1 crédito ≈ 1 €): un Ticket Express son 6–8 créditos y una sesión 1:1, 25–35. Bit ilimitado, con el plan Compañero (desde 9,90 €/mes)."
+        "q": "¿Quién se encarga de tus estudios?",
+        "a": "Yo, soy mayor de edad",
+        "b": "Mi familia también"
+      },
+      "pending": "Responde las tres preguntas y te recomendamos un camino.",
+      "result": "Te recomendamos",
+      "aprueba": {
+        "title": "Lo tuyo es un objetivo con fecha: vamos a por él",
+        "text": "Diagnóstico gratis de tu módulo, un plan hasta el examen y un mentor que domina ese módulo cuando lo necesites.",
+        "cta": "Empezar por el test gratis"
+      },
+      "tutor": {
+        "title": "Lo tuyo no es falta de capacidad: es que nadie te acompaña",
+        "text": "Un tutor fijo que te hace seguimiento cada semana. Si estudias online o tu familia quiere estar tranquila, es tu plan.",
+        "cta": "Conocer Tutor247"
+      },
+      "restart": "Volver a empezar"
+    },
+    "approve": {
+      "label": "Aprueba tu módulo",
+      "title1": "El examen tiene fecha.",
+      "title2": "Tu plan también.",
+      "text": "Del «no lo entiendo» al «aprobado» en cinco pasos. Sin clases sueltas sin rumbo.",
+      "cta": "Empieza por el test gratis",
+      "s1": {
+        "t": "Diagnóstico",
+        "d": "Test gratis de tu módulo, por resultados de aprendizaje."
+      },
+      "s2": {
+        "t": "Mapa de Dominio",
+        "d": "Ves qué dominas, qué casi y qué aún no."
+      },
+      "s3": {
+        "t": "Plan inverso",
+        "d": "Pones la fecha del examen y te decimos qué toca cada semana."
+      },
+      "s4": {
+        "t": "Mentor + simulacros",
+        "d": "Sesiones y tickets con un especialista; simulacros sin IA."
+      },
+      "s5": {
+        "t": "Aprobado",
+        "d": "Y con el Plan Módulo, si cumples y suspendes, seguimos contigo."
+      },
+      "killerTitle": "Los módulos que más suspenden",
+      "killerAll": "Ver todos los módulos de SMX, ASIX, DAM y DAW",
+      "prepTitle": "Cómo prepararlo",
+      "creditsFrom": "desde {n} cr",
+      "creditsRange": "{range} cr",
+      "guarantee": "Garantía «Seguimos contigo»: con el Plan Módulo, si cumples el plan y suspendes, preparar la recuperación te cuesta la mitad."
+    },
+    "formula": {
+      "label": "La fórmula",
+      "title": "IA + mentor + tú = aprobado",
+      "text": "La IA te lo hace todo, sí. Pero en el examen estás tú solo. Por eso aquí la IA entrena contigo y tú demuestras que lo sabes.",
+      "f1": {
+        "t": "IA a tu favor",
+        "d": "Bit te entrena con preguntas y pistas. Nunca te da la práctica hecha."
+      },
+      "f2": {
+        "t": "Mentor experto",
+        "d": "Un profesor de FP valida que lo has entendido y te prepara para el examen."
+      },
+      "f3": {
+        "t": "Tú demuestras",
+        "d": "Modo Examen: sin IA, sin pegar, con tiempo. Como el día D."
+      },
+      "examTag": "Modo Examen + Mapa de Dominio",
+      "examTitle": "Sabes exactamente lo que sabes hacer solo",
+      "examText": "Cada sesión acabará con un mini-simulacro con el pegado desactivado. Tu mentor ve cómo razonas y tu Mapa de Dominio se actualiza: lo que ya dominas y lo que aún no.",
+      "mapName": "Programación",
+      "mapCaption": "Ejemplo de Mapa de Dominio"
+    },
+    "tutor": {
+      "label": "Tutor247 · tu tutor 24/7",
+      "title": "Tú estudias. Nosotros no te soltamos.",
+      "text": "Para quien sabe que puede, pero le cuesta la constancia. Un tutor de referencia que te conoce y te hace seguimiento cada semana, y una IA que estará contigo cada día.",
+      "weekAria": "Semana tipo en Tutor247",
+      "d1": {
+        "day": "LUN",
+        "text": "Bit te manda el plan de la semana con tus horas reales"
+      },
+      "d2": {
+        "day": "MAR",
+        "text": "Quiz relámpago de 3 minutos"
+      },
+      "d3": {
+        "day": "MIÉ",
+        "text": "Check-in de 20 min con tu tutor de referencia"
+      },
+      "d4": {
+        "day": "JUE",
+        "text": "Sesión técnica con el mentor del módulo que se atasca"
+      },
+      "d5": {
+        "day": "VIE",
+        "text": "Tu tutor revisa que las entregas van a tiempo"
+      },
+      "d6": {
+        "day": "DOM",
+        "text": "Informe semanal a la familia (si eres menor o lo autorizas)"
+      },
+      "cta1": "Conoce Tutor247",
+      "cta2": "Para familias",
+      "chatTitle": "Bit · Tutor247",
+      "chatSubtitle": "IA · tu tutor también está aquí",
+      "bitLabel": "BIT · IA",
+      "youLabel": "TÚ",
+      "tutorLabel": "TU TUTOR",
+      "m1": "Hola. Hoy toca RA3 de Redes: subnetting, 20 min. ¿Empiezas ahora o a las 21:00?",
+      "m2": "A las 21, salgo tarde del curro",
+      "m3": "Hecho. Te escribo a las 21:00 con 3 preguntas rápidas para calentar.",
+      "m4": "He visto que esta semana has cumplido 4 de 5 días. Así se llega. Mañana hablamos 20 min de la entrega del viernes.",
+      "chatNote": "Bit siempre dice que es una IA. Tu tutor responde en horario garantizado."
+    },
+    "compare": {
+      "label": "¿Cuál es el mío?",
+      "title": "Elige en 10 segundos",
+      "caption": "Comparativa entre Aprueba tu módulo y Tutor247",
+      "r1": {
+        "k": "Para quién",
+        "a": "Tienes un examen y un módulo concreto que sacar",
+        "t": "Te cuesta la constancia, estudias online o eres menor y tu familia quiere seguimiento"
+      },
+      "r2": {
+        "k": "Qué compras",
+        "a": "Aprobar ese módulo",
+        "t": "Que alguien te acompañe todo el curso"
+      },
+      "r3": {
+        "k": "Persona de referencia",
+        "a": "Mentor especialista del módulo",
+        "t": "Tutor fijo + mentores por módulo"
+      },
+      "r4": {
+        "k": "La IA",
+        "a": "Tutor socrático y Modo Examen",
+        "t": "Bit 24/7: recordatorios, quizzes, empujón diario"
+      },
+      "r5": {
+        "k": "Cómo pagas",
+        "a": "Créditos (packs) o Plan Módulo",
+        "t": "Suscripción mensual"
+      },
+      "r6": {
+        "k": "Ideal si dices…",
+        "a": "«Tengo el examen de Programación en 3 semanas»",
+        "t": "«Sé que puedo, pero no me pongo»"
+      },
+      "aiSoon": "La IA (Bit) llega próximamente.",
+      "combine": "Se pueden combinar: con Tutor247 puedes añadir sesiones o tickets con créditos antes de un examen."
+    },
+    "mentors": {
+      "label": "Mentores",
+      "title": "Profesores de FP, no estudiantes de paso",
+      "all": "Ver todos",
+      "join": "¿Das clase en FP o trabajas en el sector?",
+      "joinLink": "Hazte mentor"
+    },
+    "sos": {
+      "tag": "Ticket SOS",
+      "text": "¿Examen mañana y no entiendes los JOIN? El primer mentor disponible de tu módulo te atenderá en una videollamada exprés.",
+      "now": "Mientras tanto: Ticket Express, tu duda resuelta por escrito en menos de 2 h.",
+      "cta": "Enviar un Ticket Express"
+    },
+    "founder": {
+      "label": "Quién hay detrás",
+      "title": "Lo creó un profesor de FP que lleva 18 años viendo suspender por lo mismo",
+      "quote": "He dado Programación, Bases de datos, web y redes en SMX, ASIX, DAM y DAW, en presencial y a distancia. Los alumnos no suspenden por falta de clases: suspenden porque nadie comprueba que lo saben hacer solos, y porque estudiando online es muy fácil quedarse atrás. Checkpoint existe para eso.",
+      "name": "David Porti Pujal",
+      "role": "Fundador · Profesor de FP Informática"
+    },
+    "testimonials": {
+      "label": "Alumnos y familias",
+      "title": "Lo que se llevan, en sus palabras"
+    },
+    "faq": {
+      "label": "Preguntas",
+      "title": "Lo que todo el mundo pregunta",
+      "q1": {
+        "q": "¿Me hacéis las prácticas o los exámenes?",
+        "a": "No. Ni los mentores ni Bit hacen trabajos evaluables. Te explicamos, te guiamos y comprobamos que sabes hacerlo tú. Es nuestra línea roja."
+      },
+      "q2": {
+        "q": "¿La IA me da las respuestas?",
+        "a": "No. Bit (próximamente) funciona con preguntas y pistas hasta que llegas tú a la solución. Nunca entrega la práctica hecha y siempre dice que es una IA; lo difícil se lo pasa a tu mentor."
+      },
+      "q3": {
+        "q": "¿Quiénes son los mentores?",
+        "a": "Docentes de FP y profesionales del sector que dominan el módulo que imparten. Revisamos su perfil antes de que den clase, y quien trabaja con menores aporta el certificado negativo de delitos sexuales."
       },
       "q4": {
-        "q": "¿Caducan los créditos?",
-        "a": "Duran 12 meses desde la compra."
+        "q": "¿Qué diferencia hay entre Aprueba tu módulo y Tutor247?",
+        "a": "Aprueba tu módulo es para un objetivo concreto: un módulo y un examen con fecha; se paga con créditos. Tutor247 es acompañamiento todo el curso con un tutor fijo; es una suscripción mensual. Se pueden combinar."
       },
       "q5": {
-        "q": "Estudio en Cataluña: ¿encuentro mi módulo?",
-        "a": "Sí. Cada módulo muestra su equivalencia catalana (M/UF) y puedes buscar por código o por nombre."
+        "q": "¿Sirve si estudio a distancia o en Cataluña?",
+        "a": "Sí. Funciona igual en presencial y a distancia, y cada módulo muestra su equivalencia catalana (M/UF): puedes buscarlo por código o por nombre."
       },
       "q6": {
         "q": "¿Y si suspendo?",
-        "a": "Con el Plan Módulo tienes la garantía «Seguimos contigo»: si cumpliste el plan, preparar la recuperación te cuesta la mitad."
+        "a": "Con el Plan Módulo tienes la garantía «Seguimos contigo»: si cumpliste el plan y suspendes, preparar la recuperación te cuesta la mitad."
+      },
+      "q7": {
+        "q": "Soy madre o padre: ¿qué voy a ver?",
+        "a": "Un informe semanal claro: cómo va, su constancia, qué ha trabajado y las próximas fechas. Si es menor, lo veis siempre; si es mayor de edad, solo si él lo autoriza. El alumno sabe siempre qué información recibís."
       }
     },
-    "finalTitle": "Tu examen tiene fecha. Tu plan también puede tenerla.",
-    "finalText": "Haz el diagnóstico gratis y descubre en 2 minutos qué te falta y si llegas."
+    "final": {
+      "tag": "Programa piloto · plazas limitadas",
+      "title": "Copiar no es aprender. Entenderlo es aprobar.",
+      "text": "Empieza por saber dónde estás. El diagnóstico es gratis, tarda 2 minutos y te dice qué dominas y qué no de tu módulo.",
+      "cta1": "Hacer el test gratis",
+      "cta2": "Quiero un tutor",
+      "note": "Sin tarjeta · Sin permanencia · Para SMX, ASIX, DAM y DAW"
+    }
   },
   "nav": {
     "mentors": "Mentores",
@@ -449,19 +648,6 @@
     "setLevel": "Aplicar nivel"
   },
   "family": {
-    "metaTitle": "Familias: acompañamiento para FP de informática",
-    "metaDescription": "Tu hijo estudia informática y tú no puedes ayudarle. Le damos un tutor de referencia que le conoce, le organiza y le acompaña. Y a ti, un informe cada semana.",
-    "eyebrow": "Para madres, padres y tutores",
-    "heroTitle": "Tu hijo estudia informática y tú no puedes ayudarle. Nosotros sí.",
-    "heroSubtitle": "Un tutor de referencia que le conoce, le organiza y le acompaña hasta el examen. Y a vosotros, un informe claro cada semana.",
-    "ctaPrimary": "Empezar",
-    "ctaPlans": "Ver planes",
-    "heroNote": "Estamos encima para que vosotros no tengáis que estarlo.",
-    "status": {
-      "verde": "Bien",
-      "ambar": "A vigilar",
-      "rojo": "En riesgo"
-    },
     "report": {
       "title": "Informe semanal",
       "example": "Ejemplo",
@@ -482,29 +668,11 @@
       "tipLabel": "Qué podéis hacer esta semana",
       "tip": "Pedidle que os explique qué es una dirección IP: contarlo le ayuda a fijarlo."
     },
-    "includesTitle": "Qué incluye",
-    "includesSubtitle": "Lo académico lo dan mentores expertos en cada módulo. Además, alguien está pendiente de vuestro hijo cada semana.",
-    "inc": {
-      "tutor": {
-        "title": "Un tutor de referencia fijo",
-        "a": "Una cara conocida para él y para vosotros.",
-        "b": "Check-in semanal de 15–20 min: entregas, exámenes y prioridades.",
-        "c": "Hábitos de estudio y motivación. Coordina a los mentores cuando hace falta clase técnica."
-      },
-      "bit": {
-        "title": "Bit, su copiloto diario",
-        "a": "Recordatorios, repasos y dudas cada día.",
-        "b": "Avisa al tutor si detecta bloqueo o desmotivación.",
-        "c": "Nunca hace las prácticas ni los exámenes por él."
-      },
-      "family": {
-        "title": "Para vosotros",
-        "a": "Informe semanal: cómo va, constancia, qué ha trabajado y próximas fechas.",
-        "b": "Alertas solo si importa: examen en riesgo, 3 días sin actividad. Sin spam.",
-        "c": "Reunión mensual de 15 min con el tutor y canal directo en horario definido."
-      }
+    "status": {
+      "verde": "Bien",
+      "ambar": "A vigilar",
+      "rojo": "En riesgo"
     },
-    "howTitle": "Cómo funciona",
     "how": {
       "s1": {
         "title": "Nos contáis de vuestro hijo",
@@ -523,40 +691,6 @@
         "text": "Sabéis cómo va sin tener que preguntar ni entender de informática."
       }
     },
-    "plansTitle": "Planes Familia",
-    "plansSubtitle": "Suscripción mensual todo incluido. Si hace falta más (un Rescate 48h antes de un examen, sesiones extra), se usan créditos.",
-    "plusBadge": "Más completo",
-    "planCta": "Elegir este plan",
-    "plansNote": "¿Para todo el curso? Curso tranquilo: Acompaña+ de septiembre a junio con un 15 % de descuento (pago trimestral).",
-    "trustTitle": "Confianza y límites",
-    "trustSubtitle": "Trabajamos con menores. Estas reglas no se negocian.",
-    "trust": {
-      "c1": {
-        "title": "Certificado negativo de delitos sexuales",
-        "text": "Obligatorio para todo tutor y mentor con contacto con menores."
-      },
-      "c2": {
-        "title": "Todo dentro de la plataforma",
-        "text": "Sesiones y mensajes siempre por nuestros canales, nunca por el WhatsApp personal del tutor."
-      },
-      "c3": {
-        "title": "Acompañante, no terapeuta",
-        "text": "Si vemos señales de malestar serio, os avisamos y os recomendamos profesionales."
-      },
-      "c4": {
-        "title": "No es un espía",
-        "text": "Vuestro hijo sabe qué se comparte con vosotros. Sin confianza no hay acompañamiento."
-      },
-      "c5": {
-        "title": "Integridad académica",
-        "text": "Nadie hace sus prácticas ni sus exámenes. Le enseñamos a hacerlos."
-      },
-      "c6": {
-        "title": "Datos y consentimiento",
-        "text": "Consentimiento de los tutores legales según el RGPD y tratamiento mínimo de datos."
-      }
-    },
-    "faqTitle": "Preguntas frecuentes",
     "faq": {
       "q1": {
         "q": "¿Necesito saber informática?",
@@ -574,9 +708,7 @@
         "q": "¿Qué pasa si le vemos mal?",
         "a": "El tutor no hace apoyo psicológico. Si detecta acoso, ansiedad intensa u otro riesgo, os avisa y os recomienda profesionales."
       }
-    },
-    "finalTitle": "Empezad esta semana",
-    "finalText": "Contadnos de vuestro hijo y os presentamos a su tutor de referencia."
+    }
   },
   "familyPanel": {
     "studentsTitle": "Vuestros hijos",
@@ -1114,5 +1246,122 @@
     },
     "mapaAria": "Mapa de Dominio de {code} {name}",
     "nota": "Orientativo: no es una nota oficial."
+  },
+  "tutor247": {
+    "metaTitle": "Tutor247: un tutor que no te suelta en tu FP de informática",
+    "metaDescription": "Tutor de referencia fijo con check-in semanal, mentores por módulo e informe semanal para la familia. Para quien estudia online, se desorganiza o es menor.",
+    "hero": {
+      "tag": "Tutor247 · tu tutor 24/7",
+      "title": "Siempre hay alguien. Y no te suelta.",
+      "text": "Un tutor fijo que te conoce, te organiza y te hace seguimiento cada semana. Para que estudiar solo no signifique estudiar sin nadie.",
+      "cta1": "Empezar",
+      "cta2": "Ver planes",
+      "note": "Tutor humano con horario y respuesta garantizada · Sin permanencia"
+    },
+    "forYou": {
+      "label": "¿Es para ti?",
+      "title": "Tutor247 es para quien sabe que puede, pero necesita a alguien",
+      "a": {
+        "tag": "Estudias online",
+        "quote": "Te matriculaste a distancia para compaginar y la constancia se te escapa."
+      },
+      "b": {
+        "tag": "Te desorganizas",
+        "quote": "Sabes que puedes, pero las entregas se te acumulan y llegas tarde a todo."
+      },
+      "c": {
+        "tag": "Vas descolgado",
+        "quote": "Vas a clase presencial, pero te has descolgado y no sabes por dónde retomar."
+      },
+      "d": {
+        "tag": "Eres madre o padre",
+        "quote": "Tu hijo estudia informática, tú no puedes ayudarle y no quieres estar encima."
+      }
+    },
+    "includes": {
+      "label": "Qué incluye",
+      "title": "Una persona que te conoce + una IA que no duerme",
+      "i1": {
+        "t": "Tutor de referencia",
+        "d": "Una persona fija. Check-in semanal de 15–20 min: organiza tu semana, revisa entregas y te motiva. Coordina a los mentores cuando hace falta."
+      },
+      "i2": {
+        "t": "Bit, IA 24/7",
+        "d": "Te escribirá con tu plan, te hará quizzes de 3 minutos, resolverá dudas sencillas y avisará a tu tutor si te bloqueas."
+      },
+      "i3": {
+        "t": "Mentores por módulo",
+        "d": "Cuando un módulo se atasca, sesión técnica con un especialista."
+      },
+      "i4": {
+        "t": "Seguimiento visible",
+        "d": "Plan con fechas reales, Mapa de Dominio e informe semanal. Ves que avanzas."
+      }
+    },
+    "modes": {
+      "tag": "Online · presencial",
+      "title": "Estudiar online exige una autonomía que nadie te enseña. Te la entrenamos.",
+      "b1": "Online: rutina fija y alguien que pregunta «¿cómo vas?» cada semana",
+      "b2": "Presencial: retomas lo que te perdiste y llegas al examen con el ritmo de tu clase",
+      "b3": "Ambos: plan con fechas reales y un Mapa que te enseña que avanzas"
+    },
+    "families": {
+      "tag": "Para familias · seguridad",
+      "title": "Nosotros estamos encima para que vosotros no tengáis que estarlo",
+      "text": "Un tutor de referencia que conoce a vuestro hijo, lo organiza y lo acompaña hasta el examen. Y a vosotros, un informe claro cada semana.",
+      "s1": {
+        "t": "Certificado negativo de delitos sexuales",
+        "d": "Obligatorio para todo tutor o mentor que trabaja con menores."
+      },
+      "s2": {
+        "t": "Todo dentro de la plataforma",
+        "d": "Nunca el teléfono personal del tutor. Todo queda registrado."
+      },
+      "s3": {
+        "t": "Bit dice que es una IA",
+        "d": "Siempre. Y avisa a una persona si detecta bloqueo o malestar."
+      },
+      "s4": {
+        "t": "Sin espiar",
+        "d": "El alumno sabe qué información recibe su familia; si es mayor de edad, decide él."
+      },
+      "s5": {
+        "t": "Coach, no terapeuta",
+        "d": "Si aparece algo serio, avisamos a la familia y recomendamos profesionales."
+      },
+      "howTitle": "Cómo empezamos",
+      "faqTitle": "Preguntas de familias"
+    },
+    "plans": {
+      "label": "Planes",
+      "title": "Dos modos, un mismo compromiso",
+      "note": "Precios orientativos pendientes de validar. Sesiones extra con créditos.",
+      "perMonth": "/mes",
+      "cta": "Empezar",
+      "autonomo": {
+        "tag": "Para ti",
+        "name": "Tutor247 Autónomo",
+        "audience": "Mayor de edad, estudias online o trabajas.",
+        "f1": "Plan ajustado a tus horas reales",
+        "f2": "Check-in quincenal con tu tutor",
+        "f3": "Mentores por módulo con créditos",
+        "f4": "Tú decides si se comparte algún informe",
+        "price": "Precio por confirmar"
+      },
+      "familia": {
+        "tag": "Para familias",
+        "name": "Tutor247 Familia",
+        "audience": "Alumno menor, normalmente SMX o 1.º de superior."
+      },
+      "familiaPlus": {
+        "tag": "Para familias",
+        "name": "Tutor247 Familia+",
+        "audience": "Más sesiones técnicas, tickets y simulacros."
+      }
+    },
+    "final": {
+      "title": "Tú estudias. Nosotros no te soltamos.",
+      "cta": "Empezar"
+    }
   }
 }

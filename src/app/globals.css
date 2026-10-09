@@ -230,6 +230,15 @@
   animation: hud-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
+/* Franja de frases de la portada: desplazamiento continuo (la fila va duplicada). */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker 40s linear infinite;
+}
+
 /* Rendimiento + accesibilidad: sin movimiento si el usuario lo pide. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

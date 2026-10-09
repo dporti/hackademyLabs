@@ -9,11 +9,10 @@ import {
   HeaderSessionFallback,
 } from "@/components/header-session";
 
-// Enlaces principales (mockup Main.html). Tutor247 apunta a /familias hasta que exista
-// /tutor247 (fase 2 de "Fusión del diseño"; entonces /familias redirigirá allí).
+// Enlaces principales (mockup Main.html).
 export const NAV_LINKS = [
   { href: "/modulos", key: "approve" },
-  { href: "/familias", key: "tutor247" },
+  { href: "/tutor247", key: "tutor247" },
   { href: "/mentores", key: "mentors" },
   { href: "/precios", key: "tariffs" },
 ] as const;
