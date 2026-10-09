@@ -281,7 +281,8 @@ async function main() {
   const sinSaldo = await admin.rpc("create_ticket", {
     p_student: pobre.id,
     p_modulo_code: "0485",
-    p_kind: "ticket_normal",
+    // Express (6) > bienvenida (3): el test sigue valiendo aunque reciba el bonus.
+    p_kind: "ticket_express",
     p_subject: "Sin saldo",
     p_body: "No tengo créditos pero pregunto.",
   });

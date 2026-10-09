@@ -254,13 +254,11 @@ referencia en `docs/diseno/`.
   - **Falta la clave**: `ANTHROPIC_API_KEY` en `.env.local` (y en Vercel). Sin ella la ruta responde
     `noKey` y el widget lo avisa. Probado: build, ruta sin clave (503 noKey) y widget en navegador.
     **No probado con respuestas reales** (sin clave).
-- **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
-  2026-10-07 hasta `0562a0e`.
-
-## 3. En curso
-- **Contacto sin cuenta + bienvenida** · 2026-10-09 · código hecho; **pendiente aplicar**
-  `supabase/migrations/20261009090100_leads_welcome.sql` en el SQL Editor y pasar
-  `node scripts/verify-leads.mjs`.
+- **Contacto sin cuenta + bienvenida** · 2026-10-09 · `3cc7769`. Migración
+  `20261009090100_leads_welcome.sql` aplicada. Verificado: `verify-leads` 9/9, resto de verify OK
+  (`verify-consumo` usa ahora Ticket Express en la prueba de saldo insuficiente, para que el bonus
+  no la rompa) y en navegador de punta a punta: duda enviada desde /pregunta → aparece en
+  «Contactos sin cuenta» del admin.
   - `/pregunta` («Tu primera duda, gratis»): formulario sin cuenta (alumno/familia, módulo, duda,
     nombre opcional, email o teléfono, consentimiento). Entradas: SOS del menú, portada (bloque SOS),
     ficha de módulo, final del diagnóstico. Bit también la conoce.
@@ -274,6 +272,11 @@ referencia en `docs/diseno/`.
   - Respuesta a los contactos: manual por ahora (falta servicio de email).
 - **Fusión del diseño** (Checkpoint Academy) · fases 0–6 cerradas 2026-10-09; siguiente: despliegue en Vercel, legal y Stripe real
   (o fases 7–9, backend nuevo).
+- **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
+  2026-10-07 hasta `0562a0e`.
+
+## 3. En curso
+- (nada)
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
