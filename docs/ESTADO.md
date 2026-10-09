@@ -148,12 +148,28 @@ referencia en `docs/diseno/`.
   - Verificado: lint + build; DOM en navegador (PathFinder → recomendación correcta y acento, FAQ
     aria-expanded/hidden, 7 killer, 3 mentores, sin testimonios); 360/768/1280 px sin scroll horizontal
     (es/ca, portada y /tutor247); capturas a 1440 px de portada y /ca/tutor247; 308 comprobados.
+- **Fusión del diseño · fase 3: resto de páginas públicas** · 2026-10-09 · `7299446` → `6f62866`
+  - `/modulos` y `/ciclos`: cabecera con buscador, atajo al test y filtro por ciclo (`?ciclo=`);
+    módulos por ciclo y curso. La búsqueda también encuentra por código catalán (M03…) y limpia el
+    término de caracteres especiales de PostgREST.
+  - `/modulos/[code]`: cabecera con ciclos, equivalencia catalana y cifras de BD; bloque «¿Cuándo es
+    tu examen?» que abre el diagnóstico con módulo, fecha y horas; RA, cómo prepararlo y mentores.
+  - `/mentores` (filtros módulo/idioma/nivel por GET) y `/mentores/[id]` (servicios con tarifas
+    reales de `product_price`; sin cifras ni testimonios inventados; agenda marcada como pendiente).
+  - `/precios`: casos, packs, tabla de productos (Próximamente en lo no disponible), garantía,
+    suscripción IA (Próximamente) y planes Tutor247.
+  - `/diagnostico`: autoevaluación con los 4 niveles; URL compatible con enlaces viejos; RA sin
+    responder como «Pendiente» en el Mapa.
+  - Acceso (`AuthShell` a dos columnas, campos de 44 px), `/hazte-mentor` (Próximamente en aula,
+    materiales, agenda y Bit) y `/cancelacion` con los mismos patrones.
+  - Verificado: lint + build; `verify-db` OK; capturas a 1440 px de cada página (es/ca); 360 px sin
+    scroll horizontal en todas (build de producción); filtros, búsqueda catalana y plan desde la ficha.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-- **Fusión del diseño** (Checkpoint Academy) · fases 0, 1 y 2 cerradas 2026-10-09; siguiente:
-  fase 3 — Resto de páginas públicas.
+- **Fusión del diseño** (Checkpoint Academy) · fases 0–3 cerradas 2026-10-09; siguiente:
+  fase 4 — Panel del alumno. Pendiente de David: «5 errores que suspenden» (ver decisiones pendientes).
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
@@ -166,7 +182,7 @@ referencia en `docs/diseno/`.
    - [x] **Fase 2 — Portada y Tutor247** (2026-10-09): home con las 15 secciones de §6 (ModelCard,
      TrustStrip, BeforeAfter, PathFinder, ComparisonTable, FounderBlock, Faq; testimonios
      ocultos); `/tutor247` con `#familias`; `/familias` → 308.
-   - [ ] **Fase 3 — Resto de públicas**: `/modulos`, `/ciclos`, `/modulos/[code]` («5 errores
+   - [x] **Fase 3 — Resto de públicas** (2026-10-09): `/modulos`, `/ciclos`, `/modulos/[code]` («5 errores
      que suspenden»: proponer modelo antes de migrar), `/mentores`, `/mentores/[id]`,
      `/precios` (dos modelos), `/diagnostico`, auth (`AuthShell`), `/hazte-mentor`,
      `/cancelacion`.
@@ -261,6 +277,10 @@ referencia en `docs/diseno/`.
 - **Planes de familia con nombre comercial por i18n** (acompana → «Tutor247 Familia», acompana_plus →
   «Tutor247 Familia+»); precio y features siguen saliendo de BD (79/149 €, no los 89/159 del mockup) ·
   2026-10-09.
+- **Diagnóstico con 4 niveles sin migración**: el estado vive en la URL (v/c/a/r por RA); el plan
+  inverso sigue con el semáforo (casi y con ayuda = ámbar, mismas horas) · 2026-10-09.
+- **Filtros públicos por GET** (`/modulos?ciclo=`, `/mentores?modulo=&idioma=&nivel=`): funcionan sin
+  JS y se pueden compartir; esas rutas pasan a renderizarse por petición · 2026-10-09.
 - **Testimonios: componente listo y oculto** (`TESTIMONIOS = []`) hasta tener reales con permiso ·
   2026-10-09.
 - **Variante `secondary` de Button/Badge = neutra** (superficie gris), aunque `--secondary` sea el
@@ -276,6 +296,10 @@ referencia en `docs/diseno/`.
   renombrar en BD (`plan.name`) y revisar features (hoy en español y con «Acompaña»).
 - «Agendar llamada gratis» del mockup: no hay agenda; hoy los CTA de /tutor247 van a `/registro?rol=familia`.
 - Foto del fundador para `FounderBlock` (hoy iniciales).
+- **«5 errores que suspenden» por módulo** (Modulo.html). Propuesta: tabla `modulo_error` (modulo_id,
+  sort_order, codigo corto, texto es/ca) con lectura pública y edición solo admin, + seed de 0485 y
+  0484. Alternativa más simple: columna `jsonb` en `modulo`. No se crea migración sin tu visto bueno.
+- Descripción corta y dificultad por módulo (las tarjetas del mockup las muestran; hoy no hay datos).
 - Precio real del crédito y % de reparto con mentores (60–70 %).
 - Confirmar precios de packs/planes y condiciones de la garantía "Seguimos contigo".
 - Mapeo real de equivalencias catalanas (M/UF) y validación de RA con el BOE/decreto.
@@ -319,13 +343,17 @@ referencia en `docs/diseno/`.
 - **RA orientativos**: los de 0485/0484 y los 5 killer nuevos (`supabase/data/ra-killer.json`)
   hay que validarlos con el BOE/decreto; el diagnóstico solo cubre módulos con RA cargados (7).
 - **"Días activos" del informe es manual**: no hay registro de actividad del alumno todavía.
+- **Mentores sin «reservar con este mentor»**: los botones llevan a `/panel/sesiones` sin preseleccionar
+  al mentor (falta `?mentor=` en el formulario de sesiones).
+- **Nombres de módulo y RA solo en español** en BD: en catalán la búsqueda por nombre catalán no
+  encuentra (sí por código y por código catalán).
+- **Dev server y mensajes nuevos**: tras añadir claves a `messages/*.json`, las páginas cacheadas del
+  dev siguen mostrando la clave hasta reiniciar `npm run dev` (en build no pasa).
 - **Features de planes en BD solo en español** (se ven en /ca/tutor247 y /ca/precios).
 - **Promesas de la portada a validar**: «certificado negativo para trabajar con menores» y «mentores
   verificados» son políticas (no hay flujo que lo compruebe en la plataforma todavía).
 - **`/styleguide` con textos en español en el código** (página interna `noindex`); excepción
   consciente a la regla de i18n.
-- **Diagnóstico con 3 opciones** (verde/ámbar/rojo) aunque el Mapa muestre 4 niveles: el
-  autodiagnóstico se rehace en la fase 3.
 - **Tickets/sesiones sin automatismos**: no hay devolución automática si un ticket cogido no
   se responde en plazo, ni si una solicitud de sesión caduca sin respuesta (el alumno puede
   cancelarla), ni autocompletado de sesiones que el mentor no marca. Falta un job.
