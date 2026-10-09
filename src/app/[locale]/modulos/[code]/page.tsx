@@ -6,17 +6,17 @@ import { SectionLabel } from "@/components/brand/section-label";
 import { ComingSoon } from "@/components/brand/coming-soon";
 import { MentorCard } from "@/components/brand/mentor-card";
 import { getModuloByCode, getAllModuloCodes, getMentoresByModulo } from "@/lib/catalog";
-import { creditRange, product } from "@/lib/products";
 import type { ProductKind } from "@/lib/db-types";
+import { temaRa, temasDe } from "@/lib/temas";
 
 // Ficha de módulo = landing de venta del módulo (docs §8; maqueta Modulo.html).
 // Datos de BD (RA, ciclos, equivalencia catalana, mentores). El bloque «5 errores que
 // suspenden» del mockup queda fuera hasta decidir dónde se guarda (dato por módulo).
 
 // Cómo prepararlo. `soon` = aún no se puede contratar; `href` = dónde se contrata.
-const PREPARAR: { kind: ProductKind; desde?: boolean; soon?: boolean; href: string }[] = [
-  { kind: "plan_modulo", desde: true, soon: true, href: "/precios#productos" },
-  { kind: "rescate_48h", desde: true, soon: true, href: "/precios#productos" },
+const PREPARAR: { kind: ProductKind; soon?: boolean; href: string }[] = [
+  { kind: "plan_modulo", soon: true, href: "/precios#productos" },
+  { kind: "rescate_48h", soon: true, href: "/precios#productos" },
   { kind: "ticket_express", href: "/panel/tickets" },
   { kind: "simulacro", soon: true, href: "/precios#productos" },
 ];
@@ -49,6 +49,9 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
   const c = await getTranslations("common");
   const tp = await getTranslations("products");
   const tm = await getTranslations("mentors");
+  const tt = await getTranslations("temas");
+  const tr = await getTranslations("temasRa");
+  const temas = temasDe(tt, modulo.code);
   const diagnosticable = modulo.ra.length > 0;
   const mentores = await getMentoresByModulo(modulo.id);
   const ciclosTxt = modulo.ciclo_modulo
@@ -84,6 +87,21 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
                 {modulo.name}
               </h1>
               {modulo.description && <p className="mt-4 max-w-2xl text-lg text-muted-foreground">{modulo.description}</p>}
+              {temas.length > 0 && (
+                <div className="mt-5">
+                  <p className="text-sm text-label">{t("temasTitle")}</p>
+                  <ul className="mt-2 flex flex-wrap gap-2">
+                    {temas.map((x) => (
+                      <li
+                        key={x}
+                        className="rounded-[10px] border border-tint-primary-border bg-tint-primary px-3 py-1.5 text-[15px] font-medium"
+                      >
+                        {x}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
@@ -102,12 +120,6 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
               <p className="mt-3 text-sm text-label">{t("ctaNote")}</p>
 
               <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-4">
-                {modulo.ra.length > 0 && (
-                  <div>
-                    <dt className="text-xs text-label">{t("statRa")}</dt>
-                    <dd className="font-mono text-2xl font-semibold text-primary">{modulo.ra.length}</dd>
-                  </div>
-                )}
                 {modulo.hours != null && (
                   <div>
                     <dt className="text-xs text-label">{t("statHours")}</dt>
@@ -186,9 +198,16 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
           <p className="mt-3 text-muted-foreground">{t("raText", { n: modulo.ra.length })}</p>
           <ol className="mt-8 grid gap-3 md:grid-cols-2">
             {modulo.ra.map((ra) => (
-              <li key={ra.id} className="flex gap-4 rounded-2xl border bg-card p-5">
-                <span className="w-10 shrink-0 font-mono text-sm font-semibold text-primary">{ra.code}</span>
-                <p className="text-[15px]">{ra.description}</p>
+              <li key={ra.id} className="rounded-2xl border bg-card p-5">
+                <p className="flex items-baseline justify-between gap-3">
+                  <span className="font-heading text-lg font-semibold">
+                    {temaRa(tr, modulo.code, ra.code) ?? ra.description}
+                  </span>
+                  <span className="shrink-0 font-mono text-xs text-label">{ra.code}</span>
+                </p>
+                {temaRa(tr, modulo.code, ra.code) && (
+                  <p className="mt-1.5 text-sm text-muted-foreground">{ra.description}</p>
+                )}
               </li>
             ))}
           </ol>
@@ -216,14 +235,16 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
                   {p.soon && <ComingSoon />}
                 </span>
                 <span className="mt-2 flex-1 text-sm text-muted-foreground">{tp(`${p.kind}.desc`)}</span>
-                <span className="mt-4 font-mono text-lg font-semibold text-primary">
-                  {p.desde
-                    ? t("creditsFrom", { n: product(p.kind).min })
-                    : t("credits", { range: creditRange(p.kind) })}
-                </span>
               </Link>
             ))}
           </div>
+
+            <Link
+              href="/precios"
+              className="mt-5 inline-flex min-h-11 items-center text-[15px] font-semibold text-primary underline-offset-4 hover:underline"
+            >
+              {t("seePlans")} →
+            </Link>
           <ul className="mt-6 space-y-2 text-sm">
             {(["promiseGuarantee", "promiseEthics"] as const).map((k) => (
               <li key={k} className="flex gap-2.5">

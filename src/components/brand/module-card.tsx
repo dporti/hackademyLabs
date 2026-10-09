@@ -8,11 +8,14 @@ export function ModuleCard({
   cursoLabel,
   killerLabel,
   viewLabel,
+  temas = [],
 }: {
   modulo: Pick<Modulo, "code" | "name" | "killer">;
   cursoLabel?: string;
   killerLabel: string;
   viewLabel?: string;
+  // Temas directos del módulo (Java, SQL, DNS…): se muestran los primeros.
+  temas?: string[];
 }) {
   return (
     <Link
@@ -24,6 +27,15 @@ export function ModuleCard({
         {cursoLabel && <span className="font-mono text-xs text-label">{cursoLabel}</span>}
       </div>
       <p className="mt-2 font-heading text-lg leading-snug font-semibold">{modulo.name}</p>
+      {temas.length > 0 && (
+        <ul className="mt-3 flex flex-wrap gap-1.5">
+          {temas.slice(0, 4).map((x) => (
+            <li key={x} className="rounded-md bg-surface-2 px-2 py-0.5 text-xs text-muted-foreground">
+              {x}
+            </li>
+          ))}
+        </ul>
+      )}
       <div className="mt-auto flex items-center justify-between gap-2 pt-4 text-xs">
         {modulo.killer ? (
           <span className="flex items-center gap-1.5 font-mono font-semibold tracking-wide text-sos-text uppercase">

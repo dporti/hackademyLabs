@@ -164,6 +164,18 @@ referencia en `docs/diseno/`.
     materiales, agenda y Bit) y `/cancelacion` con los mismos patrones.
   - Verificado: lint + build; `verify-db` OK; capturas a 1440 px de cada página (es/ca); 360 px sin
     scroll horizontal en todas (build de producción); filtros, búsqueda catalana y plan desde la ficha.
+- **Ajustes tras revisión de David** · 2026-10-09
+  - **Temas en vez de RA**: cada módulo tiene sus temas en lenguaje directo (i18n `temas`: Java, SQL,
+    triggers, DNS, subnetting…) en tarjetas, ficha, portada y selector del hero; el buscador de
+    `/modulos` encuentra por tema (python → 0485/0491, triggers → 0372/0377/0484). Los RA de los 7
+    módulos con test tienen nombre corto (`temasRa`, p. ej. «Consultas SQL: SELECT, JOIN, subconsultas»)
+    en diagnóstico, Mapa y temario de la ficha; el código RA queda en pequeño. Textos reescritos sin
+    «resultados de aprendizaje».
+  - **Captación de mentores**: «Hazte mentor» en el menú (escritorio y móvil; el menú completo pasa a
+    verse desde 1280 px) y bloque con botón en la portada.
+  - **Precios más suaves**: menú «Planes»; sin cifras de créditos en portada, fichas de módulo ni
+    tarjetas de mentor (siguen en /precios y en la ficha de cada mentor); /precios empieza por lo gratis
+    (test, Mapa y plan) y quita los rangos de «¿cuánto me cuesta aprobar?».
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
@@ -279,6 +291,8 @@ referencia en `docs/diseno/`.
   2026-10-09.
 - **Diagnóstico con 4 niveles sin migración**: el estado vive en la URL (v/c/a/r por RA); el plan
   inverso sigue con el semáforo (casi y con ayuda = ámbar, mismas horas) · 2026-10-09.
+- **Temas de módulo en i18n, no en BD** (`messages/*.json` → `temas`, `temasRa`): son textos de
+  marketing que cambian a menudo; si hace falta editarlos desde admin, pasarán a BD · 2026-10-09.
 - **Filtros públicos por GET** (`/modulos?ciclo=`, `/mentores?modulo=&idioma=&nivel=`): funcionan sin
   JS y se pueden compartir; esas rutas pasan a renderizarse por petición · 2026-10-09.
 - **Testimonios: componente listo y oculto** (`TESTIMONIOS = []`) hasta tener reales con permiso ·

@@ -22,26 +22,26 @@ import {
   getModulosDiagnosticables,
   getModulosKiller,
 } from "@/lib/catalog";
-import { creditRange, product } from "@/lib/products";
 import type { ProductKind } from "@/lib/db-types";
+import { temaRa, temasDe } from "@/lib/temas";
 
 // Portada (DISENO.md §6, orden de secciones; maqueta docs/diseno/pantallas/Main.html).
 // Dos modelos: Aprueba tu módulo (cian) y Tutor247 (magenta, data-accent="tutor").
 // Módulos, mentores y cifras del catálogo salen de BD; lo no construido lleva
 // «Próximamente»; sin testimonios ni estadísticas inventadas.
 
-// Mapa de ejemplo de la sección «La fórmula» (4 niveles).
-const MAPA_EJEMPLO: RaProgress[] = [
-  { code: "UF1", label: "", status: "verde", progress: 100 },
-  { code: "UF2", label: "", status: "ambar", progress: 75 },
-  { code: "UF3", label: "", status: "ambar", progress: 40 },
-  { code: "UF4", label: "", status: "rojo", progress: 12 },
+// Mapa de ejemplo de la sección «La fórmula» (4 niveles; nombres de tema de 0485).
+const MAPA_EJEMPLO: (Omit<RaProgress, "label">)[] = [
+  { code: "RA3", status: "verde", progress: 100 },
+  { code: "RA5", status: "ambar", progress: 75 },
+  { code: "RA6", status: "ambar", progress: 40 },
+  { code: "RA7", status: "rojo", progress: 12 },
 ];
 
 // Cómo preparar el módulo: productos con créditos. `soon` = aún no se puede comprar.
-const PREPARAR: { kind: ProductKind; desde?: boolean; soon?: boolean }[] = [
-  { kind: "plan_modulo", desde: true, soon: true },
-  { kind: "rescate_48h", desde: true, soon: true },
+const PREPARAR: { kind: ProductKind; soon?: boolean }[] = [
+  { kind: "plan_modulo", soon: true },
+  { kind: "rescate_48h", soon: true },
   { kind: "ticket_express" },
   { kind: "simulacro", soon: true },
 ];
@@ -73,6 +73,8 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   const c = await getTranslations("common");
   const tp = await getTranslations("products");
   const tm = await getTranslations("mentors");
+  const tr = await getTranslations("temasRa");
+  const tt = await getTranslations("temas");
   const [ciclos, killer, diagnosticables, mentores] = await Promise.all([
     getCiclosConModulos(),
     getModulosKiller(),
@@ -124,6 +126,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
                 {diagnosticables.map((m) => (
                   <option key={m.code} value={m.code}>
                     {m.code} · {m.name}
+                    {temasDe(tt, m.code).length > 0 && ` — ${temasDe(tt, m.code).slice(0, 3).join(", ")}`}
                   </option>
                 ))}
               </select>
@@ -340,7 +343,13 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
               <h3 className="font-heading text-xl font-semibold">{t("approve.killerTitle")}</h3>
               <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {killer.map((m) => (
-                  <ModuleCard key={m.code} modulo={m} killerLabel={c("killerShort")} viewLabel={c("viewModule")} />
+                  <ModuleCard
+                    key={m.code}
+                    modulo={m}
+                    killerLabel={c("killerShort")}
+                    viewLabel={c("viewModule")}
+                    temas={temasDe(tt, m.code)}
+                  />
                 ))}
               </div>
               <Link
@@ -367,14 +376,16 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
                     {p.soon && <ComingSoon />}
                   </div>
                   <p className="mt-2 flex-1 text-sm text-muted-foreground">{tp(`${p.kind}.desc`)}</p>
-                  <p className="mt-4 font-mono text-lg font-semibold text-primary">
-                    {p.desde
-                      ? t("approve.creditsFrom", { n: product(p.kind).min })
-                      : t("approve.creditsRange", { range: creditRange(p.kind) })}
-                  </p>
                 </div>
               ))}
             </div>
+
+            <Link
+              href="/precios"
+              className="mt-4 inline-flex min-h-11 items-center text-[15px] font-semibold text-primary underline-offset-4 hover:underline"
+            >
+              {t("approve.seePlans")} →
+            </Link>
             <p className="mt-5 rounded-2xl border border-tint-pass-border bg-tint-pass p-4 text-sm">
               <Check aria-hidden className="mr-2 inline size-4 text-accent-pass" strokeWidth={3} />
               {t("approve.guarantee")}
@@ -409,7 +420,11 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
             <p className="mt-3 text-muted-foreground">{t("formula.examText")}</p>
           </div>
           <div>
-            <MapaDominio code="0485" name={t("formula.mapName")} ras={MAPA_EJEMPLO} />
+            <MapaDominio
+              code="0485"
+              name={t("formula.mapName")}
+              ras={MAPA_EJEMPLO.map((r) => ({ ...r, label: temaRa(tr, "0485", r.code) ?? "" }))}
+            />
             <p className="mt-2 text-center text-xs text-label">{t("formula.mapCaption")}</p>
           </div>
         </div>
@@ -504,12 +519,15 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
               </div>
             </>
           )}
-          <p className="mt-6 text-sm text-muted-foreground">
-            {t("mentors.join")}{" "}
-            <Link href="/hazte-mentor" className="text-primary underline-offset-4 hover:underline">
+          <div className="mt-8 flex flex-col items-start gap-4 rounded-2xl border bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="font-heading text-xl font-semibold">{t("mentors.join")}</p>
+              <p className="mt-1 text-muted-foreground">{t("mentors.joinText")}</p>
+            </div>
+            <Link href="/hazte-mentor" className={`shrink-0 ${btnOutline}`}>
               {t("mentors.joinLink")}
             </Link>
-          </p>
+          </div>
 
           <div className="mt-10 grid items-center gap-6 rounded-3xl border border-tint-sos-border bg-tint-sos p-6 sm:p-8 md:grid-cols-[1fr_auto]">
             <div>

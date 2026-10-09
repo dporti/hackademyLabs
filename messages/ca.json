@@ -21,7 +21,7 @@
       "searchCta": "Test gratis",
       "note": "Diagnòstic en 2 minuts · Sense registre ni targeta · Et diu què domines i què no",
       "statCycles": "cicles: SMX, ASIX, DAM i DAW",
-      "statModules": "mòduls oficials amb els seus RA",
+      "statModules": "mòduls: de Java i SQL a xarxes i Linux",
       "statBit": "en Bit, el teu tutor IA",
       "statMentor": "mentor especialista del teu mòdul"
     },
@@ -89,7 +89,7 @@
       "w3": "T'assabentes que vas malament quan ja tens la nota",
       "w4": "Estudies en línia i ningú et pregunta si vas al dia",
       "c1": "Entens el codi i l'escrius tu, sense IA, en simulacres",
-      "c2": "Un pla amb data i els RA que entren, setmana a setmana",
+      "c2": "Un pla amb data: quins temes toquen cada setmana fins a l'examen",
       "c3": "El teu Mapa de Domini et diu on ets",
       "c4": "Un tutor que no et deixa fins a l'examen"
     },
@@ -165,11 +165,11 @@
       "cta": "Comença pel test gratis",
       "s1": {
         "t": "Diagnòstic",
-        "d": "Test gratis del teu mòdul, per resultats d'aprenentatge."
+        "d": "Test gratis del teu mòdul, tema a tema: bucles, SQL, subnetting…"
       },
       "s2": {
         "t": "Mapa de Domini",
-        "d": "Veus què domines, què gairebé i què encara no."
+        "d": "Veus què domines, què gairebé i què encara no, tema a tema."
       },
       "s3": {
         "t": "Pla invers",
@@ -186,9 +186,8 @@
       "killerTitle": "Els mòduls que més se suspenen",
       "killerAll": "Veure tots els mòduls de SMX, ASIX, DAM i DAW",
       "prepTitle": "Com preparar-lo",
-      "creditsFrom": "des de {n} cr",
-      "creditsRange": "{range} cr",
-      "guarantee": "Garantia «Seguim amb tu»: amb el Pla Mòdul, si compleixes el pla i suspens, preparar la recuperació et costa la meitat."
+      "guarantee": "Garantia «Seguim amb tu»: amb el Pla Mòdul, si compleixes el pla i suspens, preparar la recuperació et costa la meitat.",
+      "seePlans": "Veure plans i preus"
     },
     "formula": {
       "label": "La fórmula",
@@ -296,7 +295,8 @@
       "title": "Professors d'FP, no estudiants de pas",
       "all": "Veure'ls tots",
       "join": "Fas classe a l'FP o treballes al sector?",
-      "joinLink": "Fes-te mentor"
+      "joinLink": "Fes-te mentor",
+      "joinText": "Alumnes sense buscar-los, cobrament garantit i tot dins la plataforma. Tu només ensenyes."
     },
     "sos": {
       "tag": "Ticket SOS",
@@ -362,12 +362,13 @@
     "panel": "El meu panell",
     "approve": "Aprova el teu mòdul",
     "tutor247": "Tutor247",
-    "tariffs": "Tarifes",
+    "tariffs": "Plans",
     "sos": "SOS",
     "sosAria": "SOS: demana ajuda urgent amb un dubte",
     "freeTest": "Test gratis",
     "menu": "Menú",
-    "mainNav": "Navegació principal"
+    "mainNav": "Navegació principal",
+    "becomeMentor": "Fes-te mentor"
   },
   "catalog": {
     "title": "Cicles i mòduls",
@@ -378,9 +379,9 @@
     "modulesCount": "{n} mòduls",
     "eyebrow": "Catàleg oficial · LOE",
     "heroTitle": "Quin mòdul et preocupa?",
-    "heroText": "Treballem per mòdul oficial, amb el seu codi i els seus resultats d'aprenentatge. Tria el teu i t'ensenyem què entra a l'examen i com preparar-lo.",
+    "heroText": "Cerca el teu mòdul o directament el que se't resisteix: Java, Python, consultes SQL, triggers, JavaScript, DNS, Linux, subnetting… T'ensenyem què entra a l'examen i com preparar-lo.",
     "searchLabel": "Cercar mòdul",
-    "searchPlaceholder": "Cerca per nom o codi: Programació, 0484, M03…",
+    "searchPlaceholder": "Java, SQL, DNS, subnetting, 0484…",
     "searchCta": "Cercar",
     "notSure": "No ho sé: fes el test",
     "filterAria": "Filtrar per cicle",
@@ -410,7 +411,6 @@
     "breadcrumbAria": "Ruta de navegació",
     "ctaPrepare": "Veure com preparar-lo",
     "catEquiv": "Catalunya: {codes}",
-    "statRa": "Resultats d'aprenentatge",
     "statHours": "Hores",
     "statKiller": "Un dels més suspesos",
     "planTag": "Pla invers",
@@ -418,17 +418,19 @@
     "planDate": "Data de l'examen",
     "planHours": "Hores per setmana que hi pots dedicar",
     "planCta": "Calcular el meu pla",
-    "planNote": "Ho creuem amb el teu diagnòstic i et diem quins RA treballar cada setmana.",
-    "planSoon": "Estem carregant els RA d'aquest mòdul. Mentrestant, un mentor et prepara el pla.",
-    "raLabel": "Resultats d'aprenentatge",
+    "planNote": "Ho creuem amb el teu diagnòstic i et diem quins temes treballar cada setmana.",
+    "planSoon": "Encara no tenim el test d'aquest mòdul. Mentrestant, un mentor et prepara el pla.",
+    "raLabel": "Temari",
     "raTitle": "El que entra a l'examen",
-    "raText": "Els {n} RA oficials del mòdul. Orientatius: pendents de validar amb el decret.",
+    "raText": "Bloc a bloc, amb el nom de cada part del temari oficial (orientatiu).",
     "prepLabel": "Com preparar-lo",
     "prepTitle": "Tria com vols aprovar {code}",
     "creditsFrom": "des de {n} cr",
     "mentorsLabel": "Mentors de {code}",
     "mentorsTitle": "Professors que se saben aquest mòdul",
-    "mentorsAll": "Veure tots els mentors"
+    "mentorsAll": "Veure tots els mentors",
+    "temasTitle": "Què treballaràs",
+    "seePlans": "Veure plans i preus"
   },
   "search": {
     "title": "Cerca mòdul",
@@ -620,28 +622,7 @@
     "free": "Gratis",
     "buy": "Comprar",
     "creditsNote": "Els crèdits caduquen als 12 mesos.",
-    "heroTitle": "Paga per aprovar, no per hores soltes",
-    "ctaCalc": "Calcula el que et costaria",
-    "scenariosTitle": "Quant em costa aprovar?",
-    "scenariosSubtitle": "Depèn de quant et falti i de quant temps tinguis. Aquests són els casos més habituals.",
-    "scenarios": {
-      "e1": {
-        "quote": "Em falta poc, vull assegurar-ho"
-      },
-      "e2": {
-        "quote": "Em fluixegen un parell de RA"
-      },
-      "e3": {
-        "quote": "Tinc l'examen aquesta setmana"
-      },
-      "e4": {
-        "quote": "Vaig perdut i vull anar a totes"
-      }
-    },
-    "creditsRange": "{min}–{max} crèdits",
-    "approxEur": "≈ {min} – {max}",
-    "scenariosNote": "Quin és el teu cas? El diagnòstic gratuït t'ho diu en 2 minuts, amb la data del teu examen.",
-    "scenariosLink": "Fer el diagnòstic",
+    "heroTitle": "Comença gratis. Paga només quan necessitis una persona.",
     "productsTitle": "Què compres amb crèdits",
     "productsSubtitle": "Tot el que fa una persona per tu. El cost exacte depèn del nivell del mentor que triïs.",
     "colProduct": "Producte",
@@ -672,11 +653,11 @@
       }
     },
     "cancelLink": "Cancel·lacions",
-    "eyebrow": "Tarifes",
-    "heroText": "El que és humà es paga amb crèdits: 1 crèdit ≈ 1 €, vàlids 12 mesos i per a qualsevol mentor. La IA i l'acompanyament, amb subscripció.",
+    "eyebrow": "Plans",
+    "heroText": "El test, el teu Mapa de Domini i el pla fins a l'examen no costen res. Si vols un mentor o un tutor, tu tries com i quan: sense matrícula ni permanència.",
     "anchorAprueba": "Aprova el teu mòdul",
     "anchorTutor": "Tutor247",
-    "humanLabel": "El que és humà",
+    "humanLabel": "Quan necessitis una persona",
     "aiLabel": "La IA, sempre amb tu",
     "aiTitle": "Subscripció IA",
     "aiText": "En Bit, el tutor IA socràtic, arriba properament. Els plans ja estan definits.",
@@ -684,7 +665,16 @@
     "tutorTitle": "Algú que no et deixa fins a l'examen",
     "tutorText": "Per a qui li costa la constància, estudia en línia o vol que el seu fill tingui algú a sobre. Un tutor fix + mentors per mòdul.",
     "tutorMore": "Saber-ne més",
-    "tutorNote": "Preus orientatius pendents de validar. Les sessions extra es paguen amb crèdits."
+    "tutorNote": "Preus orientatius pendents de validar. Les sessions extra es paguen amb crèdits.",
+    "freeLabel": "Comença gratis",
+    "freeTitle": "Primer, saber on ets",
+    "freeText": "Sense registre i sense targeta. En 2 minuts saps què portes bé i què no, i què toca cada setmana.",
+    "free1": "Test del teu mòdul, tema a tema",
+    "free2": "El teu Mapa de Domini: el que domines i el que no",
+    "free3": "Pla setmana a setmana fins a la data del teu examen",
+    "freeCta": "Fes el test gratis",
+    "humanTitle": "Mentors quan els necessitis",
+    "humanText": "Un dubte, una classe o un simulacre: pagues només el que fas servir, amb crèdits (1 crèdit ≈ 1 €) que valen 12 mesos i per a qualsevol mentor."
   },
   "mentorPanel": {
     "statusTitle": "Estat del teu perfil",
@@ -891,22 +881,22 @@
   },
   "diagnostico": {
     "metaTitle": "Diagnòstic gratuït del teu mòdul d'FP",
-    "metaDescription": "En 2 minuts i sense registre: el teu Mapa de Domini per resultats d'aprenentatge i un pla setmana a setmana fins a l'examen.",
+    "metaDescription": "En 2 minuts i sense registre: el teu Mapa de Domini tema a tema i un pla setmana a setmana fins a l'examen.",
     "title": "Arribes a l'examen? Descobreix-ho en 2 minuts.",
-    "subtitle": "Marca com portes cada resultat d'aprenentatge del teu mòdul. T'ensenyem el teu Mapa de Domini i un pla setmana a setmana fins a l'examen.",
+    "subtitle": "Marca com portes cada tema del teu mòdul (bucles, POO, consultes SQL, subnetting…). T'ensenyem el teu Mapa de Domini i un pla setmana a setmana fins a l'examen.",
     "badges": {
       "b1": "Sense registre",
       "b2": "Gratis",
-      "b3": "Pels RA oficials del teu mòdul"
+      "b3": "Amb el temari oficial del teu mòdul"
     },
     "pickTitle": "Tria el teu mòdul",
-    "raCount": "{n} resultats d'aprenentatge",
-    "notListed": "No hi és el teu? Estem carregant els RA de la resta de mòduls. Mentrestant,",
+    "raCount": "{n} temes",
+    "notListed": "No hi és el teu? Estem preparant el test de la resta de mòduls. Mentrestant,",
     "notListedLink": "busca la seva fitxa i els seus mentors.",
     "raTitle": "Com portes {code}?",
     "changeModule": "Canviar de mòdul",
-    "raHelp": "Sigues sincer: ningú ho veu més que tu. Són els resultats d'aprenentatge amb què t'avaluen. Sense nota, sense judici: només per saber per on començar.",
-    "raAria": "Com portes el {code}",
+    "raHelp": "Sigues sincer: ningú ho veu més que tu. Sense nota, sense judici: només per saber per on començar.",
+    "raAria": "Com portes el tema {code}",
     "mapProgress": "{n} de {total} respostos",
     "mapDone": "Aquest és el teu Mapa de Domini.",
     "orientative": "Orientatiu: és la teva autoavaluació, no una nota oficial.",
@@ -958,7 +948,7 @@
   "products": {
     "diagnostico": {
       "name": "Diagnòstic + Mapa de Domini",
-      "desc": "Test per resultats d'aprenentatge i mapa visual del teu mòdul."
+      "desc": "Test tema a tema i mapa visual del teu mòdul."
     },
     "sesion_1a1": {
       "name": "Sessió 1:1",
@@ -1023,7 +1013,7 @@
         "text": "Videotrucada, pissarra i codi al navegador. Sense instal·lar res."
       },
       "v4": {
-        "title": "Material i simulacres per RA",
+        "title": "Material i simulacres per tema",
         "text": "Banc comú d'exercicis, simulacres i rúbriques revisat per mentors."
       },
       "v5": {
@@ -1040,7 +1030,7 @@
     "ai": {
       "i1": {
         "title": "Brief abans de cada sessió",
-        "text": "30 segons de lectura: RA fluixos, últims dubtes, errors repetits i estat d'ànim de l'alumne."
+        "text": "30 segons de lectura: temes fluixos, últims dubtes, errors repetits i estat d'ànim de l'alumne."
       },
       "i2": {
         "title": "Resum després de la sessió",
@@ -1126,7 +1116,7 @@
       "ticket_normal": "Resposta en menys de 24 h.",
       "ticket_express": "Resposta en menys de 2 h. Per quan l'examen apreta.",
       "sesion_flash": "Per desencallar un dubte concret en directe.",
-      "sesion_1a1": "Classe completa: repàs d'un RA, pràctica guiada o preparació d'examen."
+      "sesion_1a1": "Classe completa: repàs d'un tema, pràctica guiada o preparació d'examen."
     },
     "ticketsTitle": "Tiquets",
     "ticketTitle": "Tiquet",
@@ -1333,7 +1323,8 @@
     },
     "mapaAria": "Mapa de Domini de {code} {name}",
     "nota": "Orientatiu: no és una nota oficial.",
-    "pendiente": "Pendent"
+    "pendiente": "Pendent",
+    "contador": "{n} de {total} dominats"
   },
   "tutor247": {
     "metaTitle": "Tutor247: un tutor que no et deixa sol a la teva FP d'informàtica",
@@ -1450,6 +1441,104 @@
     "final": {
       "title": "Tu estudies. Nosaltres no et deixem.",
       "cta": "Començar"
+    }
+  },
+  "temas": {
+    "0221": "Montaje de PCs · Componentes · BIOS/UEFI · Diagnóstico de averías · Mantenimiento",
+    "0222": "Windows · Linux · Instalación de sistemas · Usuarios y permisos · Línea de comandos",
+    "0223": "Excel · Hojas de cálculo · Bases de datos ofimáticas · Word · Presentaciones",
+    "0224": "Windows Server · Active Directory · Samba · Recursos compartidos · Dominios",
+    "0225": "Direcciones IP · Subnetting · Cableado · Switches · VLAN · Packet Tracer",
+    "0226": "Copias de seguridad · Antivirus · Cifrado · Cortafuegos · Contraseñas",
+    "0227": "DHCP · DNS · Servidor web · FTP · Acceso remoto (SSH)",
+    "0228": "HTML · CSS · WordPress · Servidores web · CMS",
+    "0369": "Linux · Windows Server · Instalación · Particiones · Usuarios y permisos",
+    "0370": "Subnetting · VLAN · Enrutamiento · Cisco · Packet Tracer",
+    "0371": "Hardware · Componentes · Almacenamiento · RAID · Montaje",
+    "0372": "SQL · Modelo E/R · Normalización · Consultas · Triggers · Procedimientos",
+    "0373": "XML · HTML · DTD/XSD · XPath · JSON",
+    "0374": "Linux · Bash · PowerShell · Servicios · Active Directory",
+    "0375": "DNS · DHCP · Apache · SMTP · FTP · Correo",
+    "0376": "PHP · WordPress · Apache · MySQL · Despliegue de CMS",
+    "0377": "MySQL · Usuarios y privilegios · Copias de seguridad · Optimización · Triggers",
+    "0378": "Cortafuegos · VPN · iptables · Alta disponibilidad · Copias de seguridad",
+    "0483": "Hardware · Linux · Windows · Redes básicas · Línea de comandos",
+    "0484": "SQL · Consultas · JOIN · Subconsultas · Modelo E/R · Triggers",
+    "0485": "Java · Python · Bucles · POO · Colecciones · Excepciones",
+    "0486": "Java · JDBC · Ficheros · Hibernate · MongoDB",
+    "0487": "Git · Pruebas unitarias · UML · Depuración · IDE",
+    "0488": "Interfaces gráficas · JavaFX · Usabilidad · Informes",
+    "0489": "Android · Kotlin · Apps móviles · Videojuegos",
+    "0490": "Hilos · Concurrencia · Sockets · Servicios en red · Seguridad",
+    "0491": "ERP · Odoo · Python · Módulos de gestión",
+    "0612": "JavaScript · DOM · Eventos · Fetch · APIs",
+    "0613": "PHP · Sesiones · MVC · Laravel · MySQL",
+    "0614": "Apache · Nginx · Docker · DNS · Despliegue",
+    "0615": "CSS · Responsive · Flexbox · Grid · Accesibilidad"
+  },
+  "temasRa": {
+    "0485": {
+      "RA1": "Variables, tipos y operadores",
+      "RA2": "Primeros programas en Java",
+      "RA3": "Bucles, condicionales y depuración",
+      "RA4": "Métodos y funciones",
+      "RA5": "Arrays, Strings y colecciones",
+      "RA6": "Programación orientada a objetos",
+      "RA7": "Ficheros y excepciones"
+    },
+    "0484": {
+      "RA1": "Qué es una base de datos y un SGBD",
+      "RA2": "Modelo entidad-relación y normalización",
+      "RA3": "Crear tablas (CREATE, claves, restricciones)",
+      "RA4": "Consultas SQL: SELECT, JOIN, subconsultas",
+      "RA5": "INSERT, UPDATE y DELETE",
+      "RA6": "Usuarios, permisos y copias de seguridad",
+      "RA7": "Procedimientos almacenados y triggers"
+    },
+    "0373": {
+      "RA1": "Lenguajes de marcas: HTML y XML",
+      "RA2": "HTML y CSS para la web",
+      "RA3": "RSS y sindicación de contenidos",
+      "RA4": "Validar XML con DTD y XSD",
+      "RA5": "Transformar XML con XSLT",
+      "RA6": "Consultas con XPath y XQuery",
+      "RA7": "Sistemas de gestión de información (ERP)"
+    },
+    "0613": {
+      "RA1": "Arquitectura web cliente-servidor",
+      "RA2": "PHP embebido en HTML",
+      "RA3": "Estructuras de control en PHP",
+      "RA4": "Formularios y sesiones",
+      "RA5": "Separar lógica y vista (MVC)",
+      "RA6": "PHP con MySQL (PDO)",
+      "RA7": "Servicios web y APIs REST",
+      "RA8": "Páginas dinámicas",
+      "RA9": "Frameworks (Laravel)"
+    },
+    "0486": {
+      "RA1": "Ficheros en Java",
+      "RA2": "JDBC y bases de datos relacionales",
+      "RA3": "Hibernate y ORM",
+      "RA4": "Bases de datos objeto-relacionales",
+      "RA5": "Bases de datos NoSQL (MongoDB)",
+      "RA6": "Componentes de acceso a datos"
+    },
+    "0370": {
+      "RA1": "Modelo OSI, TCP/IP y direcciones IP",
+      "RA2": "Redes cableadas y wifi",
+      "RA3": "Configurar switches",
+      "RA4": "Configurar routers",
+      "RA5": "VLAN",
+      "RA6": "Enrutamiento dinámico (OSPF, RIP)",
+      "RA7": "NAT y salida a Internet"
+    },
+    "0225": {
+      "RA1": "Componentes de una red local",
+      "RA2": "Cableado estructurado",
+      "RA3": "Conectores y montaje de cables",
+      "RA4": "Instalar equipos en red e IP",
+      "RA5": "Averías y mantenimiento de la red",
+      "RA6": "Prevención de riesgos"
     }
   }
 }

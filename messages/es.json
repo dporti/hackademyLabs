@@ -21,7 +21,7 @@
       "searchCta": "Test gratis",
       "note": "Diagnóstico en 2 minutos · Sin registro ni tarjeta · Te dice qué dominas y qué no",
       "statCycles": "ciclos: SMX, ASIX, DAM y DAW",
-      "statModules": "módulos oficiales con sus RA",
+      "statModules": "módulos: de Java y SQL a redes y Linux",
       "statBit": "Bit, tu tutor IA",
       "statMentor": "mentor especialista de tu módulo"
     },
@@ -89,7 +89,7 @@
       "w3": "Te enteras de que vas mal cuando ya tienes la nota",
       "w4": "Estudias online y nadie te pregunta si vas al día",
       "c1": "Entiendes el código y lo escribes tú, sin IA, en simulacros",
-      "c2": "Un plan con fecha y los RA que entran, semana a semana",
+      "c2": "Un plan con fecha: qué temas tocan cada semana hasta el examen",
       "c3": "Tu Mapa de Dominio te dice dónde estás",
       "c4": "Un tutor que no te suelta hasta el examen"
     },
@@ -165,11 +165,11 @@
       "cta": "Empieza por el test gratis",
       "s1": {
         "t": "Diagnóstico",
-        "d": "Test gratis de tu módulo, por resultados de aprendizaje."
+        "d": "Test gratis de tu módulo, tema a tema: bucles, SQL, subnetting…"
       },
       "s2": {
         "t": "Mapa de Dominio",
-        "d": "Ves qué dominas, qué casi y qué aún no."
+        "d": "Ves qué dominas, qué casi y qué aún no, tema a tema."
       },
       "s3": {
         "t": "Plan inverso",
@@ -186,9 +186,8 @@
       "killerTitle": "Los módulos que más suspenden",
       "killerAll": "Ver todos los módulos de SMX, ASIX, DAM y DAW",
       "prepTitle": "Cómo prepararlo",
-      "creditsFrom": "desde {n} cr",
-      "creditsRange": "{range} cr",
-      "guarantee": "Garantía «Seguimos contigo»: con el Plan Módulo, si cumples el plan y suspendes, preparar la recuperación te cuesta la mitad."
+      "guarantee": "Garantía «Seguimos contigo»: con el Plan Módulo, si cumples el plan y suspendes, preparar la recuperación te cuesta la mitad.",
+      "seePlans": "Ver planes y precios"
     },
     "formula": {
       "label": "La fórmula",
@@ -296,7 +295,8 @@
       "title": "Profesores de FP, no estudiantes de paso",
       "all": "Ver todos",
       "join": "¿Das clase en FP o trabajas en el sector?",
-      "joinLink": "Hazte mentor"
+      "joinLink": "Hazte mentor",
+      "joinText": "Alumnos sin buscarlos, cobro garantizado y todo dentro de la plataforma. Tú solo enseñas."
     },
     "sos": {
       "tag": "Ticket SOS",
@@ -362,12 +362,13 @@
     "panel": "Mi panel",
     "approve": "Aprueba tu módulo",
     "tutor247": "Tutor247",
-    "tariffs": "Tarifas",
+    "tariffs": "Planes",
     "sos": "SOS",
     "sosAria": "SOS: pide ayuda urgente con una duda",
     "freeTest": "Test gratis",
     "menu": "Menú",
-    "mainNav": "Navegación principal"
+    "mainNav": "Navegación principal",
+    "becomeMentor": "Hazte mentor"
   },
   "catalog": {
     "title": "Ciclos y módulos",
@@ -378,9 +379,9 @@
     "modulesCount": "{n} módulos",
     "eyebrow": "Catálogo oficial · LOE",
     "heroTitle": "¿Qué módulo te preocupa?",
-    "heroText": "Trabajamos por módulo oficial, con su código y sus resultados de aprendizaje. Elige el tuyo y te enseñamos qué entra en el examen y cómo prepararlo.",
+    "heroText": "Busca tu módulo o directamente lo que se te atraganta: Java, Python, consultas SQL, triggers, JavaScript, DNS, Linux, subnetting… Te enseñamos qué entra en el examen y cómo prepararlo.",
     "searchLabel": "Buscar módulo",
-    "searchPlaceholder": "Busca por nombre o código: Programación, 0484, M03…",
+    "searchPlaceholder": "Java, SQL, DNS, subnetting, 0484…",
     "searchCta": "Buscar",
     "notSure": "No lo sé: haz el test",
     "filterAria": "Filtrar por ciclo",
@@ -410,7 +411,6 @@
     "breadcrumbAria": "Ruta de navegación",
     "ctaPrepare": "Ver cómo prepararlo",
     "catEquiv": "Cataluña: {codes}",
-    "statRa": "Resultados de aprendizaje",
     "statHours": "Horas",
     "statKiller": "Uno de los más suspendidos",
     "planTag": "Plan inverso",
@@ -418,17 +418,19 @@
     "planDate": "Fecha del examen",
     "planHours": "Horas por semana que puedes dedicar",
     "planCta": "Calcular mi plan",
-    "planNote": "Lo cruzamos con tu diagnóstico y te decimos qué RA trabajar cada semana.",
-    "planSoon": "Estamos cargando los RA de este módulo. Mientras tanto, un mentor te prepara el plan.",
-    "raLabel": "Resultados de aprendizaje",
+    "planNote": "Lo cruzamos con tu diagnóstico y te decimos qué temas trabajar cada semana.",
+    "planSoon": "Aún no tenemos el test de este módulo. Mientras tanto, un mentor te prepara el plan.",
+    "raLabel": "Temario",
     "raTitle": "Lo que entra en el examen",
-    "raText": "Los {n} RA oficiales del módulo. Orientativos: pendientes de validar con el decreto.",
+    "raText": "Bloque a bloque, con el nombre de cada parte del temario oficial (orientativo).",
     "prepLabel": "Cómo prepararlo",
     "prepTitle": "Elige cómo quieres aprobar {code}",
     "creditsFrom": "desde {n} cr",
     "mentorsLabel": "Mentores de {code}",
     "mentorsTitle": "Profesores que se saben este módulo",
-    "mentorsAll": "Ver todos los mentores"
+    "mentorsAll": "Ver todos los mentores",
+    "temasTitle": "Qué vas a trabajar",
+    "seePlans": "Ver planes y precios"
   },
   "search": {
     "title": "Buscar módulo",
@@ -620,28 +622,7 @@
     "free": "Gratis",
     "buy": "Comprar",
     "creditsNote": "Los créditos caducan a los 12 meses.",
-    "heroTitle": "Paga por aprobar, no por horas sueltas",
-    "ctaCalc": "Calcula lo que te costaría",
-    "scenariosTitle": "¿Cuánto me cuesta aprobar?",
-    "scenariosSubtitle": "Depende de cuánto te falte y de cuánto tiempo tengas. Estos son los casos más habituales.",
-    "scenarios": {
-      "e1": {
-        "quote": "Me falta poco, quiero asegurarlo"
-      },
-      "e2": {
-        "quote": "Me flojean un par de RA"
-      },
-      "e3": {
-        "quote": "Tengo el examen esta semana"
-      },
-      "e4": {
-        "quote": "Voy perdido y quiero ir a por todas"
-      }
-    },
-    "creditsRange": "{min}–{max} créditos",
-    "approxEur": "≈ {min} – {max}",
-    "scenariosNote": "¿Cuál es tu caso? El diagnóstico gratis te lo dice en 2 minutos, con tu fecha de examen.",
-    "scenariosLink": "Hacer el diagnóstico",
+    "heroTitle": "Empieza gratis. Paga solo cuando necesites a una persona.",
     "productsTitle": "Qué compras con créditos",
     "productsSubtitle": "Todo lo que hace una persona por ti. El coste exacto depende del nivel del mentor que elijas.",
     "colProduct": "Producto",
@@ -672,11 +653,11 @@
       }
     },
     "cancelLink": "Cancelaciones",
-    "eyebrow": "Tarifas",
-    "heroText": "Lo humano se paga con créditos: 1 crédito ≈ 1 €, válidos 12 meses y para cualquier mentor. La IA y el acompañamiento, con suscripción.",
+    "eyebrow": "Planes",
+    "heroText": "El test, tu Mapa de Dominio y el plan hasta el examen no cuestan nada. Si quieres un mentor o un tutor, tú eliges cómo y cuándo: sin matrícula ni permanencia.",
     "anchorAprueba": "Aprueba tu módulo",
     "anchorTutor": "Tutor247",
-    "humanLabel": "Lo humano",
+    "humanLabel": "Cuando necesites a una persona",
     "aiLabel": "La IA, siempre contigo",
     "aiTitle": "Suscripción IA",
     "aiText": "Bit, el tutor IA socrático, llega próximamente. Los planes ya están definidos.",
@@ -684,7 +665,16 @@
     "tutorTitle": "Alguien que no te suelta hasta el examen",
     "tutorText": "Para quien le cuesta la constancia, estudia online o quiere que su hijo tenga a alguien encima. Un tutor fijo + mentores por módulo.",
     "tutorMore": "Saber más",
-    "tutorNote": "Precios orientativos pendientes de validar. Las sesiones extra se pagan con créditos."
+    "tutorNote": "Precios orientativos pendientes de validar. Las sesiones extra se pagan con créditos.",
+    "freeLabel": "Empieza gratis",
+    "freeTitle": "Primero, saber dónde estás",
+    "freeText": "Sin registro y sin tarjeta. En 2 minutos sabes qué llevas bien y qué no, y qué toca cada semana.",
+    "free1": "Test de tu módulo, tema a tema",
+    "free2": "Tu Mapa de Dominio: lo que dominas y lo que no",
+    "free3": "Plan semana a semana hasta la fecha de tu examen",
+    "freeCta": "Haz el test gratis",
+    "humanTitle": "Mentores cuando te hagan falta",
+    "humanText": "Una duda, una clase o un simulacro: pagas solo lo que usas, con créditos (1 crédito ≈ 1 €) que valen 12 meses y para cualquier mentor."
   },
   "mentorPanel": {
     "statusTitle": "Estado de tu perfil",
@@ -891,22 +881,22 @@
   },
   "diagnostico": {
     "metaTitle": "Diagnóstico gratis de tu módulo de FP",
-    "metaDescription": "En 2 minutos y sin registro: tu Mapa de Dominio por resultados de aprendizaje y un plan semana a semana hasta el examen.",
+    "metaDescription": "En 2 minutos y sin registro: tu Mapa de Dominio tema a tema y un plan semana a semana hasta el examen.",
     "title": "¿Llegas al examen? Descúbrelo en 2 minutos.",
-    "subtitle": "Marca cómo llevas cada resultado de aprendizaje de tu módulo. Te enseñamos tu Mapa de Dominio y un plan semana a semana hasta el examen.",
+    "subtitle": "Marca cómo llevas cada tema de tu módulo (bucles, POO, consultas SQL, subnetting…). Te enseñamos tu Mapa de Dominio y un plan semana a semana hasta el examen.",
     "badges": {
       "b1": "Sin registro",
       "b2": "Gratis",
-      "b3": "Por los RA oficiales de tu módulo"
+      "b3": "Con el temario oficial de tu módulo"
     },
     "pickTitle": "Elige tu módulo",
-    "raCount": "{n} resultados de aprendizaje",
-    "notListed": "¿No está el tuyo? Estamos cargando los RA del resto de módulos. Mientras tanto,",
+    "raCount": "{n} temas",
+    "notListed": "¿No está el tuyo? Estamos preparando el test del resto de módulos. Mientras tanto,",
     "notListedLink": "busca su ficha y sus mentores.",
     "raTitle": "¿Cómo llevas {code}?",
     "changeModule": "Cambiar de módulo",
-    "raHelp": "Sé sincero: nadie lo ve más que tú. Son los resultados de aprendizaje con los que te evalúan. Sin nota, sin juicio: solo para saber por dónde empezar.",
-    "raAria": "Cómo llevas el {code}",
+    "raHelp": "Sé sincero: nadie lo ve más que tú. Sin nota, sin juicio: solo para saber por dónde empezar.",
+    "raAria": "Cómo llevas el tema {code}",
     "mapProgress": "{n} de {total} respondidos",
     "mapDone": "Este es tu Mapa de Dominio.",
     "orientative": "Orientativo: es tu autoevaluación, no una nota oficial.",
@@ -958,7 +948,7 @@
   "products": {
     "diagnostico": {
       "name": "Diagnóstico + Mapa de Dominio",
-      "desc": "Test por resultados de aprendizaje y mapa visual de tu módulo."
+      "desc": "Test tema a tema y mapa visual de tu módulo."
     },
     "sesion_1a1": {
       "name": "Sesión 1:1",
@@ -1023,7 +1013,7 @@
         "text": "Videollamada, pizarra y código en el navegador. Sin instalar nada."
       },
       "v4": {
-        "title": "Material y simulacros por RA",
+        "title": "Material y simulacros por tema",
         "text": "Banco común de ejercicios, simulacros y rúbricas revisado por mentores."
       },
       "v5": {
@@ -1040,7 +1030,7 @@
     "ai": {
       "i1": {
         "title": "Brief antes de cada sesión",
-        "text": "30 segundos de lectura: RA flojos, últimas dudas, errores repetidos y estado de ánimo del alumno."
+        "text": "30 segundos de lectura: temas flojos, últimas dudas, errores repetidos y estado de ánimo del alumno."
       },
       "i2": {
         "title": "Resumen después de la sesión",
@@ -1126,7 +1116,7 @@
       "ticket_normal": "Respuesta en menos de 24 h.",
       "ticket_express": "Respuesta en menos de 2 h. Para cuando el examen aprieta.",
       "sesion_flash": "Para desatascar una duda concreta en directo.",
-      "sesion_1a1": "Clase completa: repaso de un RA, práctica guiada o preparación de examen."
+      "sesion_1a1": "Clase completa: repaso de un tema, práctica guiada o preparación de examen."
     },
     "ticketsTitle": "Tickets",
     "ticketTitle": "Ticket",
@@ -1333,7 +1323,8 @@
     },
     "mapaAria": "Mapa de Dominio de {code} {name}",
     "nota": "Orientativo: no es una nota oficial.",
-    "pendiente": "Pendiente"
+    "pendiente": "Pendiente",
+    "contador": "{n} de {total} dominados"
   },
   "tutor247": {
     "metaTitle": "Tutor247: un tutor que no te suelta en tu FP de informática",
@@ -1450,6 +1441,104 @@
     "final": {
       "title": "Tú estudias. Nosotros no te soltamos.",
       "cta": "Empezar"
+    }
+  },
+  "temas": {
+    "0221": "Montaje de PCs · Componentes · BIOS/UEFI · Diagnóstico de averías · Mantenimiento",
+    "0222": "Windows · Linux · Instalación de sistemas · Usuarios y permisos · Línea de comandos",
+    "0223": "Excel · Hojas de cálculo · Bases de datos ofimáticas · Word · Presentaciones",
+    "0224": "Windows Server · Active Directory · Samba · Recursos compartidos · Dominios",
+    "0225": "Direcciones IP · Subnetting · Cableado · Switches · VLAN · Packet Tracer",
+    "0226": "Copias de seguridad · Antivirus · Cifrado · Cortafuegos · Contraseñas",
+    "0227": "DHCP · DNS · Servidor web · FTP · Acceso remoto (SSH)",
+    "0228": "HTML · CSS · WordPress · Servidores web · CMS",
+    "0369": "Linux · Windows Server · Instalación · Particiones · Usuarios y permisos",
+    "0370": "Subnetting · VLAN · Enrutamiento · Cisco · Packet Tracer",
+    "0371": "Hardware · Componentes · Almacenamiento · RAID · Montaje",
+    "0372": "SQL · Modelo E/R · Normalización · Consultas · Triggers · Procedimientos",
+    "0373": "XML · HTML · DTD/XSD · XPath · JSON",
+    "0374": "Linux · Bash · PowerShell · Servicios · Active Directory",
+    "0375": "DNS · DHCP · Apache · SMTP · FTP · Correo",
+    "0376": "PHP · WordPress · Apache · MySQL · Despliegue de CMS",
+    "0377": "MySQL · Usuarios y privilegios · Copias de seguridad · Optimización · Triggers",
+    "0378": "Cortafuegos · VPN · iptables · Alta disponibilidad · Copias de seguridad",
+    "0483": "Hardware · Linux · Windows · Redes básicas · Línea de comandos",
+    "0484": "SQL · Consultas · JOIN · Subconsultas · Modelo E/R · Triggers",
+    "0485": "Java · Python · Bucles · POO · Colecciones · Excepciones",
+    "0486": "Java · JDBC · Ficheros · Hibernate · MongoDB",
+    "0487": "Git · Pruebas unitarias · UML · Depuración · IDE",
+    "0488": "Interfaces gráficas · JavaFX · Usabilidad · Informes",
+    "0489": "Android · Kotlin · Apps móviles · Videojuegos",
+    "0490": "Hilos · Concurrencia · Sockets · Servicios en red · Seguridad",
+    "0491": "ERP · Odoo · Python · Módulos de gestión",
+    "0612": "JavaScript · DOM · Eventos · Fetch · APIs",
+    "0613": "PHP · Sesiones · MVC · Laravel · MySQL",
+    "0614": "Apache · Nginx · Docker · DNS · Despliegue",
+    "0615": "CSS · Responsive · Flexbox · Grid · Accesibilidad"
+  },
+  "temasRa": {
+    "0485": {
+      "RA1": "Variables, tipos y operadores",
+      "RA2": "Primeros programas en Java",
+      "RA3": "Bucles, condicionales y depuración",
+      "RA4": "Métodos y funciones",
+      "RA5": "Arrays, Strings y colecciones",
+      "RA6": "Programación orientada a objetos",
+      "RA7": "Ficheros y excepciones"
+    },
+    "0484": {
+      "RA1": "Qué es una base de datos y un SGBD",
+      "RA2": "Modelo entidad-relación y normalización",
+      "RA3": "Crear tablas (CREATE, claves, restricciones)",
+      "RA4": "Consultas SQL: SELECT, JOIN, subconsultas",
+      "RA5": "INSERT, UPDATE y DELETE",
+      "RA6": "Usuarios, permisos y copias de seguridad",
+      "RA7": "Procedimientos almacenados y triggers"
+    },
+    "0373": {
+      "RA1": "Lenguajes de marcas: HTML y XML",
+      "RA2": "HTML y CSS para la web",
+      "RA3": "RSS y sindicación de contenidos",
+      "RA4": "Validar XML con DTD y XSD",
+      "RA5": "Transformar XML con XSLT",
+      "RA6": "Consultas con XPath y XQuery",
+      "RA7": "Sistemas de gestión de información (ERP)"
+    },
+    "0613": {
+      "RA1": "Arquitectura web cliente-servidor",
+      "RA2": "PHP embebido en HTML",
+      "RA3": "Estructuras de control en PHP",
+      "RA4": "Formularios y sesiones",
+      "RA5": "Separar lógica y vista (MVC)",
+      "RA6": "PHP con MySQL (PDO)",
+      "RA7": "Servicios web y APIs REST",
+      "RA8": "Páginas dinámicas",
+      "RA9": "Frameworks (Laravel)"
+    },
+    "0486": {
+      "RA1": "Ficheros en Java",
+      "RA2": "JDBC y bases de datos relacionales",
+      "RA3": "Hibernate y ORM",
+      "RA4": "Bases de datos objeto-relacionales",
+      "RA5": "Bases de datos NoSQL (MongoDB)",
+      "RA6": "Componentes de acceso a datos"
+    },
+    "0370": {
+      "RA1": "Modelo OSI, TCP/IP y direcciones IP",
+      "RA2": "Redes cableadas y wifi",
+      "RA3": "Configurar switches",
+      "RA4": "Configurar routers",
+      "RA5": "VLAN",
+      "RA6": "Enrutamiento dinámico (OSPF, RIP)",
+      "RA7": "NAT y salida a Internet"
+    },
+    "0225": {
+      "RA1": "Componentes de una red local",
+      "RA2": "Cableado estructurado",
+      "RA3": "Conectores y montaje de cables",
+      "RA4": "Instalar equipos en red e IP",
+      "RA5": "Averías y mantenimiento de la red",
+      "RA6": "Prevención de riesgos"
     }
   }
 }

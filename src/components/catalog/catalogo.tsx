@@ -5,6 +5,7 @@ import { ModuleCard } from "@/components/brand/module-card";
 import type { getCiclosConModulos } from "@/lib/catalog";
 import type { Modulo } from "@/lib/db-types";
 import { cn } from "@/lib/utils";
+import { temasDe } from "@/lib/temas";
 
 type Ciclos = Awaited<ReturnType<typeof getCiclosConModulos>>;
 
@@ -102,6 +103,7 @@ export async function CatalogoHero({
 export async function CatalogoGrupos({ ciclos }: { ciclos: Ciclos }) {
   const t = await getTranslations("catalog");
   const c = await getTranslations("common");
+  const tt = await getTranslations("temas");
   if (ciclos.length === 0) return <p className="text-muted-foreground">{t("empty")}</p>;
   return (
     <div className="space-y-14">
@@ -128,6 +130,7 @@ export async function CatalogoGrupos({ ciclos }: { ciclos: Ciclos }) {
                   cursoLabel={m.curso != null ? t("course", { n: m.curso }) : undefined}
                   killerLabel={c("killerShort")}
                   viewLabel={c("viewModule")}
+                  temas={temasDe(tt, m.code)}
                 />
               ))}
             </div>
@@ -138,12 +141,19 @@ export async function CatalogoGrupos({ ciclos }: { ciclos: Ciclos }) {
   );
 }
 
-export async function CatalogoResultados({ modulos }: { modulos: Modulo[] }) {
+export async function CatalogoResultados({ modulos }: { modulos: Pick<Modulo, "id" | "code" | "name" | "killer">[] }) {
   const c = await getTranslations("common");
+  const tt = await getTranslations("temas");
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {modulos.map((m) => (
-        <ModuleCard key={m.id} modulo={m} killerLabel={c("killerShort")} viewLabel={c("viewModule")} />
+        <ModuleCard
+          key={m.id}
+          modulo={m}
+          killerLabel={c("killerShort")}
+          viewLabel={c("viewModule")}
+          temas={temasDe(tt, m.code)}
+        />
       ))}
     </div>
   );

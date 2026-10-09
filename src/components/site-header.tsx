@@ -17,6 +17,9 @@ export const NAV_LINKS = [
   { href: "/precios", key: "tariffs" },
 ] as const;
 
+// Captación de mentores: enlace propio en el menú (escritorio y móvil).
+export const MENTOR_LINK = { href: "/hazte-mentor", key: "becomeMentor" } as const;
+
 // Sin display: cada botón decide cuándo se muestra (hidden + sm:/md:inline-flex).
 const BTN =
   "min-h-11 items-center justify-center rounded-[10px] px-4 text-[15px] transition-colors";
@@ -33,7 +36,7 @@ export function SiteHeader() {
 
         <nav
           aria-label={t("mainNav")}
-          className="hidden items-center gap-6 text-[15px] text-[#c5c9da] lg:flex"
+          className="hidden items-center gap-6 text-[15px] text-[#c5c9da] xl:flex"
         >
           {NAV_LINKS.map((l) => (
             <Link
@@ -44,6 +47,12 @@ export function SiteHeader() {
               {t(l.key)}
             </Link>
           ))}
+          <Link
+            href={MENTOR_LINK.href}
+            className="rounded-[10px] border border-[#3a3f5c] px-3 py-1.5 text-foreground transition-colors hover:border-primary"
+          >
+            {t(MENTOR_LINK.key)}
+          </Link>
         </nav>
 
         <div className="ml-auto flex items-center gap-2.5">
@@ -72,6 +81,7 @@ export function SiteHeader() {
             navLabel={t("mainNav")}
             links={[
               ...NAV_LINKS.map((l) => ({ href: l.href, label: t(l.key) })),
+              { href: MENTOR_LINK.href, label: t(MENTOR_LINK.key) },
               { href: "/diagnostico", label: t("freeTest") },
               { href: "/panel/tickets", label: t("sosAria") },
             ]}

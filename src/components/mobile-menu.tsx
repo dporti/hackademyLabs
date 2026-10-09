@@ -4,7 +4,7 @@ import { useEffect, useId, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 
-// Menú desplegable del header en móvil (< lg). Se cierra al navegar y con Escape.
+// Menú desplegable del header en móvil y tablet (< xl). Se cierra al navegar y con Escape.
 export function MobileMenu({
   label,
   navLabel,
@@ -35,7 +35,7 @@ export function MobileMenu({
   }, [open]);
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         type="button"
         aria-expanded={open}

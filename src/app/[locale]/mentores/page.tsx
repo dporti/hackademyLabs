@@ -2,7 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPathname, Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/brand/section-label";
 import { MentorCard } from "@/components/brand/mentor-card";
-import { getAllModulos, getMentores, getTarifasPublicas } from "@/lib/catalog";
+import { getAllModulos, getMentores } from "@/lib/catalog";
 import type { MentorLevel } from "@/lib/db-types";
 
 // Listado de mentores (maqueta Mentores.html) con filtros por módulo, idioma y nivel
@@ -25,7 +25,7 @@ export default async function MentoresPage({ params, searchParams }: PageProps<"
   const sp = await searchParams;
   const str = (v: string | string[] | undefined) => (typeof v === "string" && v ? v : undefined);
   const t = await getTranslations("mentors");
-  const [mentores, modulos, tarifas] = await Promise.all([getMentores(), getAllModulos(), getTarifasPublicas()]);
+  const [mentores, modulos] = await Promise.all([getMentores(), getAllModulos()]);
 
   const modulo = modulos.find((m) => m.code === str(sp.modulo));
   const idioma = IDIOMAS.find((i) => i === str(sp.idioma));
@@ -128,7 +128,6 @@ export default async function MentoresPage({ params, searchParams }: PageProps<"
           ) : (
             <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {visibles.map((m) => {
-                const precio = tarifas.sesion_1a1?.[m.level];
                 return (
                   <MentorCard
                     key={m.profile_id}
@@ -143,7 +142,6 @@ export default async function MentoresPage({ params, searchParams }: PageProps<"
                         ? { label: t("languages"), value: m.languages.map(nombreIdioma).join(" · ") }
                         : undefined
                     }
-                    session={precio ? { label: t("session"), value: t("sessionPrice", { n: precio }) } : undefined}
                     viewLabel={t("viewProfile")}
                     bookLabel={t("book")}
                   />

@@ -6,6 +6,7 @@ import {
   CatalogoResultados,
 } from "@/components/catalog/catalogo";
 import { buscarModulos, getCiclosConModulos } from "@/lib/catalog";
+import { coincideTema, temasDe } from "@/lib/temas";
 
 // Catálogo con búsqueda (?q=) y filtro por ciclo (?ciclo=). Depende de searchParams →
 // se renderiza en cada petición (no estática). cacheComponents exige declararlo.
@@ -29,8 +30,20 @@ export default async function ModulosPage({ params, searchParams }: PageProps<"/
   const ciclo = ciclos.some((c) => c.code === cicloParam) ? cicloParam : undefined;
   const visibles = ciclo ? ciclos.filter((c) => c.code === ciclo) : ciclos;
 
-  // Con búsqueda: resultados planos (limitados al ciclo si hay filtro).
+  // Con búsqueda: por código/nombre/código catalán (BD) y por tema (Java, SQL, DNS…),
+  // en resultados planos limitados al ciclo si hay filtro.
+  const tt = await getTranslations("temas");
   let resultados = q ? await buscarModulos(q) : [];
+  if (q) {
+    const ya = new Set(resultados.map((m) => m.code));
+    const porTema = new Map(
+      ciclos
+        .flatMap((c) => c.ciclo_modulo.map((cm) => cm.modulo))
+        .filter((m) => !ya.has(m.code) && coincideTema(temasDe(tt, m.code), q))
+        .map((m) => [m.code, m]),
+    );
+    resultados = [...resultados, ...porTema.values()];
+  }
   if (q && ciclo) {
     const codigos = new Set(visibles.flatMap((c) => c.ciclo_modulo.map((cm) => cm.modulo.code)));
     resultados = resultados.filter((m) => codigos.has(m.code));

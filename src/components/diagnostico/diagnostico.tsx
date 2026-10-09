@@ -11,6 +11,7 @@ import { NIVEL_META, type NivelDominio } from "@/lib/dominio";
 import type { ModuloDiagnosticable } from "@/lib/catalog";
 import type { ProductKind, RaStatus } from "@/lib/db-types";
 import { cn } from "@/lib/utils";
+import { temaRa } from "@/lib/temas";
 
 // Diagnóstico gratis SIN cuenta (docs: "widget ¿Qué módulo te preocupa? → mini
 // diagnóstico → Mapa de Dominio → oferta"). Autoevaluación por RA → Mapa en vivo →
@@ -59,6 +60,8 @@ export function Diagnostico({
 }) {
   const t = useTranslations("diagnostico");
   const td = useTranslations("dominio");
+  const tr = useTranslations("temasRa");
+  const tema = (ra: string) => (code ? temaRa(tr, code, ra) : null);
   const tp = useTranslations("products");
   const locale = useLocale();
 
@@ -102,7 +105,7 @@ export function Diagnostico({
   const mapa: RaProgress[] = modulo
     ? modulo.ra.map((r) => ({
         code: r.code,
-        label: r.description,
+        label: tema(r.code) ?? "",
         status: estados[r.code] ? A_ESTADO[estados[r.code]] : "ambar",
         progress: estados[r.code] ? PROGRESO[estados[r.code]] : 0,
         nivel: estados[r.code],
@@ -201,9 +204,9 @@ export function Diagnostico({
           <ol className="mt-6 space-y-3">
             {modulo.ra.map((r) => (
               <li key={r.code} className="rounded-2xl border bg-card p-5">
-                <p className="text-[15px]">
-                  <span className="mr-2 font-mono font-semibold text-primary">{r.code}</span>
-                  {r.description}
+                <p className="flex items-baseline justify-between gap-3">
+                  <span className="font-heading text-lg font-semibold">{tema(r.code) ?? r.description}</span>
+                  <span className="shrink-0 font-mono text-xs text-label">{r.code}</span>
                 </p>
                 <div
                   role="radiogroup"

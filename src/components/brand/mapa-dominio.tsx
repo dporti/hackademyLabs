@@ -42,7 +42,7 @@ export function MapaDominio({
           <h3 className="text-sm font-semibold tracking-wide uppercase">{name}</h3>
         </div>
         <span className="font-mono text-xs text-muted-foreground">
-          [ {dominados} / {ras.length} RA ]
+          {t("contador", { n: dominados, total: ras.length })}
         </span>
       </header>
 
@@ -55,9 +55,13 @@ export function MapaDominio({
           const texto = ra.pendiente ? t("pendiente") : t(`nivel.${nivel}`);
           return (
             <li key={ra.code} className="flex items-center gap-3">
-              <span className="w-10 shrink-0 font-mono text-xs text-muted-foreground">
-                {ra.code}
-              </span>
+              {ra.label ? (
+                <span className="w-32 shrink-0 truncate text-xs text-muted-foreground sm:w-44" title={`${ra.code} · ${ra.label}`}>
+                  {ra.label}
+                </span>
+              ) : (
+                <span className="w-10 shrink-0 font-mono text-xs text-muted-foreground">{ra.code}</span>
+              )}
               <div
                 className="relative h-2 flex-1 overflow-hidden rounded-full bg-muted"
                 role="progressbar"
