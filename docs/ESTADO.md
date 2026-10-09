@@ -10,7 +10,7 @@ diagnóstico (Mapa de Dominio por RA) → plan inverso → mentor verificado →
 hasta el examen. Monetiza con créditos (ledger inmutable) y suscripciones (IA "Bit" y
 acompañamiento a familias).
 **Fase actual del roadmap: Fase 2 (consumo).** Fase 1 (MVP base) cerrada: F1.1–F1.5,
-identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reservas).
+identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reservas) y política de cancelación.
 **En marcha: "Fusión del diseño"** → marca Checkpoint Academy (Aprueba tu módulo + Tutor247),
 referencia en `docs/diseno/`.
 
@@ -112,15 +112,17 @@ referencia en `docs/diseno/`.
     Arreglado en la prueba: `min` del selector de fecha no alineado con `step` (el navegador
     bloqueaba el envío), radios desmarcados tras el reset de React 19 (formularios con
     `onSubmit` + `startTransition`), "Esperando mentor" en tickets cancelados.
+- **Política de cancelación** · 2026-10-09 · `7c4f7de`. Página pública `/cancelacion` (es/ca)
+  enlazada desde precios y los formularios de ticket/sesión; regla nueva: el alumno puede cancelar
+  con devolución un ticket **cogido pero sin respuesta en plazo**. Migración
+  `20261008090200_cancel_policy.sql` aplicada. Verificado: `verify-consumo` 59/59 (caso nuevo
+  incluido: devuelve créditos y el mentor no cobra).
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-- **Política de cancelación** · 2026-10-08 · página pública `/cancelacion` (es/ca) enlazada desde
-  precios y los formularios de ticket/sesión, y regla nueva: el alumno puede cancelar con
-  devolución un ticket **cogido pero sin respuesta en plazo** (antes se quedaba sin créditos).
-  **Pendiente aplicar** `supabase/migrations/20261008090200_cancel_policy.sql` y pasar
-  `verify-consumo` (incluye el caso nuevo).
+- **Fusión del diseño** (Checkpoint Academy) · fase 0 cerrada 2026-10-09 (`3cf27c8`); siguiente:
+  fase 1 — Marca y tokens.
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
