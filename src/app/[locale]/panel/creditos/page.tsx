@@ -6,6 +6,7 @@ import { getStudentDashboard } from "@/lib/student";
 import { getPacks } from "@/lib/catalog";
 import { BuyPackForm } from "@/components/panel/buy-pack-form";
 import { LedgerTable } from "@/components/panel/ledger-table";
+import { ReferralCard } from "@/components/panel/referral-card";
 
 // Créditos del alumno (maqueta Creditos.html): saldo calculado, próxima caducidad,
 // gasto del mes, recarga (compra MOCK de Fase 1) y movimientos del ledger.
@@ -139,6 +140,8 @@ export default async function CreditosPage({ params }: PageProps<"/[locale]/pane
           </Link>
         </p>
       </section>
+
+      {dashboard.hasProfile && <ReferralCard locale={locale} />}
 
       {/* ─────────────────────────── Movimientos ─────────────────────────── */}
       <section aria-labelledby="movimientos">

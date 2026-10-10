@@ -548,7 +548,8 @@
       "b1": "Diagnòstic gratis del teu mòdul",
       "b2": "Pla invers des de la data del teu examen",
       "b3": "Mentors verificats d'FP"
-    }
+    },
+    "referralNote": "Vens convidat per un company: quan compris el teu primer pack, rebreu 20 crèdits cadascú."
   },
   "onboarding": {
     "title": "Gairebé a punt",
@@ -1810,7 +1811,10 @@
       "bolsa": "Tiquets dels meus mòduls",
       "mapa": "Mapa de Domini",
       "cartera": "La meva cartera",
-      "checkins": "Check-ins"
+      "checkins": "Check-ins",
+      "bit": "Bit · tutor IA",
+      "logros": "Assoliments",
+      "materiales": "Banc de material"
     },
     "balance": "Saldo",
     "balanceValue": "{n} crèdits",
@@ -2098,7 +2102,8 @@
       "notTutor": "Aquesta persona no és tutor actiu.",
       "badDate": "Posa una data i hora vàlides.",
       "generic": "No s'ha pogut desar. Torna-ho a provar."
-    }
+    },
+    "quizRa": "Qüestionari de 3 preguntes"
   },
   "tutorPanel": {
     "subtitle": "Tutor de referència · {hoy, plural, =0 {sense check-ins avui} one {# check-in avui} other {# check-ins avui}}",
@@ -2192,5 +2197,183 @@
     "tutorFor": "Tutor de {name}",
     "noTutor": "Sense tutor",
     "assign": "Assignar"
+  },
+  "logros": {
+    "title": "Assoliments",
+    "subtitle": "Punts per demostrar que saps, no per hores connectat.",
+    "level": "Nivell",
+    "levelAria": "Progrés de nivell",
+    "levels": {
+      "1": "Acabat d'arribar",
+      "2": "Primers passos",
+      "3": "Amb mètode",
+      "4": "Constant",
+      "5": "Ho va pillant",
+      "6": "Resol sol",
+      "7": "En pràctiques",
+      "8": "A punt per a l'examen",
+      "9": "Referent de classe",
+      "10": "Mòdul superat"
+    },
+    "xpToNext": "{xp} XP · falten {falta} XP per al nivell {next} «{name}»",
+    "xpMax": "{xp} XP · nivell màxim",
+    "xpHow": "Sumes XP en avaluar el teu Mapa (+5 per RA), superar qüestionaris (+20), aconseguir segells «Ho entenc» (+50), que un mentor o el teu tutor confirmi que domines un RA (+30) i per cada sessió feta (+25).",
+    "statsAria": "Resum d'assoliments",
+    "statStreak": "Ratxa",
+    "weeks": "{n, plural, =0 {0 set} one {# set} other {# set}}",
+    "statSeals": "Segells",
+    "statQuizzes": "Qüestionaris superats",
+    "statSessions": "Sessions",
+    "badgesTitle": "Insígnies",
+    "unlocked": "Aconseguida",
+    "locked": "Bloquejada",
+    "badges": {
+      "primer_mapa": {
+        "name": "Primer mapa",
+        "how": "Desa la teva primera autoavaluació"
+      },
+      "primer_quiz": {
+        "name": "Primer qüestionari",
+        "how": "Supera un qüestionari de Bit (2 de 3)"
+      },
+      "quiz_x5": {
+        "name": "Cinc de cinc",
+        "how": "Supera 5 qüestionaris"
+      },
+      "primer_sello": {
+        "name": "Ho entenc",
+        "how": "Explica un RA al teu mentor o tutor"
+      },
+      "feynman": {
+        "name": "Feynman",
+        "how": "Aconsegueix 3 segells «Ho entenc»"
+      },
+      "constancia": {
+        "name": "Constància",
+        "how": "Ratxa de 4 setmanes"
+      },
+      "primera_sesion": {
+        "name": "Primera sessió",
+        "how": "Acaba una sessió amb un mentor"
+      },
+      "modulo_dominado": {
+        "name": "Mòdul dominat",
+        "how": "Tots els RA d'un mòdul a «Ho domino»"
+      }
+    },
+    "streakTitle": "Ratxa setmanal",
+    "streakHelp": "Dies d'estudi per setmana. Compta la setmana amb {n} dies o més: setmanal, no diària, sense agobis.",
+    "thisWeek": "Ara",
+    "weekDays": "Setmana del {date}: {n} dies",
+    "recentTitle": "Últims punts",
+    "recentEmpty": "Encara no tens punts. Comença desant el teu diagnòstic al Mapa.",
+    "xpKind": {
+      "autoevaluacion": "RA autoavaluat",
+      "sello": "Segell «Ho entenc»",
+      "dominio": "RA dominat (confirmat)",
+      "quiz": "Qüestionari superat",
+      "sesion": "Sessió feta"
+    }
+  },
+  "bitPanel": {
+    "title": "Bit · tutor IA",
+    "subtitle": "Sóc una IA. Et guio amb preguntes, no amb solucions.",
+    "wantMentor": "Vull el meu mentor",
+    "convsAria": "Les meves converses amb Bit",
+    "newChat": "Nou dubte",
+    "untitled": "Conversa",
+    "welcome": "Hola! Sé quins mòduls prepares, com portes cada RA i quan és el teu examen. Enganxa'm un error, pregunta'm un concepte o demana'm el pla d'avui. No faig pràctiques ni exàmens: t'ajudo a fer-los tu.",
+    "bitLabel": "Bit · IA",
+    "placeholder": "Escriu a Bit (pots enganxar codi o un error)…",
+    "sugg": {
+      "debug": "Em surt un error i no sé per què",
+      "concept": "Explica'm un concepte del meu RA més fluix",
+      "plan": "Què faig avui per al meu examen?"
+    },
+    "knowsTitle": "Bit sap que…",
+    "knowsEmpty": "Encara no has afegit mòduls. Afegeix-los al teu panell perquè Bit t'ajudi millor.",
+    "studies": "Estudies",
+    "examOn": "El teu examen és el {date}, d'aquí a {n} dies",
+    "noExam": "No has posat data d'examen",
+    "weak": "Fluixos:",
+    "weakNone": "cap marcat",
+    "knowsNote": "Ho treu del teu Mapa i de les teves sessions. Bit no veu el teu correu ni el teu telèfon.",
+    "quizTitle": "Qüestionari de 3 preguntes",
+    "quizHelp": "Bit prepara 3 preguntes d'un RA i la plataforma les corregeix. Si el superes, suma al teu Mapa i als teus assoliments.",
+    "quizRa": "Resultat d'aprenentatge",
+    "quizStart": "Preparar qüestionari",
+    "quizGenerating": "Bit està preparant les preguntes…",
+    "quizOf": "Qüestionari de {ra}",
+    "quizCheck": "Corregir",
+    "quizChecking": "Corregint…",
+    "quizScore": "{n} de {total}",
+    "quizPassed": "Superat! Ho hem apuntat al teu Mapa i suma XP.",
+    "quizFailed": "Encara no. Llegeix les explicacions i pregunta a Bit el que no vegis clar.",
+    "quizAnother": "Un altre qüestionari",
+    "quizNoRa": "Afegeix un mòdul amb RA carregats per fer qüestionaris.",
+    "correct": "correcta",
+    "wrong": "la teva resposta, incorrecta",
+    "quizErrors": {
+      "needLogin": "Entra amb el teu compte d'alumne.",
+      "rateLimited": "Has demanat molts qüestionaris seguits. Prova-ho d'aquí a una estona.",
+      "noKey": "Bit encara no està activat en aquest web.",
+      "raNotFound": "No trobem aquest RA.",
+      "notYours": "Afegeix primer aquest mòdul als teus mòduls.",
+      "busy": "Bit està molt ocupat. Prova-ho d'aquí a uns segons.",
+      "notFound": "Aquest qüestionari ja no existeix.",
+      "alreadyAnswered": "Aquest qüestionari ja està corregit.",
+      "error": "No s'ha pogut preparar el qüestionari. Torna-ho a provar."
+    },
+    "rulesTitle": "Normes de Bit",
+    "rules": {
+      "r1": "Sempre diu que és una IA",
+      "r2": "No fa pràctiques ni exàmens",
+      "r3": "Et passa amb un humà si s'encalla"
+    }
+  },
+  "materiales": {
+    "title": "Banc de material",
+    "subtitleMentor": "Explicacions, exemples i errors típics per RA dels teus mòduls. Quan l'equip ho revisa, Bit ho fa servir per respondre els alumnes.",
+    "subtitleAdmin": "Tot el material per mòdul i RA. Només el revisat alimenta Bit.",
+    "newTitle": "Afegir material",
+    "noModules": "Encara no imparteixes cap mòdul. Afegeix-los al teu perfil de mentor.",
+    "modulo": "Mòdul",
+    "ra": "RA (opcional)",
+    "raAny": "Tot el mòdul",
+    "titleLabel": "Títol",
+    "bodyLabel": "Contingut",
+    "bodyHelp": "Escrit per tu, sense copiar de llibres ni webs amb drets. Sense solucions de pràctiques avaluables.",
+    "save": "Desar",
+    "saving": "Desant…",
+    "ok": {
+      "savedPending": "Desat. L'equip ho revisarà abans que Bit ho faci servir.",
+      "savedReviewed": "Desat i revisat."
+    },
+    "errors": {
+      "tooShort": "El títol necessita 3 caràcters i el contingut 20 com a mínim.",
+      "tooLong": "És massa llarg (màxim 140 caràcters de títol i 8000 de contingut).",
+      "notAllowed": "Només pots afegir material dels mòduls que imparteixes (com a mentor verificat).",
+      "moduloNotFound": "No trobem aquest mòdul."
+    },
+    "listTitle": "Material",
+    "empty": "Encara no hi ha material.",
+    "reviewed": "Revisat",
+    "pending": "Pendent de revisar",
+    "show": "Veure contingut",
+    "review": "Marcar com a revisat",
+    "unreview": "Treure revisió",
+    "delete": "Esborrar"
+  },
+  "referidos": {
+    "eyebrow": "Convida la teva classe",
+    "title": "20 crèdits per a tu i 20 per al teu company",
+    "help": "Quan el teu company es registri amb el teu enllaç i compri el seu primer pack, us arriben 20 crèdits a cadascú.",
+    "copy": "Copiar enllaç",
+    "copied": "Copiat!",
+    "whatsappText": "M'estic preparant el mòdul amb Checkpoint Academy. Si et registres amb el meu enllaç, quan compris el teu primer pack ens regalen 20 crèdits a cadascú: {url}",
+    "someone": "Un company",
+    "rewarded": "+20 cr",
+    "pending": "Registrat · encara no ha comprat",
+    "cap": "Màxim 200 crèdits per invitacions al trimestre. Els crèdits caduquen als 12 mesos."
   }
 }

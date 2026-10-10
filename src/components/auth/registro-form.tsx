@@ -11,9 +11,12 @@ const ROLES = ["alumno", "familia", "mentor"] as const;
 export function RegistroForm({
   locale,
   defaultRole = "alumno",
+  referral,
 }: {
   locale: string;
   defaultRole?: string;
+  // Código de invitación de un compañero (?ref=), se guarda con el registro.
+  referral?: string;
 }) {
   const t = useTranslations("auth");
   const [state, action, pending] = useActionState<AuthState, FormData>(
@@ -35,6 +38,7 @@ export function RegistroForm({
   return (
     <form action={action} className="space-y-5">
       <input type="hidden" name="locale" value={locale} />
+      {referral && <input type="hidden" name="ref" value={referral} />}
 
       {/* Rol como tarjetas seleccionables (radio accesible con teclado). */}
       <fieldset className="space-y-2">

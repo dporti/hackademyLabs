@@ -41,8 +41,10 @@ async function PanelNav({ locale }: { locale: string }) {
     ]);
     items.push(
       { href: "/panel/mapa", label: t("items.mapa") },
+      { href: "/panel/bit", label: t("items.bit") },
       { href: "/panel/tickets", label: t("items.tickets"), badge: pendientes.ticketsRespondidos },
       { href: "/panel/sesiones", label: t("items.sesiones"), badge: pendientes.sesionesProximas },
+      { href: "/panel/logros", label: t("items.logros") },
       { href: "/panel/creditos", label: t("items.creditos") },
     );
     const n = (saldo.data as number | null) ?? 0;
@@ -54,7 +56,10 @@ async function PanelNav({ locale }: { locale: string }) {
     items.push(
       { href: "/panel/tickets", label: t("items.bolsa") },
       { href: "/panel/sesiones", label: t("items.sesiones") },
+      { href: "/panel/materiales", label: t("items.materiales") },
     );
+  } else if (role === "admin") {
+    items.push({ href: "/panel/materiales", label: t("items.materiales") });
   }
 
   return (

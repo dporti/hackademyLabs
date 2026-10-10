@@ -5,6 +5,7 @@
 drop view if exists public.mentor_public;
 
 drop table if exists
+  public.xp_event, public.quiz, public.material, public.referral_code,
   public.student_activity, public.checkin, public.tutor_assignment, public.ra_evidence,
   public.ra_progress, public.lead, public.mentor_earning, public.ticket_message, public.product_price,
   public.mentor_payout, public.mentor_badge, public.badge, public.referral,
@@ -62,6 +63,14 @@ drop function if exists public.my_tutor_students() cascade;
 drop function if exists public.my_tutor_name() cascade;
 drop function if exists public.admin_make_tutor(text) cascade;
 drop function if exists public.admin_assign_tutor(uuid, uuid) cascade;
+drop function if exists public.block_xp_mutation() cascade;
+drop function if exists public.grant_xp(uuid, text, int, text) cascade;
+drop function if exists public.xp_from_evidence() cascade;
+drop function if exists public.xp_from_booking() cascade;
+drop function if exists public.search_material(uuid, text, uuid[], int) cascade;
+drop function if exists public.my_referral_code() cascade;
+drop function if exists public.my_referrals() cascade;
+drop function if exists public.reward_referral(uuid) cascade;
 
 drop type if exists
   consent_type, plan_kind, product_kind, ledger_type, ra_status,

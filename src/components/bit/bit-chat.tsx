@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Bot, Send, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { usePathname } from "@/i18n/navigation";
 
 type Mensaje = { role: "user" | "assistant"; content: string };
 
@@ -31,6 +32,7 @@ export function BitChat() {
   const lista = useRef<HTMLDivElement>(null);
   const entrada = useRef<HTMLTextAreaElement>(null);
   const id = useId();
+  const pathname = usePathname();
 
   useEffect(() => {
     try {
@@ -90,6 +92,8 @@ export function BitChat() {
   }
 
   const sugerencias = ["s1", "s2", "s3"] as const;
+  // En /panel/bit ya está el chat completo: el flotante sobra.
+  if (pathname.startsWith("/panel/bit")) return null;
 
   return (
     <>

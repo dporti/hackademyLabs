@@ -82,8 +82,12 @@ export async function buyPackAction(
     });
   if (error) return { error: "generic" };
 
+  // Referidos: si es su primer pack y vino invitado, 20 cr para cada uno (la RPC
+  // comprueba primer pack, tope trimestral y que no se repita).
+  const { data: bonus } = await createAdminClient().rpc("reward_referral", { p_invited: ctx.userId });
+
   refresh();
-  return { ok: "packBought", credits: pack.credits };
+  return { ok: "packBought", credits: pack.credits + ((bonus as number | null) ?? 0) };
 }
 
 // ───────────────────────── Módulos que prepara ─────────────────────────

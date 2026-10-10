@@ -548,7 +548,8 @@
       "b1": "Diagnóstico gratis de tu módulo",
       "b2": "Plan inverso desde la fecha de tu examen",
       "b3": "Mentores verificados de FP"
-    }
+    },
+    "referralNote": "Vienes invitado por un compañero: cuando compres tu primer pack, recibiréis 20 créditos cada uno."
   },
   "onboarding": {
     "title": "Casi listo",
@@ -1810,7 +1811,10 @@
       "bolsa": "Tickets de mis módulos",
       "mapa": "Mapa de Dominio",
       "cartera": "Mi cartera",
-      "checkins": "Check-ins"
+      "checkins": "Check-ins",
+      "bit": "Bit · tutor IA",
+      "logros": "Logros",
+      "materiales": "Banco de material"
     },
     "balance": "Saldo",
     "balanceValue": "{n} créditos",
@@ -2098,7 +2102,8 @@
       "notTutor": "Esa persona no es tutor activo.",
       "badDate": "Pon una fecha y hora válidas.",
       "generic": "No se ha podido guardar. Inténtalo de nuevo."
-    }
+    },
+    "quizRa": "Quiz de 3 preguntas"
   },
   "tutorPanel": {
     "subtitle": "Tutor de referencia · {hoy, plural, =0 {sin check-ins hoy} one {# check-in hoy} other {# check-ins hoy}}",
@@ -2192,5 +2197,183 @@
     "tutorFor": "Tutor de {name}",
     "noTutor": "Sin tutor",
     "assign": "Asignar"
+  },
+  "logros": {
+    "title": "Logros",
+    "subtitle": "Puntos por demostrar que sabes, no por horas conectado.",
+    "level": "Nivel",
+    "levelAria": "Progreso de nivel",
+    "levels": {
+      "1": "Recién llegado",
+      "2": "Primeros pasos",
+      "3": "Con método",
+      "4": "Constante",
+      "5": "Lo va pillando",
+      "6": "Resuelve solo",
+      "7": "En prácticas",
+      "8": "Listo para el examen",
+      "9": "Referente de clase",
+      "10": "Módulo superado"
+    },
+    "xpToNext": "{xp} XP · faltan {falta} XP para el nivel {next} «{name}»",
+    "xpMax": "{xp} XP · nivel máximo",
+    "xpHow": "Sumas XP al evaluar tu Mapa (+5 por RA), superar quizzes (+20), conseguir sellos «Lo entiendo» (+50), que un mentor o tu tutor confirme que dominas un RA (+30) y por cada sesión hecha (+25).",
+    "statsAria": "Resumen de logros",
+    "statStreak": "Racha",
+    "weeks": "{n, plural, =0 {0 sem} one {# sem} other {# sem}}",
+    "statSeals": "Sellos",
+    "statQuizzes": "Quizzes superados",
+    "statSessions": "Sesiones",
+    "badgesTitle": "Insignias",
+    "unlocked": "Conseguida",
+    "locked": "Bloqueada",
+    "badges": {
+      "primer_mapa": {
+        "name": "Primer mapa",
+        "how": "Guarda tu primera autoevaluación"
+      },
+      "primer_quiz": {
+        "name": "Primer quiz",
+        "how": "Supera un quiz de Bit (2 de 3)"
+      },
+      "quiz_x5": {
+        "name": "Cinco de cinco",
+        "how": "Supera 5 quizzes"
+      },
+      "primer_sello": {
+        "name": "Lo entiendo",
+        "how": "Explícale un RA a tu mentor o tutor"
+      },
+      "feynman": {
+        "name": "Feynman",
+        "how": "Consigue 3 sellos «Lo entiendo»"
+      },
+      "constancia": {
+        "name": "Constancia",
+        "how": "Racha de 4 semanas"
+      },
+      "primera_sesion": {
+        "name": "Primera sesión",
+        "how": "Termina una sesión con un mentor"
+      },
+      "modulo_dominado": {
+        "name": "Módulo dominado",
+        "how": "Todos los RA de un módulo en «Lo domino»"
+      }
+    },
+    "streakTitle": "Racha semanal",
+    "streakHelp": "Días de estudio por semana. Cuenta la semana con {n} días o más: semanal, no diaria, sin agobios.",
+    "thisWeek": "Ahora",
+    "weekDays": "Semana del {date}: {n} días",
+    "recentTitle": "Últimos puntos",
+    "recentEmpty": "Aún no tienes puntos. Empieza guardando tu diagnóstico en el Mapa.",
+    "xpKind": {
+      "autoevaluacion": "RA autoevaluado",
+      "sello": "Sello «Lo entiendo»",
+      "dominio": "RA dominado (confirmado)",
+      "quiz": "Quiz superado",
+      "sesion": "Sesión hecha"
+    }
+  },
+  "bitPanel": {
+    "title": "Bit · tutor IA",
+    "subtitle": "Soy una IA. Te guío con preguntas, no con soluciones.",
+    "wantMentor": "Quiero a mi mentor",
+    "convsAria": "Mis conversaciones con Bit",
+    "newChat": "Nueva duda",
+    "untitled": "Conversación",
+    "welcome": "¡Hola! Sé qué módulos preparas, cómo llevas cada RA y cuándo es tu examen. Pégame un error, pregúntame un concepto o pídeme el plan de hoy. No hago prácticas ni exámenes: te ayudo a que los hagas tú.",
+    "bitLabel": "Bit · IA",
+    "placeholder": "Escribe a Bit (puedes pegar código o un error)…",
+    "sugg": {
+      "debug": "Me sale un error y no sé por qué",
+      "concept": "Explícame un concepto de mi RA más flojo",
+      "plan": "¿Qué hago hoy para mi examen?"
+    },
+    "knowsTitle": "Bit sabe que…",
+    "knowsEmpty": "Aún no has añadido módulos. Añádelos en tu panel para que Bit te ayude mejor.",
+    "studies": "Estudias",
+    "examOn": "Tu examen es el {date}, en {n} días",
+    "noExam": "No has puesto fecha de examen",
+    "weak": "Flojos:",
+    "weakNone": "ninguno marcado",
+    "knowsNote": "Lo saca de tu Mapa y tus sesiones. Bit no ve tu email ni tu teléfono.",
+    "quizTitle": "Quiz de 3 preguntas",
+    "quizHelp": "Bit prepara 3 preguntas de un RA y la plataforma las corrige. Si lo superas, suma en tu Mapa y en tus logros.",
+    "quizRa": "Resultado de aprendizaje",
+    "quizStart": "Preparar quiz",
+    "quizGenerating": "Bit está preparando las preguntas…",
+    "quizOf": "Quiz de {ra}",
+    "quizCheck": "Corregir",
+    "quizChecking": "Corrigiendo…",
+    "quizScore": "{n} de {total}",
+    "quizPassed": "¡Superado! Lo hemos apuntado en tu Mapa y suma XP.",
+    "quizFailed": "Aún no. Lee las explicaciones y pregúntale a Bit lo que no veas claro.",
+    "quizAnother": "Otro quiz",
+    "quizNoRa": "Añade un módulo con RA cargados para hacer quizzes.",
+    "correct": "correcta",
+    "wrong": "tu respuesta, incorrecta",
+    "quizErrors": {
+      "needLogin": "Entra con tu cuenta de alumno.",
+      "rateLimited": "Has pedido muchos quizzes seguidos. Prueba en un rato.",
+      "noKey": "Bit aún no está activado en esta web.",
+      "raNotFound": "No encontramos ese RA.",
+      "notYours": "Añade primero ese módulo a tus módulos.",
+      "busy": "Bit está muy ocupado. Prueba en unos segundos.",
+      "notFound": "Ese quiz ya no existe.",
+      "alreadyAnswered": "Ese quiz ya está corregido.",
+      "error": "No se ha podido preparar el quiz. Inténtalo de nuevo."
+    },
+    "rulesTitle": "Reglas de Bit",
+    "rules": {
+      "r1": "Siempre dice que es una IA",
+      "r2": "No hace prácticas ni exámenes",
+      "r3": "Te pasa con un humano si se atasca"
+    }
+  },
+  "materiales": {
+    "title": "Banco de material",
+    "subtitleMentor": "Explicaciones, ejemplos y errores típicos por RA de tus módulos. Cuando el equipo lo revisa, Bit lo usa para responder a los alumnos.",
+    "subtitleAdmin": "Todo el material por módulo y RA. Solo lo revisado alimenta a Bit.",
+    "newTitle": "Añadir material",
+    "noModules": "Aún no impartes ningún módulo. Añádelos en tu perfil de mentor.",
+    "modulo": "Módulo",
+    "ra": "RA (opcional)",
+    "raAny": "Todo el módulo",
+    "titleLabel": "Título",
+    "bodyLabel": "Contenido",
+    "bodyHelp": "Escrito por ti, sin copiar de libros ni webs con derechos. Sin soluciones de prácticas evaluables.",
+    "save": "Guardar",
+    "saving": "Guardando…",
+    "ok": {
+      "savedPending": "Guardado. Lo revisará el equipo antes de que Bit lo use.",
+      "savedReviewed": "Guardado y revisado."
+    },
+    "errors": {
+      "tooShort": "El título necesita 3 caracteres y el contenido 20 como mínimo.",
+      "tooLong": "Es demasiado largo (máximo 140 caracteres de título y 8000 de contenido).",
+      "notAllowed": "Solo puedes añadir material de los módulos que impartes (como mentor verificado).",
+      "moduloNotFound": "No encontramos ese módulo."
+    },
+    "listTitle": "Material",
+    "empty": "Todavía no hay material.",
+    "reviewed": "Revisado",
+    "pending": "Pendiente de revisar",
+    "show": "Ver contenido",
+    "review": "Marcar como revisado",
+    "unreview": "Quitar revisión",
+    "delete": "Borrar"
+  },
+  "referidos": {
+    "eyebrow": "Invita a tu clase",
+    "title": "20 créditos para ti y 20 para tu compañero",
+    "help": "Cuando tu compañero se registre con tu enlace y compre su primer pack, os llegan 20 créditos a cada uno.",
+    "copy": "Copiar enlace",
+    "copied": "¡Copiado!",
+    "whatsappText": "Me estoy preparando el módulo con Checkpoint Academy. Si te registras con mi enlace, cuando compres tu primer pack nos regalan 20 créditos a cada uno: {url}",
+    "someone": "Un compañero",
+    "rewarded": "+20 cr",
+    "pending": "Registrado · aún no ha comprado",
+    "cap": "Máximo 200 créditos por invitaciones al trimestre. Los créditos caducan a los 12 meses."
   }
 }

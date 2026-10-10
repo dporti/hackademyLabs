@@ -79,6 +79,8 @@ export async function signUpAction(
     ? (roleRaw as UserRole)
     : "alumno";
   const locale = String(formData.get("locale") ?? "es");
+  // Código de referido: solo alfanumérico; el trigger handle_new_user lo valida en BD.
+  const ref = String(formData.get("ref") ?? "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 12);
   const values: AuthValues = { email, full_name: fullName, role };
 
   if (!email || !password) return { error: "required", values };
@@ -98,7 +100,7 @@ export async function signUpAction(
     options: {
       // El trigger handle_new_user crea el profile con este rol y nombre (y solo
       // acepta alumno/familia/mentor: ver migración role_guards).
-      data: { full_name: fullName, role },
+      data: { full_name: fullName, role, ...(ref ? { ref } : {}) },
       emailRedirectTo: `${origin}/api/auth/confirm?next=${encodeURIComponent(next)}`,
     },
   });

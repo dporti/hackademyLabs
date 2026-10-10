@@ -28,6 +28,7 @@ export default async function RegistroPage({
   if (await hasSession()) redirect(localePath(locale, "/panel"));
   const sp = await searchParams;
   const rol = typeof sp.rol === "string" ? sp.rol : "alumno";
+  const ref = typeof sp.ref === "string" ? sp.ref.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 12) : "";
   const t = await getTranslations("auth");
   const tw = await getTranslations("welcome");
 
@@ -48,7 +49,10 @@ export default async function RegistroPage({
         <Gift aria-hidden className="size-4 shrink-0 text-accent-pass" />
         {tw("text")}
       </p>
-      <RegistroForm locale={locale} defaultRole={rol} />
+      {ref && (
+        <p className="mb-5 rounded-xl border border-tint-primary-border bg-tint-primary px-3 py-2.5 text-sm">{t("referralNote")}</p>
+      )}
+      <RegistroForm locale={locale} defaultRole={ref ? "alumno" : rol} referral={ref || undefined} />
     </AuthShell>
   );
 }

@@ -171,6 +171,14 @@ export async function MapaModuloView({
                   <span>{t("notSealed")}</span>
                 )}
               </div>
+              {viewer === "alumno" && (
+                <Link
+                  href={`/panel/bit?m=${modulo.code}&quiz=${ra.id}`}
+                  className="mt-3 inline-flex min-h-10 items-center text-sm font-semibold text-primary hover:underline"
+                >
+                  {t("quizRa")} →
+                </Link>
+              )}
               {viewer === "tutor" && (
                 <AssessRaForm
                   locale={locale}
