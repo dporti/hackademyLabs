@@ -1,7 +1,7 @@
 # Estado del proyecto — Tutor247
 
 > Documento vivo. Se actualiza al cerrar cada tarea o fase.
-> Última actualización: 2026-10-10.
+> Última actualización: 2026-10-11.
 
 ## 1. Resumen
 Tutor247 es una plataforma web de FP de informática (SMX, ASIR/ASIX, DAM, DAW) que
@@ -325,14 +325,27 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
     prueba: chat de Bit más ancho, cartera del tutor a lo ancho, textos neutros del sello para el tutor,
     no se pierde el aviso de error al crear conversación.
   - **Sin probar**: respuestas reales de Bit, quiz y resumen (la cuenta de Anthropic no tiene saldo);
-    vídeo con Daily (sin clave); Jitsi incrustado deja la pestaña lenta en Chrome automatizado.
+    vídeo real de Daily (falta método de pago); Jitsi incrustado deja la pestaña lenta en Chrome automatizado.
+  - **Daily.co conectado** (2026-10-11): cuenta `checkpointacademy.daily.co`, `DAILY_API_KEY` en `.env.local`.
+    Probado: la API crea sala privada + token (y borra), el aula crea su sala al abrirla la mentora
+    (`booking.aula_room`, caduca 30 min tras el final) y muestra «Videollamada privada»; un usuario ajeno a
+    la reserva recibe 404. **Bloqueo:** Daily muestra «Missing payment method» dentro del vídeo hasta añadir
+    una tarjeta en el dashboard (Billing); sin eso no hay llamada.
+  - `scripts/aula-demo.mjs`: crea una sesión confirmada que empieza ya (60 min) entre
+    `test.visual.f7alumna` y `test.visual.f7mentora` y da el enlace del aula. Commit `5b8909b`.
+  - Incidencia: tras parar el dev server a la fuerza, `.next` quedó corrupto (500 «Unexpected non-whitespace
+    character after JSON» en todas las páginas). Solución: borrar `.next` y reiniciar `npm run dev`.
   - Usuarios de prueba visuales: `test.visual.f7alumna`, `test.visual.f7tutor`, `test.visual.f7mentora`
     (@tutor247.dev, contraseña de los demás usuarios de prueba) con Mapa, tutor asignado y una reserva.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
-  2026-10-07 hasta `0562a0e`.
+  2026-10-11 (fases 7–9 incluidas).
 
 ## 3. En curso
-- (nada) · Pendiente de David: recargar saldo en la cuenta de Anthropic para probar Bit, quiz y resumen.
+- (nada) · Pendiente de David:
+  - Recargar saldo en la cuenta de Anthropic para probar Bit, quiz y resumen de sesión.
+  - Añadir método de pago en Daily.co (Billing) para que funcione el vídeo del aula; después probar con
+    `node scripts/aula-demo.mjs` (alumna en Chrome normal, mentora en incógnito).
+  - En Vercel: `ANTHROPIC_API_KEY` y `DAILY_API_KEY` cuando se despliegue.
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
@@ -502,7 +515,7 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
 - Edad/consentimiento: Modo Familia ¿obligatorio para <18 o solo recomendado?
 - Aspectos legales: menores, facturación de mentores (autónomos), RGPD de grabaciones.
 
-- Fases 7–9: cuenta de Daily.co + `DAILY_API_KEY` (o seguir con Jitsi); grupos (≤ 5) en el aula sí/no.
+- Aula: ~~cuenta de Daily.co~~ (creada 2026-10-11; falta método de pago); grupos (≤ 5) en el aula sí/no.
 - Validar cifras: XP por acción, niveles, umbrales de alerta del tutor, 20 + 20 cr de referidos y tope.
 - Quién llena el banco de material de Bit al principio (hoy está vacío: Bit responde con conocimiento general).
 - WhatsApp (empujón diario, quiz por WhatsApp): elegir BSP (Twilio, 360dialog) y número; normativa de
@@ -568,7 +581,8 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
 
 - **Editor del aula «último en escribir gana»**: si los dos escriben a la vez se pisan; para más de 2
   personas o edición simultánea real habría que pasar a CRDT (Yjs).
-- **Jitsi incrustado** (meet.jit.si) puede pedir iniciar sesión al anfitrión; con Daily no pasa.
+- **Jitsi incrustado** (meet.jit.si) exige que un moderador inicie sesión (Google/GitHub) para abrir la sala:
+  solo queda como respaldo si Daily falla; con Daily no pasa.
 - **Resumen de sesión y quiz** dependen de `ANTHROPIC_API_KEY`; sin clave avisan y no se generan.
 - **Límites de Bit/quiz/resumen en memoria** (por instancia), como el widget: freno, no garantía.
 - **Familia aún no ve el Mapa del hijo** en su panel (la RLS ya lo permite con la regla de consentimiento).
