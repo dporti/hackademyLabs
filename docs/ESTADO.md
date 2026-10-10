@@ -1,7 +1,7 @@
 # Estado del proyecto — Tutor247
 
 > Documento vivo. Se actualiza al cerrar cada tarea o fase.
-> Última actualización: 2026-10-09.
+> Última actualización: 2026-10-10.
 
 ## 1. Resumen
 Tutor247 es una plataforma web de FP de informática (SMX, ASIR/ASIX, DAM, DAW) que
@@ -11,8 +11,9 @@ hasta el examen. Monetiza con créditos (ledger inmutable) y suscripciones (IA "
 acompañamiento a familias).
 **Fase actual del roadmap: Fase 2 (consumo).** Fase 1 (MVP base) cerrada: F1.1–F1.5,
 identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reservas) y política de cancelación.
-**En marcha: "Fusión del diseño"** → marca Checkpoint Academy (Aprueba tu módulo + Tutor247),
-referencia en `docs/diseno/`.
+**"Fusión del diseño"** (Checkpoint Academy) cerrada: fases 0–9, incluido el backend nuevo
+(Mapa guardado, tutor, logros, Bit en el panel, referidos, aula integrada y PWA).
+**Pendiente inmediato:** aplicar en Supabase las migraciones de fases 7–9 y pasar sus `verify-*`.
 
 ## 2. Hecho
 - **Fase 0 — Scaffold** · 2026-10-06 · `9a5d25e`
@@ -272,11 +273,60 @@ referencia en `docs/diseno/`.
   - Respuesta a los contactos: manual por ahora (falta servicio de email).
 - **Fusión del diseño** (Checkpoint Academy) · fases 0–6 cerradas 2026-10-09; siguiente: despliegue en Vercel, legal y Stripe real
   (o fases 7–9, backend nuevo).
+- **Fase 7 — Mapa de Dominio guardado y tutor de referencia** · 2026-10-10 · `2a2b8cd`
+  - Migración `20261010090100_mapa_tutor.sql`: `ra_progress` (nivel de 4, progreso, sello «Lo entiendo»)
+    + `ra_evidence` inmutable (autoevaluación, sesión, ticket, tutor, quiz, simulacro, ajuste),
+    `tutor_assignment`, `checkin`, `student_activity` (días activos). Escritura solo por RPC:
+    `save_self_assessment` (alumno, nunca sella), `assess_ra` (mentor con reserva confirmada/hecha o
+    ticket respondido de ese módulo, tutor asignado o admin; puede sellar), `touch_activity`,
+    `my_tutor_students` (cartera sin email), `admin_make_tutor` / `admin_assign_tutor`. Cierra un
+    agujero: antes cualquiera podía crearse su fila en `reference_tutor`.
+  - `/panel/mapa`: pestañas por módulo, preparación, examen, sellos, prioridad (más flojo y más peso),
+    RA con evidencia y sello, plan inverso con fecha y horas/semana guardadas (`student_modulo.hours_week`).
+  - Diagnóstico con sesión de alumno: «Guardar en mi Mapa de Dominio». Panel del alumno → «Mi Mapa».
+  - Mentor: «Actualizar su Mapa» tras la sesión (`/panel/sesiones/[id]/mapa`, solo RA de esa reserva).
+  - Rol `tutor_referencia`: `/panel` = cartera (Va bien / Atención / En riesgo con alertas calculadas:
+    días sin actividad, examen cerca con RA flojos, informe en rojo o pendiente), filtros, check-ins de
+    hoy y protocolo; `/panel/alumno/[id]` (actividad 4 semanas, check-ins con notas, Mapa con
+    valoración y sello, informe semanal); `/panel/checkins` (agenda). Admin: «Tutores de referencia».
+  - Abrir el panel o usar Bit cuenta como día activo (racha y días/semana).
+- **Fase 8 — Logros, Bit en el panel y referidos** · 2026-10-10 · `7f828fd`
+  - Migración `20261010090200_logros_bit_referidos.sql`: `xp_event` inmutable que llenan triggers
+    (+5 RA autoevaluado, +50 sello, +30 «Lo domino» confirmado por una persona, +25 sesión hecha) y el
+    servidor (+20 quiz superado); `quiz` (respuestas solo en servidor); `conversation`/`message`
+    escritas solo por servidor; `material` (banco por módulo/RA, full-text en español, solo lo revisado
+    alimenta a Bit); `referral_code`, `handle_new_user` apunta el referido (`?ref=`), `reward_referral`.
+  - `/panel/logros`: nivel (10 niveles), racha semanal (semana con ≥ 2 días), insignias calculadas,
+    últimos puntos. Retos, liga y muro de aprobados del mockup: ocultos (no existen).
+  - `/panel/bit`: conversaciones guardadas, contexto del alumno en un bloque de sistema aparte (tras el
+    bloque estable cacheado): módulos, examen, Mapa, sesiones hechas, tutor; + material revisado (RAG).
+    Quiz de 3 preguntas (Claude con salida estructurada; sube el RA como mucho a «Casi», nunca lo baja).
+    «Quiero a mi mentor» → ticket. El widget flotante se oculta en /panel/bit y en el aula.
+  - `/panel/materiales`: mentores verificados proponen material de sus módulos; admin revisa.
+  - Referidos: «Invita a tu clase» en Créditos (código, copiar, WhatsApp, estado). 20 + 20 cr al primer
+    pack del invitado; tope 200 cr/trimestre para quien invita. Se dispara en la compra mock (con
+    Stripe real, en el webhook).
+- **Fase 9 — Aula integrada y PWA** · 2026-10-10 · `a6189f8`
+  - Migración `20261010090300_aula.sql`: `aula_doc` (editor; Modo Examen solo lo cambia el mentor),
+    `aula_stroke` (pizarra), ambas en Supabase Realtime con RLS «solo las partes de una reserva
+    confirmada/hecha»; bucket privado `aula` (10 MB, carpeta = reserva); `booking.summary`.
+  - `/panel/aula/[id]`: abre 15 min antes y cierra 30 min después. Vídeo Daily.co (sala privada +
+    token por persona) si hay `DAILY_API_KEY`; si no, Jitsi incrustado con la sala aleatoria de siempre.
+    Editor compartido (último en escribir gana), pizarra, ficheros con URL firmada, Modo Examen (sin
+    pegar ni soltar, sin Bit), marcar hecha, actualizar Mapa y «Resumen con Bit» (notas del mentor +
+    código + valoraciones; lo ve el alumno en Sesiones). Sin grabación.
+  - PWA: `app/manifest.ts` (arranca en /panel, atajos), iconos en `public/icons/`, `public/sw.js`
+    (solo página sin conexión, no cachea páginas personales).
+  - **Verificado en código**: lint + build. **Sin verificar contra BD** (falta aplicar las migraciones
+    7–9) ni en navegador; Bit, quiz y resumen sin probar con respuestas reales.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-- (nada)
+- **Aplicar migraciones de fases 7–9** en el SQL Editor, en orden (son re-ejecutables):
+  `20261010090100_mapa_tutor.sql` → `20261010090200_logros_bit_referidos.sql` → `20261010090300_aula.sql`.
+  Después: `node scripts/verify-mapa.mjs`, `verify-logros.mjs`, `verify-aula.mjs` y el resto de verify;
+  prueba en navegador (es y ca) de /panel/mapa, /panel/bit, /panel/logros, tutor y aula.
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
@@ -298,12 +348,11 @@ referencia en `docs/diseno/`.
    - [x] **Fase 5 — Tickets y sesiones** (2026-10-09): `/panel/tickets` (SOS.html) y `/panel/sesiones`
      (Reserva.html) sin tocar RPC ni cobros.
    - [x] **Fase 6 — Paneles de mentor, familia (oscuro) y admin** (2026-10-09, `0202380`; revisada en navegador).
-   - [ ] **Fase 7 — Backend nuevo I**: `/panel/mapa` (progreso por RA guardado) y rol `tutor`
-     con cartera (`PanelTutor.html`). Planificar aparte.
-   - [ ] **Fase 8 — Backend nuevo II**: `/panel/logros` (XP, insignias, racha), Bit
-     (`/panel/bit`, API de Claude + RAG por módulo), referidos. Planificar aparte.
-   - [ ] **Fase 9 — Backend nuevo III**: aula integrada (sustituye a Jitsi) y móvil
-     (PWA / WhatsApp). Planificar aparte.
+   - [x] **Fase 7 — Backend nuevo I** (2026-10-10, `2a2b8cd`): Mapa guardado y rol tutor con cartera.
+   - [x] **Fase 8 — Backend nuevo II** (2026-10-10, `7f828fd`): logros, Bit en el panel (RAG, quiz), referidos.
+   - [x] **Fase 9 — Backend nuevo III** (2026-10-10, `a6189f8`): aula integrada (A, B y C sin grabación) y PWA.
+     WhatsApp NO: necesita proveedor (BSP) y número de empresa; sigue «próximamente».
+   (Las tres a falta de aplicar migraciones y verificar en BD y navegador: ver «En curso».)
    **Próximos objetivos acordados (2026-10-09)**, en este orden: desplegar en Vercel → páginas legales
    (privacidad, cookies, aviso legal, condiciones) → Stripe real → **aula integrada**:
    - Fase A: videollamada dentro de la web (`/panel/aula/[sesión]`), solo alumno y mentor de la reserva y
@@ -407,9 +456,29 @@ referencia en `docs/diseno/`.
   progreso ≥ 60 % o Con ayuda si no. Sin migración hasta tener progreso por RA (fase 7) ·
   2026-10-09.
 
+- **Mapa guardado con 4 niveles** (`nivel_dominio`) + evidencias inmutables; el semáforo antiguo
+  (`ra_assessment`) queda sin usar · 2026-10-10.
+- **Sello «Lo entiendo» solo por personas** (mentor de una sesión/ticket de ese módulo, tutor asignado o
+  admin); la autoevaluación cambia el nivel pero conserva el sello; el quiz sube como mucho a «Casi» y
+  nunca baja · integridad académica, Mapa orientativo · 2026-10-10.
+- **Tutor = rol `tutor_referencia`** dado por admin a una cuenta existente (no alumno); un tutor por
+  alumno; ve a sus asignados sin email/teléfono · 2026-10-10.
+- **Reglas de estado de la cartera** (a validar): riesgo con ≥ 5 días sin actividad, examen ≤ 14 días con
+  ≥ 2 RA flojos o informe en rojo; atención con ≥ 3 días, examen ≤ 30 días con algún RA flojo o ámbar ·
+  2026-10-10.
+- **XP solo por demostrar** (nada por tiempo conectado); racha semanal (≥ 2 días/semana); insignias
+  calculadas, no guardadas · docs §8 y mockup · 2026-10-10.
+- **Referidos 20 + 20 cr al primer pack, tope 200 cr/trimestre** (cifras del mockup Creditos.html) ·
+  a validar · 2026-10-10.
+- **RAG con búsqueda full-text de Postgres** (sin embeddings ni proveedor extra) sobre material revisado
+  por mentores · 2026-10-10.
+- **Aula: Daily.co si hay clave, Jitsi incrustado si no**; editor y pizarra con Supabase Realtime (RLS),
+  último en escribir gana (1:1); sin grabación; ventana 15 min antes / 30 min después · 2026-10-10.
+- **PWA sin caché de páginas** (son personales): solo página sin conexión · 2026-10-10.
+
 ## 6. Decisiones pendientes (las decide el usuario)
 - ~~Nombre y marca definitivos~~ → Checkpoint Academy + Tutor247 (2026-10-09).
-- Bit: dar la clave `ANTHROPIC_API_KEY`; decidir si queda abierto a cualquier visitante o solo con
+- Bit: la clave ya está en `.env.local` (falta en Vercel); decidir si queda abierto a cualquier visitante o solo con
   cuenta (coste), y si el modelo sigue siendo Opus 5.5 o uno más barato (Sonnet/Haiku 5.5).
 - Email de contacto (dominio) para `NEXT_PUBLIC_CONTACT_EMAIL`; confirmar que el 634 48 40 29 tiene WhatsApp.
 - Plazas del programa piloto (CTA final de la portada; hoy «plazas limitadas», sin número).
@@ -426,6 +495,12 @@ referencia en `docs/diseno/`.
 - MVP: ¿lanzar con 3–5 módulos killer y pocos mentores o catálogo completo?
 - Edad/consentimiento: Modo Familia ¿obligatorio para <18 o solo recomendado?
 - Aspectos legales: menores, facturación de mentores (autónomos), RGPD de grabaciones.
+
+- Fases 7–9: cuenta de Daily.co + `DAILY_API_KEY` (o seguir con Jitsi); grupos (≤ 5) en el aula sí/no.
+- Validar cifras: XP por acción, niveles, umbrales de alerta del tutor, 20 + 20 cr de referidos y tope.
+- Quién llena el banco de material de Bit al principio (hoy está vacío: Bit responde con conocimiento general).
+- WhatsApp (empujón diario, quiz por WhatsApp): elegir BSP (Twilio, 360dialog) y número; normativa de
+  Meta para asistentes IA (capa-ia §1).
 
 ## 7. Problemas conocidos / deuda técnica
 - **Enlace de confirmación PKCE** (plantilla por defecto) solo funciona en el mismo navegador
@@ -485,6 +560,17 @@ referencia en `docs/diseno/`.
   sustitución se guarda en español en BD.
 - **Avisos de hidratación** en navegador por extensiones del cliente (LanguageTool), no del código.
 
+- **Fases 7–9 sin probar contra BD ni en navegador** (migraciones pendientes de aplicar).
+- **Editor del aula «último en escribir gana»**: si los dos escriben a la vez se pisan; para más de 2
+  personas o edición simultánea real habría que pasar a CRDT (Yjs).
+- **Jitsi incrustado** (meet.jit.si) puede pedir iniciar sesión al anfitrión; con Daily no pasa.
+- **Resumen de sesión y quiz** dependen de `ANTHROPIC_API_KEY`; sin clave avisan y no se generan.
+- **Límites de Bit/quiz/resumen en memoria** (por instancia), como el widget: freno, no garantía.
+- **Familia aún no ve el Mapa del hijo** en su panel (la RLS ya lo permite con la regla de consentimiento).
+- **Manifest de la PWA solo en español** (uno por sitio) y `public/offline.html` estático bilingüe:
+  excepciones conscientes a i18n.
+- **Imágenes de iconos** generadas con sharp desde `public/icons/icon.svg` (regenerar si cambia el logo).
+
 ## 8. Cómo arrancar el proyecto
 Entorno: Windows + PowerShell. Requiere Node (con npm).
 
@@ -508,7 +594,10 @@ Verificación: `node scripts/verify-db.mjs` (catálogo + mentores),
 `node scripts/verify-credits.mjs` (ledger + compra mock + `student_modulo`) y
 `node scripts/verify-roles.mjs` (guardas de rol + verificación de mentores),
 `node scripts/verify-family.mjs` (vinculación familia + consentimiento),
-`node scripts/verify-consumo.mjs` (tickets, reservas, cobros, devoluciones, ganancias).
+`node scripts/verify-consumo.mjs` (tickets, reservas, cobros, devoluciones, ganancias),
+`node scripts/verify-mapa.mjs` (Mapa guardado, evidencias, tutor), `node scripts/verify-logros.mjs`
+(XP, quiz, conversaciones, material, referidos) y `node scripts/verify-aula.mjs` (aula y ficheros).
+Textos i18n nuevos en bloque: `node scripts/merge-messages.mjs nuevas.es.json nuevas.ca.json`.
 RA de catálogo: `node scripts/seed-ra.mjs` (carga `supabase/data/ra-killer.json`).
 Admin: `node scripts/make-admin.mjs <email>` (el usuario debe existir).
 `node scripts/verify-confirm.mjs` (enlace de confirmación; requiere `npm run dev`).
@@ -519,4 +608,6 @@ Copiar `.env.local.example` → `.env.local` y rellenar (NUNCA commitear valores
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` (publishable)
 - `SUPABASE_SERVICE_ROLE_KEY` (secret; solo servidor)
-- `NEXT_PUBLIC_SITE_URL` (p. ej. `http://localhost:3000`; respaldo para enlaces de email)
+- `NEXT_PUBLIC_SITE_URL` (p. ej. `http://localhost:3000`; respaldo para enlaces de email y enlace de referido)
+- `ANTHROPIC_API_KEY` (Bit, quiz, resumen de sesión; solo servidor)
+- `DAILY_API_KEY` (opcional; vídeo del aula con Daily.co; vacía = Jitsi)
