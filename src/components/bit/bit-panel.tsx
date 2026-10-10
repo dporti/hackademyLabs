@@ -37,9 +37,13 @@ export function BitPanelChat({
   const [prev, setPrev] = useState(conversationId);
   if (prev !== conversationId) {
     setPrev(conversationId);
-    setConv(conversationId);
-    setMensajes(inicial);
-    setAviso(null);
+    // Si la URL cambia a la conversación que acabamos de crear aquí, se conserva lo
+    // pintado (incluido un aviso de error); si es otra, se carga su historial.
+    if (conversationId !== conv) {
+      setConv(conversationId);
+      setMensajes(inicial);
+      setAviso(null);
+    }
   }
   useEffect(() => {
     lista.current?.scrollTo({ top: lista.current.scrollHeight });

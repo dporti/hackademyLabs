@@ -103,7 +103,7 @@ export default async function TutorAlumnoPage({ params, searchParams }: PageProp
           {t("activityTitle")}
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">{t("activityHelp", { n: activos.size })}</p>
-        <ol className="mt-4 grid max-w-md grid-cols-7 gap-1.5" aria-label={t("activityAria")}>
+        <ol className="mt-4 grid max-w-[260px] grid-cols-7 gap-1" aria-label={t("activityAria")}>
           {dias.map((d) => (
             <li
               key={d}

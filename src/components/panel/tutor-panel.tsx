@@ -131,7 +131,7 @@ export async function TutorPanel({
         ))}
       </section>
 
-      <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
+      <div className="grid gap-8">
         {/* ───────────────────────── Cartera ───────────────────────── */}
         <section aria-labelledby="cartera">
           <div className="flex flex-wrap items-end justify-between gap-3">
@@ -202,7 +202,7 @@ export async function TutorPanel({
         </section>
 
         {/* ───────────────────────── Hoy ───────────────────────── */}
-        <aside className="space-y-4">
+        <aside className="grid gap-4 md:grid-cols-2">
           <section aria-labelledby="hoy" className="rounded-2xl border bg-card p-5">
             <div className="flex items-baseline justify-between gap-2">
               <h2 id="hoy" className="font-heading text-xl font-bold">

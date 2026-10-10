@@ -2105,7 +2105,9 @@
       "badDate": "Pon una fecha y hora válidas.",
       "generic": "No se ha podido guardar. Inténtalo de nuevo."
     },
-    "quizRa": "Quiz de 3 preguntas"
+    "quizRa": "Quiz de 3 preguntas",
+    "statSealsSubOther": "Lo ha explicado a su mentor o tutor",
+    "sealHelpOther": "El sello «Lo entiendo» lo pone el mentor o el tutor cuando el alumno se lo ha explicado con sus palabras."
   },
   "tutorPanel": {
     "subtitle": "Tutor de referencia · {hoy, plural, =0 {sin check-ins hoy} one {# check-in hoy} other {# check-ins hoy}}",

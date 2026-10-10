@@ -2105,7 +2105,9 @@
       "badDate": "Posa una data i hora vàlides.",
       "generic": "No s'ha pogut desar. Torna-ho a provar."
     },
-    "quizRa": "Qüestionari de 3 preguntes"
+    "quizRa": "Qüestionari de 3 preguntes",
+    "statSealsSubOther": "Ho ha explicat al seu mentor o tutor",
+    "sealHelpOther": "El segell «Ho entenc» el posa el mentor o el tutor quan l'alumne li ho ha explicat amb les seves paraules."
   },
   "tutorPanel": {
     "subtitle": "Tutor de referència · {hoy, plural, =0 {sense check-ins avui} one {# check-in avui} other {# check-ins avui}}",

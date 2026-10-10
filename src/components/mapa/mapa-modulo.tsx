@@ -68,7 +68,7 @@ export async function MapaModuloView({
       value: modulo.exam_date ? fechaDia(modulo.exam_date) : "—",
       sub: dias != null && dias >= 0 ? t("daysLeft", { n: dias }) : t("noExam"),
     },
-    { label: t("statSeals"), value: t("sealsValue", { n: r.sellos, total: modulo.ras.length }), sub: t("statSealsSub") },
+    { label: t("statSeals"), value: t("sealsValue", { n: r.sellos, total: modulo.ras.length }), sub: viewer === "alumno" ? t("statSealsSub") : t("statSealsSubOther") },
     {
       label: t("statPriority"),
       value: r.prioridad.length ? r.prioridad.map((x) => x.code).join(" · ") : "—",
@@ -192,7 +192,7 @@ export async function MapaModuloView({
           ))}
         </ul>
         <p className="mt-3 text-xs text-label">
-          {t("orientative")} {t("sealHelp")}
+          {t("orientative")} {viewer === "alumno" ? t("sealHelp") : t("sealHelpOther")}
         </p>
         {viewer === "alumno" && r.evaluados > 0 && (
           <Link href={diagHref} className="mt-3 inline-block text-sm font-semibold text-primary hover:underline">

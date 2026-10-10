@@ -76,35 +76,7 @@ export default async function BitPage({ params, searchParams }: PageProps<"/[loc
         </Link>
       </header>
 
-      <div className="grid gap-6 xl:grid-cols-[220px_minmax(0,1fr)_300px]">
-        {/* Conversaciones */}
-        <nav aria-label={t("convsAria")} className="space-y-2">
-          <Link
-            href="/panel/bit"
-            className="flex min-h-11 items-center gap-2 rounded-[10px] bg-primary px-3 text-sm font-bold text-primary-foreground hover:bg-primary/85"
-          >
-            <Plus aria-hidden className="size-4" />
-            {t("newChat")}
-          </Link>
-          <ul className="space-y-1">
-            {(convs ?? []).map((c) => (
-              <li key={c.id}>
-                <Link
-                  href={`/panel/bit?c=${c.id}`}
-                  aria-current={actual?.id === c.id ? "page" : undefined}
-                  className={cn(
-                    "block rounded-[10px] px-3 py-2 text-sm",
-                    actual?.id === c.id ? "bg-tint-primary text-primary" : "text-muted-foreground hover:bg-surface-2 hover:text-foreground",
-                  )}
-                >
-                  <span className="line-clamp-2">{c.title || t("untitled")}</span>
-                  <span className="block font-mono text-[10px] text-label">{cuando(c.updated_at)}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_300px]">
         <BitPanelChat
           conversationId={actual?.id ?? null}
           inicial={inicial}
@@ -113,6 +85,34 @@ export default async function BitPage({ params, searchParams }: PageProps<"/[loc
         />
 
         <aside className="space-y-4">
+          {/* Conversaciones */}
+          <nav aria-label={t("convsAria")} className="space-y-2 rounded-2xl border bg-card p-3">
+            <Link
+              href="/panel/bit"
+              className="flex min-h-11 items-center gap-2 rounded-[10px] bg-primary px-3 text-sm font-bold text-primary-foreground hover:bg-primary/85"
+            >
+              <Plus aria-hidden className="size-4" />
+              {t("newChat")}
+            </Link>
+            <ul className="max-h-56 space-y-1 overflow-y-auto">
+              {(convs ?? []).map((c) => (
+                <li key={c.id}>
+                  <Link
+                    href={`/panel/bit?c=${c.id}`}
+                    aria-current={actual?.id === c.id ? "page" : undefined}
+                    className={cn(
+                      "block rounded-[10px] px-3 py-2 text-sm",
+                      actual?.id === c.id ? "bg-tint-primary text-primary" : "text-muted-foreground hover:bg-surface-2 hover:text-foreground",
+                    )}
+                  >
+                    <span className="line-clamp-2">{c.title || t("untitled")}</span>
+                    <span className="block font-mono text-[10px] text-label">{cuando(c.updated_at)}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
           <section aria-labelledby="sabe" className="rounded-2xl border bg-card p-5">
             <h2 id="sabe" className="font-mono text-xs font-semibold tracking-[0.2em] text-label uppercase">
               {t("knowsTitle")}

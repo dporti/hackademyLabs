@@ -13,7 +13,8 @@ acompañamiento a familias).
 identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reservas) y política de cancelación.
 **"Fusión del diseño"** (Checkpoint Academy) cerrada: fases 0–9, incluido el backend nuevo
 (Mapa guardado, tutor, logros, Bit en el panel, referidos, aula integrada y PWA).
-**Pendiente inmediato:** aplicar en Supabase las migraciones de fases 7–9 y pasar sus `verify-*`.
+Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta de Anthropic no tiene saldo
+(Bit, quiz y resumen devuelven «credit balance is too low»).
 
 ## 2. Hecho
 - **Fase 0 — Scaffold** · 2026-10-06 · `9a5d25e`
@@ -317,16 +318,21 @@ identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reser
     código + valoraciones; lo ve el alumno en Sesiones). Sin grabación.
   - PWA: `app/manifest.ts` (arranca en /panel, atajos), iconos en `public/icons/`, `public/sw.js`
     (solo página sin conexión, no cachea páginas personales).
-  - **Verificado en código**: lint + build. **Sin verificar contra BD** (falta aplicar las migraciones
-    7–9) ni en navegador; Bit, quiz y resumen sin probar con respuestas reales.
+  - **Verificado** 2026-10-11: migraciones aplicadas; `verify-mapa` 37/37, `verify-logros` 28/28,
+    `verify-aula` 19/19 y el resto de verify OK (sin regresiones). Navegador (es y ca): Mapa, plan
+    inverso, Bit (contexto correcto), Logros (85 XP cuadra), aula (editor guarda; Modo Examen llega por
+    Realtime), cartera y ficha del tutor (valoración con sello guardada como `tutor`). Ajustes tras la
+    prueba: chat de Bit más ancho, cartera del tutor a lo ancho, textos neutros del sello para el tutor,
+    no se pierde el aviso de error al crear conversación.
+  - **Sin probar**: respuestas reales de Bit, quiz y resumen (la cuenta de Anthropic no tiene saldo);
+    vídeo con Daily (sin clave); Jitsi incrustado deja la pestaña lenta en Chrome automatizado.
+  - Usuarios de prueba visuales: `test.visual.f7alumna`, `test.visual.f7tutor`, `test.visual.f7mentora`
+    (@tutor247.dev, contraseña de los demás usuarios de prueba) con Mapa, tutor asignado y una reserva.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-07 hasta `0562a0e`.
 
 ## 3. En curso
-- **Aplicar migraciones de fases 7–9** en el SQL Editor, en orden (son re-ejecutables):
-  `20261010090100_mapa_tutor.sql` → `20261010090200_logros_bit_referidos.sql` → `20261010090300_aula.sql`.
-  Después: `node scripts/verify-mapa.mjs`, `verify-logros.mjs`, `verify-aula.mjs` y el resto de verify;
-  prueba en navegador (es y ca) de /panel/mapa, /panel/bit, /panel/logros, tutor y aula.
+- (nada) · Pendiente de David: recargar saldo en la cuenta de Anthropic para probar Bit, quiz y resumen.
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
@@ -352,7 +358,7 @@ identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reser
    - [x] **Fase 8 — Backend nuevo II** (2026-10-10, `7f828fd`): logros, Bit en el panel (RAG, quiz), referidos.
    - [x] **Fase 9 — Backend nuevo III** (2026-10-10, `a6189f8`): aula integrada (A, B y C sin grabación) y PWA.
      WhatsApp NO: necesita proveedor (BSP) y número de empresa; sigue «próximamente».
-   (Las tres a falta de aplicar migraciones y verificar en BD y navegador: ver «En curso».)
+   (Migraciones aplicadas y verificadas en BD y navegador el 2026-10-11.)
    **Próximos objetivos acordados (2026-10-09)**, en este orden: desplegar en Vercel → páginas legales
    (privacidad, cookies, aviso legal, condiciones) → Stripe real → **aula integrada**:
    - Fase A: videollamada dentro de la web (`/panel/aula/[sesión]`), solo alumno y mentor de la reserva y
@@ -560,7 +566,6 @@ identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reser
   sustitución se guarda en español en BD.
 - **Avisos de hidratación** en navegador por extensiones del cliente (LanguageTool), no del código.
 
-- **Fases 7–9 sin probar contra BD ni en navegador** (migraciones pendientes de aplicar).
 - **Editor del aula «último en escribir gana»**: si los dos escriben a la vez se pisan; para más de 2
   personas o edición simultánea real habría que pasar a CRDT (Yjs).
 - **Jitsi incrustado** (meet.jit.si) puede pedir iniciar sesión al anfitrión; con Daily no pasa.
