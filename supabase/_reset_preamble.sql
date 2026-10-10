@@ -5,7 +5,8 @@
 drop view if exists public.mentor_public;
 
 drop table if exists
-  public.lead, public.mentor_earning, public.ticket_message, public.product_price,
+  public.student_activity, public.checkin, public.tutor_assignment, public.ra_evidence,
+  public.ra_progress, public.lead, public.mentor_earning, public.ticket_message, public.product_price,
   public.mentor_payout, public.mentor_badge, public.badge, public.referral,
   public.weekly_report, public.message, public.conversation, public.ticket,
   public.booking, public.ra_assessment, public.diagnostic, public.study_plan,
@@ -49,11 +50,23 @@ drop function if exists public.create_booking(uuid, uuid, text, product_kind, ti
 drop function if exists public.respond_booking(uuid, uuid, boolean) cascade;
 drop function if exists public.cancel_booking(uuid, uuid) cascade;
 drop function if exists public.complete_booking(uuid, uuid) cascade;
+drop function if exists public.block_evidence_mutation() cascade;
+drop function if exists public.is_tutor_of(uuid) cascade;
+drop function if exists public.nivel_progress(nivel_dominio) cascade;
+drop function if exists public.apply_ra_evidence(uuid, uuid, evidencia_kind, nivel_dominio, boolean, text, uuid, uuid) cascade;
+drop function if exists public.touch_activity() cascade;
+drop function if exists public.save_self_assessment(text, jsonb) cascade;
+drop function if exists public.assess_ra(uuid, uuid, nivel_dominio, boolean, text) cascade;
+drop function if exists public.booking_ra_map(uuid) cascade;
+drop function if exists public.my_tutor_students() cascade;
+drop function if exists public.my_tutor_name() cascade;
+drop function if exists public.admin_make_tutor(text) cascade;
+drop function if exists public.admin_assign_tutor(uuid, uuid) cascade;
 
 drop type if exists
   consent_type, plan_kind, product_kind, ledger_type, ra_status,
   mentor_status, mentor_level, student_mode, user_role, grade_level,
-  lead_kind, lead_status
+  lead_kind, lead_status, nivel_dominio, evidencia_kind
   cascade;
 
 -- Borra los usuarios de prueba para que el seed los recree y dispare el trigger.

@@ -13,7 +13,7 @@ import type { Modulo } from "@/lib/db-types";
 
 // Panel del alumno (fase 4 de la fusión del diseño): resumen, módulos que prepara con
 // fecha de examen y temas, pedir ayuda, familia, informes y últimos movimientos.
-// Solo datos que existen: sin racha, XP ni plan inverso guardado todavía.
+// El Mapa y el plan inverso guardados viven en /panel/mapa (fase 7).
 
 const DIA = 86_400_000;
 
@@ -149,10 +149,10 @@ export async function StudentPanel({
                   )}
                   <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
                     <Link
-                      href={`/diagnostico?m=${sm.modulo.code}${sm.exam_date ? `&x=${sm.exam_date}` : ""}`}
+                      href={`/panel/mapa?m=${sm.modulo.code}`}
                       className="inline-flex min-h-10 items-center rounded-[10px] bg-primary px-3 text-sm font-bold text-primary-foreground hover:bg-primary/85"
                     >
-                      {t("doDiagnostic")}
+                      {t("seeMap")}
                     </Link>
                     <Link
                       href={`/panel/tickets?modulo=${sm.modulo.code}`}

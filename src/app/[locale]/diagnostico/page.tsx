@@ -3,6 +3,7 @@ import { connection } from "next/server";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Check } from "lucide-react";
 import { getModulosDiagnosticables } from "@/lib/catalog";
+import { getSessionUser } from "@/lib/auth";
 import { SectionLabel } from "@/components/brand/section-label";
 import { Diagnostico } from "@/components/diagnostico/diagnostico";
 import { PageSkeleton } from "@/components/page-skeleton";
@@ -59,7 +60,7 @@ async function Herramienta({
 }) {
   const sp = await searchParams;
   const str = (v: string | string[] | undefined) => (typeof v === "string" ? v : null);
-  const modulos = await getModulosDiagnosticables();
+  const [modulos, session] = await Promise.all([getModulosDiagnosticables(), getSessionUser()]);
   // `hoy` se fija en el servidor (por petición) para que servidor y cliente
   // pinten lo mismo; connection() evita leer la hora durante el prerender.
   await connection();
@@ -71,6 +72,7 @@ async function Herramienta({
     <Diagnostico
       modulos={modulos}
       hoy={hoy}
+      puedeGuardar={session?.profile?.role === "alumno"}
       inicial={{
         modulo: str(sp.m) ?? str(sp.modulo),
         estados: (str(sp.e) ?? "").slice(0, 20),

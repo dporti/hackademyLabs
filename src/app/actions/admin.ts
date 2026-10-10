@@ -50,8 +50,7 @@ export async function reviewMentorAction(formData: FormData) {
 }
 
 // ─────────────────────────── Informes semanales ───────────────────────────
-// Hoy los redacta el admin haciendo de tutor de referencia (no hay panel de
-// tutor). "Próximas fechas" se calcula de los exámenes del alumno.
+// Los redacta el tutor de referencia del alumno (fase 7) o el admin. "Próximas fechas" se calcula de los exámenes del alumno.
 
 export interface ReportActionState {
   error?: string;
@@ -74,7 +73,8 @@ export async function saveWeeklyReportAction(
   } = await sb.auth.getUser();
   if (!user) redirect(localePath(locale, "/entrar"));
   const { data: me } = await sb.from("profile").select("role").eq("id", user!.id).maybeSingle();
-  if (me?.role !== "admin") return { error: "notAdmin" };
+  // Admin o tutor de referencia (la RLS wr_tutor limita al tutor a sus alumnos asignados).
+  if (me?.role !== "admin" && me?.role !== "tutor_referencia") return { error: "notAdmin" };
   if (!/^\d{4}-\d{2}-\d{2}$/.test(weekRaw)) return { error: "badWeek" };
   const weekStart = mondayOf(weekRaw);
 

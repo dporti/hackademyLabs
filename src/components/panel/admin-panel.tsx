@@ -8,6 +8,8 @@ import type { ReportableStudent } from "@/lib/report-admin";
 import { AdminReportForm } from "@/components/panel/admin-report-form";
 import type { Lead, MentorLevel, MentorStatus } from "@/lib/db-types";
 import { AdminLeads } from "@/components/panel/admin-leads";
+import { AdminTutors } from "@/components/panel/admin-tutors";
+import type { AdminTutorData } from "@/lib/tutor";
 
 const LEVELS: MentorLevel[] = ["mentor", "pro", "experto"];
 
@@ -20,17 +22,20 @@ export async function AdminPanel({
   mentores,
   reportStudents,
   leads,
+  tutores,
   defaultWeek,
 }: {
   locale: string;
   mentores: MentorAdminRow[];
   reportStudents: ReportableStudent[];
   leads: Lead[];
+  tutores: AdminTutorData;
   defaultWeek: string;
 }) {
   const tr = await getTranslations("adminReport");
   const t = await getTranslations("adminPanel");
   const tm = await getTranslations("mentorPanel");
+  const tt = await getTranslations("adminTutors");
   const cuenta = (s: MentorStatus) => mentores.filter((m) => m.status === s).length;
 
   // Botones de cambio de estado según el estado actual.
@@ -151,7 +156,16 @@ export async function AdminPanel({
         )}
       </section>
 
-      {/* Informes semanales: el admin hace de tutor de referencia hasta que exista su panel. */}
+      {/* Tutores de referencia (Tutor247): alta y asignación de alumnos. */}
+      <section aria-labelledby="tutores" data-accent="tutor" className="rounded-3xl border bg-card p-5 sm:p-7">
+        <h2 id="tutores" className="font-heading text-2xl font-bold">
+          {tt("title")}
+        </h2>
+        <p className="mt-1 mb-6 text-sm text-muted-foreground">{tt("help")}</p>
+        <AdminTutors locale={locale} data={tutores} />
+      </section>
+
+      {/* Informes semanales: los redacta el tutor asignado; el admin puede hacerlo por cualquiera. */}
       <section aria-labelledby="informes" data-accent="tutor" className="rounded-3xl border bg-card p-5 sm:p-7">
         <h2 id="informes" className="font-heading text-2xl font-bold">
           {tr("title")}

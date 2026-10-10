@@ -13,6 +13,7 @@ import type { ProductKind, RaStatus } from "@/lib/db-types";
 import { cn } from "@/lib/utils";
 import { temaRa } from "@/lib/temas";
 import { EVALUACIONES } from "@/lib/evaluaciones";
+import { SaveDiagnostico } from "@/components/mapa/save-diagnostico";
 
 // Diagnóstico gratis SIN cuenta (docs: "widget ¿Qué módulo te preocupa? → mini
 // diagnóstico → Mapa de Dominio → oferta"). Autoevaluación por RA → Mapa en vivo →
@@ -56,10 +57,13 @@ export function Diagnostico({
   modulos,
   hoy,
   inicial,
+  puedeGuardar = false,
 }: {
   modulos: ModuloDiagnosticable[];
   hoy: string;
   inicial: DiagnosticoInicial;
+  // Alumno con sesión: puede guardar el resultado en su Mapa de Dominio.
+  puedeGuardar?: boolean;
 }) {
   const t = useTranslations("diagnostico");
   const td = useTranslations("dominio");
@@ -486,12 +490,22 @@ export function Diagnostico({
                 {copiado ? t("copied") : t("ctaShare")}
               </button>
             </div>
-            <p className="mt-5 text-sm text-muted-foreground">
-              {t("saveHint")}{" "}
-              <Link href="/registro?rol=alumno" className="text-primary underline-offset-4 hover:underline">
-                {t("saveLink")}
-              </Link>
-            </p>
+            {puedeGuardar ? (
+              <div className="mt-5">
+                <SaveDiagnostico
+                  locale={locale}
+                  code={modulo.code}
+                  enc={modulo.ra.map((r) => (estados[r.code] ? ENC[estados[r.code]] : "-")).join("")}
+                />
+              </div>
+            ) : (
+              <p className="mt-5 text-sm text-muted-foreground">
+                {t("saveHint")}{" "}
+                <Link href="/registro?rol=alumno" className="text-primary underline-offset-4 hover:underline">
+                  {t("saveLink")}
+                </Link>
+              </p>
+            )}
           </div>
         </section>
       )}

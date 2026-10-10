@@ -203,3 +203,45 @@ export interface Lead {
   created_at: string;
   handled_at: string | null;
 }
+
+// ───────────────────── Mapa de Dominio guardado y tutor (fase 7) ─────────────────────
+export type EvidenciaKind =
+  | "autoevaluacion"
+  | "sesion"
+  | "ticket"
+  | "tutor"
+  | "quiz"
+  | "simulacro"
+  | "ajuste";
+
+export type CheckinKind = "checkin" | "llamada_familia";
+
+export interface Checkin {
+  id: string;
+  tutor_id: string;
+  student_id: string;
+  kind: CheckinKind;
+  scheduled_at: string;
+  topic: string | null;
+  notes: string | null;
+  done_at: string | null;
+  created_at: string;
+}
+
+// Fila de my_tutor_students() (cartera del tutor, sin datos de contacto).
+export interface TutorStudentRow {
+  student_id: string;
+  full_name: string | null;
+  mode: StudentMode;
+  is_minor: boolean;
+  has_family: boolean;
+  active_days_7: number;
+  last_active: string | null;
+  next_checkin: string | null;
+  next_exam: string | null;
+  next_exam_code: string | null;
+  ra_rojos: number;
+  ra_total: number;
+  last_overall: RaStatus | null;
+  last_report: string | null;
+}

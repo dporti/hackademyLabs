@@ -20,6 +20,7 @@ import {
 import { ActionButton } from "@/components/consumo/action-button";
 import { NewBookingForm } from "@/components/consumo/new-booking-form";
 import { BookingStatusBadge } from "@/components/consumo/status-badge";
+import { Link } from "@/i18n/navigation";
 
 // Sesiones 1:1 y flash (F2.1). Alumno: solicitar + sus reservas. Mentor: solicitudes
 // pendientes, próximas y historial. La sala (meeting_url) solo la ven las partes.
@@ -226,6 +227,14 @@ async function BookingList({
                           variant="outline"
                         />
                       </>
+                    )}
+                    {viewer === "mentor" && b.modulo && ((b.status === "confirmada" && empezada) || b.status === "hecha") && (
+                      <Link
+                        href={`/panel/sesiones/${b.id}/mapa`}
+                        className="inline-flex h-10 items-center rounded-[10px] border border-border px-4 text-sm font-semibold hover:border-primary"
+                      >
+                        {t("updateMap")}
+                      </Link>
                     )}
                     {viewer === "mentor" && b.status === "confirmada" && empezada && (
                       <ActionButton

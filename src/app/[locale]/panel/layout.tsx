@@ -33,17 +33,23 @@ async function PanelNav({ locale }: { locale: string }) {
 
   if (role === "alumno") {
     const sb = await createClient();
+    // Abrir el panel cuenta como día activo (días/semana del tutor, racha).
     const [saldo, pendientes] = await Promise.all([
       sb.rpc("my_credit_balance"),
       getPendientesAlumno(session.user.id),
+      sb.rpc("touch_activity"),
     ]);
     items.push(
+      { href: "/panel/mapa", label: t("items.mapa") },
       { href: "/panel/tickets", label: t("items.tickets"), badge: pendientes.ticketsRespondidos },
       { href: "/panel/sesiones", label: t("items.sesiones"), badge: pendientes.sesionesProximas },
       { href: "/panel/creditos", label: t("items.creditos") },
     );
     const n = (saldo.data as number | null) ?? 0;
     balance = { label: t("balance"), value: t("balanceValue", { n }), cta: t("recharge") };
+  } else if (role === "tutor_referencia") {
+    items[0] = { href: "/panel", label: t("items.cartera") };
+    items.push({ href: "/panel/checkins", label: t("items.checkins") });
   } else if (role === "mentor") {
     items.push(
       { href: "/panel/tickets", label: t("items.bolsa") },
@@ -52,7 +58,7 @@ async function PanelNav({ locale }: { locale: string }) {
   }
 
   return (
-    <div data-accent={role === "familia" ? "tutor" : undefined}>
+    <div data-accent={role === "familia" || role === "tutor_referencia" ? "tutor" : undefined}>
       <AppShellNav
         roleLabel={t(`role.${role}`)}
         items={items}
