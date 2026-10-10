@@ -21,6 +21,7 @@ import { ActionButton } from "@/components/consumo/action-button";
 import { NewBookingForm } from "@/components/consumo/new-booking-form";
 import { BookingStatusBadge } from "@/components/consumo/status-badge";
 import { Link } from "@/i18n/navigation";
+import { Resumen } from "@/components/aula/resumen";
 
 // Sesiones 1:1 y flash (F2.1). Alumno: solicitar + sus reservas. Mentor: solicitudes
 // pendientes, próximas y historial. La sala (meeting_url) solo la ven las partes.
@@ -200,15 +201,23 @@ async function BookingList({
                       </span>
                     </p>
                     {b.note && <p className="mt-1 text-sm whitespace-pre-wrap text-muted-foreground">{b.note}</p>}
-                    {b.status === "confirmada" && b.meeting_url && !terminada && (
-                      <a
-                        href={b.meeting_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-3 inline-flex min-h-10 items-center rounded-[10px] bg-primary px-4 text-sm font-bold text-primary-foreground hover:bg-primary/85"
+                    {b.summary && (
+                      <details className="mt-2">
+                        <summary className="min-h-10 cursor-pointer text-sm font-semibold text-primary">{t("sessionSummary")}</summary>
+                        <Resumen texto={b.summary} />
+                      </details>
+                    )}
+                    {(b.status === "confirmada" || b.status === "hecha") && (
+                      <Link
+                        href={`/panel/aula/${b.id}`}
+                        className={
+                          b.status === "confirmada" && !terminada
+                            ? "mt-3 inline-flex min-h-10 items-center rounded-[10px] bg-primary px-4 text-sm font-bold text-primary-foreground hover:bg-primary/85"
+                            : "mt-3 inline-flex min-h-10 items-center text-sm font-semibold text-primary hover:underline"
+                        }
                       >
-                        {t("joinRoom")} →
-                      </a>
+                        {b.status === "confirmada" && !terminada ? t("joinRoom") : t("openAula")} →
+                      </Link>
                     )}
                   </div>
                   <div className="flex flex-wrap gap-2">

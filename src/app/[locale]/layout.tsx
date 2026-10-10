@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BitChat } from "@/components/bit/bit-chat";
+import { PwaRegister } from "@/components/pwa-register";
 import "../globals.css";
 
 // Títulos: Space Grotesk.
@@ -37,8 +38,13 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
     title: { default: t("metaTitle"), template: `%s · ${t("appName")}` },
     description: t("metaDescription"),
     applicationName: t("appName"),
+    // PWA (fase 9): instalable en el móvil (manifest en app/manifest.ts).
+    appleWebApp: { capable: true, title: "Checkpoint", statusBarStyle: "black-translucent" },
+    icons: { icon: "/icons/icon.svg", apple: "/icons/apple-touch-icon.png" },
   };
 }
+
+export const viewport: Viewport = { themeColor: "#07080f" };
 
 // Pre-genera las rutas estáticas por idioma (SEO).
 export function generateStaticParams() {
@@ -66,6 +72,7 @@ export default async function LocaleLayout({
           {children}
           <SiteFooter />
           <BitChat />
+          <PwaRegister />
         </NextIntlClientProvider>
       </body>
     </html>

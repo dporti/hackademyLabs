@@ -1295,7 +1295,9 @@
     "mentorTicketsSubtitle": "Dubtes dels mòduls que imparteixes: agafa els que puguis respondre a temps.",
     "mentorSessionsSubtitle": "Sol·licituds dels teus alumnes i sessions programades.",
     "question": "Pregunta",
-    "updateMap": "Actualitzar el seu Mapa"
+    "updateMap": "Actualitzar el seu Mapa",
+    "openAula": "Obrir l'aula",
+    "sessionSummary": "Resum de la sessió"
   },
   "cancelPolicy": {
     "metaTitle": "Política de cancel·lació",
@@ -2375,5 +2377,71 @@
     "rewarded": "+20 cr",
     "pending": "Registrat · encara no ha comprat",
     "cap": "Màxim 200 crèdits per invitacions al trimestre. Els crèdits caduquen als 12 mesos."
+  },
+  "pwa": {
+    "description": "FP d'informàtica: el teu Mapa de Domini, Bit i el teu mentor, a la butxaca.",
+    "shortcutBit": "Bit · tutor IA",
+    "shortcutMapa": "Mapa de Domini",
+    "shortcutTickets": "Tiquets"
+  },
+  "aula": {
+    "title": "Aula",
+    "back": "Tornar a sessions",
+    "mentor": "Mentor",
+    "student": "Alumne",
+    "withStudent": "amb {name}",
+    "withMentor": "amb el teu mentor {name}",
+    "notYet": "L'aula obre {n} minuts abans de la sessió.",
+    "closed": "Aquesta aula ja s'ha tancat.",
+    "windowHelp": "Només hi entreu tu i l'altra persona de la reserva, des de 15 minuts abans fins a 30 minuts després del final.",
+    "videoAria": "Videotrucada de la sessió",
+    "provider": {
+      "daily": "Videotrucada privada: només hi entreu vosaltres dos.",
+      "jitsi": "Videotrucada provisional (Jitsi) amb sala aleatòria només per a vosaltres. Si et demana iniciar sessió, fes servir «Sóc l'amfitrió» o espera l'altra persona."
+    },
+    "noVideo": "No hi ha videotrucada per a aquesta sessió. Feu servir l'editor i la pissarra, o aviseu l'equip.",
+    "doneNote": "Sessió feta. L'editor, la pissarra i els fitxers continuen aquí per repassar.",
+    "editorTitle": "Editor compartit",
+    "language": "Llenguatge",
+    "examOn": "Mode Examen · sense enganxar · sense IA",
+    "examStart": "Activar Mode Examen",
+    "examOff": "Sortir del Mode Examen",
+    "examHelp": "Mode Examen: escriu-ho tu, sense enganxar codi. En acabar, explica-ho al teu mentor.",
+    "editorHelp": "El que escriu un ho veu l'altre a l'instant. Tab insereix dos espais.",
+    "pasteBlocked": "En Mode Examen no es pot enganxar: escriu-ho tu.",
+    "save": {
+      "ok": "Desat",
+      "guardando": "Desant…",
+      "error": "No s'ha desat"
+    },
+    "boardTitle": "Pissarra",
+    "boardAria": "Pissarra compartida: dibuixa amb el ratolí, el dit o un llapis",
+    "boardClear": "Esborrar-ho tot",
+    "color": "Color {c}",
+    "filesTitle": "Fitxers de la sessió",
+    "upload": "Pujar fitxer (màx. 10 MB)",
+    "uploading": "Pujant…",
+    "fileTooBig": "El fitxer passa de 10 MB.",
+    "fileError": "No s'ha pogut pujar.",
+    "filesEmpty": "Encara no hi ha fitxers.",
+    "filesNote": "Només els veieu vosaltres dos. No pugis dades personals de ningú.",
+    "mentorTools": "Per al mentor",
+    "explainHelp": "En acabar un exercici, demana-li que t'ho expliqui amb les seves paraules («Explica-m'ho tu»). Si ho fa bé, posa-li el segell «Ho entenc» al seu Mapa.",
+    "notesLabel": "Les teves notes de la sessió",
+    "notesPlaceholder": "Què heu vist, on s'encalla, què ha de practicar…",
+    "summarize": "Resum amb Bit per a l'alumne",
+    "summarizing": "Bit està redactant…",
+    "summarySaved": "Resum desat: l'alumne ja el veu.",
+    "summaryTitle": "Resum de la sessió",
+    "privacy": "Les sessions no s'enregistren.",
+    "errors": {
+      "notesShort": "Escriu almenys una frase de notes.",
+      "needLogin": "Torna a entrar amb el teu compte.",
+      "notAllowed": "Només el mentor d'aquesta sessió ho pot fer.",
+      "noKey": "Bit encara no està activat en aquest web.",
+      "rateLimited": "Massa resums seguits. Prova-ho d'aquí a una estona.",
+      "busy": "Bit està molt ocupat. Prova-ho d'aquí a uns segons.",
+      "generic": "No s'ha pogut generar el resum. Torna-ho a provar."
+    }
   }
 }

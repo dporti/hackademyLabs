@@ -1295,7 +1295,9 @@
     "mentorTicketsSubtitle": "Dudas de los módulos que impartes: coge las que puedas responder a tiempo.",
     "mentorSessionsSubtitle": "Solicitudes de tus alumnos y sesiones programadas.",
     "question": "Pregunta",
-    "updateMap": "Actualizar su Mapa"
+    "updateMap": "Actualizar su Mapa",
+    "openAula": "Abrir el aula",
+    "sessionSummary": "Resumen de la sesión"
   },
   "cancelPolicy": {
     "metaTitle": "Política de cancelación",
@@ -2375,5 +2377,71 @@
     "rewarded": "+20 cr",
     "pending": "Registrado · aún no ha comprado",
     "cap": "Máximo 200 créditos por invitaciones al trimestre. Los créditos caducan a los 12 meses."
+  },
+  "pwa": {
+    "description": "FP de informática: tu Mapa de Dominio, Bit y tu mentor, en el bolsillo.",
+    "shortcutBit": "Bit · tutor IA",
+    "shortcutMapa": "Mapa de Dominio",
+    "shortcutTickets": "Tickets"
+  },
+  "aula": {
+    "title": "Aula",
+    "back": "Volver a sesiones",
+    "mentor": "Mentor",
+    "student": "Alumno",
+    "withStudent": "con {name}",
+    "withMentor": "con tu mentor {name}",
+    "notYet": "El aula abre {n} minutos antes de la sesión.",
+    "closed": "Esta aula ya se ha cerrado.",
+    "windowHelp": "Solo entráis tú y la otra persona de la reserva, desde 15 minutos antes hasta 30 minutos después del final.",
+    "videoAria": "Videollamada de la sesión",
+    "provider": {
+      "daily": "Videollamada privada: solo entráis los dos.",
+      "jitsi": "Videollamada provisional (Jitsi) con sala aleatoria solo para vosotros. Si te pide iniciar sesión, usa «Soy el anfitrión» o espera a la otra persona."
+    },
+    "noVideo": "No hay videollamada para esta sesión. Usad el editor y la pizarra, o avisad al equipo.",
+    "doneNote": "Sesión hecha. El editor, la pizarra y los ficheros siguen aquí para repasar.",
+    "editorTitle": "Editor compartido",
+    "language": "Lenguaje",
+    "examOn": "Modo Examen · sin pegar · sin IA",
+    "examStart": "Activar Modo Examen",
+    "examOff": "Salir del Modo Examen",
+    "examHelp": "Modo Examen: escribe tú, sin pegar código. Al terminar, explícaselo a tu mentor.",
+    "editorHelp": "Lo que escribe uno lo ve el otro al momento. Tab inserta dos espacios.",
+    "pasteBlocked": "En Modo Examen no se puede pegar: escríbelo tú.",
+    "save": {
+      "ok": "Guardado",
+      "guardando": "Guardando…",
+      "error": "No se ha guardado"
+    },
+    "boardTitle": "Pizarra",
+    "boardAria": "Pizarra compartida: dibuja con el ratón, el dedo o un lápiz",
+    "boardClear": "Borrar todo",
+    "color": "Color {c}",
+    "filesTitle": "Ficheros de la sesión",
+    "upload": "Subir fichero (máx. 10 MB)",
+    "uploading": "Subiendo…",
+    "fileTooBig": "El fichero pasa de 10 MB.",
+    "fileError": "No se ha podido subir.",
+    "filesEmpty": "Aún no hay ficheros.",
+    "filesNote": "Solo los veis vosotros dos. No subas datos personales de nadie.",
+    "mentorTools": "Para el mentor",
+    "explainHelp": "Al acabar un ejercicio, pídele que te lo explique con sus palabras («Explícamelo tú»). Si lo hace bien, ponle el sello «Lo entiendo» en su Mapa.",
+    "notesLabel": "Tus notas de la sesión",
+    "notesPlaceholder": "Qué habéis visto, en qué se atasca, qué tiene que practicar…",
+    "summarize": "Resumen con Bit para el alumno",
+    "summarizing": "Bit está redactando…",
+    "summarySaved": "Resumen guardado: el alumno ya lo ve.",
+    "summaryTitle": "Resumen de la sesión",
+    "privacy": "Las sesiones no se graban.",
+    "errors": {
+      "notesShort": "Escribe al menos una frase de notas.",
+      "needLogin": "Vuelve a entrar con tu cuenta.",
+      "notAllowed": "Solo el mentor de esta sesión puede hacerlo.",
+      "noKey": "Bit aún no está activado en esta web.",
+      "rateLimited": "Demasiados resúmenes seguidos. Prueba en un rato.",
+      "busy": "Bit está muy ocupado. Prueba en unos segundos.",
+      "generic": "No se ha podido generar el resumen. Inténtalo de nuevo."
+    }
   }
 }

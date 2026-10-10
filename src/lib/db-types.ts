@@ -175,6 +175,9 @@ export interface Booking {
   note: string | null;
   meeting_url: string | null;
   cancelled_by: string | null;
+  aula_room?: string | null; // sala de Daily (fase 9)
+  summary?: string | null; // resumen de la sesión (Bit + mentor)
+  summary_at?: string | null;
   created_at: string;
 }
 

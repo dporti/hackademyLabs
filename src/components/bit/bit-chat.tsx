@@ -92,8 +92,8 @@ export function BitChat() {
   }
 
   const sugerencias = ["s1", "s2", "s3"] as const;
-  // En /panel/bit ya está el chat completo: el flotante sobra.
-  if (pathname.startsWith("/panel/bit")) return null;
+  // En /panel/bit ya está el chat completo; en el aula no hay IA (Modo Examen).
+  if (pathname.startsWith("/panel/bit") || pathname.startsWith("/panel/aula")) return null;
 
   return (
     <>
