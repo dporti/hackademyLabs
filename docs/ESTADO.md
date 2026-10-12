@@ -13,6 +13,8 @@ acompañamiento a familias).
 identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reservas) y política de cancelación.
 **"Fusión del diseño"** (Checkpoint Academy) cerrada: fases 0–9, incluido el backend nuevo
 (Mapa guardado, tutor, logros, Bit en el panel, referidos, aula integrada y PWA).
+**Agenda y emparejamiento** (2026-10-12): fases A–D hechas y verificadas (agenda del mentor, disponibilidad del
+alumno y «Mentores para ti», avisos + «Avísame» + demanda, ofertas de hueco). Falta la fase E (email y push).
 Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta de Anthropic no tiene saldo
 (Bit, quiz y resumen devuelven «credit balance is too low»).
 
@@ -338,7 +340,7 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
   - Usuarios de prueba visuales: `test.visual.f7alumna`, `test.visual.f7tutor`, `test.visual.f7mentora`
     (@tutor247.dev, contraseña de los demás usuarios de prueba) con Mapa, tutor asignado y una reserva.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
-  2026-10-12 (agenda y emparejamiento, fases A y B, incluidas).
+  2026-10-12 (agenda y emparejamiento, fases A–D, incluidas).
 
 ## 3. En curso
 - **Agenda y emparejamiento — Fase A (agenda del mentor)** · 2026-10-12 · `a80608f`; migración aplicada,
@@ -395,9 +397,10 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE: Agenda y emparejamiento** (antes de Vercel), por fases: A agenda del mentor + reserva por huecos
-   (en curso) → B franjas del alumno + «Mentores para ti» + filtro en /mentores → C notificaciones en la web
+   (hecha) → B franjas del alumno + «Mentores para ti» + filtro en /mentores → C notificaciones en la web
    (campana, Realtime) + «Avísame» (con y sin cuenta) + «Demanda en tus módulos» + cifras agregadas en la web
-   pública → D el mentor ofrece hueco al alumno que espera → E email (Resend) y push.
+   pública → D el mentor ofrece hueco al alumno que espera (A–D hechas 2026-10-12) → **E email (Resend) y push**
+   (necesita dominio propio + cuenta de Resend; enviará también las alertas sin cuenta guardadas).
    Después: Vercel → legal → Stripe real.
    **Hecho antes: fase "Fusión del diseño"** (Checkpoint Academy, referencia
    `docs/diseno/DISENO.md`; prompts por fase en `docs/diseno/PROMPTS.md`). Cada fase cierra con
