@@ -378,8 +378,9 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
   - Web pública: caja «Avísame» en `/modulos/[code]` y `/mentores` sin resultados, bloque informativo en
     `/mentores`, «Módulos con alumnos esperando mentor» (`public_demand`, solo cifras) en `/hazte-mentor`.
   - Los avisos por email (alertas sin cuenta) quedan guardados con `email_sent_at` vacío hasta la fase E.
-- **Fase D (ofertas de hueco)** · 2026-10-12 · código hecho (tsc + lint OK); **falta aplicar**
-  `supabase/migrations/20261012090400_ofertas.sql` y pasar `node scripts/verify-ofertas.mjs` (+ `verify-avisos`).
+- **Fase D (ofertas de hueco)** · 2026-10-12 · `595e154`; migración aplicada, `verify-ofertas.mjs` OK
+  (26/26) y sin regresión (avisos, consumo, agenda, match, roles, credits). Demo: `node scripts/oferta-demo.mjs`
+  (Laura ofrece a Marta un hueco de 0224; Marta lo ve en `/panel/sesiones#ofertas`). Revisión visual pendiente.
   - `slot_offer`: el mentor (verificado, del módulo) ofrece un hueco de SU agenda a una alerta abierta con cuenta
     (RPC `offer_slot`, máx. 10 pendientes, 1 por alerta; mensaje sin datos de contacto). Caduca a las 48 h o 3 h antes.
   - El alumno la ve en `/panel/sesiones#ofertas` (mentor, fecha, tipo, precio, mensaje) y acepta (servidor:
