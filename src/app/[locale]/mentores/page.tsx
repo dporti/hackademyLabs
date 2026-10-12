@@ -4,7 +4,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPathname, Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/brand/section-label";
 import { MentorCard } from "@/components/brand/mentor-card";
-import { getAllModulos, getMentores, getMentoresConHueco } from "@/lib/catalog";
+import { MIN_RESENAS_MEDIA, getAllModulos, getMentores, getMentoresConHueco, getValoraciones } from "@/lib/catalog";
+import { notaTarjeta } from "@/components/resenas/stars";
 import type { MentorLevel } from "@/lib/db-types";
 import { AlertBox } from "@/components/avisos/alert-box";
 import { AvisosInfo } from "@/components/avisos/avisos-info";
@@ -31,10 +32,12 @@ export default async function MentoresPage({ params, searchParams }: PageProps<"
   const str = (v: string | string[] | undefined) => (typeof v === "string" && v ? v : undefined);
   const t = await getTranslations("mentors");
   const hueco = str(sp.hueco) === "1";
-  const [mentores, modulos, conHueco] = await Promise.all([
+  const tr = await getTranslations("resenas");
+  const [mentores, modulos, conHueco, valoraciones] = await Promise.all([
     getMentores(),
     getAllModulos(),
     hueco ? getMentoresConHueco() : Promise.resolve([] as string[]),
+    getValoraciones(),
   ]);
 
   const modulo = modulos.find((m) => m.code === str(sp.modulo));
@@ -164,6 +167,7 @@ export default async function MentoresPage({ params, searchParams }: PageProps<"
                         ? { label: t("languages"), value: m.languages.map(nombreIdioma).join(" · ") }
                         : undefined
                     }
+                    rating={notaTarjeta(valoraciones[m.profile_id], locale, MIN_RESENAS_MEDIA, tr)}
                     viewLabel={t("viewProfile")}
                     bookLabel={t("book")}
                   />

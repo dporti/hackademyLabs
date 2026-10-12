@@ -21,7 +21,10 @@ import {
   getMentores,
   getModulosDiagnosticables,
   getModulosKiller,
+  getValoraciones,
+  MIN_RESENAS_MEDIA,
 } from "@/lib/catalog";
+import { notaTarjeta } from "@/components/resenas/stars";
 import type { ProductKind } from "@/lib/db-types";
 import { temaRa, temasDe } from "@/lib/temas";
 import { SITE_NAME, SITE_URL, seo } from "@/lib/seo";
@@ -83,11 +86,13 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   const tm = await getTranslations("mentors");
   const tr = await getTranslations("temasRa");
   const tt = await getTranslations("temas");
-  const [ciclos, killer, diagnosticables, mentores] = await Promise.all([
+  const trs = await getTranslations("resenas");
+  const [ciclos, killer, diagnosticables, mentores, valoraciones] = await Promise.all([
     getCiclosConModulos(),
     getModulosKiller(),
     getModulosDiagnosticables(),
     getMentores(),
+    getValoraciones(),
   ]);
   const nModulos = new Set(ciclos.flatMap((ci) => ci.ciclo_modulo.map((cm) => cm.modulo.code))).size;
 
@@ -539,6 +544,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
                     levelLabel={tm(`level.${m.level}`)}
                     headline={m.headline}
                     moduleCodes={m.modulos.map((mo) => mo.code)}
+                    rating={notaTarjeta(valoraciones[m.profile_id], locale, MIN_RESENAS_MEDIA, trs)}
                   />
                 ))}
               </div>

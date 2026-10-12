@@ -23,6 +23,7 @@ import { BookingStatusBadge } from "@/components/consumo/status-badge";
 import { Link } from "@/i18n/navigation";
 import { Resumen } from "@/components/aula/resumen";
 import { OfertasAlumno } from "@/components/avisos/ofertas-alumno";
+import { PendingReviews } from "@/components/resenas/pending-reviews";
 
 // Sesiones 1:1 y flash (F2.1). Alumno: solicitar + sus reservas. Mentor: solicitudes
 // pendientes, próximas y historial. La sala (meeting_url) solo la ven las partes.
@@ -69,6 +70,7 @@ export default async function SesionesPage({
     contenido = (
       <>
         <OfertasAlumno locale={locale} studentId={user.id} />
+        <PendingReviews locale={locale} studentId={user.id} />
         <section aria-labelledby="nueva" className="rounded-3xl border bg-card p-5 sm:p-7">
           <h2 id="nueva" className="mb-6 font-heading text-2xl font-bold">
             {t("newSessionTitle")}

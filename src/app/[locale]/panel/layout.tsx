@@ -62,6 +62,7 @@ async function PanelNav({ locale }: { locale: string }) {
       { href: "/panel/sesiones", label: t("items.sesiones") },
       { href: "/panel/agenda", label: t("items.agenda") },
       { href: "/panel/demanda", label: t("items.demanda") },
+      { href: "/panel/resenas", label: t("items.resenas") },
       { href: "/panel/materiales", label: t("items.materiales") },
     );
   } else if (role === "admin") {

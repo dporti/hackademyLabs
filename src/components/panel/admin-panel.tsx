@@ -10,6 +10,7 @@ import type { Lead, MentorLevel, MentorStatus } from "@/lib/db-types";
 import { AdminLeads } from "@/components/panel/admin-leads";
 import { AdminTutors } from "@/components/panel/admin-tutors";
 import type { AdminTutorData } from "@/lib/tutor";
+import { AdminResenas } from "@/components/resenas/admin-resenas";
 
 const LEVELS: MentorLevel[] = ["mentor", "pro", "experto"];
 
@@ -173,6 +174,7 @@ export async function AdminPanel({
         <p className="mt-1 mb-6 text-sm text-muted-foreground">{tr("help")}</p>
         <AdminReportForm locale={locale} students={reportStudents} defaultWeek={defaultWeek} />
       </section>
+      <AdminResenas locale={locale} />
     </div>
   );
 }

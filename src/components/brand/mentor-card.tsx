@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import type { MentorLevel } from "@/lib/db-types";
+import { Stars } from "@/components/resenas/stars";
 
 // Iniciales para el avatar (sin foto todavía).
 export function iniciales(name: string | null) {
@@ -24,6 +25,7 @@ export function MentorCard({
   session,
   bookLabel,
   viewLabel,
+  rating,
 }: {
   id: string;
   name: string | null;
@@ -35,6 +37,8 @@ export function MentorCard({
   session?: { label: string; value: string };
   bookLabel?: string;
   viewLabel?: string;
+  /** Nota media ya formateada (solo si hay reseñas suficientes). */
+  rating?: { value: number; text: string; label: string };
 }) {
   return (
     <article className="card-interactive relative flex flex-col rounded-2xl border bg-card p-5">
@@ -59,6 +63,12 @@ export function MentorCard({
           >
             {levelLabel}
           </p>
+          {rating && (
+            <p className="mt-1 flex items-center gap-1.5 text-xs">
+              <Stars value={rating.value} label={rating.label} />
+              <span className="font-mono text-muted-foreground">{rating.text}</span>
+            </p>
+          )}
         </div>
       </div>
       {headline && <p className="mt-3 text-sm text-muted-foreground">{headline}</p>}

@@ -5,7 +5,16 @@ import { Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/brand/section-label";
 import { iniciales } from "@/components/brand/mentor-card";
 import { Suspense } from "react";
-import { getMentorById, getMentorIds, getProximosHuecos, getTarifasPublicas } from "@/lib/catalog";
+import {
+  MIN_RESENAS_MEDIA,
+  getMentorById,
+  getMentorIds,
+  getProximosHuecos,
+  getTarifasPublicas,
+  getValoraciones,
+} from "@/lib/catalog";
+import { MentorReviewsPublic } from "@/components/resenas/mentor-reviews-public";
+import { Stars, formatoNota } from "@/components/resenas/stars";
 import { NextSlots } from "@/components/agenda/next-slots";
 import type { ProductKind } from "@/lib/db-types";
 import { seo } from "@/lib/seo";
@@ -24,23 +33,27 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/mentores/[id]">) {
   const { id, locale } = await params;
-  const m = await getMentorById(id);
+  const [m, valoraciones] = await Promise.all([getMentorById(id), getValoraciones()]);
   if (!m) return {};
   const t = await getTranslations({ locale, namespace: "mentors" });
+  const tr = await getTranslations({ locale, namespace: "resenas" });
+  const v = valoraciones[id];
+  // Con 3+ reseñas, la nota abre la descripción: «★ 4,8 · 12 reseñas verificadas.»
+  const nota = v && v.reviews >= MIN_RESENAS_MEDIA ? `${tr("metaRating", { n: formatoNota(v.rating, locale), count: v.reviews })} ` : "";
   const tmeta = await getTranslations({ locale, namespace: "seo.meta" });
   const modulos = m.modulos.map((x) => x.code).join(", ");
   return seo({
     locale,
     path: `/mentores/${id}`,
     title: `${m.full_name} — ${m.headline ?? t(`level.${m.level}`)}`,
-    description: m.bio ?? tmeta("mentorDescription", { name: m.full_name ?? "", modulos }),
+    description: nota + (m.bio ?? tmeta("mentorDescription", { name: m.full_name ?? "", modulos })),
   });
 }
 
 export default async function MentorPage({ params }: PageProps<"/[locale]/mentores/[id]">) {
   const { locale, id } = await params;
   setRequestLocale(locale);
-  const [m, tarifas] = await Promise.all([getMentorById(id), getTarifasPublicas()]);
+  const [m, tarifas, valoraciones] = await Promise.all([getMentorById(id), getTarifasPublicas(), getValoraciones()]);
   if (!m) notFound();
 
   const t = await getTranslations("mentors");
@@ -49,6 +62,9 @@ export default async function MentorPage({ params }: PageProps<"/[locale]/mentor
   );
 
   const ts = await getTranslations("seo");
+  const tr = await getTranslations("resenas");
+  const valoracion = valoraciones[m.profile_id];
+  const conMedia = valoracion && valoracion.reviews >= MIN_RESENAS_MEDIA;
 
   return (
     <main className="flex-1">
@@ -99,6 +115,17 @@ export default async function MentorPage({ params }: PageProps<"/[locale]/mentor
                   <div className="flex gap-2">
                     <dt className="text-label">{t("responds")}</dt>
                     <dd className="font-mono">{t("respondsValue", { min: m.response_time_minutes })}</dd>
+                  </div>
+                )}
+                {conMedia && (
+                  <div className="flex items-center gap-2">
+                    <dt className="sr-only">{tr("publicTitle")}</dt>
+                    <dd className="flex items-center gap-2">
+                      <Stars value={valoracion.rating} label={tr("averageAria", { n: formatoNota(valoracion.rating, locale) })} />
+                      <a href="#resenas" className="font-mono hover:text-primary">
+                        {formatoNota(valoracion.rating, locale)} · {tr("count", { n: valoracion.reviews })}
+                      </a>
+                    </dd>
                   </div>
                 )}
                 {idiomas.length > 0 && (
@@ -154,6 +181,8 @@ export default async function MentorPage({ params }: PageProps<"/[locale]/mentor
               </ul>
             </section>
           )}
+
+          <MentorReviewsPublic mentorId={m.profile_id} mentorName={m.full_name} locale={locale} valoracion={valoracion} />
         </div>
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">

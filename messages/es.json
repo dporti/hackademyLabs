@@ -1870,7 +1870,8 @@
       "materiales": "Banco de material",
       "agenda": "Mi agenda",
       "disponibilidad": "Disponibilidad",
-      "demanda": "Demanda"
+      "demanda": "Demanda",
+      "resenas": "Reseñas"
     },
     "balance": "Saldo",
     "balanceValue": "{n} créditos",
@@ -2676,7 +2677,10 @@
       "ticket_reply": "{n, plural, one {Nueva respuesta} other {# respuestas nuevas}} en tu ticket de {modulo}.",
       "slot_offer": "{mentor} te ofrece una sesión de {modulo} el {when}.",
       "offer_accepted": "Han aceptado tu hueco de {modulo} del {when}. Sesión confirmada.",
-      "offer_declined": "El alumno no puede tu hueco de {modulo} del {when}."
+      "offer_declined": "El alumno no puede tu hueco de {modulo} del {when}.",
+      "review_request": "¿Qué tal tu sesión de {modulo}? Valora a tu mentor: ayuda a otros alumnos a elegir.",
+      "review_new": "{n, plural, one {Tienes una reseña nueva} other {Tienes # reseñas nuevas}} de {modulo}.",
+      "review_reply": "Tu mentor ha respondido a tu reseña de {modulo}."
     }
   },
   "ofertas": {
@@ -3010,6 +3014,85 @@
     "grade": {
       "medio": "FP de Grado Medio",
       "superior": "FP de Grado Superior"
+    }
+  },
+  "resenas": {
+    "studentTitle": "Valora a tus mentores",
+    "studentHelp": "Solo pueden opinar quienes han tenido una sesión o un ticket con el mentor. Tu reseña ayuda a otros alumnos a elegir bien.",
+    "pendingItem": "{mentor} · {modulo}",
+    "source": {
+      "sesion": "Sesión",
+      "ticket": "Ticket"
+    },
+    "ratingLegend": "¿Cómo fue?",
+    "starN": "{n, plural, one {# estrella} other {# estrellas}}",
+    "scale": {
+      "1": "Mal",
+      "2": "Regular",
+      "3": "Bien",
+      "4": "Muy bien",
+      "5": "Excelente"
+    },
+    "commentLabel": "Cuéntalo (opcional)",
+    "commentPlaceholder": "¿Qué te ayudó? ¿Lo recomendarías para este módulo?",
+    "commentHelp": "Es público. No pongas datos de contacto: se tachan solos.",
+    "anonymous": "Publicar como anónimo (no se verá tu nombre)",
+    "forcedAnon": "Se publicará como anónimo: en menores de edad y cuentas de familia nunca mostramos el nombre.",
+    "submit": "Publicar reseña",
+    "redacted": "Hemos tachado datos de contacto.",
+    "ok": {
+      "created": "¡Gracias! Tu reseña ya está publicada.",
+      "replied": "Respuesta guardada.",
+      "reported": "Denuncia enviada.",
+      "deleted": "Reseña borrada."
+    },
+    "errors": {
+      "invalidRating": "Elige de 1 a 5 estrellas.",
+      "invalidText": "El texto es demasiado largo.",
+      "notEligible": "Solo puedes valorar sesiones hechas o tickets respondidos.",
+      "tooLate": "Han pasado más de 60 días: ya no se puede valorar.",
+      "alreadyReviewed": "Ya has valorado esta sesión o ticket.",
+      "notFound": "No encontramos esa reseña.",
+      "generic": "No se ha podido guardar. Inténtalo de nuevo."
+    },
+    "mineTitle": "Tus reseñas",
+    "hiddenNote": "Oculta por moderación.",
+    "delete": "Borrar",
+    "deleteConfirm": "Sí, borrar mi reseña",
+    "anonymousAuthor": "Alumno/a anónimo/a",
+    "ratingAria": "{n} de 5 estrellas",
+    "averageAria": "Nota media: {n} de 5",
+    "count": "{n, plural, one {# reseña} other {# reseñas}}",
+    "replyTitle": "Respuesta del mentor",
+    "replyFrom": "Respuesta de {name}",
+    "mentorTitle": "Reseñas",
+    "mentorSubtitle": "Lo que opinan tus alumnos. Puedes responder una vez a cada reseña (y editarla) o denunciarla si incumple las normas.",
+    "belowMin": "{n, plural, =0 {Aún no tienes reseñas.} one {Tienes # reseña.} other {Tienes # reseñas.}} La nota media se muestra a partir de {min}.",
+    "seePublic": "Ver cómo se ve en tu ficha pública →",
+    "mentorEmpty": "Cuando tus alumnos te valoren, las verás aquí. Les pedimos su opinión al marcar una sesión como hecha.",
+    "hiddenByAdmin": "Oculta por moderación: no se ve en tu ficha.",
+    "replyLabel": "Responder públicamente",
+    "editReply": "Editar tu respuesta (vacía = quitarla)",
+    "replySubmit": "Guardar respuesta",
+    "report": "Denunciar esta reseña",
+    "reportReason": "Motivo (insultos, datos personales, no fue tu alumno…)",
+    "reportSubmit": "Enviar denuncia",
+    "reportedNote": "Denunciada: el equipo la revisará.",
+    "publicLabel": "Opiniones",
+    "publicTitle": "Reseñas de alumnos",
+    "verifiedNote": "Reseñas verificadas: solo de alumnos que han tenido una sesión o un ticket con este mentor.",
+    "publicEmpty": "Aún no tiene reseñas.",
+    "metaRating": "★ {n} · {count, plural, one {# reseña verificada} other {# reseñas verificadas}}.",
+    "admin": {
+      "title": "Reseñas denunciadas u ocultas",
+      "help": "Se publican al momento. Oculta las que incumplan las normas; restaura o descarta la denuncia si están bien.",
+      "empty": "No hay reseñas denunciadas ni ocultas.",
+      "mentor": "Mentor",
+      "reason": "Motivo de la denuncia",
+      "hidden": "Oculta",
+      "hide": "Ocultar",
+      "show": "Restaurar",
+      "dismiss": "Descartar denuncia"
     }
   }
 }

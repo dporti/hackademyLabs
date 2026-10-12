@@ -2,10 +2,12 @@
 -- parcial. SOLO toca objetos propios de Tutor247. No forma parte de las migraciones
 -- versionadas (que se aplican una vez cada una vía CLI/MCP).
 
+drop view if exists public.mentor_rating;
+drop view if exists public.mentor_review_public;
 drop view if exists public.mentor_public;
 
 drop table if exists
-  public.slot_offer, public.notification, public.module_alert, public.availability_off, public.availability, public.aula_stroke, public.aula_doc, public.xp_event, public.quiz, public.material, public.referral_code,
+  public.mentor_review, public.slot_offer, public.notification, public.module_alert, public.availability_off, public.availability, public.aula_stroke, public.aula_doc, public.xp_event, public.quiz, public.material, public.referral_code,
   public.student_activity, public.checkin, public.tutor_assignment, public.ra_evidence,
   public.ra_progress, public.lead, public.mentor_earning, public.ticket_message, public.product_price,
   public.mentor_payout, public.mentor_badge, public.badge, public.referral,
@@ -109,3 +111,9 @@ drop type if exists
 -- Va DESPUÉS de los drops: con credit_ledger aún presente, el borrado en cascada
 -- chocaría con el trigger de inmutabilidad del ledger.
 delete from auth.users where email like '%@tutor247.dev';
+drop function if exists public.review_author_name(text) cascade;
+drop function if exists public.create_review(uuid, uuid, uuid, int, text, boolean) cascade;
+drop function if exists public.delete_review(uuid, uuid) cascade;
+drop function if exists public.reply_review(uuid, uuid, text) cascade;
+drop function if exists public.report_review(uuid, uuid, text) cascade;
+drop function if exists public.my_reviewable() cascade;

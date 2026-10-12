@@ -1870,7 +1870,8 @@
       "materiales": "Banc de material",
       "agenda": "La meva agenda",
       "disponibilidad": "Disponibilitat",
-      "demanda": "Demanda"
+      "demanda": "Demanda",
+      "resenas": "Ressenyes"
     },
     "balance": "Saldo",
     "balanceValue": "{n} crèdits",
@@ -2676,7 +2677,10 @@
       "ticket_reply": "{n, plural, one {Nova resposta} other {# respostes noves}} al teu tiquet de {modulo}.",
       "slot_offer": "{mentor} t'ofereix una sessió de {modulo} el {when}.",
       "offer_accepted": "Han acceptat el teu forat de {modulo} del {when}. Sessió confirmada.",
-      "offer_declined": "L'alumne no pot el teu forat de {modulo} del {when}."
+      "offer_declined": "L'alumne no pot el teu forat de {modulo} del {when}.",
+      "review_request": "Com ha anat la sessió de {modulo}? Valora el teu mentor: ajuda altres alumnes a triar.",
+      "review_new": "{n, plural, one {Tens una ressenya nova} other {Tens # ressenyes noves}} de {modulo}.",
+      "review_reply": "El teu mentor ha respost la teva ressenya de {modulo}."
     }
   },
   "ofertas": {
@@ -3010,6 +3014,85 @@
     "grade": {
       "medio": "FP de Grau Mitjà",
       "superior": "FP de Grau Superior"
+    }
+  },
+  "resenas": {
+    "studentTitle": "Valora els teus mentors",
+    "studentHelp": "Només hi poden opinar els qui han tingut una sessió o un tiquet amb el mentor. La teva ressenya ajuda altres alumnes a triar bé.",
+    "pendingItem": "{mentor} · {modulo}",
+    "source": {
+      "sesion": "Sessió",
+      "ticket": "Tiquet"
+    },
+    "ratingLegend": "Com ha anat?",
+    "starN": "{n, plural, one {# estrella} other {# estrelles}}",
+    "scale": {
+      "1": "Malament",
+      "2": "Regular",
+      "3": "Bé",
+      "4": "Molt bé",
+      "5": "Excel·lent"
+    },
+    "commentLabel": "Explica-ho (opcional)",
+    "commentPlaceholder": "Què et va ajudar? El recomanaries per a aquest mòdul?",
+    "commentHelp": "És públic. No hi posis dades de contacte: es ratllen soles.",
+    "anonymous": "Publicar com a anònim (no es veurà el teu nom)",
+    "forcedAnon": "Es publicarà com a anònim: en menors d'edat i comptes de família mai no mostrem el nom.",
+    "submit": "Publicar la ressenya",
+    "redacted": "Hem ratllat dades de contacte.",
+    "ok": {
+      "created": "Gràcies! La teva ressenya ja està publicada.",
+      "replied": "Resposta desada.",
+      "reported": "Denúncia enviada.",
+      "deleted": "Ressenya esborrada."
+    },
+    "errors": {
+      "invalidRating": "Tria d'1 a 5 estrelles.",
+      "invalidText": "El text és massa llarg.",
+      "notEligible": "Només pots valorar sessions fetes o tiquets resposts.",
+      "tooLate": "Han passat més de 60 dies: ja no es pot valorar.",
+      "alreadyReviewed": "Ja has valorat aquesta sessió o tiquet.",
+      "notFound": "No trobem aquesta ressenya.",
+      "generic": "No s'ha pogut desar. Torna-ho a provar."
+    },
+    "mineTitle": "Les teves ressenyes",
+    "hiddenNote": "Amagada per moderació.",
+    "delete": "Esborrar",
+    "deleteConfirm": "Sí, esborra la meva ressenya",
+    "anonymousAuthor": "Alumne/a anònim/a",
+    "ratingAria": "{n} de 5 estrelles",
+    "averageAria": "Nota mitjana: {n} de 5",
+    "count": "{n, plural, one {# ressenya} other {# ressenyes}}",
+    "replyTitle": "Resposta del mentor",
+    "replyFrom": "Resposta de {name}",
+    "mentorTitle": "Ressenyes",
+    "mentorSubtitle": "El que opinen els teus alumnes. Pots respondre un cop cada ressenya (i editar-la) o denunciar-la si incompleix les normes.",
+    "belowMin": "{n, plural, =0 {Encara no tens ressenyes.} one {Tens # ressenya.} other {Tens # ressenyes.}} La nota mitjana es mostra a partir de {min}.",
+    "seePublic": "Mira com es veu a la teva fitxa pública →",
+    "mentorEmpty": "Quan els teus alumnes et valorin, les veuràs aquí. Els demanem l'opinió en marcar una sessió com a feta.",
+    "hiddenByAdmin": "Amagada per moderació: no es veu a la teva fitxa.",
+    "replyLabel": "Respondre públicament",
+    "editReply": "Edita la teva resposta (buida = treure-la)",
+    "replySubmit": "Desar la resposta",
+    "report": "Denunciar aquesta ressenya",
+    "reportReason": "Motiu (insults, dades personals, no va ser alumne teu…)",
+    "reportSubmit": "Enviar la denúncia",
+    "reportedNote": "Denunciada: l'equip la revisarà.",
+    "publicLabel": "Opinions",
+    "publicTitle": "Ressenyes d'alumnes",
+    "verifiedNote": "Ressenyes verificades: només d'alumnes que han tingut una sessió o un tiquet amb aquest mentor.",
+    "publicEmpty": "Encara no té ressenyes.",
+    "metaRating": "★ {n} · {count, plural, one {# ressenya verificada} other {# ressenyes verificades}}.",
+    "admin": {
+      "title": "Ressenyes denunciades o amagades",
+      "help": "Es publiquen al moment. Amaga les que incompleixin les normes; restaura-les o descarta la denúncia si estan bé.",
+      "empty": "No hi ha ressenyes denunciades ni amagades.",
+      "mentor": "Mentor",
+      "reason": "Motiu de la denúncia",
+      "hidden": "Amagada",
+      "hide": "Amagar",
+      "show": "Restaurar",
+      "dismiss": "Descartar la denúncia"
     }
   }
 }

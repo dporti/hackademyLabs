@@ -325,3 +325,49 @@ export async function getDemandaPublica(): Promise<{ modulo_code: string; modulo
   if (error) return [];
   return (data ?? []) as { modulo_code: string; modulo_name: string; waiting: number }[];
 }
+
+// ─────────────────────────────── Reseñas ───────────────────────────────
+// Solo las vistas públicas (sin datos del alumno salvo «Nombre I.»). Mismo tag que los
+// mentores: crear/responder/ocultar una reseña lo invalida.
+export const MIN_RESENAS_MEDIA = 3; // por debajo no se enseña la media (engaña)
+
+export type Valoracion = { reviews: number; rating: number };
+
+export async function getValoraciones(): Promise<Record<string, Valoracion>> {
+  "use cache";
+  cacheLife("minutes");
+  cacheTag(MENTORES_TAG);
+  const sb = createPublicClient();
+  const { data, error } = await sb.from("mentor_rating").select("mentor_id, reviews, rating");
+  if (error) return {};
+  return Object.fromEntries(
+    (data ?? []).map((r) => [r.mentor_id as string, { reviews: r.reviews as number, rating: Number(r.rating) }]),
+  );
+}
+
+export type ResenaPublica = {
+  id: string;
+  modulo_code: string | null;
+  source: "sesion" | "ticket";
+  rating: number;
+  comment: string | null;
+  author_name: string | null;
+  reply: string | null;
+  reply_at: string | null;
+  created_at: string;
+};
+
+export async function getResenasMentor(mentorId: string, n = 30): Promise<ResenaPublica[]> {
+  "use cache";
+  cacheLife("minutes");
+  cacheTag(MENTORES_TAG);
+  const sb = createPublicClient();
+  const { data, error } = await sb
+    .from("mentor_review_public")
+    .select("id, modulo_code, source, rating, comment, author_name, reply, reply_at, created_at")
+    .eq("mentor_id", mentorId)
+    .order("created_at", { ascending: false })
+    .limit(n);
+  if (error) return [];
+  return (data ?? []) as ResenaPublica[];
+}

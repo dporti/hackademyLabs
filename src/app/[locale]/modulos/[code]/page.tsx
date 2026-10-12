@@ -6,7 +6,8 @@ import { getPathname, Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/brand/section-label";
 import { ComingSoon } from "@/components/brand/coming-soon";
 import { MentorCard } from "@/components/brand/mentor-card";
-import { getModuloByCode, getAllModuloCodes, getMentoresByModulo } from "@/lib/catalog";
+import { MIN_RESENAS_MEDIA, getModuloByCode, getAllModuloCodes, getMentoresByModulo, getValoraciones } from "@/lib/catalog";
+import { notaTarjeta } from "@/components/resenas/stars";
 import type { ProductKind } from "@/lib/db-types";
 import { temaRa, temasDe } from "@/lib/temas";
 import { AlertBox } from "@/components/avisos/alert-box";
@@ -70,7 +71,8 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
     .filter((k) => te.has(`${modulo.code}.${k}.codigo`))
     .map((k) => ({ codigo: te(`${modulo.code}.${k}.codigo`), texto: te(`${modulo.code}.${k}.texto`) }));
   const diagnosticable = modulo.ra.length > 0;
-  const mentores = await getMentoresByModulo(modulo.id);
+  const [mentores, valoraciones] = await Promise.all([getMentoresByModulo(modulo.id), getValoraciones()]);
+  const trs = await getTranslations("resenas");
   const ciclosTxt = modulo.ciclo_modulo
     .map((cm) => `${cm.ciclo.code}${cm.curso ? ` · ${cm.curso}.º` : ""}`)
     .join(" / ");
@@ -370,6 +372,7 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
                 level={m.level}
                 levelLabel={tm(`level.${m.level}`)}
                 headline={m.headline}
+                rating={notaTarjeta(valoraciones[m.profile_id], locale, MIN_RESENAS_MEDIA, trs)}
               />
             ))}
           </div>

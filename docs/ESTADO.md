@@ -404,6 +404,21 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
   auth.users). **Datos del titular: de momento no se ponen** (decisión de David 2026-10-12) en `src/lib/legal.ts` (nombre/razón social, NIF, domicilio; email por
   `NEXT_PUBLIC_CONTACT_EMAIL`): hasta entonces las páginas muestran «[pendiente]» y un aviso.
   **Recomendado:** revisión por un profesional antes de abrir al público.
+- **Reseñas de mentores** · 2026-10-12 · migración `20261012090500_resenas.sql` aplicada; `verify-resenas` 32/32;
+  `verify-ofertas`, `verify-consumo`, `verify-avisos` OK; lint + build OK (sin revisar en navegador).
+  - Decisiones de David (2026-10-12): se publican **al momento** (contacto tachado en servidor; el mentor denuncia,
+    el admin oculta/restaura); nombre «Nombre I.» o anónimo (forzado en menores y modo Familia); el mentor
+    responde **una vez** (editable); la media se enseña **desde 3 reseñas** (`MIN_RESENAS_MEDIA`).
+  - Solo reseña quien tuvo sesión «hecha» o ticket respondido con ese mentor, una vez por sesión/ticket, ≤60 días.
+    RPC solo de servidor (`create_review`, `delete_review`, `reply_review`, `report_review`) para que el texto pase
+    siempre por `redactContact`; `my_reviewable()` para el alumno. Web pública solo lee las vistas
+    `mentor_review_public` (sin student_id) y `mentor_rating`.
+  - Avisos: `review_request` al marcar una sesión hecha, `review_new` (agrupado) al mentor, `review_reply` al alumno.
+  - UI: `/panel/sesiones#resenas` (pendientes + las suyas, borrar con confirmación), `/panel/resenas` (mentor:
+    media, responder, denunciar), sección en el panel de admin, bloque «Reseñas de alumnos» en `/mentores/[id]` y
+    estrellas en las tarjetas (portada, /mentores, módulo). SEO: la nota abre la meta description de la ficha
+    (sin marcado AggregateRating: Google no lo muestra para personas).
+  - Pendiente: aviso para valorar al cerrar un ticket; editar la reseña (hoy solo borrar).
 - **SEO técnico y metadatos** · 2026-10-12 · lint + tsc + build OK; revisado el HTML servido (`next start`).
   - `src/lib/seo.ts`: `SITE_URL` (`NEXT_PUBLIC_SITE_URL` → URL de producción de Vercel → localhost), `seo()` por página
     = canonical + hreflang es/ca/x-default + Open Graph + Twitter; `recorta()` deja la descripción en ≤155 caracteres.
