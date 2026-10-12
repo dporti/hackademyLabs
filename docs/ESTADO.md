@@ -419,6 +419,10 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
     estrellas en las tarjetas (portada, /mentores, módulo). SEO: la nota abre la meta description de la ficha
     (sin marcado AggregateRating: Google no lo muestra para personas).
   - Pendiente: aviso para valorar al cerrar un ticket; editar la reseña (hoy solo borrar).
+  - **Reseñas de EJEMPLO cargadas** (2026-10-12, `scripts/resenas-demo.mjs`): 10 reseñas de 6 alumnos de demo
+    (`test.demo.resenaN@tutor247.dev`) en Laura Gómez (5, media 4,6), Marc Soler (3, media 4,3) y Laura Visual (2, sin
+    media, una denunciada); Marta tiene una sesión hecha con Laura Visual sin valorar. **NO son reales: borrarlas antes de
+    abrir al público** con `node scripts/resenas-demo.mjs --borrar` (regla: sin testimonios inventados).
 - **SEO técnico y metadatos** · 2026-10-12 · lint + tsc + build OK; revisado el HTML servido (`next start`).
   - `src/lib/seo.ts`: `SITE_URL` (`NEXT_PUBLIC_SITE_URL` → URL de producción de Vercel → localhost), `seo()` por página
     = canonical + hreflang es/ca/x-default + Open Graph + Twitter; `recorta()` deja la descripción en ≤155 caracteres.
