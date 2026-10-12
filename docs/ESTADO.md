@@ -477,7 +477,9 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
   → Stripe real → deploy en Vercel → legal (aviso legal, RGPD, cookies, términos).
 
 ## 3. En curso
-- Nada en curso (2026-10-12). Siguiente: elegir en «Próximos pasos».
+- **Web publicada en Vercel** (2026-10-12). Falta comprobar: `NEXT_PUBLIC_SITE_URL` con la URL de Vercel, Supabase
+  Auth (Site URL + Redirect URLs) y probar registro/login en producción. La BD es la misma que en local.
+- Nada más en curso (2026-10-12). Siguiente: elegir en «Próximos pasos».
 
 ## 4. Próximos pasos (orden de prioridad)
 0. **SIGUIENTE (lo elige David)** — actualizado 2026-10-12. Hecho hasta aquí: fusión del diseño (fases 0–9),
@@ -487,7 +489,8 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
    b. **Baja de cuenta automática (RGPD)**: botón «Eliminar mi cuenta» en el panel + borrado/anonimizado en BD (hoy es
       por email y manual). Conviene antes de abrir al público.
    c. **Reseñas, mejoras**: aviso para valorar al cerrar un ticket; permitir editar la reseña (hoy solo borrar).
-   d. **Desplegar en Vercel**: cuenta + variables de entorno; dominio y `NEXT_PUBLIC_SITE_URL`; Supabase Auth (Site URL y
+   d. **Vercel: DESPLEGADO y funcionando (2026-10-12)**, desde GitHub (`main`): cada push publica. Primer build falló por
+      faltar las variables de Supabase en Vercel (resuelto). Queda: dominio y `NEXT_PUBLIC_SITE_URL`; Supabase Auth (Site URL y
       Redirect URLs); Google Search Console (`GOOGLE_SITE_VERIFICATION`) y enviar `/sitemap.xml`.
    e. **Fase E: email (Resend) y push**: necesita dominio propio + cuenta de Resend; enviará también las alertas sin
       cuenta guardadas (`email_sent_at` vacío).
