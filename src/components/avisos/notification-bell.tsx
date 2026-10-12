@@ -39,15 +39,22 @@ export function NotificationBell({ userId, locale }: { userId: string; locale: s
           if (vivo) setAvisos((data ?? []) as Aviso[]);
         });
     cargar();
-    const canal = sb
-      .channel(`notif:${userId}`)
-      .on("postgres_changes", { event: "*", schema: "public", table: "notification", filter: `user_id=eq.${userId}` }, () => {
-        cargar();
-      })
-      .subscribe();
+    // El canal debe ir con el token del usuario: si se suscribe antes de recuperar la
+    // sesión, va como anónimo y la RLS no deja pasar ningún evento.
+    let canal: ReturnType<typeof sb.channel> | null = null;
+    sb.auth.getSession().then(async ({ data }) => {
+      if (!vivo) return;
+      if (data.session) await sb.realtime.setAuth(data.session.access_token);
+      canal = sb
+        .channel(`notif:${userId}`)
+        .on("postgres_changes", { event: "*", schema: "public", table: "notification", filter: `user_id=eq.${userId}` }, () => {
+          cargar();
+        })
+        .subscribe();
+    });
     return () => {
       vivo = false;
-      sb.removeChannel(canal);
+      if (canal) sb.removeChannel(canal);
     };
   }, [userId]);
 

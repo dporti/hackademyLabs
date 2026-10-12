@@ -7,10 +7,11 @@ import { AlertForm } from "@/components/avisos/alert-form";
 
 // Caja «Avísame cuando haya mentor» de un módulo (fase C). Lee la sesión: va dentro de
 // <Suspense> en páginas públicas. Alumno con alerta abierta → estado + cancelar; alumno
-// sin alerta → un clic; sin sesión → email; otros roles → solo la explicación.
+// sin alerta → un clic; sin sesión → email; otros roles (mentor, familia…) → nada.
 export async function AlertBox({ locale, modulo }: { locale: string; modulo: string }) {
   const [t, session, demanda] = await Promise.all([getTranslations("avisos"), getSessionUser(), getDemandaPublica()]);
   const role = session?.profile?.role;
+  if (session && role !== "alumno") return null;
   const esperando = demanda.find((d) => d.modulo_code === modulo)?.waiting ?? 0;
 
   let abierta: { id: string } | null = null;
@@ -46,7 +47,7 @@ export async function AlertBox({ locale, modulo }: { locale: string; modulo: str
               </button>
             </form>
           </div>
-        ) : role && role !== "alumno" ? null : (
+        ) : (
           <AlertForm locale={locale} modulo={modulo} logged={role === "alumno"} />
         )}
       </div>

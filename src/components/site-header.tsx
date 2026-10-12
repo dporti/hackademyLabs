@@ -22,21 +22,21 @@ export const MENTOR_LINK = { href: "/hazte-mentor", key: "becomeMentor" } as con
 
 // Sin display: cada botón decide cuándo se muestra (hidden + sm:/md:inline-flex).
 const BTN =
-  "min-h-11 items-center justify-center rounded-[10px] px-4 text-[15px] transition-colors";
+  "min-h-11 items-center justify-center whitespace-nowrap rounded-[10px] px-4 text-[15px] transition-colors";
 
 export function SiteHeader() {
   const t = useTranslations("nav");
 
   return (
     <header className="sticky top-0 z-20 border-b border-divider bg-background/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1200px] items-center gap-6 px-4 py-3 sm:px-6">
+      <div className="mx-auto flex max-w-[1200px] items-center gap-5 px-4 py-3 sm:px-6">
         <Link href="/" className="shrink-0 rounded-[10px]">
           <Logo responsive />
         </Link>
 
         <nav
           aria-label={t("mainNav")}
-          className="hidden items-center gap-6 text-[15px] text-[#c5c9da] xl:flex"
+          className="hidden items-center gap-5 text-[15px] whitespace-nowrap text-[#c5c9da] xl:flex"
         >
           {NAV_LINKS.map((l) => (
             <Link
@@ -55,7 +55,7 @@ export function SiteHeader() {
           </Link>
         </nav>
 
-        <div className="ml-auto flex items-center gap-2.5">
+        <div className="ml-auto flex items-center gap-2">
           <span className="hidden sm:block">
             <LocaleSwitcher />
           </span>

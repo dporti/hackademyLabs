@@ -360,8 +360,13 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
     y precio 1:1; puntuación 0–185. Sin email/teléfono. `agenda_overlap` interna.
   - RPC pública `mentors_with_slots(días)` → filtro «Con hueco libre esta semana» en `/mentores?hueco=1`.
   - Panel del alumno: bloque «Mentores para ti» (hasta 4 módulos × 3 mentores) con enlace a reservar.
-- **Fase C (avisos)** · 2026-10-12 · código hecho (tsc + lint OK); **falta aplicar**
-  `supabase/migrations/20261012090300_avisos.sql` y pasar `node scripts/verify-avisos.mjs` + navegador.
+- **Fase C (avisos)** · 2026-10-12 · `a950c36` + ajustes; migración aplicada,
+  `verify-avisos.mjs` OK (30/30) y sin regresión (consumo, agenda, match, roles, credits). En navegador: campana
+  con contador, desplegable y llegada en tiempo real; caja «Avísame» en la ficha de módulo sin mentor.
+  Arreglado: la campana no recibía eventos (el canal Realtime se suscribía antes de recuperar la sesión → iba como
+  anónimo; ahora `realtime.setAuth` antes de suscribir); la cabecera se partía en dos líneas con la campana; la
+  caja «Avísame» ya no sale a mentores/familia/admin. Pendiente revisar en navegador el flujo de Marta (pedir aviso
+  con cuenta) y el formulario sin cuenta.
   - `notification` (RLS solo dueño, Realtime; se escribe solo desde funciones del servidor; avisos agrupados
     12 h) + campana en el header con contador y marcar leídos.
   - `module_alert` «Avísame»: alumno con cuenta (RPC `create_module_alert`, opción «solo si encaja con mi
