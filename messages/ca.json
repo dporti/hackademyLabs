@@ -825,6 +825,10 @@
       "q4": {
         "q": "Què passa si el veiem malament?",
         "a": "El tutor no fa suport psicològic. Si detecta assetjament, ansietat intensa o un altre risc, us avisa i us recomana professionals."
+      },
+      "q5": {
+        "q": "Treballeu amb alumnes amb TDAH, dislèxia o altres dificultats d'aprenentatge?",
+        "a": "Sí. Adaptem el ritme, la durada de les sessions i la manera d'explicar al que li funciona a cada alumne, amb un tutor de referència fix. No fem diagnòstics ni teràpia, ni substituïm l'orientador del seu centre."
       }
     }
   },
@@ -1520,7 +1524,31 @@
       "contactText": "Expliqueu-nos què estudia el vostre fill i què us preocupa. Us expliquem com el podem ajudar, sense compromís.",
       "safetyTitle": "Seguretat i confiança",
       "callbackTitle": "O deixeu-nos el vostre telèfon i us truquem",
-      "callbackText": "Sense compromís. Us expliquem com funciona i si encaixa amb el vostre fill."
+      "callbackText": "Sense compromís. Us expliquem com funciona i si encaixa amb el vostre fill.",
+      "nee": {
+        "title": "Si el teu fill té TDAH, dislèxia o una altra dificultat d'aprenentatge",
+        "text": "També acompanyem alumnes amb TDAH, dislèxia o altres dificultats d'aprenentatge. No cal cap diagnòstic ni cap paper: ens expliqueu què li costa i què li funciona, i adaptem la manera de treballar amb ell.",
+        "a1": {
+          "t": "Al seu ritme, en passos curts",
+          "d": "Sessions de 25 o 60 minuts i un pla setmana a setmana dividit en objectius petits, per no anar per tot alhora."
+        },
+        "a2": {
+          "t": "Sempre la mateixa persona de referència",
+          "d": "El seu tutor de referència el coneix, l'ajuda a organitzar-se i fa check-ins regulars perquè no es despengi."
+        },
+        "a3": {
+          "t": "Explicat d'una altra manera",
+          "d": "Si alguna cosa no entra llegint, el mentor ho treballa amb exemples, codi en directe i pissarra, tantes vegades com calgui."
+        },
+        "a4": {
+          "t": "Vosaltres, al corrent",
+          "d": "Cada setmana us expliquem com va, en llenguatge clar, per detectar a temps si alguna cosa s'encalla."
+        },
+        "limitsTitle": "El que no fem",
+        "limits": "No fem diagnòstics ni teràpia, i no substituïm l'equip d'orientació del seu centre. Les adaptacions oficials (per exemple, més temps als exàmens) es demanen i s'apliquen al centre; nosaltres l'ajudem a preparar-se i a treure'n profit.",
+        "privacy": "Explicar-nos-ho és voluntari i ho tractem amb confidencialitat: només ho fem servir per adaptar-ne l'acompanyament. Si voleu, millor a la trucada que per escrit.",
+        "cta": "Demaneu una trucada →"
+      }
     },
     "plans": {
       "label": "Plans",

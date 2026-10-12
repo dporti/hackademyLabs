@@ -165,6 +165,35 @@ export default async function Tutor247Page({ params }: PageProps<"/[locale]/tuto
             </li>
           ))}
         </ul>
+        {/* Alumnos con TDAH, dislexia u otras dificultades de aprendizaje: solo lo que ya
+            hacemos (ritmo, pasos cortos, tutor fijo, otras formas de explicar, informe) y
+            límites claros (ni diagnóstico ni terapia; no sustituye al centro). Datos de
+            salud = categoría especial (RGPD): se invita a contarlo en la llamada, no por escrito. */}
+        <section aria-labelledby="nee" className="mt-10 rounded-3xl border border-tint-primary-border bg-card p-5 sm:p-7">
+          <h3 id="nee" className="font-heading text-2xl font-bold">
+            {t("families.nee.title")}
+          </h3>
+          <p className="mt-2 max-w-3xl text-muted-foreground">{t("families.nee.text")}</p>
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+            {(["a1", "a2", "a3", "a4"] as const).map((k) => (
+              <li key={k} className="rounded-2xl border bg-background p-5">
+                <p className="font-semibold">{t(`families.nee.${k}.t`)}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{t(`families.nee.${k}.d`)}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-5 rounded-2xl border border-dashed p-4 text-sm">
+            <p className="font-semibold">{t("families.nee.limitsTitle")}</p>
+            <p className="mt-1 text-muted-foreground">{t("families.nee.limits")}</p>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            {t("families.nee.privacy")}{" "}
+            <a href="#llamada" className="font-semibold text-primary underline-offset-4 hover:underline">
+              {t("families.nee.cta")}
+            </a>
+          </p>
+        </section>
+
         <div className="mt-6">
           <ContactCard title={t("families.contactTitle")} text={t("families.contactText")} />
         </div>
@@ -202,7 +231,7 @@ export default async function Tutor247Page({ params }: PageProps<"/[locale]/tuto
         <div className="mt-5 max-w-3xl">
           <Faq
             defaultOpen={-1}
-            items={(["q1", "q2", "q3", "q4"] as const).map((q) => ({ q: tf(`faq.${q}.q`), a: tf(`faq.${q}.a`) }))}
+            items={(["q1", "q2", "q3", "q4", "q5"] as const).map((q) => ({ q: tf(`faq.${q}.q`), a: tf(`faq.${q}.a`) }))}
           />
         </div>
       </section>

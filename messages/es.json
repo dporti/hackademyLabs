@@ -825,6 +825,10 @@
       "q4": {
         "q": "¿Qué pasa si le vemos mal?",
         "a": "El tutor no hace apoyo psicológico. Si detecta acoso, ansiedad intensa u otro riesgo, os avisa y os recomienda profesionales."
+      },
+      "q5": {
+        "q": "¿Trabajáis con alumnos con TDAH, dislexia u otras dificultades de aprendizaje?",
+        "a": "Sí. Adaptamos el ritmo, la duración de las sesiones y la forma de explicar a lo que le funciona a cada alumno, con un tutor de referencia fijo. No hacemos diagnósticos ni terapia, ni sustituimos al orientador de su centro."
       }
     }
   },
@@ -1520,7 +1524,31 @@
       "contactText": "Contadnos qué estudia vuestro hijo y qué os preocupa. Os explicamos cómo le podemos ayudar, sin compromiso.",
       "safetyTitle": "Seguridad y confianza",
       "callbackTitle": "O dejadnos vuestro teléfono y os llamamos",
-      "callbackText": "Sin compromiso. Os contamos cómo funciona y si encaja con vuestro hijo."
+      "callbackText": "Sin compromiso. Os contamos cómo funciona y si encaja con vuestro hijo.",
+      "nee": {
+        "title": "Si tu hijo tiene TDAH, dislexia u otra dificultad de aprendizaje",
+        "text": "También acompañamos a alumnos con TDAH, dislexia u otras dificultades de aprendizaje. No hace falta ningún diagnóstico ni papel: nos contáis qué le cuesta y qué le funciona, y adaptamos la forma de trabajar con él.",
+        "a1": {
+          "t": "A su ritmo, en pasos cortos",
+          "d": "Sesiones de 25 o 60 minutos y un plan semana a semana dividido en objetivos pequeños, para no ir a por todo a la vez."
+        },
+        "a2": {
+          "t": "Siempre la misma persona de referencia",
+          "d": "Su tutor de referencia le conoce, le ayuda a organizarse y hace check-ins regulares para que no se descuelgue."
+        },
+        "a3": {
+          "t": "Explicado de otra manera",
+          "d": "Si algo no entra leyendo, el mentor lo trabaja con ejemplos, código en directo y pizarra, las veces que haga falta."
+        },
+        "a4": {
+          "t": "Vosotros, al tanto",
+          "d": "Cada semana os contamos cómo va, en lenguaje claro, para detectar a tiempo si algo se atasca."
+        },
+        "limitsTitle": "Lo que no hacemos",
+        "limits": "No hacemos diagnósticos ni terapia, y no sustituimos al equipo de orientación de su centro. Las adaptaciones oficiales (por ejemplo, más tiempo en los exámenes) se piden y se aplican en el centro; nosotros le ayudamos a prepararse y a sacarles partido.",
+        "privacy": "Contárnoslo es voluntario y lo tratamos con confidencialidad: solo lo usamos para adaptar su acompañamiento. Si queréis, mejor en la llamada que por escrito.",
+        "cta": "Pedid una llamada →"
+      }
     },
     "plans": {
       "label": "Planes",
