@@ -1141,7 +1141,9 @@
       }
     },
     "rules": "Normes que no es negocien: no fem pràctiques ni exàmens de ningú; tot el contacte i el cobrament van per la plataforma; i per treballar amb menors necessites el certificat negatiu de delictes de naturalesa sexual.",
-    "finalTitle": "Domines un mòdul? Hi ha alumnes esperant-te."
+    "finalTitle": "Domines un mòdul? Hi ha alumnes esperant-te.",
+    "demandTitle": "Mòduls amb alumnes esperant mentor",
+    "demandSubtitle": "Alumnes que han demanat avís perquè encara no tenen mentor. Si en domines algun, et busquen."
   },
   "consumo": {
     "working": "Processant…",
@@ -1829,8 +1831,9 @@
       "bit": "Bit · tutor IA",
       "logros": "Assoliments",
       "materiales": "Banc de material",
-      "agenda": "Agenda",
-      "disponibilidad": "Disponibilitat"
+      "agenda": "La meva agenda",
+      "disponibilidad": "Disponibilitat",
+      "demanda": "Demanda"
     },
     "balance": "Saldo",
     "balanceValue": "{n} crèdits",
@@ -2532,5 +2535,108 @@
     "sameLang": "Parla el teu idioma",
     "book": "Reservar",
     "bookN": "Reservar · 1:1 {n} cr."
+  },
+  "avisos": {
+    "title": "Avisa'm quan hi hagi mentor de {code}",
+    "help": "Tan bon punt un mentor verificat d'aquest mòdul s'apunti (o obri horari que t'encaixi), t'avisem.",
+    "waiting": "{n, plural, one {# alumne espera} other {# alumnes esperen}} mentor per a aquest mòdul",
+    "email": "El teu email",
+    "language": "Idioma de la sessió",
+    "anyLanguage": "M'és igual",
+    "lang": {
+      "es": "Castellà",
+      "ca": "Català"
+    },
+    "fit": "Avisa'm només si el seu horari coincideix amb la meva disponibilitat.",
+    "fitLink": "Marcar disponibilitat",
+    "consent": "Accepto que Checkpoint Academy guardi el meu email només per avisar-me d'aquest mòdul. Puc demanar que l'esborreu quan vulgui.",
+    "age": "Tinc 14 anys o més (si no, demana-ho a la teva família).",
+    "submit": "Avisa'm",
+    "sending": "Desant…",
+    "emailNote": "Un únic avís per mòdul. Sense publicitat.",
+    "createdLogged": "Fet: t'avisarem aquí (campana de dalt) quan hi hagi mentor de {code}.",
+    "createdEmail": "Fet: t'escriurem quan hi hagi mentor de {code}. Amb un compte gratuït també ho veuries a l'instant a la web.",
+    "active": "T'avisarem quan hi hagi mentor de {code}.",
+    "cancel": "Ja no vull l'avís",
+    "errors": {
+      "invalid": "No s'ha pogut desar l'avís.",
+      "email": "Revisa l'email.",
+      "consent": "Necessitem el teu permís per guardar l'email.",
+      "age": "Si tens menys de 14 anys, demana a la teva família que ho faci.",
+      "rateLimited": "Massa avisos seguits. Prova-ho d'aquí a una estona.",
+      "tooMany": "Tens massa avisos oberts (màxim 20).",
+      "server": "Error del servidor. Torna-ho a provar."
+    }
+  },
+  "avisosInfo": {
+    "label": "Avisos",
+    "titleAlumno": "No trobes mentor per al teu mòdul? T'avisem",
+    "titleMentor": "Si un alumne busca un mòdul teu, ho sabràs",
+    "s1": {
+      "title": "Demana avís",
+      "text": "A la fitxa del mòdul o aquí mateix, amb el teu compte o només amb el teu email."
+    },
+    "s2": {
+      "title": "Arriba un mentor",
+      "text": "Quan un mentor verificat del mòdul s'apunta, o obre horari que coincideix amb el teu, t'avisem."
+    },
+    "s3": {
+      "title": "Reserva als seus forats",
+      "text": "Veus les seves hores lliures i reserves en un parell de clics. Pagues sempre a la plataforma."
+    },
+    "m1": {
+      "title": "Un alumne demana avís",
+      "text": "Busca mentor per a un mòdul que imparteixes i encara no ha trobat ningú."
+    },
+    "m2": {
+      "title": "Et arriba a la campana",
+      "text": "Reps un avís (agrupat per mòdul, sense saturar-te) i el veus a «Demanda»."
+    },
+    "m3": {
+      "title": "Obre horari",
+      "text": "Veus si coincideix amb la teva agenda: si publiques forats que li encaixen, l'avisem a ell."
+    },
+    "privacy": "Mai compartim noms ni dades de contacte: el mentor veu un perfil anònim i tot es parla dins de la plataforma.",
+    "demandEmpty": "Ara mateix no hi ha alumnes esperant mentor.",
+    "demandN": "{n, plural, one {# esperant} other {# esperant}}"
+  },
+  "demanda": {
+    "title": "Demanda als teus mòduls",
+    "subtitle": "Alumnes que esperen mentor als mòduls que imparteixes. Si obres horari que els encaixi, els avisem.",
+    "total": "{n, plural, =0 {Ningú esperant} one {# alumne esperant} other {# alumnes esperant}}",
+    "noAgenda": "Encara no has publicat agenda: sense ella no podem saber si encaixes amb el seu horari.",
+    "noAgendaLink": "Publicar agenda",
+    "noModules": "Encara no imparteixes cap mòdul. Afegeix-los al teu perfil.",
+    "waiting": "{n, plural, one {# esperant} other {# esperant}}",
+    "fitsN": "{n, plural, =0 {cap encaixa amb la teva agenda} one {# encaixa amb la teva agenda} other {# encaixen amb la teva agenda}}",
+    "nobody": "Ningú esperant en aquest mòdul.",
+    "anon": "Alumne",
+    "examIn": "examen d'aquí a {n, plural, one {# dia} other {# dies}}",
+    "noFranjas": "No ha marcat disponibilitat.",
+    "fits": "Coincideix amb la teva agenda",
+    "noFit": "Sense hores en comú amb la teva agenda",
+    "needsFit": "Només vol mentor amb horari compatible: obre franges que li encaixin",
+    "byEmail": "{n, plural, one {# persona més} other {# persones més}} sense compte (només email)",
+    "part": {
+      "manana": "matí",
+      "tarde": "tarda",
+      "noche": "nit"
+    },
+    "privacy": "Perfil anònim: no veuràs noms ni contactes. Quan reservi amb tu, veuràs el seu nom de pila com en qualsevol sessió."
+  },
+  "notif": {
+    "title": "Avisos",
+    "empty": "No tens avisos.",
+    "aria": "Avisos: {n} sense llegir",
+    "ariaNone": "Avisos",
+    "kind": {
+      "mentor_available": "Ja hi ha mentor de {modulo}: {mentor}. Reserva als seus forats.",
+      "demand_new": "{n, plural, one {Un alumne busca} other {# alumnes busquen}} mentor de {modulo}.",
+      "booking_requested": "Nova sol·licitud de sessió de {modulo} per al {when}.",
+      "booking_confirmed": "La teva sessió de {modulo} del {when} està confirmada.",
+      "booking_rejected": "El mentor no pot fer la sessió de {modulo} del {when}. T'hem retornat els crèdits.",
+      "booking_cancelled": "S'ha cancel·lat la sessió de {modulo} del {when}.",
+      "ticket_reply": "{n, plural, one {Nova resposta} other {# respostes noves}} al teu tiquet de {modulo}."
+    }
   }
 }

@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { iniciales } from "@/components/brand/mentor-card";
 import type { MentorLevel } from "@/lib/db-types";
+import { AlertBox } from "@/components/avisos/alert-box";
 
 // «Mentores para ti» (fase B): por cada módulo que prepara el alumno, los mentores que
 // mejor encajan según match_mentors (horas en común con su disponibilidad, primer hueco
@@ -68,7 +69,10 @@ export async function MentoresParaTi({
                 <span className="text-primary">{m.code}</span> · {m.name}
               </p>
               {lista.length === 0 ? (
-                <p className="mt-2 rounded-2xl border border-dashed p-4 text-sm text-muted-foreground">{t("none")}</p>
+                <div className="mt-2 grid gap-3 md:grid-cols-[1fr_minmax(0,420px)]">
+                  <p className="rounded-2xl border border-dashed p-4 text-sm text-muted-foreground">{t("none")}</p>
+                  <AlertBox locale={locale} modulo={m.code} />
+                </div>
               ) : (
                 <ul className="mt-2 grid gap-3 md:grid-cols-3">
                   {lista.map((x) => (

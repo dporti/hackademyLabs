@@ -1141,7 +1141,9 @@
       }
     },
     "rules": "Reglas que no se negocian: no hacemos prácticas ni exámenes de nadie; todo el contacto y el cobro van por la plataforma; y para trabajar con menores necesitas el certificado negativo de delitos de naturaleza sexual.",
-    "finalTitle": "¿Dominas un módulo? Hay alumnos esperándote."
+    "finalTitle": "¿Dominas un módulo? Hay alumnos esperándote.",
+    "demandTitle": "Módulos con alumnos esperando mentor",
+    "demandSubtitle": "Alumnos que han pedido aviso porque aún no tienen mentor. Si dominas alguno, te están buscando."
   },
   "consumo": {
     "working": "Procesando…",
@@ -1829,8 +1831,9 @@
       "bit": "Bit · tutor IA",
       "logros": "Logros",
       "materiales": "Banco de material",
-      "agenda": "Agenda",
-      "disponibilidad": "Disponibilidad"
+      "agenda": "Mi agenda",
+      "disponibilidad": "Disponibilidad",
+      "demanda": "Demanda"
     },
     "balance": "Saldo",
     "balanceValue": "{n} créditos",
@@ -2532,5 +2535,108 @@
     "sameLang": "Habla tu idioma",
     "book": "Reservar",
     "bookN": "Reservar · 1:1 {n} cr."
+  },
+  "avisos": {
+    "title": "Avísame cuando haya mentor de {code}",
+    "help": "En cuanto un mentor verificado de este módulo se apunte (o abra horario que te encaje), te avisamos.",
+    "waiting": "{n, plural, one {# alumno espera} other {# alumnos esperan}} mentor para este módulo",
+    "email": "Tu email",
+    "language": "Idioma de la sesión",
+    "anyLanguage": "Me da igual",
+    "lang": {
+      "es": "Castellano",
+      "ca": "Catalán"
+    },
+    "fit": "Avísame solo si su horario coincide con mi disponibilidad.",
+    "fitLink": "Marcar disponibilidad",
+    "consent": "Acepto que Checkpoint Academy guarde mi email solo para avisarme de este módulo. Puedo pedir que lo borréis cuando quiera.",
+    "age": "Tengo 14 años o más (si no, pídeselo a tu familia).",
+    "submit": "Avísame",
+    "sending": "Guardando…",
+    "emailNote": "Un único aviso por módulo. Sin publicidad.",
+    "createdLogged": "Hecho: te avisaremos aquí (campana de arriba) cuando haya mentor de {code}.",
+    "createdEmail": "Hecho: te escribiremos cuando haya mentor de {code}. Con una cuenta gratis lo verías también al momento en la web.",
+    "active": "Te avisaremos cuando haya mentor de {code}.",
+    "cancel": "Ya no quiero el aviso",
+    "errors": {
+      "invalid": "No se ha podido guardar el aviso.",
+      "email": "Revisa el email.",
+      "consent": "Necesitamos tu permiso para guardar el email.",
+      "age": "Si tienes menos de 14 años, pide a tu familia que lo haga.",
+      "rateLimited": "Demasiados avisos seguidos. Prueba dentro de un rato.",
+      "tooMany": "Tienes demasiados avisos abiertos (máximo 20).",
+      "server": "Error del servidor. Inténtalo de nuevo."
+    }
+  },
+  "avisosInfo": {
+    "label": "Avisos",
+    "titleAlumno": "¿No encuentras mentor para tu módulo? Te avisamos",
+    "titleMentor": "Si un alumno busca un módulo tuyo, lo sabrás",
+    "s1": {
+      "title": "Pide aviso",
+      "text": "En la ficha del módulo o aquí mismo, con tu cuenta o solo con tu email."
+    },
+    "s2": {
+      "title": "Llega un mentor",
+      "text": "Cuando un mentor verificado del módulo se apunta, o abre horario que coincide con el tuyo, te avisamos."
+    },
+    "s3": {
+      "title": "Reserva en sus huecos",
+      "text": "Ves sus horas libres y reservas en un par de clics. Pagas siempre en la plataforma."
+    },
+    "m1": {
+      "title": "Un alumno pide aviso",
+      "text": "Busca mentor para un módulo que impartes y aún no ha encontrado a nadie."
+    },
+    "m2": {
+      "title": "Te llega a la campana",
+      "text": "Recibes un aviso (agrupado por módulo, sin saturarte) y lo ves en «Demanda»."
+    },
+    "m3": {
+      "title": "Abre horario",
+      "text": "Ves si coincide con tu agenda: si publicas huecos que le encajan, le avisamos a él."
+    },
+    "privacy": "Nunca compartimos nombres ni datos de contacto: el mentor ve un perfil anónimo y todo se habla dentro de la plataforma.",
+    "demandEmpty": "Ahora mismo no hay alumnos esperando mentor.",
+    "demandN": "{n, plural, one {# esperando} other {# esperando}}"
+  },
+  "demanda": {
+    "title": "Demanda en tus módulos",
+    "subtitle": "Alumnos que esperan mentor en los módulos que impartes. Si abres horario que les encaja, les avisamos.",
+    "total": "{n, plural, =0 {Nadie esperando} one {# alumno esperando} other {# alumnos esperando}}",
+    "noAgenda": "Aún no has publicado agenda: sin ella no podemos saber si encajas con su horario.",
+    "noAgendaLink": "Publicar agenda",
+    "noModules": "Aún no impartes ningún módulo. Añádelos en tu perfil.",
+    "waiting": "{n, plural, one {# esperando} other {# esperando}}",
+    "fitsN": "{n, plural, =0 {ninguno encaja con tu agenda} one {# encaja con tu agenda} other {# encajan con tu agenda}}",
+    "nobody": "Nadie esperando en este módulo.",
+    "anon": "Alumno",
+    "examIn": "examen en {n, plural, one {# día} other {# días}}",
+    "noFranjas": "No ha marcado disponibilidad.",
+    "fits": "Coincide con tu agenda",
+    "noFit": "Sin horas en común con tu agenda",
+    "needsFit": "Solo quiere mentor con horario compatible: abre franjas que le encajen",
+    "byEmail": "{n, plural, one {# persona más} other {# personas más}} sin cuenta (solo email)",
+    "part": {
+      "manana": "mañana",
+      "tarde": "tarde",
+      "noche": "noche"
+    },
+    "privacy": "Perfil anónimo: no verás nombres ni contactos. Cuando reserve contigo, verás su nombre de pila como en cualquier sesión."
+  },
+  "notif": {
+    "title": "Avisos",
+    "empty": "No tienes avisos.",
+    "aria": "Avisos: {n} sin leer",
+    "ariaNone": "Avisos",
+    "kind": {
+      "mentor_available": "Ya hay mentor de {modulo}: {mentor}. Reserva en sus huecos.",
+      "demand_new": "{n, plural, one {Un alumno busca} other {# alumnos buscan}} mentor de {modulo}.",
+      "booking_requested": "Nueva solicitud de sesión de {modulo} para el {when}.",
+      "booking_confirmed": "Tu sesión de {modulo} del {when} está confirmada.",
+      "booking_rejected": "El mentor no puede la sesión de {modulo} del {when}. Te hemos devuelto los créditos.",
+      "booking_cancelled": "Se ha cancelado la sesión de {modulo} del {when}.",
+      "ticket_reply": "{n, plural, one {Nueva respuesta} other {# respuestas nuevas}} en tu ticket de {modulo}."
+    }
   }
 }

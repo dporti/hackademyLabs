@@ -360,6 +360,19 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
     y precio 1:1; puntuación 0–185. Sin email/teléfono. `agenda_overlap` interna.
   - RPC pública `mentors_with_slots(días)` → filtro «Con hueco libre esta semana» en `/mentores?hueco=1`.
   - Panel del alumno: bloque «Mentores para ti» (hasta 4 módulos × 3 mentores) con enlace a reservar.
+- **Fase C (avisos)** · 2026-10-12 · código hecho (tsc + lint OK); **falta aplicar**
+  `supabase/migrations/20261012090300_avisos.sql` y pasar `node scripts/verify-avisos.mjs` + navegador.
+  - `notification` (RLS solo dueño, Realtime; se escribe solo desde funciones del servidor; avisos agrupados
+    12 h) + campana en el header con contador y marcar leídos.
+  - `module_alert` «Avísame»: alumno con cuenta (RPC `create_module_alert`, opción «solo si encaja con mi
+    horario») o email sin cuenta (servidor, consentimiento + ≥ 14 años + antispam). Se cubre al crearla si ya hay
+    mentor que encaja, o cuando un mentor se verifica, añade el módulo o abre franjas compatibles → aviso al alumno.
+    Al crearla → aviso de demanda (agrupado) a los mentores verificados del módulo.
+  - Avisos de reservas (solicitud, confirmada, rechazada, cancelada) y de respuestas en tickets.
+  - `/panel/demanda` (mentor): alumnos esperando por módulo, perfil anónimo (examen, franjas, si encaja).
+  - Web pública: caja «Avísame» en `/modulos/[code]` y `/mentores` sin resultados, bloque informativo en
+    `/mentores`, «Módulos con alumnos esperando mentor» (`public_demand`, solo cifras) en `/hazte-mentor`.
+  - Los avisos por email (alertas sin cuenta) quedan guardados con `email_sent_at` vacío hasta la fase E.
 - Pendiente de David:
   - Recargar saldo en la cuenta de Anthropic para probar Bit, quiz y resumen de sesión.
   - Añadir método de pago en Daily.co (Billing) para que funcione el vídeo del aula; después probar con

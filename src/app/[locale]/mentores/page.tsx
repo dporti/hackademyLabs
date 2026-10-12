@@ -1,9 +1,12 @@
+import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPathname, Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/brand/section-label";
 import { MentorCard } from "@/components/brand/mentor-card";
 import { getAllModulos, getMentores, getMentoresConHueco } from "@/lib/catalog";
 import type { MentorLevel } from "@/lib/db-types";
+import { AlertBox } from "@/components/avisos/alert-box";
+import { AvisosInfo } from "@/components/avisos/avisos-info";
 
 // Listado de mentores (maqueta Mentores.html) con filtros por módulo, idioma y nivel
 // (?modulo=&idioma=&nivel=&hueco=1): formulario GET, funciona sin JS y se puede compartir.
@@ -134,7 +137,14 @@ export default async function MentoresPage({ params, searchParams }: PageProps<"
               : t("count", { n: visibles.length })}
           </p>
           {visibles.length === 0 ? (
-            <p className="mt-6 rounded-2xl border border-dashed p-6 text-muted-foreground">{t("none")}</p>
+            <div className="mt-6 space-y-4">
+              <p className="rounded-2xl border border-dashed p-6 text-muted-foreground">{t("none")}</p>
+              {modulo && (
+                <Suspense fallback={null}>
+                  <AlertBox locale={locale} modulo={modulo.code} />
+                </Suspense>
+              )}
+            </div>
           ) : (
             <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {visibles.map((m) => {
@@ -160,7 +170,10 @@ export default async function MentoresPage({ params, searchParams }: PageProps<"
             </div>
           )}
 
-          <div className="mt-10 flex flex-col items-start gap-4 rounded-2xl border bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-10">
+            <AvisosInfo />
+          </div>
+          <div className="mt-6 flex flex-col items-start gap-4 rounded-2xl border bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-xl text-muted-foreground">{t("joinText")}</p>
             <Link
               href="/hazte-mentor"

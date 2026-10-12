@@ -315,3 +315,13 @@ export async function getMentoresConHueco(): Promise<string[]> {
   if (error) return [];
   return (data ?? []) as string[];
 }
+
+// Módulos con alumnos esperando mentor (fase C): solo cifras agregadas, sin personas.
+export async function getDemandaPublica(): Promise<{ modulo_code: string; modulo_name: string; waiting: number }[]> {
+  "use cache";
+  cacheLife("minutes");
+  const sb = createPublicClient();
+  const { data, error } = await sb.rpc("public_demand");
+  if (error) return [];
+  return (data ?? []) as { modulo_code: string; modulo_name: string; waiting: number }[];
+}

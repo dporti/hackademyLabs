@@ -1,9 +1,12 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ComingSoon } from "@/components/brand/coming-soon";
+import { AvisosInfo } from "@/components/avisos/avisos-info";
+import { DemandaPublica } from "@/components/avisos/demanda-publica";
 
 // Captación de mentores (oferta). Contenido de docs/modelo-negocio §6 y
-// capa-ia §3 (lo que la IA le quita de encima al mentor). Estática.
+// capa-ia §3 (lo que la IA le quita de encima al mentor). Estática salvo la demanda
+// (módulos con alumnos esperando, caché de minutos).
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/hazte-mentor">) {
   const { locale } = await params;
@@ -53,6 +56,19 @@ export default async function HazteMentorPage({ params }: PageProps<"/[locale]/h
             </div>
           ))}
         </dl>
+      </section>
+
+      <section aria-labelledby="demanda" className="mx-auto max-w-[1200px] space-y-6 px-4 pb-16 sm:px-6">
+        <div>
+          <h2 id="demanda" className="font-heading text-[28px] leading-tight font-bold tracking-tight sm:text-[34px]">
+            {t("demandTitle")}
+          </h2>
+          <p className="mt-2 max-w-2xl text-muted-foreground">{t("demandSubtitle")}</p>
+          <div className="mt-5">
+            <DemandaPublica />
+          </div>
+        </div>
+        <AvisosInfo variant="mentor" />
       </section>
 
       <section className="border-y border-divider bg-card/40">

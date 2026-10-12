@@ -5,7 +5,7 @@
 drop view if exists public.mentor_public;
 
 drop table if exists
-  public.availability_off, public.availability, public.aula_stroke, public.aula_doc, public.xp_event, public.quiz, public.material, public.referral_code,
+  public.notification, public.module_alert, public.availability_off, public.availability, public.aula_stroke, public.aula_doc, public.xp_event, public.quiz, public.material, public.referral_code,
   public.student_activity, public.checkin, public.tutor_assignment, public.ra_evidence,
   public.ra_progress, public.lead, public.mentor_earning, public.ticket_message, public.product_price,
   public.mentor_payout, public.mentor_badge, public.badge, public.referral,
@@ -80,6 +80,21 @@ drop function if exists public.mentor_slots(uuid, product_kind, int) cascade;
 drop function if exists public.agenda_overlap(uuid, uuid) cascade;
 drop function if exists public.match_mentors(text, int) cascade;
 drop function if exists public.mentors_with_slots(int) cascade;
+drop function if exists public.notify(uuid, text, jsonb, text, text) cascade;
+drop function if exists public.mark_notifications_read(uuid[]) cascade;
+drop function if exists public.alert_matches(public.module_alert, uuid) cascade;
+drop function if exists public.close_alert_with(public.module_alert, uuid) cascade;
+drop function if exists public.process_alerts_for_mentor(uuid) cascade;
+drop function if exists public.trg_alerts_mentor_modulo() cascade;
+drop function if exists public.trg_alerts_mentor_status() cascade;
+drop function if exists public.trg_alerts_availability() cascade;
+drop function if exists public.trg_alert_created() cascade;
+drop function if exists public.create_module_alert(text, text, boolean) cascade;
+drop function if exists public.cancel_module_alert(uuid) cascade;
+drop function if exists public.trg_booking_notify() cascade;
+drop function if exists public.trg_ticket_message_notify() cascade;
+drop function if exists public.my_module_demand() cascade;
+drop function if exists public.public_demand() cascade;
 
 drop type if exists
   consent_type, plan_kind, product_kind, ledger_type, ra_status,

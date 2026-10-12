@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Check } from "lucide-react";
@@ -8,6 +9,7 @@ import { MentorCard } from "@/components/brand/mentor-card";
 import { getModuloByCode, getAllModuloCodes, getMentoresByModulo } from "@/lib/catalog";
 import type { ProductKind } from "@/lib/db-types";
 import { temaRa, temasDe } from "@/lib/temas";
+import { AlertBox } from "@/components/avisos/alert-box";
 
 // Ficha de módulo = landing de venta del módulo (docs §8; maqueta Modulo.html).
 // Datos de BD (RA, ciclos, equivalencia catalana, mentores). El bloque «5 errores que
@@ -308,12 +310,17 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
           )}
         </div>
         {mentores.length === 0 ? (
-          <p className="mt-6 text-muted-foreground">
-            {t("noMentors")}{" "}
-            <Link href="/hazte-mentor" className="text-primary underline-offset-4 hover:underline">
-              {t("becomeMentor")}
-            </Link>
-          </p>
+          <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_minmax(0,420px)]">
+            <p className="text-muted-foreground">
+              {t("noMentors")}{" "}
+              <Link href="/hazte-mentor" className="text-primary underline-offset-4 hover:underline">
+                {t("becomeMentor")}
+              </Link>
+            </p>
+            <Suspense fallback={null}>
+              <AlertBox locale={locale} modulo={modulo.code} />
+            </Suspense>
+          </div>
         ) : (
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {mentores.map((m) => (
