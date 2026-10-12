@@ -28,7 +28,7 @@ export function MentorProfileForm({
     updateMentorProfileAction,
     {},
   );
-  // Tras un error, lo enviado; si no, lo guardado en BD.
+  // Tras enviar (con o sin error), lo enviado; si no, lo guardado en BD.
   const v = state.values ?? initial;
 
   return (

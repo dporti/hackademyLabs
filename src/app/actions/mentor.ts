@@ -107,5 +107,7 @@ export async function updateMentorProfileAction(
   // Si el mentor está verificado, su ficha pública cambia: invalida la caché.
   updateTag(MENTORES_TAG);
   refresh();
-  return { ok: "saved" };
+  // Con lo guardado: React 19 resetea el formulario tras la acción y, sin esto,
+  // volvería a pintar los valores anteriores (parece que no se ha guardado).
+  return { ok: "saved", values: { ...values, moduloCodes: [...codes].sort() } };
 }
