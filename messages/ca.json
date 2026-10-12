@@ -486,7 +486,6 @@
     "bookSession": "Reservar sessió",
     "sendTicket": "Enviar-li un Ticket Express",
     "availability": "Disponibilitat",
-    "availabilitySoon": "L'agenda en temps real arriba aviat: de moment proposes tu l'hora i el mentor confirma.",
     "responds": "Respon",
     "respondsValue": "~{min} min",
     "service": {
@@ -494,7 +493,10 @@
       "sesion_flash": "Sessió flash · 25 min",
       "ticket_express": "Ticket Express · < 2 h",
       "ticket_normal": "Tiquet normal · < 24 h"
-    }
+    },
+    "availabilityFull": "Sense forats lliures els propers 14 dies.",
+    "availabilityNone": "Encara no ha publicat agenda: en reservar li proposes dia i hora.",
+    "availabilityHelp": "Propers forats per a una sessió 1:1 (hora de Madrid)."
   },
   "auth": {
     "registerTitle": "Crea el teu compte",
@@ -1277,7 +1279,8 @@
       "tooLateToCancel": "Falten menys de 24 h: ja no es pot cancel·lar amb devolució.",
       "notConfirmed": "La sessió no està confirmada.",
       "notStarted": "La sessió encara no ha començat.",
-      "noPrice": "Aquest producte encara no té preu."
+      "noPrice": "Aquest producte encara no té preu.",
+      "outsideAgenda": "Aquesta hora ja no és a l'agenda del mentor. Tria un altre forat."
     },
     "cancelOverdue": "Sense resposta en termini: cancel·lar i recuperar crèdits",
     "overdueNotice": "El mentor no ha respost dins del termini. Pots esperar o cancel·lar el tiquet i recuperar els teus crèdits.",
@@ -1297,7 +1300,15 @@
     "question": "Pregunta",
     "updateMap": "Actualitzar el seu Mapa",
     "openAula": "Obrir l'aula",
-    "sessionSummary": "Resum de la sessió"
+    "sessionSummary": "Resum de la sessió",
+    "pickMentorFirst": "Tria abans un mentor per veure'n els forats.",
+    "loadingSlots": "Carregant forats lliures…",
+    "noSlots": "Aquest mentor no té forats lliures les properes 4 setmanes. Prova amb un altre mentor o envia un tiquet.",
+    "slotDays": "Dies amb forats lliures",
+    "slotTimes": "Hores lliures",
+    "slotsN": "{n, plural, one {# forat} other {# forats}}",
+    "slotsHelp": "Hora de Madrid. Només es mostren forats de la seva agenda que continuen lliures; el mentor confirma la reserva.",
+    "noAgendaHelp": "Aquest mentor encara no ha publicat agenda: proposa dia i hora i te la confirmarà."
   },
   "cancelPolicy": {
     "metaTitle": "Política de cancel·lació",
@@ -1816,7 +1827,8 @@
       "checkins": "Check-ins",
       "bit": "Bit · tutor IA",
       "logros": "Assoliments",
-      "materiales": "Banc de material"
+      "materiales": "Banc de material",
+      "agenda": "Agenda"
     },
     "balance": "Saldo",
     "balanceValue": "{n} crèdits",
@@ -2444,6 +2456,60 @@
       "rateLimited": "Massa resums seguits. Prova-ho d'aquí a una estona.",
       "busy": "Bit està molt ocupat. Prova-ho d'aquí a uns segons.",
       "generic": "No s'ha pogut generar el resum. Torna-ho a provar."
+    }
+  },
+  "agenda": {
+    "title": "La meva agenda",
+    "subtitle": "Marca les franges de la setmana en què pots fer sessions (hora de Madrid). Els alumnes només podran reservar dins d'aquestes franges, en forats de 30 min (flash) o 60 min (1:1), amb almenys 3 h d'antelació.",
+    "noAgenda": "Encara no has publicat agenda: els alumnes et proposen dia i hora i tu confirmes.",
+    "summary": "{h, plural, one {# hora} other {# hores}} a la setmana en {n, plural, one {# franja} other {# franges}}",
+    "weekTitle": "La teva setmana",
+    "addTitle": "Afegir franja",
+    "addHelp": "Tria un o diversos dies i l'horari. Si se solapa o toca amb una altra franja d'aquell dia, s'uneixen.",
+    "days": "Dies",
+    "from": "Des de",
+    "to": "Fins a",
+    "addSlot": "Afegir franja",
+    "deleteSlot": "Treure la franja del {d} a les {h}",
+    "offTitle": "Dies bloquejats",
+    "offHelp": "Vacances, exàmens… Aquests dies no es podrà reservar amb tu encara que tinguis franja.",
+    "offFrom": "Des del dia",
+    "offTo": "Fins al dia (opcional)",
+    "addOff": "Bloquejar",
+    "deleteOff": "Desbloquejar",
+    "previewTitle": "Propers forats lliures",
+    "previewHelp": "El que veu l'alumne per a una sessió 1:1 els propers 14 dies (ja descompta reserves i bloquejos).",
+    "previewEmpty": "No et queden forats lliures els propers 14 dies.",
+    "wd": {
+      "1": "Dl",
+      "2": "Dt",
+      "3": "Dc",
+      "4": "Dj",
+      "5": "Dv",
+      "6": "Ds",
+      "7": "Dg"
+    },
+    "wdLong": {
+      "1": "Dilluns",
+      "2": "Dimarts",
+      "3": "Dimecres",
+      "4": "Dijous",
+      "5": "Divendres",
+      "6": "Dissabte",
+      "7": "Diumenge"
+    },
+    "ok": {
+      "slotAdded": "Franja afegida.",
+      "offAdded": "Dies bloquejats."
+    },
+    "errors": {
+      "noDays": "Tria almenys un dia.",
+      "badTime": "Hora no vàlida.",
+      "badRange": "L'hora de fi ha de ser posterior a la d'inici.",
+      "tooMany": "Has arribat al màxim de franges (40). Uneix-ne o treu-ne alguna.",
+      "badDate": "Data no vàlida (no pot ser passada).",
+      "tooLong": "Com a màxim 120 dies seguits.",
+      "generic": "No s'ha pogut desar. Torna-ho a provar."
     }
   }
 }

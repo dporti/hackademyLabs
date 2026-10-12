@@ -4,12 +4,14 @@ import { BadgeCheck, Play } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/brand/section-label";
 import { iniciales } from "@/components/brand/mentor-card";
-import { getMentorById, getMentorIds, getTarifasPublicas } from "@/lib/catalog";
+import { Suspense } from "react";
+import { getMentorById, getMentorIds, getProximosHuecos, getTarifasPublicas } from "@/lib/catalog";
+import { NextSlots } from "@/components/agenda/next-slots";
 import type { ProductKind } from "@/lib/db-types";
 
 // Ficha pública de mentor (maqueta Mentor.html). Solo datos de mentor_public (sin
 // contacto: anti-bypass). Sin cifras de alumnos/valoración/aprobados ni testimonios
-// hasta tenerlos reales; la agenda en tiempo real tampoco existe aún.
+// hasta tenerlos reales. Próximos huecos de su agenda (fase A), con caché corta.
 
 const SERVICIOS: ProductKind[] = ["sesion_1a1", "sesion_flash", "ticket_express", "ticket_normal"];
 
@@ -170,10 +172,22 @@ export default async function MentorPage({ params }: PageProps<"/[locale]/mentor
           </div>
           <div className="rounded-2xl border bg-card p-5">
             <p className="font-mono text-xs font-semibold tracking-[0.2em] text-label uppercase">{t("availability")}</p>
-            <p className="mt-2 text-sm text-muted-foreground">{t("availabilitySoon")}</p>
+            <Suspense fallback={<p className="mt-2 text-sm text-muted-foreground">…</p>}>
+              <Huecos id={m.profile_id} locale={locale} />
+            </Suspense>
           </div>
         </aside>
       </div>
     </main>
+  );
+}
+
+async function Huecos({ id, locale }: { id: string; locale: string }) {
+  const [{ agenda, slots }, t] = await Promise.all([getProximosHuecos(id), getTranslations("mentors")]);
+  return (
+    <div className="mt-3 space-y-2">
+      <NextSlots locale={locale} slots={slots} empty={agenda ? t("availabilityFull") : t("availabilityNone")} />
+      {slots.length > 0 && <p className="text-xs text-label">{t("availabilityHelp")}</p>}
+    </div>
   );
 }

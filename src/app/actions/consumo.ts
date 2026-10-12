@@ -43,6 +43,7 @@ const ERRORES = [
   "notConfirmed",
   "notStarted",
   "noPrice",
+  "outsideAgenda",
 ];
 
 function codigo(message: string) {

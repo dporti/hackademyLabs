@@ -1,7 +1,7 @@
 # Estado del proyecto — Tutor247
 
 > Documento vivo. Se actualiza al cerrar cada tarea o fase.
-> Última actualización: 2026-10-11.
+> Última actualización: 2026-10-12.
 
 ## 1. Resumen
 Tutor247 es una plataforma web de FP de informática (SMX, ASIR/ASIX, DAM, DAW) que
@@ -341,14 +341,28 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
   2026-10-11 (fases 7–9 incluidas).
 
 ## 3. En curso
-- (nada) · Pendiente de David:
+- **Agenda y emparejamiento — Fase A (agenda del mentor)** · 2026-10-12 · código hecho (lint + build OK);
+  **falta aplicar** `supabase/migrations/20261012090100_agenda.sql` y pasar `node scripts/verify-agenda.mjs` + navegador.
+  - Tablas `availability` (franjas semanales, hora de Madrid, rejilla 30 min; trigger fusiona solapes; máx. 40)
+    y `availability_off` (días bloqueados, ≤ 120 días). RLS solo del dueño (+ admin).
+  - RPC `mentor_slots(mentor, tipo, días)` (anon/authenticated): huecos libres = franjas − reservas activas −
+    bloqueos, ≥ 3 h, ≤ 90 días; solo devuelve horas. `create_booking` → `outsideAgenda` si el mentor tiene agenda
+    y la sesión no cabe. Mentor sin agenda: flujo antiguo (el alumno propone hora).
+  - UI: `/panel/agenda` (mentor: semana, añadir franja a varios días, bloqueos, vista previa); reserva con
+    selector de día/hueco; ficha pública del mentor con próximos huecos.
+- Pendiente de David:
   - Recargar saldo en la cuenta de Anthropic para probar Bit, quiz y resumen de sesión.
   - Añadir método de pago en Daily.co (Billing) para que funcione el vídeo del aula; después probar con
     `node scripts/aula-demo.mjs` (alumna en Chrome normal, mentora en incógnito).
   - En Vercel: `ANTHROPIC_API_KEY` y `DAILY_API_KEY` cuando se despliegue.
 
 ## 4. Próximos pasos (orden de prioridad)
-0. **SIGUIENTE: fase nueva "Fusión del diseño"** (Checkpoint Academy, referencia
+0. **SIGUIENTE: Agenda y emparejamiento** (antes de Vercel), por fases: A agenda del mentor + reserva por huecos
+   (en curso) → B franjas del alumno + «Mentores para ti» + filtro en /mentores → C notificaciones en la web
+   (campana, Realtime) + «Avísame» (con y sin cuenta) + «Demanda en tus módulos» + cifras agregadas en la web
+   pública → D el mentor ofrece hueco al alumno que espera → E email (Resend) y push.
+   Después: Vercel → legal → Stripe real.
+   **Hecho antes: fase "Fusión del diseño"** (Checkpoint Academy, referencia
    `docs/diseno/DISENO.md`; prompts por fase en `docs/diseno/PROMPTS.md`). Cada fase cierra con
    lint + build + `verify-*` afectados + navegador (es y ca) + commit + ESTADO.md.
    - [x] **Fase 0** — Cerrar lo pendiente y preparar el terreno (CLAUDE.md + ESTADO.md).
@@ -496,6 +510,10 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
 - **PWA sin caché de páginas** (son personales): solo página sin conexión · 2026-10-10.
 
 ## 6. Decisiones pendientes (las decide el usuario)
+- (cerradas 2026-10-12, agenda y emparejamiento) «Avísame» SIN cuenta permitido (email + consentimiento; se
+  enviará cuando haya proveedor de email); huecos de 30 min (flash) o 60 min (1:1); el mentor puede ofrecer un
+  hueco a un alumno que espera (fase D); se hace todo antes de desplegar en Vercel. Qué ve el mentor de la
+  demanda: perfil anónimo (curso, examen, franjas), sin nombre (recomendación, no confirmado).
 - ~~Nombre y marca definitivos~~ → Checkpoint Academy + Tutor247 (2026-10-09).
 - Bit: la clave ya está en `.env.local` (falta en Vercel); decidir si queda abierto a cualquier visitante o solo con
   cuenta (coste), y si el modelo sigue siendo Opus 5.5 o uno más barato (Sonnet/Haiku 5.5).
@@ -573,7 +591,7 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
 - **Incidencias de sesión sin flujo**: si el mentor no se presenta o hay un fallo técnico grave
   no hay botón de reclamación ni canal de contacto; la política pública no lo promete. Decidir
   regla (¿devolución + sin pago al mentor?) y canal.
-- **Sin disponibilidad del mentor**: el alumno propone hora libre; no hay agenda/franjas.
+- ~~Sin disponibilidad del mentor~~ → agenda del mentor (fase A, 2026-10-12).
 - **Sin notificaciones** (email) de ticket respondido / sesión confirmada.
 - **Filtro anti-contacto** básico (emails, teléfonos españoles, enlaces a apps); el texto de
   sustitución se guarda en español en BD.

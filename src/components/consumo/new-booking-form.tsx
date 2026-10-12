@@ -1,9 +1,10 @@
 "use client";
 
-import { startTransition, useActionState, useMemo, useState } from "react";
+import { startTransition, useActionState, useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { createBookingAction, type ConsumoState } from "@/app/actions/consumo";
+import { createClient } from "@/lib/supabase/client";
 import { INPUT_CLASS, LABEL_CLASS } from "@/components/ui/field";
 import { iniciales } from "@/components/brand/mentor-card";
 import { cn } from "@/lib/utils";
@@ -54,6 +55,7 @@ export function NewBookingForm({
   const [kind, setKind] = useState<BookingKind>("sesion_flash");
   const [startsAt, setStartsAt] = useState("");
   const [note, setNote] = useState("");
+  const [version, setVersion] = useState(0);
   // Campos controlados (React 19 resetea el form): si va bien se vacían aquí; si
   // falla, el alumno no pierde lo escrito.
   const [state, action, pending] = useActionState<ConsumoState, FormData>(async (prev, fd) => {
@@ -62,11 +64,48 @@ export function NewBookingForm({
       setStartsAt("");
       setNote("");
     }
+    // Tras reservar (o si el hueco se ocupó entretanto) se recargan los huecos.
+    setVersion((v) => v + 1);
     return r;
   }, {});
 
   const disponibles = useMemo(() => mentores.filter((m) => m.modulos.includes(modulo)), [mentores, modulo]);
   const elegido = disponibles.find((m) => m.id === mentor);
+
+  // Agenda del mentor elegido (fase A): huecos libres según tipo de sesión. Sin agenda
+  // publicada → el alumno propone día y hora como antes.
+  const [agenda, setAgenda] = useState<{ key: string; agenda: boolean; slots: string[] } | null>(null);
+  const [dia, setDia] = useState("");
+  const clave = elegido ? `${elegido.id}|${kind}|${version}` : "";
+  useEffect(() => {
+    if (!clave) return;
+    const [m, k] = clave.split("|");
+    let vivo = true;
+    createClient()
+      .rpc("mentor_slots", { p_mentor: m, p_kind: k, p_days: 28 })
+      .then(({ data }) => {
+        if (!vivo) return;
+        const d = (data ?? {}) as { agenda?: boolean; slots?: string[] };
+        setAgenda({ key: clave, agenda: d.agenda ?? false, slots: d.slots ?? [] });
+      });
+    return () => {
+      vivo = false;
+    };
+  }, [clave]);
+  const cargando = !!clave && agenda?.key !== clave;
+  const conAgenda = !cargando && !!agenda?.agenda;
+  const porDia = useMemo(() => {
+    const m = new Map<string, string[]>();
+    for (const s of agenda?.slots ?? []) {
+      const d = s.slice(0, 10);
+      m.set(d, [...(m.get(d) ?? []), s]);
+    }
+    return m;
+  }, [agenda]);
+  const diaActivo = porDia.has(dia) ? dia : (porDia.keys().next().value ?? "");
+  // Fechas ya en hora de Madrid: se formatean como UTC para no desplazarlas.
+  const fmtDia = new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
+  const fmtHora = new Intl.DateTimeFormat(locale, { hour: "2-digit", minute: "2-digit", timeZone: "UTC" });
   const precio = elegido ? prices[kind][elegido.level] : undefined;
   const sinSaldo = precio !== undefined && balance < precio;
 
@@ -114,6 +153,7 @@ export function NewBookingForm({
               onChange={(e) => {
                 setModulo(e.target.value);
                 setMentor("");
+                setStartsAt("");
               }}
               className={INPUT_CLASS}
             >
@@ -146,7 +186,10 @@ export function NewBookingForm({
                       value={m.id}
                       required
                       checked={mentor === m.id}
-                      onChange={() => setMentor(m.id)}
+                      onChange={() => {
+                        setMentor(m.id);
+                        setStartsAt("");
+                      }}
                       className="sr-only"
                     />
                     <span
@@ -183,7 +226,10 @@ export function NewBookingForm({
                   name="kind"
                   value={k}
                   checked={kind === k}
-                  onChange={() => setKind(k)}
+                  onChange={() => {
+                    setKind(k);
+                    if (conAgenda) setStartsAt("");
+                  }}
                   className="sr-only"
                 />
                 <span className="flex flex-col gap-0.5">
@@ -203,7 +249,55 @@ export function NewBookingForm({
         {/* 3 · Día y hora */}
         <fieldset className="space-y-4">
           {paso(3, t("stepWhen"))}
+          {!elegido ? (
+            <p className="text-sm text-muted-foreground">{t("pickMentorFirst")}</p>
+          ) : cargando ? (
+            <p className="text-sm text-muted-foreground">{t("loadingSlots")}</p>
+          ) : conAgenda ? (
+            porDia.size === 0 ? (
+              <p className="text-sm text-muted-foreground">{t("noSlots")}</p>
+            ) : (
+              <div className="space-y-4">
+                <input type="hidden" name="starts_at" value={startsAt} />
+                <div role="group" aria-label={t("slotDays")} className="flex gap-2 overflow-x-auto pb-1">
+                  {[...porDia.keys()].map((d) => (
+                    <button
+                      key={d}
+                      type="button"
+                      aria-pressed={d === diaActivo}
+                      onClick={() => setDia(d)}
+                      className={cn(
+                        "inline-flex min-h-11 shrink-0 flex-col items-center justify-center rounded-[10px] border px-3 text-sm first-letter:uppercase",
+                        d === diaActivo ? "border-primary bg-tint-primary text-primary" : "text-muted-foreground hover:text-foreground",
+                      )}
+                    >
+                      {fmtDia.format(new Date(`${d}T00:00:00Z`))}
+                      <span className="font-mono text-[11px] text-label">{t("slotsN", { n: porDia.get(d)!.length })}</span>
+                    </button>
+                  ))}
+                </div>
+                <div role="group" aria-label={t("slotTimes")} className="flex flex-wrap gap-2">
+                  {(porDia.get(diaActivo) ?? []).map((s) => (
+                    <button
+                      key={s}
+                      type="button"
+                      aria-pressed={s === startsAt}
+                      onClick={() => setStartsAt(s)}
+                      className={cn(
+                        "inline-flex min-h-11 min-w-20 items-center justify-center rounded-[10px] border px-3 font-mono text-sm",
+                        s === startsAt ? "border-primary bg-primary text-primary-foreground" : "hover:border-primary/40",
+                      )}
+                    >
+                      {fmtHora.format(new Date(`${s}:00Z`))}
+                    </button>
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground">{t("slotsHelp")}</p>
+              </div>
+            )
+          ) : (
           <label className="block space-y-1.5">
+            <span className="block text-xs text-muted-foreground">{t("noAgendaHelp")}</span>
             <span className={`block ${LABEL_CLASS}`}>{t("startsAtLabel")}</span>
             <input
               type="datetime-local"
@@ -217,6 +311,7 @@ export function NewBookingForm({
             />
             <span className="block text-xs text-muted-foreground">{t("startsAtHelp")}</span>
           </label>
+          )}
         </fieldset>
 
         {/* 4 · Qué trabajar */}
@@ -267,7 +362,7 @@ export function NewBookingForm({
           </dl>
           <button
             type="submit"
-            disabled={pending || !elegido || sinSaldo}
+            disabled={pending || !elegido || sinSaldo || cargando || (conAgenda && !startsAt)}
             className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-primary px-4 font-bold text-primary-foreground transition-colors hover:bg-primary/85 disabled:pointer-events-none disabled:opacity-50"
           >
             {pending ? t("working") : precio !== undefined ? t("requestSessionN", { n: precio }) : t("requestSession")}

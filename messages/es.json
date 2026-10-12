@@ -486,7 +486,6 @@
     "bookSession": "Reservar sesión",
     "sendTicket": "Enviarle un Ticket Express",
     "availability": "Disponibilidad",
-    "availabilitySoon": "La agenda en tiempo real llega pronto: de momento propones tú la hora y el mentor confirma.",
     "responds": "Responde",
     "respondsValue": "~{min} min",
     "service": {
@@ -494,7 +493,10 @@
       "sesion_flash": "Sesión flash · 25 min",
       "ticket_express": "Ticket Express · < 2 h",
       "ticket_normal": "Ticket normal · < 24 h"
-    }
+    },
+    "availabilityFull": "Sin huecos libres en los próximos 14 días.",
+    "availabilityNone": "Aún no ha publicado agenda: al reservar le propones día y hora.",
+    "availabilityHelp": "Próximos huecos para una sesión 1:1 (hora de Madrid)."
   },
   "auth": {
     "registerTitle": "Crea tu cuenta",
@@ -1277,7 +1279,8 @@
       "tooLateToCancel": "Faltan menos de 24 h: ya no se puede cancelar con devolución.",
       "notConfirmed": "La sesión no está confirmada.",
       "notStarted": "La sesión aún no ha empezado.",
-      "noPrice": "Este producto aún no tiene precio."
+      "noPrice": "Este producto aún no tiene precio.",
+      "outsideAgenda": "Esa hora ya no está en la agenda del mentor. Elige otro hueco."
     },
     "cancelOverdue": "Sin respuesta en plazo: cancelar y recuperar créditos",
     "overdueNotice": "El mentor no ha respondido dentro del plazo. Puedes esperar o cancelar el ticket y recuperar tus créditos.",
@@ -1297,7 +1300,15 @@
     "question": "Pregunta",
     "updateMap": "Actualizar su Mapa",
     "openAula": "Abrir el aula",
-    "sessionSummary": "Resumen de la sesión"
+    "sessionSummary": "Resumen de la sesión",
+    "pickMentorFirst": "Elige antes un mentor para ver sus huecos.",
+    "loadingSlots": "Cargando huecos libres…",
+    "noSlots": "Este mentor no tiene huecos libres en las próximas 4 semanas. Prueba con otro mentor o envía un ticket.",
+    "slotDays": "Días con huecos libres",
+    "slotTimes": "Horas libres",
+    "slotsN": "{n, plural, one {# hueco} other {# huecos}}",
+    "slotsHelp": "Hora de Madrid. Solo se muestran huecos de su agenda que siguen libres; el mentor confirma la reserva.",
+    "noAgendaHelp": "Este mentor aún no ha publicado agenda: propón día y hora y él te la confirmará."
   },
   "cancelPolicy": {
     "metaTitle": "Política de cancelación",
@@ -1816,7 +1827,8 @@
       "checkins": "Check-ins",
       "bit": "Bit · tutor IA",
       "logros": "Logros",
-      "materiales": "Banco de material"
+      "materiales": "Banco de material",
+      "agenda": "Agenda"
     },
     "balance": "Saldo",
     "balanceValue": "{n} créditos",
@@ -2444,6 +2456,60 @@
       "rateLimited": "Demasiados resúmenes seguidos. Prueba en un rato.",
       "busy": "Bit está muy ocupado. Prueba en unos segundos.",
       "generic": "No se ha podido generar el resumen. Inténtalo de nuevo."
+    }
+  },
+  "agenda": {
+    "title": "Mi agenda",
+    "subtitle": "Marca las franjas de la semana en las que puedes dar sesiones (hora de Madrid). Los alumnos solo podrán reservar dentro de ellas, en huecos de 30 min (flash) o 60 min (1:1), con al menos 3 h de antelación.",
+    "noAgenda": "Aún no has publicado agenda: los alumnos te proponen día y hora y tú confirmas.",
+    "summary": "{h, plural, one {# hora} other {# horas}} a la semana en {n, plural, one {# franja} other {# franjas}}",
+    "weekTitle": "Tu semana",
+    "addTitle": "Añadir franja",
+    "addHelp": "Elige uno o varios días y el horario. Si se solapa o toca con otra franja de ese día, se unen.",
+    "days": "Días",
+    "from": "Desde",
+    "to": "Hasta",
+    "addSlot": "Añadir franja",
+    "deleteSlot": "Quitar la franja del {d} a las {h}",
+    "offTitle": "Días bloqueados",
+    "offHelp": "Vacaciones, exámenes… Esos días no se podrá reservar contigo aunque tengas franja.",
+    "offFrom": "Desde el día",
+    "offTo": "Hasta el día (opcional)",
+    "addOff": "Bloquear",
+    "deleteOff": "Desbloquear",
+    "previewTitle": "Próximos huecos libres",
+    "previewHelp": "Lo que ve el alumno para una sesión 1:1 en los próximos 14 días (ya descuenta reservas y bloqueos).",
+    "previewEmpty": "No te quedan huecos libres en los próximos 14 días.",
+    "wd": {
+      "1": "Lun",
+      "2": "Mar",
+      "3": "Mié",
+      "4": "Jue",
+      "5": "Vie",
+      "6": "Sáb",
+      "7": "Dom"
+    },
+    "wdLong": {
+      "1": "Lunes",
+      "2": "Martes",
+      "3": "Miércoles",
+      "4": "Jueves",
+      "5": "Viernes",
+      "6": "Sábado",
+      "7": "Domingo"
+    },
+    "ok": {
+      "slotAdded": "Franja añadida.",
+      "offAdded": "Días bloqueados."
+    },
+    "errors": {
+      "noDays": "Elige al menos un día.",
+      "badTime": "Hora no válida.",
+      "badRange": "La hora de fin debe ser posterior a la de inicio.",
+      "tooMany": "Has llegado al máximo de franjas (40). Une o quita alguna.",
+      "badDate": "Fecha no válida (no puede ser pasada).",
+      "tooLong": "Como máximo 120 días seguidos.",
+      "generic": "No se ha podido guardar. Inténtalo de nuevo."
     }
   }
 }

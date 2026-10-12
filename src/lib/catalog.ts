@@ -285,3 +285,22 @@ export async function getAllModulos(): Promise<Pick<Modulo, "code" | "name">[]> 
   if (error) throw error;
   return (data ?? []) as Pick<Modulo, "code" | "name">[];
 }
+
+// Próximos huecos libres de un mentor (fase A, agenda). Solo horas, sin datos de
+// reservas. Caché corta: la RPC create_booking vuelve a validar el hueco al reservar.
+export async function getProximosHuecos(
+  mentorId: string,
+  n = 6,
+): Promise<{ agenda: boolean; slots: string[] }> {
+  "use cache";
+  cacheLife("minutes");
+  const sb = createPublicClient();
+  const { data, error } = await sb.rpc("mentor_slots", {
+    p_mentor: mentorId,
+    p_kind: "sesion_1a1",
+    p_days: 14,
+  });
+  if (error) return { agenda: false, slots: [] };
+  const d = (data ?? {}) as { agenda?: boolean; slots?: string[] };
+  return { agenda: d.agenda ?? false, slots: (d.slots ?? []).slice(0, n) };
+}
