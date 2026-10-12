@@ -4,7 +4,14 @@ import { Logo } from "@/components/brand/logo";
 import { NAV_LINKS } from "@/components/site-header";
 import { CONTACTO } from "@/lib/contacto";
 
-// Pie global: marca + lema, enlaces de producto y ayuda, y la línea ética.
+// Pie global: marca + lema, enlaces de producto y ayuda, legales y la línea ética.
+const LEGAL = [
+  { href: "/aviso-legal", key: "legalNotice" },
+  { href: "/privacidad", key: "privacy" },
+  { href: "/cookies", key: "cookies" },
+  { href: "/condiciones", key: "terms" },
+] as const;
+
 export function SiteFooter() {
   const t = useTranslations("footer");
   const n = useTranslations("nav");
@@ -45,6 +52,13 @@ export function SiteFooter() {
       <div className="border-t border-divider">
         <div className="mx-auto flex max-w-[1200px] flex-wrap justify-between gap-3 px-4 py-6 text-sm text-label sm:px-6">
           <span>{t("rights")}</span>
+          <nav aria-label={t("legalAria")} className="flex flex-wrap gap-x-4 gap-y-1">
+            {LEGAL.map((l) => (
+              <Link key={l.href} href={l.href} className="hover:text-foreground">
+                {t(l.key)}
+              </Link>
+            ))}
+          </nav>
           <span className="font-mono">{t("ethics")}</span>
         </div>
       </div>

@@ -546,7 +546,8 @@
       "badCredentials": "Correu o contrasenya incorrectes.",
       "generic": "Alguna cosa ha fallat. Torna-ho a provar.",
       "emailNotConfirmed": "Encara no has confirmat el correu. Revisa la safata (i el correu brossa) i prem l'enllaç.",
-      "link": "L'enllaç de confirmació no és vàlid o ha caducat. Entra o registra't de nou."
+      "link": "L'enllaç de confirmació no és vàlid o ha caducat. Entra o registra't de nou.",
+      "terms": "Per crear el compte has d'acceptar les condicions i la política de privacitat."
     },
     "shellTitle": "Aprèn amb IA. Demostra-ho sense ella.",
     "shell": {
@@ -554,7 +555,8 @@
       "b2": "Pla invers des de la data del teu examen",
       "b3": "Mentors verificats d'FP"
     },
-    "referralNote": "Vens convidat per un company: quan compris el teu primer pack, rebreu 20 crèdits cadascú."
+    "referralNote": "Vens convidat per un company: quan compris el teu primer pack, rebreu 20 crèdits cadascú.",
+    "acceptTerms": "He llegit i accepto les <terms>Condicions d'ús</terms> i la <privacy>Política de privacitat</privacy>. Si tinc menys de 14 anys, la meva família ho ha autoritzat."
   },
   "onboarding": {
     "title": "Gairebé a punt",
@@ -1400,7 +1402,12 @@
     "families": "Famílies",
     "becomeMentor": "Fes-te mentor",
     "cancellation": "Política de cancel·lació",
-    "rights": "© Checkpoint Academy"
+    "rights": "© Checkpoint Academy",
+    "legalAria": "Informació legal",
+    "legalNotice": "Avís legal",
+    "privacy": "Privacitat",
+    "cookies": "Galetes",
+    "terms": "Condicions"
   },
   "dominio": {
     "nivel": {
@@ -2720,6 +2727,258 @@
       "insufficientCredits": "No tens prou crèdits. Recarrega al teu panell.",
       "mentorNotAvailable": "El mentor ja no està disponible.",
       "generic": "No s'ha pogut completar. Torna-ho a provar."
+    }
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "updated": "Darrera actualització: 12 d'octubre de 2026",
+    "pending": "[pendent]",
+    "pendingNotice": "Falten per completar algunes dades del titular (marcades com a [pendent]). Es publicaran abans d'obrir el servei al públic.",
+    "avisoLegal": {
+      "title": "Avís legal",
+      "intro": "Qui hi ha darrere de Checkpoint Academy i les condicions generals per fer servir aquest web.",
+      "sections": [
+        {
+          "h": "Titular del web",
+          "p": [
+            "En compliment de la Llei 34/2002, de serveis de la societat de la informació (LSSI), t'informem que aquest web i la marca Checkpoint Academy (amb el seu producte Tutor247) són de {titular}, amb NIF {nif} i domicili a {domicilio}.",
+            "Contacte: {email} · telèfon {telefono}. Dades registrals: {registro}."
+          ]
+        },
+        {
+          "h": "Per a què serveix aquest web",
+          "p": [
+            "Checkpoint Academy ajuda alumnes de Formació Professional d'informàtica (SMX, ASIX, DAM i DAW) a preparar i aprovar els seus mòduls: diagnòstic per resultats d'aprenentatge, pla d'estudi, mentors verificats i, a Tutor247, acompanyament durant tot el curs.",
+            "L'ús de les funcions amb compte (panell, crèdits, sessions, tiquets…) es regeix a més per les Condicions d'ús."
+          ]
+        },
+        {
+          "h": "Ús del web",
+          "p": [
+            "Et comprometes a fer servir el web de manera lícita i respectuosa: sense intentar accedir a dades d'altres persones, sense alterar-ne el funcionament i sense fer-lo servir per enviar publicitat o contingut il·legal.",
+            "Podem retirar continguts o suspendre l'accés a qui incompleixi aquestes normes."
+          ]
+        },
+        {
+          "h": "Propietat intel·lectual",
+          "p": [
+            "El disseny, els textos propis, la marca, el logotip i el programari de Checkpoint Academy són del seu titular o s'utilitzen amb llicència. No els pots copiar ni distribuir sense permís.",
+            "Els codis, noms i resultats d'aprenentatge dels mòduls i cicles són dels currículums oficials publicats per les administracions educatives; només els fem servir per identificar-los."
+          ]
+        },
+        {
+          "h": "Responsabilitat i enllaços",
+          "p": [
+            "Treballem perquè la informació sigui correcta i el web estigui disponible, però hi pot haver errors o interrupcions. La informació sobre currículums i exàmens és orientativa: el que val és el que digui el teu centre.",
+            "Si enllacem webs de tercers, no som responsables del seu contingut."
+          ]
+        },
+        {
+          "h": "Llei aplicable",
+          "p": [
+            "Aquest avís legal es regeix per la llei espanyola."
+          ]
+        }
+      ]
+    },
+    "privacidad": {
+      "title": "Política de privacitat",
+      "intro": "Quines dades tractem, per a què, amb qui les compartim i com exercir els teus drets. Escrita perquè s'entengui.",
+      "sections": [
+        {
+          "h": "Responsable",
+          "p": [
+            "El responsable del tractament és {titular} (NIF {nif}, {domicilio}). Per a qualsevol qüestió sobre les teves dades, escriu-nos a {email}."
+          ]
+        },
+        {
+          "h": "Quines dades tractem",
+          "p": [
+            "Compte: nom, email, contrasenya (xifrada; no la veiem), rol (alumne, família, mentor) i idioma.",
+            "Estudi: mòduls que prepares i dates d'examen, el teu Mapa de Domini i autoavaluacions, pla, activitat a la plataforma, assoliments, disponibilitat horària que marquis i avisos que demanis.",
+            "Servei: tiquets, missatges i fitxers que enviïs, sessions reservades, el que s'escriu o es dibuixa a l'aula, resums de sessió i converses amb Bit (la IA).",
+            "Crèdits: moviments de compra, consum i devolucions. Quan hi hagi pagaments amb targeta, les dades de pagament les tracta el proveïdor de pagaments; nosaltres no guardem el número de targeta.",
+            "Famílies: vincle amb l'alumne, consentiments i informes setmanals.",
+            "Mentors: perfil professional, mòduls que imparteixen, agenda, nivell i crèdits generats. El seu email i telèfon mai no es mostren als alumnes.",
+            "Sense compte: si ens demanes una trucada, fas una pregunta gratuïta o demanes un avís de mentor, tractem el contacte que ens donis i el teu missatge."
+          ]
+        },
+        {
+          "h": "Dades de salut (TDAH, dislèxia, autisme…)",
+          "p": [
+            "No les demanem i no hi ha cap camp per a elles. Si decideixes explicar-nos voluntàriament que tu o el teu fill teniu alguna necessitat (per exemple, TDAH, dislèxia o autisme) perquè adaptem l'acompanyament, ho tractarem amb el teu consentiment explícit (o el de la família si l'alumne té menys de 14 anys), només per a això i només ho sabran les persones que l'acompanyen. Pots retirar aquest consentiment quan vulguis."
+          ]
+        },
+        {
+          "h": "Per a què les fem servir i amb quina base legal",
+          "p": [
+            "Prestar el servei que demanes (compte, pla, sessions, tiquets, aula, crèdits, avisos): execució del contracte.",
+            "Compartir el progrés amb la teva família: si ets menor, pel consentiment dels teus tutors legals; si ets major d'edat, només si tu hi consents (i el pots retirar).",
+            "Atendre contactes sense compte i avisar-te quan hi hagi mentor: el teu consentiment.",
+            "Seguretat, prevenció del frau i evitar pagaments o contactes fora de la plataforma: interès legítim.",
+            "Comptabilitat, facturació i obligacions fiscals: obligació legal.",
+            "No prenem decisions automatitzades amb efectes legals sobre tu. Ordenem els mentors segons l'encaix (horari, idioma, mòdul) per ajudar-te a triar; la decisió és teva."
+          ]
+        },
+        {
+          "h": "Menors",
+          "p": [
+            "Si tens menys de 14 anys, necessites el consentiment de la teva mare, pare o tutor legal per fer servir Checkpoint Academy. En el Mode Família és la família qui ho gestiona.",
+            "Si tens 14 anys o més, el pots donar tu. Si ets major d'edat, tu decideixes què es comparteix amb la teva família; per defecte, res."
+          ]
+        },
+        {
+          "h": "Amb qui les compartim",
+          "p": [
+            "Amb el teu mentor o tutor de referència, el necessari per ajudar-te (nom de pila, mòdul, el que els enviïs). Amb la teva família, només en els casos anteriors.",
+            "Amb proveïdors que ens presten serveis i tracten dades per compte nostre: Supabase (base de dades, comptes i fitxers), Vercel (allotjament del web), Anthropic (model d'IA de Bit: processa els missatges que li escrius i, segons les seves condicions comercials, no els fa servir per entrenar els seus models), Daily.co (videotrucada de l'aula) i, quan s'activin, el proveïdor de pagaments i el d'enviament d'emails.",
+            "Alguns d'aquests proveïdors poden tractar dades fora de l'Espai Econòmic Europeu (per exemple, als EUA). En aquest cas es fa amb les garanties del RGPD: Marc de Privacitat de Dades UE-EUA o clàusules contractuals tipus.",
+            "No venem les teves dades ni les fem servir per a publicitat de tercers."
+          ]
+        },
+        {
+          "h": "Quant de temps les guardem",
+          "p": [
+            "Mentre tinguis el compte actiu. Si demanes la baixa, les suprimim, excepte el que la llei ens obliga a conservar (per exemple, moviments de crèdits i pagaments, durant els terminis comptables i fiscals, fins a 6 anys), que quedarà bloquejat.",
+            "Contactes sense compte i avisos per email: fins a atendre'ls i, com a màxim, 12 mesos."
+          ]
+        },
+        {
+          "h": "Els teus drets",
+          "p": [
+            "Pots demanar accés, rectificació, supressió, oposició, limitació del tractament i portabilitat de les teves dades, i retirar en qualsevol moment els consentiments que hagis donat, escrivint a {email}. Et respondrem en el termini d'un mes.",
+            "Si creus que no hem tractat bé les teves dades, pots reclamar davant l'Agència Espanyola de Protecció de Dades (www.aepd.es) o l'Autoritat Catalana de Protecció de Dades si correspon."
+          ]
+        },
+        {
+          "h": "Seguretat",
+          "p": [
+            "Cada persona només pot veure les seves pròpies dades (ho controla la base de dades, no només el web), les connexions van xifrades i les contrasenyes es guarden xifrades. Les dades de contacte d'alumnes i mentors no es mostren entre ells: tota la comunicació passa per la plataforma."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Política de galetes",
+      "intro": "Només fem servir les galetes tècniques imprescindibles perquè el web funcioni. Ni publicitat ni analítica.",
+      "sections": [
+        {
+          "h": "Quines galetes fem servir",
+          "p": [
+            "Sessió (Supabase, nom «sb-…-auth-token»): manté la teva sessió iniciada mentre fas servir el panell. Tècnica i necessària. Dura fins que tanques la sessió o caduca.",
+            "Idioma (NEXT_LOCALE): recorda si prefereixes castellà o català. Tècnica. Durada limitada, com a màxim un any.",
+            "Aplicació instal·lable: si instal·les el web al mòbil, el navegador guarda una pàgina «sense connexió» per mostrar-la si et quedes sense internet. No conté dades personals."
+          ]
+        },
+        {
+          "h": "Videotrucada de l'aula",
+          "p": [
+            "En entrar en una sessió a l'aula, el proveïdor de videotrucada (Daily.co) pot fer servir les seves pròpies galetes tècniques, necessàries perquè la trucada funcioni."
+          ]
+        },
+        {
+          "h": "Per què no et demanem permís",
+          "p": [
+            "La llei no exigeix consentiment per a les galetes estrictament necessàries per prestar un servei que has demanat. Per això no mostrem cap bàner de galetes.",
+            "Si algun dia afegim galetes d'analítica o d'un altre tipus, et demanarem permís abans i actualitzarem aquesta pàgina."
+          ]
+        },
+        {
+          "h": "Com esborrar-les",
+          "p": [
+            "Pots esborrar o bloquejar les galetes des de la configuració del teu navegador. Si bloqueges la de sessió, no podràs entrar al teu panell."
+          ]
+        }
+      ]
+    },
+    "condiciones": {
+      "title": "Condicions d'ús",
+      "intro": "Les regles del servei: compte, crèdits, sessions, integritat acadèmica i què pots esperar de nosaltres.",
+      "sections": [
+        {
+          "h": "El servei",
+          "p": [
+            "Checkpoint Academy, de {titular}, és una plataforma per preparar mòduls d'FP d'informàtica: diagnòstic, pla d'estudi, dubtes per tiquet, sessions amb mentors verificats, aula en línia i, a Tutor247, un tutor de referència que acompanya l'alumne durant el curs. Algunes funcions es marquen com a «Properament» fins que estiguin disponibles."
+          ]
+        },
+        {
+          "h": "El teu compte",
+          "p": [
+            "Has de donar dades veraces i guardar la teva contrasenya. El compte és personal.",
+            "Si tens menys de 14 anys, necessites l'autorització de la teva família. Els alumnes majors d'edat decideixen què es comparteix amb la seva família."
+          ]
+        },
+        {
+          "h": "Crèdits",
+          "p": [
+            "Els tiquets i les sessions es paguen amb crèdits (1 crèdit ≈ 1 €). El preu de cada servei en crèdits es mostra abans de fer-lo servir.",
+            "Els crèdits d'un paquet caduquen als 12 mesos de la compra. Els crèdits de regal (benvinguda, invitacions) són promocionals, no tenen valor en diners i també caduquen.",
+            "Els crèdits no es bescanvien per diners, excepte en el desistiment i en les devolucions que preveu la Política de cancel·lació (les devolucions es fan en crèdits)."
+          ]
+        },
+        {
+          "h": "Desistiment",
+          "p": [
+            "Si ets consumidor, pots desistir de la compra d'un paquet de crèdits en els 14 dies naturals següents, sense donar explicacions, sempre que no hagis fet servir cap crèdit d'aquell paquet. Escriu-nos a {email} i et retornarem l'import pel mateix mitjà de pagament.",
+            "Si comences a fer servir el servei dins d'aquest termini, acceptes que es presti immediatament i perds el dret de desistiment sobre el que ja hagis consumit."
+          ]
+        },
+        {
+          "h": "Tiquets i sessions",
+          "p": [
+            "Els terminis de resposta, les cancel·lacions i les devolucions de tiquets i sessions són a la Política de cancel·lació, que forma part d'aquestes condicions.",
+            "Les sessions es reserven en els forats de l'agenda del mentor (o proposant hora, si no en té) i es fan a l'aula de la plataforma."
+          ]
+        },
+        {
+          "h": "Integritat acadèmica",
+          "p": [
+            "T'ajudem a entendre i a organitzar-te, no a fer trampes: ni els mentors, ni els tutors, ni la IA fan pràctiques, treballs o exàmens per tu. Podem rebutjar peticions d'aquest tipus i suspendre comptes que hi insisteixin."
+          ]
+        },
+        {
+          "h": "Tot dins de la plataforma",
+          "p": [
+            "Per protegir alumnes i mentors, la comunicació i els pagaments van sempre per la plataforma. No es permet compartir dades de contacte ni pagar o quedar per fora; amaguem automàticament emails i telèfons als missatges i podem suspendre qui ho intenti."
+          ]
+        },
+        {
+          "h": "Bit, la IA",
+          "p": [
+            "Bit és una ajuda orientativa: es pot equivocar i no substitueix el teu mentor ni el teu professor. Comprova el que sigui important. Sempre es presenta com a IA."
+          ]
+        },
+        {
+          "h": "Mentors i resultats",
+          "p": [
+            "Els mentors són docents o professionals que verifiquem abans que puguin fer classe. Posem els mitjans perquè aprovis, però aprovar depèn també de la teva feina i del teu centre: no garantim el resultat, excepte en les garanties que es descriguin expressament en un producte."
+          ]
+        },
+        {
+          "h": "Contingut que puges",
+          "p": [
+            "El que envies (codi, dubtes, fitxers) continua sent teu. Ens dones permís per fer-lo servir només per prestar-te el servei. No pugis contingut il·legal ni dades d'altres persones."
+          ]
+        },
+        {
+          "h": "Baixa",
+          "p": [
+            "Pots donar-te de baixa quan vulguis escrivint a {email}. Podem suspendre o tancar comptes que incompleixin aquestes condicions; si et queden crèdits de paquets sense caducar i la suspensió no és per un incompliment teu, te'ls retornarem."
+          ]
+        },
+        {
+          "h": "Canvis en les condicions",
+          "p": [
+            "Si canviem aquestes condicions, ho avisarem al web amb antelació. Si no hi estàs d'acord, pots donar-te de baixa."
+          ]
+        },
+        {
+          "h": "Llei i reclamacions",
+          "p": [
+            "S'aplica la llei espanyola. Si ets consumidor, pots reclamar als tribunals del teu domicili. També ens pots escriure primer a {email}: intentarem resoldre-ho."
+          ]
+        }
+      ]
     }
   }
 }

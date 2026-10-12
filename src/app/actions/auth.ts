@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { localePath } from "@/lib/auth";
+import { LEGAL_VERSION } from "@/lib/legal";
 import type { UserRole } from "@/lib/db-types";
 
 // Errores e info como CÓDIGOS (claves i18n de `auth.errors` / `auth.info`); la UI
@@ -85,6 +86,7 @@ export async function signUpAction(
 
   if (!email || !password) return { error: "required", values };
   if (password.length < MIN_PASSWORD) return { error: "weakPassword", values };
+  if (formData.get("accept_terms") !== "on") return { error: "terms", values };
 
   // Enlace del email de confirmación → /api/auth/confirm (crea la sesión) → onboarding.
   // El origen sale de la petición (localhost, preview o producción); debe estar en
@@ -100,7 +102,8 @@ export async function signUpAction(
     options: {
       // El trigger handle_new_user crea el profile con este rol y nombre (y solo
       // acepta alumno/familia/mentor: ver migración role_guards).
-      data: { full_name: fullName, role, ...(ref ? { ref } : {}) },
+      // terms_version: versión de condiciones + privacidad aceptadas (queda en auth.users).
+      data: { full_name: fullName, role, terms_version: LEGAL_VERSION, ...(ref ? { ref } : {}) },
       emailRedirectTo: `${origin}/api/auth/confirm?next=${encodeURIComponent(next)}`,
     },
   });

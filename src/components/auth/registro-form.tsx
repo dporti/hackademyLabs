@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { signUpAction, type AuthState } from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
 import { INPUT_CLASS, LABEL_CLASS } from "@/components/ui/field";
@@ -102,6 +103,24 @@ export function RegistroForm({
         />
         <span id="password-hint" className="block text-xs text-muted-foreground">
           {t("passwordHint")}
+        </span>
+      </label>
+
+      <label className="flex cursor-pointer items-start gap-2.5 text-sm">
+        <input type="checkbox" name="accept_terms" required className="mt-0.5 size-4 shrink-0 accent-primary" />
+        <span className="text-muted-foreground">
+          {t.rich("acceptTerms", {
+            terms: (c) => (
+              <Link href="/condiciones" target="_blank" className="text-primary underline-offset-4 hover:underline">
+                {c}
+              </Link>
+            ),
+            privacy: (c) => (
+              <Link href="/privacidad" target="_blank" className="text-primary underline-offset-4 hover:underline">
+                {c}
+              </Link>
+            ),
+          })}
         </span>
       </label>
 

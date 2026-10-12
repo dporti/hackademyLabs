@@ -546,7 +546,8 @@
       "badCredentials": "Email o contraseña incorrectos.",
       "generic": "Algo ha fallado. Inténtalo de nuevo.",
       "emailNotConfirmed": "Aún no has confirmado tu email. Revisa tu bandeja (y spam) y pulsa el enlace.",
-      "link": "El enlace de confirmación no es válido o ha caducado. Entra o regístrate de nuevo."
+      "link": "El enlace de confirmación no es válido o ha caducado. Entra o regístrate de nuevo.",
+      "terms": "Para crear la cuenta tienes que aceptar las condiciones y la política de privacidad."
     },
     "shellTitle": "Aprende con IA. Demuéstralo sin ella.",
     "shell": {
@@ -554,7 +555,8 @@
       "b2": "Plan inverso desde la fecha de tu examen",
       "b3": "Mentores verificados de FP"
     },
-    "referralNote": "Vienes invitado por un compañero: cuando compres tu primer pack, recibiréis 20 créditos cada uno."
+    "referralNote": "Vienes invitado por un compañero: cuando compres tu primer pack, recibiréis 20 créditos cada uno.",
+    "acceptTerms": "He leído y acepto las <terms>Condiciones de uso</terms> y la <privacy>Política de privacidad</privacy>. Si tengo menos de 14 años, mi familia lo ha autorizado."
   },
   "onboarding": {
     "title": "Casi listo",
@@ -1400,7 +1402,12 @@
     "families": "Familias",
     "becomeMentor": "Hazte mentor",
     "cancellation": "Política de cancelación",
-    "rights": "© Checkpoint Academy"
+    "rights": "© Checkpoint Academy",
+    "legalAria": "Información legal",
+    "legalNotice": "Aviso legal",
+    "privacy": "Privacidad",
+    "cookies": "Cookies",
+    "terms": "Condiciones"
   },
   "dominio": {
     "nivel": {
@@ -2720,6 +2727,258 @@
       "insufficientCredits": "No tienes créditos suficientes. Recarga en tu panel.",
       "mentorNotAvailable": "El mentor ya no está disponible.",
       "generic": "No se ha podido completar. Inténtalo de nuevo."
+    }
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "updated": "Última actualización: 12 de octubre de 2026",
+    "pending": "[pendiente]",
+    "pendingNotice": "Faltan por completar algunos datos del titular (marcados como [pendiente]). Se publicarán antes de abrir el servicio al público.",
+    "avisoLegal": {
+      "title": "Aviso legal",
+      "intro": "Quién está detrás de Checkpoint Academy y las condiciones generales para usar esta web.",
+      "sections": [
+        {
+          "h": "Titular de la web",
+          "p": [
+            "En cumplimiento de la Ley 34/2002, de servicios de la sociedad de la información (LSSI), te informamos de que esta web y la marca Checkpoint Academy (con su producto Tutor247) son de {titular}, con NIF {nif} y domicilio en {domicilio}.",
+            "Contacto: {email} · teléfono {telefono}. Datos registrales: {registro}."
+          ]
+        },
+        {
+          "h": "Para qué sirve esta web",
+          "p": [
+            "Checkpoint Academy ayuda a alumnos de Formación Profesional de informática (SMX, ASIR/ASIX, DAM y DAW) a preparar y aprobar sus módulos: diagnóstico por resultados de aprendizaje, plan de estudio, mentores verificados y, en Tutor247, acompañamiento durante todo el curso.",
+            "El uso de las funciones con cuenta (panel, créditos, sesiones, tickets…) se rige además por las Condiciones de uso."
+          ]
+        },
+        {
+          "h": "Uso de la web",
+          "p": [
+            "Te comprometes a usar la web de forma lícita y respetuosa: sin intentar acceder a datos de otras personas, sin alterar su funcionamiento y sin usarla para enviar publicidad o contenido ilegal.",
+            "Podemos retirar contenidos o suspender el acceso a quien incumpla estas normas."
+          ]
+        },
+        {
+          "h": "Propiedad intelectual",
+          "p": [
+            "El diseño, los textos propios, la marca, el logotipo y el software de Checkpoint Academy son de su titular o se usan con licencia. No puedes copiarlos ni distribuirlos sin permiso.",
+            "Los códigos, nombres y resultados de aprendizaje de los módulos y ciclos son de los currículos oficiales publicados por las administraciones educativas; los usamos solo para identificarlos."
+          ]
+        },
+        {
+          "h": "Responsabilidad y enlaces",
+          "p": [
+            "Trabajamos para que la información sea correcta y la web esté disponible, pero puede haber errores o interrupciones. La información sobre currículos y exámenes es orientativa: lo que vale es lo que diga tu centro.",
+            "Si enlazamos a webs de terceros, no somos responsables de su contenido."
+          ]
+        },
+        {
+          "h": "Ley aplicable",
+          "p": [
+            "Este aviso legal se rige por la ley española."
+          ]
+        }
+      ]
+    },
+    "privacidad": {
+      "title": "Política de privacidad",
+      "intro": "Qué datos tratamos, para qué, con quién los compartimos y cómo ejercer tus derechos. Escrita para que se entienda.",
+      "sections": [
+        {
+          "h": "Responsable",
+          "p": [
+            "El responsable del tratamiento es {titular} (NIF {nif}, {domicilio}). Para cualquier cuestión sobre tus datos, escríbenos a {email}."
+          ]
+        },
+        {
+          "h": "Qué datos tratamos",
+          "p": [
+            "Cuenta: nombre, email, contraseña (cifrada; no la vemos), rol (alumno, familia, mentor) e idioma.",
+            "Estudio: módulos que preparas y fechas de examen, tu Mapa de Dominio y autoevaluaciones, plan, actividad en la plataforma, logros, disponibilidad horaria que marques y avisos que pidas.",
+            "Servicio: tickets, mensajes y ficheros que envíes, sesiones reservadas, lo que se escribe o dibuja en el aula, resúmenes de sesión y conversaciones con Bit (la IA).",
+            "Créditos: movimientos de compra, consumo y devoluciones. Cuando haya pagos con tarjeta, los datos de pago los trata el proveedor de pagos; nosotros no guardamos el número de tarjeta.",
+            "Familias: vínculo con el alumno, consentimientos e informes semanales.",
+            "Mentores: perfil profesional, módulos que imparten, agenda, nivel y créditos generados. Su email y teléfono nunca se muestran a los alumnos.",
+            "Sin cuenta: si nos pides una llamada, haces una pregunta gratis o pides un aviso de mentor, tratamos el contacto que nos des y tu mensaje."
+          ]
+        },
+        {
+          "h": "Datos de salud (TDAH, dislexia, autismo…)",
+          "p": [
+            "No los pedimos y no hay ningún campo para ellos. Si decides contarnos voluntariamente que tú o tu hijo tenéis alguna necesidad (por ejemplo, TDAH, dislexia o autismo) para que adaptemos el acompañamiento, lo trataremos con tu consentimiento explícito (o el de la familia si el alumno tiene menos de 14 años), solo para eso y solo lo sabrán las personas que le acompañan. Puedes retirar ese consentimiento cuando quieras."
+          ]
+        },
+        {
+          "h": "Para qué los usamos y con qué base legal",
+          "p": [
+            "Prestar el servicio que pides (cuenta, plan, sesiones, tickets, aula, créditos, avisos): ejecución del contrato.",
+            "Compartir el progreso con tu familia: si eres menor, por el consentimiento de tus tutores legales; si eres mayor de edad, solo si tú lo consientes (y puedes retirarlo).",
+            "Atender contactos sin cuenta y avisarte cuando haya mentor: tu consentimiento.",
+            "Seguridad, prevención de fraude y evitar pagos o contactos fuera de la plataforma: interés legítimo.",
+            "Contabilidad, facturación y obligaciones fiscales: obligación legal.",
+            "No tomamos decisiones automatizadas con efectos legales sobre ti. Ordenamos mentores según encaje (horario, idioma, módulo) para ayudarte a elegir; la decisión es tuya."
+          ]
+        },
+        {
+          "h": "Menores",
+          "p": [
+            "Si tienes menos de 14 años, necesitas el consentimiento de tu madre, padre o tutor legal para usar Checkpoint Academy. En el Modo Familia es la familia quien lo gestiona.",
+            "Si tienes 14 años o más puedes darlo tú. Si eres mayor de edad, tú decides qué se comparte con tu familia; por defecto, nada."
+          ]
+        },
+        {
+          "h": "Con quién los compartimos",
+          "p": [
+            "Con tu mentor o tutor de referencia, lo necesario para ayudarte (nombre de pila, módulo, lo que les envíes). Con tu familia, solo en los casos anteriores.",
+            "Con proveedores que nos prestan servicios y tratan datos por cuenta nuestra: Supabase (base de datos, cuentas y ficheros), Vercel (alojamiento de la web), Anthropic (modelo de IA de Bit: procesa los mensajes que le escribes y, según sus condiciones comerciales, no los usa para entrenar sus modelos), Daily.co (videollamada del aula) y, cuando se activen, el proveedor de pagos y el de envío de emails.",
+            "Algunos de estos proveedores pueden tratar datos fuera del Espacio Económico Europeo (por ejemplo, en EE. UU.). En ese caso se hace con las garantías del RGPD: Marco de Privacidad de Datos UE-EE. UU. o cláusulas contractuales tipo.",
+            "No vendemos tus datos ni los usamos para publicidad de terceros."
+          ]
+        },
+        {
+          "h": "Cuánto tiempo los guardamos",
+          "p": [
+            "Mientras tengas la cuenta activa. Si pides la baja, los suprimimos, salvo lo que la ley nos obliga a conservar (por ejemplo, movimientos de créditos y pagos, durante los plazos contables y fiscales, hasta 6 años), que quedará bloqueado.",
+            "Contactos sin cuenta y avisos por email: hasta atenderlos y, como máximo, 12 meses."
+          ]
+        },
+        {
+          "h": "Tus derechos",
+          "p": [
+            "Puedes pedir acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad de tus datos, y retirar en cualquier momento los consentimientos que hayas dado, escribiendo a {email}. Te responderemos en el plazo de un mes.",
+            "Si crees que no hemos tratado bien tus datos, puedes reclamar ante la Agencia Española de Protección de Datos (www.aepd.es)."
+          ]
+        },
+        {
+          "h": "Seguridad",
+          "p": [
+            "Cada persona solo puede ver sus propios datos (lo controla la base de datos, no solo la web), las conexiones van cifradas y las contraseñas se guardan cifradas. Los datos de contacto de alumnos y mentores no se muestran entre ellos: toda la comunicación pasa por la plataforma."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Política de cookies",
+      "intro": "Solo usamos las cookies técnicas imprescindibles para que la web funcione. Ni publicidad ni analítica.",
+      "sections": [
+        {
+          "h": "Qué cookies usamos",
+          "p": [
+            "Sesión (Supabase, nombre «sb-…-auth-token»): mantiene tu sesión iniciada mientras usas el panel. Técnica y necesaria. Dura hasta que cierras sesión o caduca.",
+            "Idioma (NEXT_LOCALE): recuerda si prefieres castellano o catalán. Técnica. Duración limitada, como máximo un año.",
+            "Aplicación instalable: si instalas la web en tu móvil, el navegador guarda una página «sin conexión» para mostrarla si te quedas sin internet. No contiene datos personales."
+          ]
+        },
+        {
+          "h": "Videollamada del aula",
+          "p": [
+            "Al entrar en una sesión en el aula, el proveedor de videollamada (Daily.co) puede usar sus propias cookies técnicas, necesarias para que la llamada funcione."
+          ]
+        },
+        {
+          "h": "Por qué no te pedimos permiso",
+          "p": [
+            "La ley no exige consentimiento para las cookies estrictamente necesarias para prestar un servicio que has pedido. Por eso no mostramos un banner de cookies.",
+            "Si algún día añadimos cookies de analítica o de otro tipo, te pediremos permiso antes y actualizaremos esta página."
+          ]
+        },
+        {
+          "h": "Cómo borrarlas",
+          "p": [
+            "Puedes borrar o bloquear las cookies desde la configuración de tu navegador. Si bloqueas la de sesión, no podrás entrar en tu panel."
+          ]
+        }
+      ]
+    },
+    "condiciones": {
+      "title": "Condiciones de uso",
+      "intro": "Las reglas del servicio: cuenta, créditos, sesiones, integridad académica y qué puedes esperar de nosotros.",
+      "sections": [
+        {
+          "h": "El servicio",
+          "p": [
+            "Checkpoint Academy, de {titular}, es una plataforma para preparar módulos de FP de informática: diagnóstico, plan de estudio, dudas por ticket, sesiones con mentores verificados, aula online y, en Tutor247, un tutor de referencia que acompaña al alumno durante el curso. Algunas funciones se marcan como «Próximamente» hasta que estén disponibles."
+          ]
+        },
+        {
+          "h": "Tu cuenta",
+          "p": [
+            "Tienes que dar datos veraces y guardar tu contraseña. La cuenta es personal.",
+            "Si tienes menos de 14 años, necesitas la autorización de tu familia. Los alumnos mayores de edad deciden qué se comparte con su familia."
+          ]
+        },
+        {
+          "h": "Créditos",
+          "p": [
+            "Los tickets y las sesiones se pagan con créditos (1 crédito ≈ 1 €). El precio de cada servicio en créditos se muestra antes de usarlo.",
+            "Los créditos de un pack caducan a los 12 meses de la compra. Los créditos de regalo (bienvenida, invitaciones) son promocionales, no tienen valor en dinero y también caducan.",
+            "Los créditos no se canjean por dinero, salvo en el desistimiento y en las devoluciones que prevé la Política de cancelación (las devoluciones se hacen en créditos)."
+          ]
+        },
+        {
+          "h": "Desistimiento",
+          "p": [
+            "Si eres consumidor, puedes desistir de la compra de un pack de créditos en los 14 días naturales siguientes, sin dar explicaciones, siempre que no hayas usado ningún crédito de ese pack. Escríbenos a {email} y te devolveremos el importe por el mismo medio de pago.",
+            "Si empiezas a usar el servicio dentro de ese plazo, aceptas que se preste de inmediato y pierdes el derecho de desistimiento sobre lo ya consumido."
+          ]
+        },
+        {
+          "h": "Tickets y sesiones",
+          "p": [
+            "Los plazos de respuesta, las cancelaciones y las devoluciones de tickets y sesiones están en la Política de cancelación, que forma parte de estas condiciones.",
+            "Las sesiones se reservan en los huecos de la agenda del mentor (o proponiendo hora, si no tiene agenda) y se hacen en el aula de la plataforma."
+          ]
+        },
+        {
+          "h": "Integridad académica",
+          "p": [
+            "Te ayudamos a entender y a organizarte, no a hacer trampas: ni los mentores, ni los tutores, ni la IA hacen prácticas, trabajos o exámenes por ti. Podemos rechazar peticiones de ese tipo y suspender cuentas que insistan."
+          ]
+        },
+        {
+          "h": "Todo dentro de la plataforma",
+          "p": [
+            "Para proteger a alumnos y mentores, la comunicación y los pagos van siempre por la plataforma. No está permitido compartir datos de contacto ni pagar o quedar por fuera; ocultamos automáticamente emails y teléfonos en los mensajes y podemos suspender a quien lo intente."
+          ]
+        },
+        {
+          "h": "Bit, la IA",
+          "p": [
+            "Bit es una ayuda orientativa: puede equivocarse y no sustituye a tu mentor ni a tu profesor. Comprueba lo importante. Siempre se presenta como IA."
+          ]
+        },
+        {
+          "h": "Mentores y resultados",
+          "p": [
+            "Los mentores son docentes o profesionales que verificamos antes de que puedan dar clase. Ponemos los medios para que apruebes, pero aprobar depende también de tu trabajo y de tu centro: no garantizamos el resultado, salvo en las garantías que se describan expresamente en un producto."
+          ]
+        },
+        {
+          "h": "Contenido que subes",
+          "p": [
+            "Lo que envías (código, dudas, ficheros) sigue siendo tuyo. Nos das permiso para usarlo solo para prestarte el servicio. No subas contenido ilegal ni datos de otras personas."
+          ]
+        },
+        {
+          "h": "Baja",
+          "p": [
+            "Puedes darte de baja cuando quieras escribiendo a {email}. Podemos suspender o cerrar cuentas que incumplan estas condiciones; si te quedan créditos de packs sin caducar y la suspensión no es por un incumplimiento tuyo, te los devolveremos."
+          ]
+        },
+        {
+          "h": "Cambios en las condiciones",
+          "p": [
+            "Si cambiamos estas condiciones, lo avisaremos en la web con antelación. Si no estás de acuerdo, puedes darte de baja."
+          ]
+        },
+        {
+          "h": "Ley y reclamaciones",
+          "p": [
+            "Se aplica la ley española. Si eres consumidor, puedes reclamar en los tribunales de tu domicilio. También puedes escribirnos primero a {email}: intentaremos resolverlo."
+          ]
+        }
+      ]
     }
   }
 }
