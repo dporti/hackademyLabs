@@ -142,7 +142,7 @@ export function NewBookingForm({
 
       <div className="space-y-8">
         {/* 1 · Módulo y mentor */}
-        <fieldset className="space-y-4">
+        <fieldset className="min-w-0 space-y-4">
           {paso(1, t("stepMentor"))}
           <label className="block space-y-1.5">
             <span className={LABEL_CLASS}>{t("moduleLabel")}</span>
@@ -210,7 +210,7 @@ export function NewBookingForm({
         </fieldset>
 
         {/* 2 · Tipo de sesión */}
-        <fieldset className="space-y-4">
+        <fieldset className="min-w-0 space-y-4">
           {paso(2, t("sessionKindLabel"))}
           <div className="grid gap-3 sm:grid-cols-2">
             {(["sesion_flash", "sesion_1a1"] as const).map((k) => (
@@ -247,7 +247,7 @@ export function NewBookingForm({
         </fieldset>
 
         {/* 3 · Día y hora */}
-        <fieldset className="space-y-4">
+        <fieldset className="min-w-0 space-y-4">
           {paso(3, t("stepWhen"))}
           {!elegido ? (
             <p className="text-sm text-muted-foreground">{t("pickMentorFirst")}</p>
@@ -267,7 +267,7 @@ export function NewBookingForm({
                       aria-pressed={d === diaActivo}
                       onClick={() => setDia(d)}
                       className={cn(
-                        "inline-flex min-h-11 shrink-0 flex-col items-center justify-center rounded-[10px] border px-3 text-sm first-letter:uppercase",
+                        "inline-flex min-h-11 shrink-0 flex-col items-center justify-center rounded-[10px] border px-3 py-1.5 text-sm first-letter:uppercase",
                         d === diaActivo ? "border-primary bg-tint-primary text-primary" : "text-muted-foreground hover:text-foreground",
                       )}
                     >
@@ -315,7 +315,7 @@ export function NewBookingForm({
         </fieldset>
 
         {/* 4 · Qué trabajar */}
-        <fieldset className="space-y-4">
+        <fieldset className="min-w-0 space-y-4">
           {paso(4, t("noteLabel"))}
           <textarea
             name="note"

@@ -342,7 +342,7 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
 
 ## 3. En curso
 - **Agenda y emparejamiento — Fase A (agenda del mentor)** · 2026-10-12 · `a80608f`; migración aplicada,
-  `verify-agenda.mjs` OK (18/18) y sin regresión en consumo/credits/roles. Falta revisar en navegador.
+  `verify-agenda.mjs` OK (18/18) y sin regresión en consumo/credits/roles; revisada en navegador.
   - Tablas `availability` (franjas semanales, hora de Madrid, rejilla 30 min; trigger fusiona solapes; máx. 40)
     y `availability_off` (días bloqueados, ≤ 120 días). RLS solo del dueño (+ admin).
   - RPC `mentor_slots(mentor, tipo, días)` (anon/authenticated): huecos libres = franjas − reservas activas −
@@ -350,8 +350,10 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
     y la sesión no cabe. Mentor sin agenda: flujo antiguo (el alumno propone hora).
   - UI: `/panel/agenda` (mentor: semana, añadir franja a varios días, bloqueos, vista previa); reserva con
     selector de día/hueco; ficha pública del mentor con próximos huecos.
-- **Fase B (emparejamiento)** · 2026-10-12 · código hecho (tsc + lint OK; build pendiente con el dev server parado);
-  **falta aplicar** `supabase/migrations/20261012090200_match.sql` y pasar `node scripts/verify-match.mjs`.
+- **Fase B (emparejamiento)** · 2026-10-12 · `df86fa9` + ajustes; migración aplicada, `verify-match.mjs` OK (15/15)
+  y revisada en navegador (mentora publica franjas → ficha pública con huecos → alumna marca disponibilidad →
+  «Coincidís 4 h/semana» → selector de huecos; `/mentores?hueco=1` filtra bien). Build pendiente (dev server encendido).
+  Arreglado: la fila de días del selector desbordaba la página (fieldset con min-width: min-content).
   - El alumno guarda sus franjas en `availability` (`/panel/agenda` = «Mi disponibilidad» para alumno).
   - RPC `match_mentors(módulo, límite)` (solo authenticated, alumno = auth.uid()): mentores verificados del
     módulo con horas/semana en común, primer hueco libre, primer hueco dentro de sus franjas, idioma (profile.locale)

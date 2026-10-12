@@ -14,8 +14,8 @@ export const instant = false;
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/panel/agenda">) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "agenda" });
-  return { title: t("title"), robots: { index: false } };
+  const [t, session] = await Promise.all([getTranslations({ locale, namespace: "agenda" }), getSessionUser()]);
+  return { title: session?.profile?.role === "alumno" ? t("studentTitle") : t("title"), robots: { index: false } };
 }
 
 const hhmm = (t: string) => t.slice(0, 5);
