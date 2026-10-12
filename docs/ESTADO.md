@@ -338,7 +338,7 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
   - Usuarios de prueba visuales: `test.visual.f7alumna`, `test.visual.f7tutor`, `test.visual.f7mentora`
     (@tutor247.dev, contraseña de los demás usuarios de prueba) con Mapa, tutor asignado y una reserva.
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
-  2026-10-11 (fases 7–9 incluidas).
+  2026-10-12 (agenda y emparejamiento, fases A y B, incluidas).
 
 ## 3. En curso
 - **Agenda y emparejamiento — Fase A (agenda del mentor)** · 2026-10-12 · `a80608f`; migración aplicada,
@@ -630,6 +630,11 @@ npm run lint           # eslint
 ```
 
 Rutas: `/` = español (sin prefijo), `/ca` = catalán. Referencia de diseño: `/styleguide`.
+
+### Cuentas de prueba (local)
+`test.visual.{admin,f7alumna,f7mentora,f7tutor,familia}@tutor247.dev` (admin, alumna Marta, mentora
+verificada Laura con agenda lun–jue 18–20, tutor Sergi, familia Carmen). Contraseña: la de los
+`scripts/verify-*.mjs` (no se escribe aquí). `apply_all.sql` las borra.
 
 ### Base de datos (Supabase)
 El esquema y los datos viven en `supabase/`. Para aplicarlos a un proyecto:
