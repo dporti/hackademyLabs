@@ -401,7 +401,7 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
   Vercel, Anthropic, Daily (+ pagos/email cuando se activen), menores (<14 con familia), datos de salud solo
   voluntarios con consentimiento explícito, créditos (caducidad 12 meses, sin canje salvo desistimiento/cancelación).
   Registro: casilla obligatoria de condiciones + privacidad (`terms_version` = `LEGAL_VERSION` en metadatos de
-  auth.users). **Faltan datos del titular** en `src/lib/legal.ts` (nombre/razón social, NIF, domicilio; email por
+  auth.users). **Datos del titular: de momento no se ponen** (decisión de David 2026-10-12) en `src/lib/legal.ts` (nombre/razón social, NIF, domicilio; email por
   `NEXT_PUBLIC_CONTACT_EMAIL`): hasta entonces las páginas muestran «[pendiente]» y un aviso.
   **Recomendado:** revisión por un profesional antes de abrir al público.
 - Pendiente de David:
@@ -676,7 +676,7 @@ npm run lint           # eslint
 
 Rutas: `/` = español (sin prefijo), `/ca` = catalán. Referencia de diseño: `/styleguide`.
 
-### Decisiones legales a confirmar (2026-10-12)
+### Decisiones legales (confirmadas por David 2026-10-12)
 - Desistimiento: 14 días si no se ha usado ningún crédito del pack (devolución por el mismo medio de pago).
 - Créditos de regalo caducan; créditos de packs no se canjean por dinero salvo desistimiento/cancelación.
 - Baja por email (no hay botón aún) y supresión de datos manual: falta automatizarlo (deuda RGPD ya anotada).
