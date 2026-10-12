@@ -251,7 +251,9 @@
       "m2": "A las 21, salgo tarde del curro",
       "m3": "Hecho. Te escribo a las 21:00 con 3 preguntas rápidas para calentar.",
       "m4": "He visto que esta semana has cumplido 4 de 5 días. Así se llega. Mañana hablamos 20 min de la entrega del viernes.",
-      "chatNote": "Bit siempre dice que es una IA. Tu tutor responde en horario garantizado."
+      "chatNote": "Bit siempre dice que es una IA. Tu tutor responde en horario garantizado.",
+      "support": "¿Tu hijo tiene TDAH, dislexia, autismo (TEA) u otra dificultad de aprendizaje? También le acompañamos, adaptando el ritmo y la forma de trabajar.",
+      "supportLink": "Cómo lo hacemos →"
     },
     "compare": {
       "label": "¿Cuál es el mío?",
@@ -827,7 +829,7 @@
         "a": "El tutor no hace apoyo psicológico. Si detecta acoso, ansiedad intensa u otro riesgo, os avisa y os recomienda profesionales."
       },
       "q5": {
-        "q": "¿Trabajáis con alumnos con TDAH, dislexia u otras dificultades de aprendizaje?",
+        "q": "¿Trabajáis con alumnos con TDAH, dislexia, autismo (TEA) u otras dificultades de aprendizaje?",
         "a": "Sí. Adaptamos el ritmo, la duración de las sesiones y la forma de explicar a lo que le funciona a cada alumno, con un tutor de referencia fijo. No hacemos diagnósticos ni terapia, ni sustituimos al orientador de su centro."
       }
     }
@@ -1526,15 +1528,15 @@
       "callbackTitle": "O dejadnos vuestro teléfono y os llamamos",
       "callbackText": "Sin compromiso. Os contamos cómo funciona y si encaja con vuestro hijo.",
       "nee": {
-        "title": "Si tu hijo tiene TDAH, dislexia u otra dificultad de aprendizaje",
-        "text": "También acompañamos a alumnos con TDAH, dislexia u otras dificultades de aprendizaje. No hace falta ningún diagnóstico ni papel: nos contáis qué le cuesta y qué le funciona, y adaptamos la forma de trabajar con él.",
+        "title": "Si tu hijo tiene TDAH, dislexia, autismo (TEA) u otra dificultad de aprendizaje",
+        "text": "También acompañamos a alumnos con TDAH, dislexia, autismo (TEA) u otras dificultades de aprendizaje. No hace falta ningún diagnóstico ni papel: nos contáis qué le cuesta y qué le funciona, y adaptamos la forma de trabajar con él.",
         "a1": {
           "t": "A su ritmo, en pasos cortos",
           "d": "Sesiones de 25 o 60 minutos y un plan semana a semana dividido en objetivos pequeños, para no ir a por todo a la vez."
         },
         "a2": {
           "t": "Siempre la misma persona de referencia",
-          "d": "Su tutor de referencia le conoce, le ayuda a organizarse y hace check-ins regulares para que no se descuelgue."
+          "d": "Su tutor de referencia le conoce, le ayuda a organizarse y hace check-ins regulares. Sesiones con una estructura clara y previsible, sin cambios de persona."
         },
         "a3": {
           "t": "Explicado de otra manera",

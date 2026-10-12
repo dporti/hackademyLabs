@@ -251,7 +251,9 @@
       "m2": "A les 21, surto tard de la feina",
       "m3": "Fet. T'escric a les 21:00 amb 3 preguntes ràpides per escalfar.",
       "m4": "He vist que aquesta setmana has complert 4 de 5 dies. Així s'arriba. Demà parlem 20 min de l'entrega de divendres.",
-      "chatNote": "En Bit sempre diu que és una IA. El teu tutor respon en horari garantit."
+      "chatNote": "En Bit sempre diu que és una IA. El teu tutor respon en horari garantit.",
+      "support": "El teu fill té TDAH, dislèxia, autisme (TEA) o una altra dificultat d'aprenentatge? També l'acompanyem, adaptant el ritme i la manera de treballar.",
+      "supportLink": "Com ho fem →"
     },
     "compare": {
       "label": "Quin és el meu?",
@@ -827,7 +829,7 @@
         "a": "El tutor no fa suport psicològic. Si detecta assetjament, ansietat intensa o un altre risc, us avisa i us recomana professionals."
       },
       "q5": {
-        "q": "Treballeu amb alumnes amb TDAH, dislèxia o altres dificultats d'aprenentatge?",
+        "q": "Treballeu amb alumnes amb TDAH, dislèxia, autisme (TEA) o altres dificultats d'aprenentatge?",
         "a": "Sí. Adaptem el ritme, la durada de les sessions i la manera d'explicar al que li funciona a cada alumne, amb un tutor de referència fix. No fem diagnòstics ni teràpia, ni substituïm l'orientador del seu centre."
       }
     }
@@ -1526,15 +1528,15 @@
       "callbackTitle": "O deixeu-nos el vostre telèfon i us truquem",
       "callbackText": "Sense compromís. Us expliquem com funciona i si encaixa amb el vostre fill.",
       "nee": {
-        "title": "Si el teu fill té TDAH, dislèxia o una altra dificultat d'aprenentatge",
-        "text": "També acompanyem alumnes amb TDAH, dislèxia o altres dificultats d'aprenentatge. No cal cap diagnòstic ni cap paper: ens expliqueu què li costa i què li funciona, i adaptem la manera de treballar amb ell.",
+        "title": "Si el teu fill té TDAH, dislèxia, autisme (TEA) o una altra dificultat d'aprenentatge",
+        "text": "També acompanyem alumnes amb TDAH, dislèxia, autisme (TEA) o altres dificultats d'aprenentatge. No cal cap diagnòstic ni cap paper: ens expliqueu què li costa i què li funciona, i adaptem la manera de treballar amb ell.",
         "a1": {
           "t": "Al seu ritme, en passos curts",
           "d": "Sessions de 25 o 60 minuts i un pla setmana a setmana dividit en objectius petits, per no anar per tot alhora."
         },
         "a2": {
           "t": "Sempre la mateixa persona de referència",
-          "d": "El seu tutor de referència el coneix, l'ajuda a organitzar-se i fa check-ins regulars perquè no es despengi."
+          "d": "El seu tutor de referència el coneix, l'ajuda a organitzar-se i fa check-ins regulars. Sessions amb una estructura clara i previsible, sense canvis de persona."
         },
         "a3": {
           "t": "Explicat d'una altra manera",

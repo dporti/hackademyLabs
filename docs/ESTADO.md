@@ -389,8 +389,9 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
     `respond_slot_offer` → `create_booking` + `respond_booking` = cobrada y CONFIRMADA; alerta cubierta; otras
     ofertas retiradas) o rechaza. Avisos: `slot_offer`, `offer_accepted`, `offer_declined` (sin «nueva solicitud»).
   - `/panel/demanda`: botón «Ofrecerle un hueco» por perfil anónimo (ref = id de la alerta), estado y retirar.
-- **Familias: alumnos con TDAH, dislexia u otras dificultades de aprendizaje** · 2026-10-12 · bloque en
-  `/tutor247#familias` (tras «¿Os suena?») + FAQ q5 de familias. Solo lo que ya hacemos (pasos cortos, tutor fijo,
+- **Familias: alumnos con TDAH, dislexia, autismo (TEA) u otras dificultades de aprendizaje** · 2026-10-12 ·
+  `860fff6` + ajustes · bloque `/tutor247#apoyo` (dentro de familias, tras «¿Os suena?»), FAQ q5 de familias y
+  una línea en la portada (bloque Tutor247) que enlaza ahí. Solo lo que ya hacemos (pasos cortos, tutor fijo,
   otras formas de explicar, informe semanal) y límites claros (sin diagnóstico ni terapia; no sustituye al
   orientador ni a las adaptaciones oficiales del centro). Datos de salud = categoría especial RGPD: se invita a
   contarlo en la llamada, no por escrito; no hay campo para guardarlos.

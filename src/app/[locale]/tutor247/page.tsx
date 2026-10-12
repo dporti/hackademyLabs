@@ -165,11 +165,11 @@ export default async function Tutor247Page({ params }: PageProps<"/[locale]/tuto
             </li>
           ))}
         </ul>
-        {/* Alumnos con TDAH, dislexia u otras dificultades de aprendizaje: solo lo que ya
+        {/* Alumnos con TDAH, dislexia, autismo (TEA) u otras dificultades de aprendizaje: solo lo que ya
             hacemos (ritmo, pasos cortos, tutor fijo, otras formas de explicar, informe) y
             límites claros (ni diagnóstico ni terapia; no sustituye al centro). Datos de
             salud = categoría especial (RGPD): se invita a contarlo en la llamada, no por escrito. */}
-        <section aria-labelledby="nee" className="mt-10 rounded-3xl border border-tint-primary-border bg-card p-5 sm:p-7">
+        <section id="apoyo" aria-labelledby="nee" className="mt-10 scroll-mt-24 rounded-3xl border border-tint-primary-border bg-card p-5 sm:p-7">
           <h3 id="nee" className="font-heading text-2xl font-bold">
             {t("families.nee.title")}
           </h3>

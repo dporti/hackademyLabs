@@ -456,6 +456,13 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
                 {t("tutor.cta2")}
               </Link>
             </div>
+            {/* Mención breve (detalle y límites en /tutor247#apoyo). */}
+            <p className="mt-5 max-w-xl text-sm text-muted-foreground">
+              {t("tutor.support")}{" "}
+              <Link href="/tutor247#apoyo" className="font-semibold text-primary underline-offset-4 hover:underline">
+                {t("tutor.supportLink")}
+              </Link>
+            </p>
           </div>
           <BitChatDemo
             titulo={t("tutor.chatTitle")}
