@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { seo } from "@/lib/seo";
 import { connection } from "next/server";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Check } from "lucide-react";
@@ -14,7 +15,7 @@ import { PageSkeleton } from "@/components/page-skeleton";
 export async function generateMetadata({ params }: PageProps<"/[locale]/diagnostico">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "diagnostico" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return seo({ locale, path: "/diagnostico", title: t("metaTitle"), description: t("metaDescription") });
 }
 
 export default async function DiagnosticoPage({

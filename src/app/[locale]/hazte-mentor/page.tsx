@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { seo } from "@/lib/seo";
 import { Link } from "@/i18n/navigation";
 import { ComingSoon } from "@/components/brand/coming-soon";
 import { AvisosInfo } from "@/components/avisos/avisos-info";
@@ -11,7 +12,7 @@ import { DemandaPublica } from "@/components/avisos/demanda-publica";
 export async function generateMetadata({ params }: PageProps<"/[locale]/hazte-mentor">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "joinMentor" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return seo({ locale, path: "/hazte-mentor", title: t("metaTitle"), description: t("metaDescription") });
 }
 
 export default async function HazteMentorPage({ params }: PageProps<"/[locale]/hazte-mentor">) {

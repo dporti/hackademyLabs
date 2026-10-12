@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { seo } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPathname, Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/brand/section-label";
@@ -18,8 +19,9 @@ const IDIOMAS = ["es", "ca", "en"] as const;
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/mentores">) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "mentors" });
-  return { title: t("title"), description: t("subtitle") };
+  const t = await getTranslations({ locale, namespace: "seo.meta" });
+  // Canónica sin filtros (?modulo, ?hueco…).
+  return seo({ locale, path: "/mentores", title: t("mentorsTitle"), description: t("mentorsDescription") });
 }
 
 export default async function MentoresPage({ params, searchParams }: PageProps<"/[locale]/mentores">) {

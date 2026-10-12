@@ -404,6 +404,22 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
   auth.users). **Datos del titular: de momento no se ponen** (decisión de David 2026-10-12) en `src/lib/legal.ts` (nombre/razón social, NIF, domicilio; email por
   `NEXT_PUBLIC_CONTACT_EMAIL`): hasta entonces las páginas muestran «[pendiente]» y un aviso.
   **Recomendado:** revisión por un profesional antes de abrir al público.
+- **SEO técnico y metadatos** · 2026-10-12 · lint + tsc + build OK; revisado el HTML servido (`next start`).
+  - `src/lib/seo.ts`: `SITE_URL` (`NEXT_PUBLIC_SITE_URL` → URL de producción de Vercel → localhost), `seo()` por página
+    = canonical + hreflang es/ca/x-default + Open Graph + Twitter; `recorta()` deja la descripción en ≤155 caracteres.
+    `INDEXABLE` = solo producción: en los previews de Vercel robots.txt bloquea todo y las páginas llevan noindex.
+  - `app/robots.ts` (bloquea /panel, /onboarding, /styleguide, /api en es y ca) y `app/sitemap.ts` (páginas públicas +
+    todas las fichas de módulo y de mentor, en los dos idiomas, con alternativas hreflang; sin fechas inventadas).
+  - Imágenes Open Graph de marca (1200×630): `app/[locale]/opengraph-image.tsx` y una por módulo
+    (`modulos/[code]/opengraph-image.tsx`: código grande + nombre + ciclos). El proxy ya no toca las rutas
+    `opengraph-image` (evita el 307 de /es).
+  - JSON-LD (`components/seo/json-ld.tsx`): Organization + WebSite + FAQPage en la portada, Course + BreadcrumbList
+    en cada módulo, BreadcrumbList en cada mentor, FAQPage en /tutor247 y /precios.
+  - Textos de búsqueda nuevos (`seo.meta.*`, es + ca) orientados a lo que se busca («0485 Programación: cómo aprobarlo
+    (DAM, DAW)»); /entrar y /registro con noindex,follow; panel y onboarding noindex. hreflang solo en metadatos
+    (`alternateLinks: false` en next-intl).
+  - **Al desplegar:** poner `NEXT_PUBLIC_SITE_URL` con el dominio final, dar de alta el sitio en Google Search Console
+    (`GOOGLE_SITE_VERIFICATION`, opcional) y enviar `/sitemap.xml`.
 - Pendiente de David:
   - Recargar saldo en la cuenta de Anthropic para probar Bit, quiz y resumen de sesión.
   - Añadir método de pago en Daily.co (Billing) para que funcione el vídeo del aula; después probar con
@@ -713,3 +729,4 @@ Copiar `.env.local.example` → `.env.local` y rellenar (NUNCA commitear valores
 - `NEXT_PUBLIC_SITE_URL` (p. ej. `http://localhost:3000`; respaldo para enlaces de email y enlace de referido)
 - `ANTHROPIC_API_KEY` (Bit, quiz, resumen de sesión; solo servidor)
 - `DAILY_API_KEY` (opcional; vídeo del aula con Daily.co; vacía = Jitsi)
+- `GOOGLE_SITE_VERIFICATION` (opcional; código de Google Search Console)

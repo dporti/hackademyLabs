@@ -5,6 +5,9 @@ import { createClient } from "@/lib/supabase/server";
 import { getPendientesAlumno } from "@/lib/consumo";
 import { AppShellNav, type AppShellItem } from "@/components/panel/app-shell-nav";
 
+// Zona privada: fuera de buscadores (robots.txt también la bloquea).
+export const metadata = { robots: { index: false, follow: false } };
+
 // AppShell del panel (DISENO.md §5): barra lateral por rol + contenido. La navegación
 // depende de la sesión, así que va en <Suspense>; sin sesión no pinta nada (cada
 // página ya redirige a /entrar).

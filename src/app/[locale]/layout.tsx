@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BitChat } from "@/components/bit/bit-chat";
 import { PwaRegister } from "@/components/pwa-register";
+import { INDEXABLE, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "../globals.css";
 
 // Títulos: Space Grotesk.
@@ -35,9 +36,17 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "common" });
   return {
+    // Base de las URLs relativas (canonical, hreflang, Open Graph).
+    metadataBase: new URL(SITE_URL),
     title: { default: t("metaTitle"), template: `%s · ${t("appName")}` },
     description: t("metaDescription"),
     applicationName: t("appName"),
+    // Valores por defecto; cada página pública pone los suyos con lib/seo.ts.
+    openGraph: { type: "website", siteName: SITE_NAME, title: t("metaTitle"), description: t("metaDescription") },
+    twitter: { card: "summary_large_image" },
+    robots: INDEXABLE ? { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } : { index: false, follow: false },
+    // Search Console (opcional): código de verificación por variable de entorno.
+    ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),
     // PWA (fase 9): instalable en el móvil (manifest en app/manifest.ts).
     appleWebApp: { capable: true, title: "Checkpoint", statusBarStyle: "black-translucent" },
     icons: { icon: "/icons/icon.svg", apple: "/icons/apple-touch-icon.png" },

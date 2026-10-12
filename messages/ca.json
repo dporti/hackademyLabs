@@ -5,8 +5,8 @@
     "killer": "Mòdul amb més suspensos",
     "viewModule": "Veure mòdul",
     "viewProfile": "Veure perfil",
-    "metaTitle": "Checkpoint Academy — Aprèn amb IA. Demostra-ho sense ella.",
-    "metaDescription": "FP d'Informàtica (SMX, ASIX, DAM, DAW): aprova el teu mòdul amb un pla fins a l'examen, mentors verificats i Tutor247, l'acompanyament que no et deixa sol.",
+    "metaTitle": "Aprova el teu mòdul d'FP d'Informàtica | Checkpoint Academy",
+    "metaDescription": "Aprova el teu mòdul d'FP d'Informàtica (SMX, ASIX, DAM, DAW) amb diagnòstic gratuït, mentors verificats i un pla fins a l'examen. I Tutor247 tot el curs.",
     "comingSoon": "Properament",
     "example": "Exemple",
     "killerShort": "Més suspès"
@@ -1428,7 +1428,7 @@
   },
   "tutor247": {
     "metaTitle": "Tutor247: un tutor que no et deixa sol a la teva FP d'informàtica",
-    "metaDescription": "Tutor de referència fix amb check-in setmanal, mentors per mòdul i informe setmanal per a la família. Per a qui estudia en línia, es desorganitza o és menor.",
+    "metaDescription": "Tutor de referència fix amb check-in setmanal, mentors per mòdul i informe setmanal a la família. Per a qui estudia en línia, es desorganitza o és menor.",
     "hero": {
       "tag": "Tutor247 · el teu tutor 24/7",
       "title": "Sempre hi ha algú. I no et deixa sol.",
@@ -2979,6 +2979,37 @@
           ]
         }
       ]
+    }
+  },
+  "seo": {
+    "orgDescription": "Plataforma d'FP d'Informàtica (SMX, ASIX, DAM, DAW): aprova el teu mòdul amb un pla fins a l'examen i mentors verificats, o amb Tutor247, l'acompanyament de tot el curs.",
+    "home": "Inici",
+    "modules": "Mòduls",
+    "mentors": "Mentors",
+    "og": {
+      "eyebrow": "FP d'Informàtica",
+      "title": "Aprova el teu mòdul. Amb un pla i un mentor fins a l'examen.",
+      "subtitle": "Diagnòstic gratuït · mentors per mòdul · Tutor247 tot el curs",
+      "ciclos": "SMX · ASIX · DAM · DAW",
+      "moduleEyebrow": "Mòdul · {ciclos}",
+      "moduleSubtitle": "Diagnòstic gratuït, mentor del mòdul i pla fins a l'examen"
+    },
+    "meta": {
+      "catalogTitle": "Mòduls de SMX, ASIX, DAM i DAW per cicle",
+      "catalogDescription": "Tots els mòduls oficials d'FP d'Informàtica (SMX, ASIX, DAM i DAW) ordenats per cicle i curs. Tria el teu i mira com aprovar-lo.",
+      "searchTitle": "Cerca el teu mòdul d'FP d'Informàtica",
+      "searchDescription": "Troba el teu mòdul pel codi (0485, 0373…) o pel nom i mira com aprovar-lo: diagnòstic gratuït, mentors del mòdul i pla fins a l'examen.",
+      "mentorsTitle": "Mentors verificats d'FP d'Informàtica",
+      "mentorsDescription": "Mentors verificats per a cada mòdul de SMX, ASIX, DAM i DAW. Sessions 1:1 de 25 o 60 minuts i dubtes per escrit, amb preu tancat en crèdits.",
+      "pricingTitle": "Preus: diagnòstic gratuït i crèdits sense matrícula",
+      "pricingDescription": "Diagnòstic gratuït. Les sessions amb mentor i els dubtes per escrit es paguen amb crèdits (1 crèdit ≈ 1 €), només quan els necessites. Sense matrícula.",
+      "moduleTitle": "{code} {name}: com aprovar-lo ({ciclos})",
+      "moduleDescription": "Com aprovar {code} {name} de {ciclos}: què entra a l'examen, diagnòstic gratuït en 2 minuts, mentors del mòdul i un pla setmana a setmana.",
+      "mentorDescription": "Perfil verificat de {name}: mentoria de {modulos} a l'FP d'Informàtica. Sessions 1:1 i dubtes per escrit, amb preu tancat en crèdits."
+    },
+    "grade": {
+      "medio": "FP de Grau Mitjà",
+      "superior": "FP de Grau Superior"
     }
   }
 }

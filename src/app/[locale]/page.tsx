@@ -24,6 +24,8 @@ import {
 } from "@/lib/catalog";
 import type { ProductKind } from "@/lib/db-types";
 import { temaRa, temasDe } from "@/lib/temas";
+import { SITE_NAME, SITE_URL, seo } from "@/lib/seo";
+import { JsonLd, ORG_ID, faqPage, grafo, organizacion } from "@/components/seo/json-ld";
 
 // Portada (DISENO.md §6, orden de secciones; maqueta docs/diseno/pantallas/Main.html).
 // Dos modelos: Aprueba tu módulo (cian) y Tutor247 (magenta, data-accent="tutor").
@@ -66,6 +68,12 @@ function Titulo({ label, title, text, tone }: { label: string; title: React.Reac
   );
 }
 
+export async function generateMetadata({ params }: PageProps<"/[locale]">) {
+  const { locale } = await params;
+  const c = await getTranslations({ locale, namespace: "common" });
+  return seo({ locale, path: "/", title: c("metaTitle"), description: c("metaDescription"), absolute: true });
+}
+
 export default async function Home({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -96,8 +104,18 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
     { v: "1:1", l: t("hero.statMentor") },
   ];
 
+  const ts = await getTranslations("seo");
+  const faqs = FAQS.map((q) => ({ q: t(`faq.${q}.q`), a: t(`faq.${q}.a`) }));
+
   return (
     <main className="flex-1">
+      <JsonLd
+        data={grafo(
+          organizacion(ts("orgDescription")),
+          { "@type": "WebSite", "@id": `${SITE_URL}/#web`, url: `${SITE_URL}/`, name: SITE_NAME, inLanguage: locale, publisher: { "@id": ORG_ID } },
+          faqPage(faqs),
+        )}
+      />
       {/* 1 ─────────────────────────────── Hero ─────────────────────────────── */}
       <section className="hud-grid border-b border-divider">
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-20">
@@ -582,7 +600,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
         <Titulo label={`${TESTIMONIOS.length > 0 ? "11" : "10"} — ${t("faq.label")}`} title={t("faq.title")} />
         <div className="mt-8">
-          <Faq items={FAQS.map((q) => ({ q: t(`faq.${q}.q`), a: t(`faq.${q}.a`) }))} />
+          <Faq items={faqs} />
         </div>
       </section>
 

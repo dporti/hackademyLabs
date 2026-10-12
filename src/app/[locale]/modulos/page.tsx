@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { seo } from "@/lib/seo";
 import {
   CatalogoCta,
   CatalogoGrupos,
@@ -14,8 +15,9 @@ export const instant = false;
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/modulos">) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "search" });
-  return { title: t("title"), description: t("placeholder") };
+  const t = await getTranslations({ locale, namespace: "seo.meta" });
+  // Canónica sin ?q ni ?ciclo: las búsquedas no compiten con la página.
+  return seo({ locale, path: "/modulos", title: t("searchTitle"), description: t("searchDescription") });
 }
 
 export default async function ModulosPage({ params, searchParams }: PageProps<"/[locale]/modulos">) {

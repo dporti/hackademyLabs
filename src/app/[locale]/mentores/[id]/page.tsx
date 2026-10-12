@@ -8,6 +8,8 @@ import { Suspense } from "react";
 import { getMentorById, getMentorIds, getProximosHuecos, getTarifasPublicas } from "@/lib/catalog";
 import { NextSlots } from "@/components/agenda/next-slots";
 import type { ProductKind } from "@/lib/db-types";
+import { seo } from "@/lib/seo";
+import { JsonLd, grafo, migas } from "@/components/seo/json-ld";
 
 // Ficha pública de mentor (maqueta Mentor.html). Solo datos de mentor_public (sin
 // contacto: anti-bypass). Sin cifras de alumnos/valoración/aprobados ni testimonios
@@ -25,10 +27,14 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/mentores
   const m = await getMentorById(id);
   if (!m) return {};
   const t = await getTranslations({ locale, namespace: "mentors" });
-  return {
+  const tmeta = await getTranslations({ locale, namespace: "seo.meta" });
+  const modulos = m.modulos.map((x) => x.code).join(", ");
+  return seo({
+    locale,
+    path: `/mentores/${id}`,
     title: `${m.full_name} — ${m.headline ?? t(`level.${m.level}`)}`,
-    description: m.bio ?? m.headline ?? undefined,
-  };
+    description: m.bio ?? tmeta("mentorDescription", { name: m.full_name ?? "", modulos }),
+  });
 }
 
 export default async function MentorPage({ params }: PageProps<"/[locale]/mentores/[id]">) {
@@ -42,8 +48,19 @@ export default async function MentorPage({ params }: PageProps<"/[locale]/mentor
     ["es", "ca", "en"].includes(l) ? t(`lang.${l as "es" | "ca" | "en"}`) : l.toUpperCase(),
   );
 
+  const ts = await getTranslations("seo");
+
   return (
     <main className="flex-1">
+      <JsonLd
+        data={grafo(
+          migas(locale, [
+            { name: ts("home"), path: "/" },
+            { name: ts("mentors"), path: "/mentores" },
+            { name: m.full_name ?? "", path: `/mentores/${id}` },
+          ]),
+        )}
+      />
       <section className="hud-grid border-b border-divider">
         <div className="mx-auto max-w-[1200px] px-4 pt-8 pb-12 sm:px-6">
           <nav aria-label={t("breadcrumb")} className="font-mono text-xs text-label">

@@ -1,9 +1,11 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { seo } from "@/lib/seo";
 import { Check } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/brand/section-label";
 import { ComingSoon } from "@/components/brand/coming-soon";
 import { Faq } from "@/components/brand/faq";
+import { JsonLd, faqPage, grafo } from "@/components/seo/json-ld";
 import { getPacks, getPlanes } from "@/lib/catalog";
 import { PRODUCTS } from "@/lib/products";
 import type { PlanKind, ProductKind } from "@/lib/db-types";
@@ -29,8 +31,8 @@ const h2 = "mt-3 font-heading text-[32px] leading-tight font-bold tracking-tight
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/precios">) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "pricing" });
-  return { title: t("title"), description: t("subtitle") };
+  const t = await getTranslations({ locale, namespace: "seo.meta" });
+  return seo({ locale, path: "/precios", title: t("pricingTitle"), description: t("pricingDescription") });
 }
 
 export default async function PreciosPage({ params }: PageProps<"/[locale]/precios">) {
@@ -44,8 +46,11 @@ export default async function PreciosPage({ params }: PageProps<"/[locale]/preci
   const planesIA = planes.filter((p) => p.kind === "gratis" || p.kind === "companero");
   const planesTutor = planes.filter((p) => PLAN_TUTOR[p.kind]);
 
+  const faqs = (["q1", "q2", "q3", "q4"] as const).map((q) => ({ q: t(`faq.${q}.q`), a: t(`faq.${q}.a`) }));
+
   return (
     <main className="flex-1">
+      <JsonLd data={grafo(faqPage(faqs))} />
       {/* ───────────────────────────── Cabecera ───────────────────────────── */}
       <section className="hud-grid border-b border-divider">
         <div className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6">
@@ -287,7 +292,7 @@ export default async function PreciosPage({ params }: PageProps<"/[locale]/preci
         <div className="mt-6">
           <Faq
             defaultOpen={-1}
-            items={(["q1", "q2", "q3", "q4"] as const).map((q) => ({ q: t(`faq.${q}.q`), a: t(`faq.${q}.a`) }))}
+            items={faqs}
           />
         </div>
       </section>

@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { seo } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { hasSession, localePath } from "@/lib/auth";
 import { Link } from "@/i18n/navigation";
@@ -14,7 +15,7 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/registro">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "auth" });
-  return { title: t("registerTitle") };
+  return seo({ locale, path: "/registro", title: t("registerTitle"), noindex: true });
 }
 
 export default async function RegistroPage({

@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { seo } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { hasSession, localePath } from "@/lib/auth";
 import { Link } from "@/i18n/navigation";
@@ -13,7 +14,7 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/entrar">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "auth" });
-  return { title: t("loginTitle") };
+  return seo({ locale, path: "/entrar", title: t("loginTitle"), noindex: true });
 }
 
 // Errores admitidos por URL (lista cerrada: nada de texto arbitrario en la UI).

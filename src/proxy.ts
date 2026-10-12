@@ -34,6 +34,8 @@ export default async function proxy(request: NextRequest) {
   return response;
 }
 
+// Fuera también las imágenes Open Graph (/es/…/opengraph-image): next-intl las
+// redirigiría quitando el /es y los robots de redes no siempre siguen el 307.
 export const config = {
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|_vercel|.*opengraph-image|.*\\..*).*)"],
 };

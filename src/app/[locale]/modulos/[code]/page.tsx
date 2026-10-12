@@ -10,6 +10,8 @@ import { getModuloByCode, getAllModuloCodes, getMentoresByModulo } from "@/lib/c
 import type { ProductKind } from "@/lib/db-types";
 import { temaRa, temasDe } from "@/lib/temas";
 import { AlertBox } from "@/components/avisos/alert-box";
+import { seo, urlAbs } from "@/lib/seo";
+import { JsonLd, ORG_ID, grafo, migas, organizacion } from "@/components/seo/json-ld";
 
 // Ficha de módulo = landing de venta del módulo (docs §8; maqueta Modulo.html).
 // Datos de BD (RA, ciclos, equivalencia catalana, mentores). El bloque «5 errores que
@@ -33,13 +35,22 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/modulos/
   const { code, locale } = await params;
   const modulo = await getModuloByCode(code);
   if (!modulo) return {};
-  const t = await getTranslations({ locale, namespace: "module" });
-  const vars = { code: modulo.code, name: modulo.name };
-  return {
-    title: t("metaTitle", vars),
-    description: modulo.description ?? t("metaDescription", vars),
-  };
+  const t = await getTranslations({ locale, namespace: "seo.meta" });
+  const vars = { code: modulo.code, name: modulo.name, ciclos: ciclosDe(modulo) };
+  // Plantilla siempre (no la descripción de BD): con código, nombre y ciclos, que es
+  // lo que se busca («0485 programación dam»), y una promesa clara para el clic.
+  return seo({
+    locale,
+    path: `/modulos/${modulo.code}`,
+    title: t("moduleTitle", vars),
+    description: t("moduleDescription", vars),
+    image: `/${locale}/modulos/${modulo.code}/opengraph-image`,
+  });
 }
+
+// Ciclos del módulo sin repetir (un módulo puede estar en varios: DAM · DAW).
+const ciclosDe = (m: { ciclo_modulo: { ciclo: { code: string } }[] }) =>
+  [...new Set(m.ciclo_modulo.map((cm) => cm.ciclo.code))].sort().join(", ");
 
 export default async function ModuloPage({ params }: PageProps<"/[locale]/modulos/[code]">) {
   const { locale, code } = await params;
@@ -65,8 +76,36 @@ export default async function ModuloPage({ params }: PageProps<"/[locale]/modulo
     .join(" / ");
   const equiv = modulo.modulo_equiv_cat.map((e) => e.codigo_cat + (e.uf ? ` ${e.uf}` : "")).join(", ");
 
+  const ts = await getTranslations("seo");
+  const tmeta = await getTranslations("seo.meta");
+  const url = urlAbs(locale, `/modulos/${modulo.code}`);
+  const grados = [...new Set(modulo.ciclo_modulo.map((cm) => cm.ciclo.grade))];
+  const curso = {
+    "@type": "Course",
+    "@id": `${url}#curso`,
+    name: `${modulo.code} ${modulo.name}`,
+    courseCode: modulo.code,
+    description: tmeta("moduleDescription", { code: modulo.code, name: modulo.name, ciclos: ciclosDe(modulo) }),
+    url,
+    inLanguage: locale,
+    provider: { "@id": ORG_ID },
+    ...(grados.length ? { educationalLevel: grados.map((g) => ts(`grade.${g}`)).join(", ") } : {}),
+    ...(modulo.ra.length ? { teaches: modulo.ra.map((r) => r.description) } : {}),
+  };
+
   return (
     <main className="flex-1">
+      <JsonLd
+        data={grafo(
+          organizacion(ts("orgDescription")),
+          curso,
+          migas(locale, [
+            { name: ts("home"), path: "/" },
+            { name: t("breadcrumb"), path: "/modulos" },
+            { name: `${modulo.code} ${modulo.name}`, path: `/modulos/${modulo.code}` },
+          ]),
+        )}
+      />
       {/* ─────────────────────────── Cabecera ─────────────────────────── */}
       <section className="hud-grid border-b border-divider">
         <div className="mx-auto max-w-[1200px] px-4 pt-8 pb-14 sm:px-6">

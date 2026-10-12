@@ -7,6 +7,8 @@ export const routing = defineRouting({
   defaultLocale: "es",
   // Prefijo siempre visible en la URL salvo el idioma por defecto (/sobre vs /ca/sobre).
   localePrefix: "as-needed",
+  // hreflang lo ponen los metadatos (lib/seo.ts) con la URL canónica; sin cabecera Link duplicada.
+  alternateLinks: false,
 });
 
 export type Locale = (typeof routing.locales)[number];

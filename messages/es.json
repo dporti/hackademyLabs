@@ -5,8 +5,8 @@
     "killer": "Módulo con más suspensos",
     "viewModule": "Ver módulo",
     "viewProfile": "Ver perfil",
-    "metaTitle": "Checkpoint Academy — Aprende con IA. Demuéstralo sin ella.",
-    "metaDescription": "FP de Informática (SMX, ASIR, DAM, DAW): aprueba tu módulo con un plan hasta el examen, mentores verificados y Tutor247, el acompañamiento que no te suelta.",
+    "metaTitle": "Aprueba tu módulo de FP de Informática | Checkpoint Academy",
+    "metaDescription": "Aprueba tu módulo de FP de Informática (SMX, ASIR, DAM, DAW): diagnóstico gratis, mentores verificados y un plan hasta el examen. O Tutor247 todo el curso.",
     "comingSoon": "Próximamente",
     "example": "Ejemplo",
     "killerShort": "Más suspendido"
@@ -2979,6 +2979,37 @@
           ]
         }
       ]
+    }
+  },
+  "seo": {
+    "orgDescription": "Plataforma de FP de Informática (SMX, ASIR, DAM, DAW): aprueba tu módulo con un plan hasta el examen y mentores verificados, o con Tutor247, el acompañamiento de todo el curso.",
+    "home": "Inicio",
+    "modules": "Módulos",
+    "mentors": "Mentores",
+    "og": {
+      "eyebrow": "FP de Informática",
+      "title": "Aprueba tu módulo. Con un plan y un mentor hasta el examen.",
+      "subtitle": "Diagnóstico gratis · mentores por módulo · Tutor247 todo el curso",
+      "ciclos": "SMX · ASIR · DAM · DAW",
+      "moduleEyebrow": "Módulo · {ciclos}",
+      "moduleSubtitle": "Diagnóstico gratis, mentor del módulo y plan hasta el examen"
+    },
+    "meta": {
+      "catalogTitle": "Módulos de SMX, ASIR, DAM y DAW por ciclo",
+      "catalogDescription": "Todos los módulos oficiales de FP de Informática (SMX, ASIR, DAM y DAW) ordenados por ciclo y curso. Elige el tuyo y mira cómo aprobarlo.",
+      "searchTitle": "Busca tu módulo de FP de Informática",
+      "searchDescription": "Encuentra tu módulo por código (0485, 0373…) o por nombre y mira cómo aprobarlo: diagnóstico gratis, mentores del módulo y plan hasta el examen.",
+      "mentorsTitle": "Mentores verificados de FP de Informática",
+      "mentorsDescription": "Mentores verificados para cada módulo de SMX, ASIR, DAM y DAW. Sesiones 1:1 de 25 o 60 minutos y dudas por escrito, con precio cerrado en créditos.",
+      "pricingTitle": "Precios: diagnóstico gratis y créditos sin matrícula",
+      "pricingDescription": "Diagnóstico gratis. Las sesiones con mentor y las dudas por escrito se pagan con créditos (1 crédito ≈ 1 €), solo cuando las necesitas. Sin matrícula.",
+      "moduleTitle": "{code} {name}: cómo aprobarlo ({ciclos})",
+      "moduleDescription": "Cómo aprobar {code} {name} de {ciclos}: qué entra en el examen, diagnóstico gratis en 2 minutos, mentores del módulo y un plan semana a semana.",
+      "mentorDescription": "Perfil verificado de {name}: mentoría de {modulos} en FP de Informática. Sesiones 1:1 y dudas por escrito, con precio cerrado en créditos."
+    },
+    "grade": {
+      "medio": "FP de Grado Medio",
+      "superior": "FP de Grado Superior"
     }
   }
 }

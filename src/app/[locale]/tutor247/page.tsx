@@ -1,10 +1,12 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { seo } from "@/lib/seo";
 import { Check, ShieldCheck } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/brand/section-label";
 import { ComingSoon } from "@/components/brand/coming-soon";
 import { InformeSemanal } from "@/components/brand/informe-semanal";
 import { Faq } from "@/components/brand/faq";
+import { JsonLd, faqPage, grafo } from "@/components/seo/json-ld";
 import { ContactCard } from "@/components/brand/contact-card";
 import { LeadForm } from "@/components/leads/lead-form";
 import { getPlanes } from "@/lib/catalog";
@@ -17,7 +19,7 @@ import type { PlanKind } from "@/lib/db-types";
 export async function generateMetadata({ params }: PageProps<"/[locale]/tutor247">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "tutor247" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return seo({ locale, path: "/tutor247", title: t("metaTitle"), description: t("metaDescription") });
 }
 
 // Planes de familia en BD → nombre comercial de Tutor247 (i18n).
@@ -39,8 +41,11 @@ export default async function Tutor247Page({ params }: PageProps<"/[locale]/tuto
   const planes = (await getPlanes()).filter((p) => PLAN_FAMILIA[p.kind]);
   const eur = (n: number) => new Intl.NumberFormat(locale, { style: "currency", currency: "EUR" }).format(n);
 
+  const faqs = (["q1", "q2", "q3", "q4", "q5"] as const).map((q) => ({ q: tf(`faq.${q}.q`), a: tf(`faq.${q}.a`) }));
+
   return (
     <main data-accent="tutor" className="flex-1">
+      <JsonLd data={grafo(faqPage(faqs))} />
       {/* ───────────────────────────── Hero ───────────────────────────── */}
       <section className="hud-grid border-b border-divider">
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-20">
@@ -231,7 +236,7 @@ export default async function Tutor247Page({ params }: PageProps<"/[locale]/tuto
         <div className="mt-5 max-w-3xl">
           <Faq
             defaultOpen={-1}
-            items={(["q1", "q2", "q3", "q4", "q5"] as const).map((q) => ({ q: tf(`faq.${q}.q`), a: tf(`faq.${q}.a`) }))}
+            items={faqs}
           />
         </div>
       </section>

@@ -3,6 +3,8 @@ import { setRequestLocale } from "next-intl/server";
 import { getSessionUser, localePath } from "@/lib/auth";
 import { OnboardingContent } from "@/components/auth/onboarding-content";
 
+export const metadata = { robots: { index: false, follow: false } };
+
 // Requiere sesión (lee cookies) → siempre dinámica.
 export const instant = false;
 

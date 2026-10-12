@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { seo } from "@/lib/seo";
 import { CatalogoCta, CatalogoGrupos, CatalogoHero } from "@/components/catalog/catalogo";
 import { getCiclosConModulos } from "@/lib/catalog";
 
@@ -6,8 +7,8 @@ import { getCiclosConModulos } from "@/lib/catalog";
 // el buscador y los filtros de la cabecera llevan a /modulos.
 export async function generateMetadata({ params }: PageProps<"/[locale]/ciclos">) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "catalog" });
-  return { title: t("title"), description: t("subtitle") };
+  const t = await getTranslations({ locale, namespace: "seo.meta" });
+  return seo({ locale, path: "/ciclos", title: t("catalogTitle"), description: t("catalogDescription") });
 }
 
 export default async function CiclosPage({ params }: PageProps<"/[locale]/ciclos">) {

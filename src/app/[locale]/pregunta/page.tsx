@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { seo } from "@/lib/seo";
 import { Gift, MessageSquareText, UserCheck } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/brand/section-label";
@@ -14,7 +15,7 @@ export const instant = false;
 export async function generateMetadata({ params }: PageProps<"/[locale]/pregunta">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pregunta" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return seo({ locale, path: "/pregunta", title: t("metaTitle"), description: t("metaDescription") });
 }
 
 export default async function PreguntaPage({ params, searchParams }: PageProps<"/[locale]/pregunta">) {

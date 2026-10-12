@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { seo } from "@/lib/seo";
 import { Link } from "@/i18n/navigation";
 import { RaBadge } from "@/components/brand/ra-badge";
 import { SectionLabel } from "@/components/brand/section-label";
@@ -10,7 +11,7 @@ import { SectionLabel } from "@/components/brand/section-label";
 export async function generateMetadata({ params }: PageProps<"/[locale]/cancelacion">) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "cancelPolicy" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return seo({ locale, path: "/cancelacion", title: t("metaTitle"), description: t("metaDescription") });
 }
 
 // Casos por bloque. `refund` decide el distintivo (texto + forma + color).
