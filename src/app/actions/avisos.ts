@@ -5,6 +5,7 @@ import { refresh } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { permitirMensaje } from "@/lib/bit/rate-limit";
+import { redactContact } from "@/lib/contact-filter";
 
 // «Avísame cuando haya mentor» (fase C). Con cuenta de alumno: RPC con su sesión.
 // Sin cuenta: email + consentimiento, insertado con service role (la tabla no tiene
@@ -73,4 +74,61 @@ export async function cancelAlertAction(fd: FormData) {
   const sb = await createClient();
   await sb.rpc("cancel_module_alert", { p_alert: String(fd.get("alert") ?? "") });
   refresh();
+}
+
+// ─────────────────────── Ofertas de hueco (fase D) ───────────────────────
+// Mentor → ofrece un hueco de su agenda a una alerta abierta (RPC con su sesión).
+// Alumno → acepta (servidor con service role: cobra con create_booking) o rechaza.
+
+export interface OfertaState {
+  ok?: "offered" | "accepted" | "declined";
+  error?: string;
+  redacted?: boolean;
+}
+
+const ERRORES_OFERTA = [
+  "invalidKind", "alertClosed", "notMentor", "invalidText", "tooMany", "alreadyOffered", "tooSoon",
+  "tooFar", "outsideAgenda", "slotTaken", "noPrice", "notFound", "notPending", "expired",
+  "insufficientCredits", "mentorNotAvailable",
+];
+const codigoOferta = (m: string) => ERRORES_OFERTA.find((c) => m.includes(c)) ?? "generic";
+
+export async function offerSlotAction(_prev: OfertaState, fd: FormData): Promise<OfertaState> {
+  const startsLocal = String(fd.get("starts_at") ?? "");
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(startsLocal)) return { error: "tooSoon" };
+  const kind = fd.get("kind") === "sesion_flash" ? "sesion_flash" : "sesion_1a1";
+  const note = redactContact(String(fd.get("note") ?? "").trim().slice(0, 500));
+  const sb = await createClient();
+  const { error } = await sb.rpc("offer_slot", {
+    p_alert: String(fd.get("alert") ?? ""),
+    p_kind: kind,
+    p_starts_local: startsLocal,
+    p_note: note.text,
+  });
+  if (error) return { error: codigoOferta(error.message) };
+  refresh();
+  return { ok: "offered", redacted: note.redacted };
+}
+
+export async function withdrawOfferAction(fd: FormData) {
+  const sb = await createClient();
+  await sb.rpc("withdraw_slot_offer", { p_offer: String(fd.get("offer") ?? "") });
+  refresh();
+}
+
+export async function respondOfferAction(_prev: OfertaState, fd: FormData): Promise<OfertaState> {
+  const sb = await createClient();
+  const {
+    data: { user },
+  } = await sb.auth.getUser();
+  if (!user) return { error: "notFound" };
+  const accept = fd.get("accept") === "true";
+  const { error } = await createAdminClient().rpc("respond_slot_offer", {
+    p_student: user.id,
+    p_offer: String(fd.get("offer") ?? ""),
+    p_accept: accept,
+  });
+  if (error) return { error: codigoOferta(error.message) };
+  refresh();
+  return { ok: accept ? "accepted" : "declined" };
 }

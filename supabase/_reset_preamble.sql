@@ -5,7 +5,7 @@
 drop view if exists public.mentor_public;
 
 drop table if exists
-  public.notification, public.module_alert, public.availability_off, public.availability, public.aula_stroke, public.aula_doc, public.xp_event, public.quiz, public.material, public.referral_code,
+  public.slot_offer, public.notification, public.module_alert, public.availability_off, public.availability, public.aula_stroke, public.aula_doc, public.xp_event, public.quiz, public.material, public.referral_code,
   public.student_activity, public.checkin, public.tutor_assignment, public.ra_evidence,
   public.ra_progress, public.lead, public.mentor_earning, public.ticket_message, public.product_price,
   public.mentor_payout, public.mentor_badge, public.badge, public.referral,
@@ -95,6 +95,9 @@ drop function if exists public.trg_booking_notify() cascade;
 drop function if exists public.trg_ticket_message_notify() cascade;
 drop function if exists public.my_module_demand() cascade;
 drop function if exists public.public_demand() cascade;
+drop function if exists public.offer_slot(uuid, product_kind, timestamp, text) cascade;
+drop function if exists public.withdraw_slot_offer(uuid) cascade;
+drop function if exists public.respond_slot_offer(uuid, uuid, boolean) cascade;
 
 drop type if exists
   consent_type, plan_kind, product_kind, ledger_type, ra_status,

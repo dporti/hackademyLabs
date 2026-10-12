@@ -114,7 +114,9 @@ async function main() {
   const md = await m2.sb.rpc("my_module_demand");
   const fx = (md.data ?? []).find((f) => f.modulo_code === X.code);
   check("my_module_demand: 2 esperando en X, 0 encajan", fx?.waiting === 2 && fx?.fits === 0, JSON.stringify(fx && { w: fx.waiting, f: fx.fits }));
-  const perfiles = JSON.stringify(fx?.profiles ?? []);
+  // `ref` = id de la alerta (fase D, para ofrecer hueco): no identifica al alumno.
+  const perfiles = JSON.stringify((fx?.profiles ?? []).map(({ ref, ...p }) => p));
+  check("perfil con ref de alerta (no del alumno)", (fx?.profiles ?? []).every((p) => alertas.includes(p.ref)));
   check("perfil anónimo: sin nombre, email ni ids", !/Test avisos|@|student_id|[0-9a-f]{8}-[0-9a-f]{4}/.test(perfiles), perfiles.slice(0, 120));
   check("perfil incluye franjas del alumno (mar tarde)", perfiles.includes('"d":2') && perfiles.includes('"p":"tarde"'));
   check("un alumno NO usa my_module_demand", !!(await a.sb.rpc("my_module_demand")).error);

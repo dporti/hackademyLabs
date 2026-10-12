@@ -3,10 +3,12 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getSessionUser, localePath } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { Link } from "@/i18n/navigation";
+import { OfferForm } from "@/components/avisos/offer-form";
+import { withdrawOfferAction } from "@/app/actions/avisos";
 
 // «Demanda en tus módulos» (fase C): alumnos esperando mentor en los módulos que
 // imparte. Perfil ANÓNIMO (fecha de examen, franjas, si encaja con su agenda): nunca
-// nombre ni contacto. Ofrecerles un hueco directamente llega en la fase D.
+// nombre ni contacto. El mentor puede ofrecerles un hueco de su agenda (fase D).
 export const instant = false;
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/panel/demanda">) {
@@ -16,6 +18,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/panel/de
 }
 
 interface Perfil {
+  ref: string;
   exam: string | null;
   since: string;
   fit_only: boolean;
@@ -40,10 +43,23 @@ export default async function DemandaPage({ params }: PageProps<"/[locale]/panel
   const t = await getTranslations("demanda");
   const ta = await getTranslations("agenda");
   const sb = await createClient();
-  const [{ data }, { count }] = await Promise.all([
+  const [{ data }, { count }, { data: ofertasRaw }] = await Promise.all([
     sb.rpc("my_module_demand"),
     sb.from("availability").select("id", { count: "exact", head: true }),
+    sb
+      .from("slot_offer")
+      .select("id, alert_id, status, starts_at, expires_at")
+      .eq("mentor_id", session!.user.id)
+      .order("created_at", { ascending: false })
+      .limit(100),
   ]);
+  // Última oferta del mentor por alerta (una pendiente caducada cuenta como caducada).
+  const ofertas = new Map<string, { id: string; status: string; starts_at: string; caducada: boolean }>();
+  const ahora = new Date().toISOString();
+  for (const o of ofertasRaw ?? []) {
+    if (!ofertas.has(o.alert_id)) ofertas.set(o.alert_id, { ...o, caducada: o.status === "pendiente" && o.expires_at <= ahora });
+  }
+  const fmt = new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Madrid" });
   const filas = (data ?? []) as Fila[];
   const total = filas.reduce((s, f) => s + f.waiting, 0);
   const hoy = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Madrid" }).format(new Date());
@@ -99,6 +115,29 @@ export default async function DemandaPage({ params }: PageProps<"/[locale]/panel
                       <p className={`mt-1 ${p.fits ? "text-accent-pass" : "text-label"}`}>
                         {p.fits ? t("fits") : p.fit_only ? t("needsFit") : t("noFit")}
                       </p>
+                      {(() => {
+                        const o = ofertas.get(p.ref);
+                        if (o && o.status === "pendiente" && !o.caducada) {
+                          return (
+                            <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-[10px] border border-tint-primary-border bg-tint-primary px-3 py-2">
+                              <span className="first-letter:uppercase">{t("offered", { when: fmt.format(new Date(o.starts_at)) })}</span>
+                              <form action={withdrawOfferAction}>
+                                <input type="hidden" name="offer" value={o.id} />
+                                <button type="submit" className="min-h-10 text-sm text-label hover:text-foreground">
+                                  {t("withdraw")}
+                                </button>
+                              </form>
+                            </div>
+                          );
+                        }
+                        return (
+                          <>
+                            {o && o.status === "rechazada" && <p className="mt-2 text-xs text-label">{t("declinedBefore")}</p>}
+                            {o?.caducada && <p className="mt-2 text-xs text-label">{t("expiredBefore")}</p>}
+                            <OfferForm locale={locale} alertId={p.ref} mentorId={session!.user.id} />
+                          </>
+                        );
+                      })()}
                     </li>
                   ))}
                   {f.waiting > f.profiles.length && (

@@ -378,6 +378,14 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
   - Web pública: caja «Avísame» en `/modulos/[code]` y `/mentores` sin resultados, bloque informativo en
     `/mentores`, «Módulos con alumnos esperando mentor» (`public_demand`, solo cifras) en `/hazte-mentor`.
   - Los avisos por email (alertas sin cuenta) quedan guardados con `email_sent_at` vacío hasta la fase E.
+- **Fase D (ofertas de hueco)** · 2026-10-12 · código hecho (tsc + lint OK); **falta aplicar**
+  `supabase/migrations/20261012090400_ofertas.sql` y pasar `node scripts/verify-ofertas.mjs` (+ `verify-avisos`).
+  - `slot_offer`: el mentor (verificado, del módulo) ofrece un hueco de SU agenda a una alerta abierta con cuenta
+    (RPC `offer_slot`, máx. 10 pendientes, 1 por alerta; mensaje sin datos de contacto). Caduca a las 48 h o 3 h antes.
+  - El alumno la ve en `/panel/sesiones#ofertas` (mentor, fecha, tipo, precio, mensaje) y acepta (servidor:
+    `respond_slot_offer` → `create_booking` + `respond_booking` = cobrada y CONFIRMADA; alerta cubierta; otras
+    ofertas retiradas) o rechaza. Avisos: `slot_offer`, `offer_accepted`, `offer_declined` (sin «nueva solicitud»).
+  - `/panel/demanda`: botón «Ofrecerle un hueco» por perfil anónimo (ref = id de la alerta), estado y retirar.
 - Pendiente de David:
   - Recargar saldo en la cuenta de Anthropic para probar Bit, quiz y resumen de sesión.
   - Añadir método de pago en Daily.co (Billing) para que funcione el vídeo del aula; después probar con

@@ -2594,7 +2594,7 @@
     },
     "m3": {
       "title": "Abre horario",
-      "text": "Ves si coincide con tu agenda: si publicas huecos que le encajan, le avisamos a él."
+      "text": "Ves si coincide con tu agenda: ofrécele un hueco directamente o abre horario que le encaje y le avisamos."
     },
     "privacy": "Nunca compartimos nombres ni datos de contacto: el mentor ve un perfil anónimo y todo se habla dentro de la plataforma.",
     "demandEmpty": "Ahora mismo no hay alumnos esperando mentor.",
@@ -2602,7 +2602,7 @@
   },
   "demanda": {
     "title": "Demanda en tus módulos",
-    "subtitle": "Alumnos que esperan mentor en los módulos que impartes. Si abres horario que les encaja, les avisamos.",
+    "subtitle": "Alumnos que esperan mentor en los módulos que impartes. Ofréceles un hueco de tu agenda o abre horario que les encaje y les avisamos.",
     "total": "{n, plural, =0 {Nadie esperando} one {# alumno esperando} other {# alumnos esperando}}",
     "noAgenda": "Aún no has publicado agenda: sin ella no podemos saber si encajas con su horario.",
     "noAgendaLink": "Publicar agenda",
@@ -2636,7 +2636,60 @@
       "booking_confirmed": "Tu sesión de {modulo} del {when} está confirmada.",
       "booking_rejected": "El mentor no puede la sesión de {modulo} del {when}. Te hemos devuelto los créditos.",
       "booking_cancelled": "Se ha cancelado la sesión de {modulo} del {when}.",
-      "ticket_reply": "{n, plural, one {Nueva respuesta} other {# respuestas nuevas}} en tu ticket de {modulo}."
+      "ticket_reply": "{n, plural, one {Nueva respuesta} other {# respuestas nuevas}} en tu ticket de {modulo}.",
+      "slot_offer": "{mentor} te ofrece una sesión de {modulo} el {when}.",
+      "offer_accepted": "Han aceptado tu hueco de {modulo} del {when}. Sesión confirmada.",
+      "offer_declined": "El alumno no puede tu hueco de {modulo} del {when}."
+    }
+  },
+  "ofertas": {
+    "offer": "Ofrecerle un hueco",
+    "kind": "Tipo de sesión",
+    "kind1a1": "1:1 · 60 min",
+    "kindFlash": "Flash · 25 min",
+    "slot": "Hueco de tu agenda",
+    "loading": "Cargando huecos…",
+    "noSlots": "No tienes huecos libres en 14 días",
+    "pickSlot": "Elige un hueco",
+    "note": "Mensaje (opcional)",
+    "notePlaceholder": "Ej.: podemos repasar bucles y arrays para tu examen.",
+    "send": "Enviar oferta",
+    "cancel": "Cancelar",
+    "sent": "Oferta enviada. Le avisamos al alumno.",
+    "redacted": "Hemos ocultado datos de contacto del mensaje.",
+    "offerHelp": "El alumno verá tu nombre y tu perfil público; tú no sabrás quién es hasta que acepte. Si acepta, paga en créditos y la sesión queda confirmada. Caduca en 48 h (o 3 h antes del hueco).",
+    "offered": "Le has ofrecido el {when}. Esperando respuesta.",
+    "withdraw": "Retirar",
+    "declinedBefore": "Rechazó tu hueco anterior: puedes ofrecerle otro.",
+    "expiredBefore": "Tu oferta anterior caducó sin respuesta.",
+    "studentTitle": "Huecos que te ofrecen",
+    "studentHelp": "Mentores verificados que han visto que buscabas mentor y te proponen una hora de su agenda. Si aceptas, se reserva y se cobra en créditos, y queda confirmada.",
+    "creditsN": "{n} créditos",
+    "expires": "Válida hasta el {when}",
+    "accept": "Aceptar · {n} cr.",
+    "decline": "No me va bien",
+    "ok": {
+      "accepted": "Reservada y confirmada. La verás en tus sesiones.",
+      "declined": "Hecho: le diremos al mentor que no te va bien."
+    },
+    "errors": {
+      "invalidKind": "Tipo de sesión no válido.",
+      "alertClosed": "Este alumno ya no está esperando mentor.",
+      "notMentor": "Solo los mentores verificados del módulo pueden ofrecer huecos.",
+      "invalidText": "El mensaje es demasiado largo.",
+      "tooMany": "Tienes demasiadas ofertas pendientes (máximo 10).",
+      "alreadyOffered": "Ya le has ofrecido un hueco.",
+      "tooSoon": "El hueco debe ser con al menos 3 h de antelación.",
+      "tooFar": "Como máximo, a 60 días vista.",
+      "outsideAgenda": "Ese hueco ya no está en tu agenda.",
+      "slotTaken": "Ese hueco ya está ocupado.",
+      "noPrice": "No hay precio para ese tipo de sesión.",
+      "notFound": "No encontramos esa oferta.",
+      "notPending": "Esta oferta ya no está disponible.",
+      "expired": "La oferta ha caducado.",
+      "insufficientCredits": "No tienes créditos suficientes. Recarga en tu panel.",
+      "mentorNotAvailable": "El mentor ya no está disponible.",
+      "generic": "No se ha podido completar. Inténtalo de nuevo."
     }
   }
 }

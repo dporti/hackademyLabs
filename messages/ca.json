@@ -2594,7 +2594,7 @@
     },
     "m3": {
       "title": "Obre horari",
-      "text": "Veus si coincideix amb la teva agenda: si publiques forats que li encaixen, l'avisem a ell."
+      "text": "Veus si coincideix amb la teva agenda: ofereix-li un forat directament o obre horari que li encaixi i l'avisem."
     },
     "privacy": "Mai compartim noms ni dades de contacte: el mentor veu un perfil anònim i tot es parla dins de la plataforma.",
     "demandEmpty": "Ara mateix no hi ha alumnes esperant mentor.",
@@ -2602,7 +2602,7 @@
   },
   "demanda": {
     "title": "Demanda als teus mòduls",
-    "subtitle": "Alumnes que esperen mentor als mòduls que imparteixes. Si obres horari que els encaixi, els avisem.",
+    "subtitle": "Alumnes que esperen mentor als mòduls que imparteixes. Ofereix-los un forat de la teva agenda o obre horari que els encaixi i els avisem.",
     "total": "{n, plural, =0 {Ningú esperant} one {# alumne esperant} other {# alumnes esperant}}",
     "noAgenda": "Encara no has publicat agenda: sense ella no podem saber si encaixes amb el seu horari.",
     "noAgendaLink": "Publicar agenda",
@@ -2636,7 +2636,60 @@
       "booking_confirmed": "La teva sessió de {modulo} del {when} està confirmada.",
       "booking_rejected": "El mentor no pot fer la sessió de {modulo} del {when}. T'hem retornat els crèdits.",
       "booking_cancelled": "S'ha cancel·lat la sessió de {modulo} del {when}.",
-      "ticket_reply": "{n, plural, one {Nova resposta} other {# respostes noves}} al teu tiquet de {modulo}."
+      "ticket_reply": "{n, plural, one {Nova resposta} other {# respostes noves}} al teu tiquet de {modulo}.",
+      "slot_offer": "{mentor} t'ofereix una sessió de {modulo} el {when}.",
+      "offer_accepted": "Han acceptat el teu forat de {modulo} del {when}. Sessió confirmada.",
+      "offer_declined": "L'alumne no pot el teu forat de {modulo} del {when}."
+    }
+  },
+  "ofertas": {
+    "offer": "Oferir-li un forat",
+    "kind": "Tipus de sessió",
+    "kind1a1": "1:1 · 60 min",
+    "kindFlash": "Flash · 25 min",
+    "slot": "Forat de la teva agenda",
+    "loading": "Carregant forats…",
+    "noSlots": "No tens forats lliures en 14 dies",
+    "pickSlot": "Tria un forat",
+    "note": "Missatge (opcional)",
+    "notePlaceholder": "Ex.: podem repassar bucles i arrays per al teu examen.",
+    "send": "Enviar oferta",
+    "cancel": "Cancel·lar",
+    "sent": "Oferta enviada. Avisem l'alumne.",
+    "redacted": "Hem amagat dades de contacte del missatge.",
+    "offerHelp": "L'alumne veurà el teu nom i el teu perfil públic; tu no sabràs qui és fins que accepti. Si accepta, paga en crèdits i la sessió queda confirmada. Caduca en 48 h (o 3 h abans del forat).",
+    "offered": "Li has ofert el {when}. Esperant resposta.",
+    "withdraw": "Retirar",
+    "declinedBefore": "Va rebutjar el teu forat anterior: li'n pots oferir un altre.",
+    "expiredBefore": "La teva oferta anterior va caducar sense resposta.",
+    "studentTitle": "Forats que t'ofereixen",
+    "studentHelp": "Mentors verificats que han vist que buscaves mentor i et proposen una hora de la seva agenda. Si acceptes, es reserva i es cobra en crèdits, i queda confirmada.",
+    "creditsN": "{n} crèdits",
+    "expires": "Vàlida fins al {when}",
+    "accept": "Acceptar · {n} cr.",
+    "decline": "No em va bé",
+    "ok": {
+      "accepted": "Reservada i confirmada. La veuràs a les teves sessions.",
+      "declined": "Fet: direm al mentor que no et va bé."
+    },
+    "errors": {
+      "invalidKind": "Tipus de sessió no vàlid.",
+      "alertClosed": "Aquest alumne ja no espera mentor.",
+      "notMentor": "Només els mentors verificats del mòdul poden oferir forats.",
+      "invalidText": "El missatge és massa llarg.",
+      "tooMany": "Tens massa ofertes pendents (màxim 10).",
+      "alreadyOffered": "Ja li has ofert un forat.",
+      "tooSoon": "El forat ha de ser amb almenys 3 h d'antelació.",
+      "tooFar": "Com a màxim, a 60 dies vista.",
+      "outsideAgenda": "Aquest forat ja no és a la teva agenda.",
+      "slotTaken": "Aquest forat ja està ocupat.",
+      "noPrice": "No hi ha preu per a aquest tipus de sessió.",
+      "notFound": "No trobem aquesta oferta.",
+      "notPending": "Aquesta oferta ja no està disponible.",
+      "expired": "L'oferta ha caducat.",
+      "insufficientCredits": "No tens prou crèdits. Recarrega al teu panell.",
+      "mentorNotAvailable": "El mentor ja no està disponible.",
+      "generic": "No s'ha pogut completar. Torna-ho a provar."
     }
   }
 }
