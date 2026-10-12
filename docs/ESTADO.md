@@ -15,6 +15,8 @@ identidad visual, familias, informes y web vendible. Hecha F2.1 (tickets y reser
 (Mapa guardado, tutor, logros, Bit en el panel, referidos, aula integrada y PWA).
 **Agenda y emparejamiento** (2026-10-12): fases A–D hechas y verificadas (agenda del mentor, disponibilidad del
 alumno y «Mentores para ti», avisos + «Avísame» + demanda, ofertas de hueco). Falta la fase E (email y push).
+También hechos (2026-10-12): bloque de familias con TDAH/dislexia/TEA, páginas legales, SEO técnico (sitemap,
+robots, hreflang, Open Graph, JSON-LD) y reseñas verificadas de mentores (con 10 reseñas de EJEMPLO cargadas).
 Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta de Anthropic no tiene saldo
 (Bit, quiz y resumen devuelven «credit balance is too low»).
 
@@ -342,7 +344,6 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
 - **Repo publicado** en https://github.com/dporti/hackademyLabs (rama `main`); último push
   2026-10-12 (agenda y emparejamiento, fases A–D, incluidas).
 
-## 3. En curso
 - **Agenda y emparejamiento — Fase A (agenda del mentor)** · 2026-10-12 · `a80608f`; migración aplicada,
   `verify-agenda.mjs` OK (18/18) y sin regresión en consumo/credits/roles; revisada en navegador.
   - Tablas `availability` (franjas semanales, hora de Madrid, rejilla 30 min; trigger fusiona solapes; máx. 40)
@@ -439,54 +440,67 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
     (`alternateLinks: false` en next-intl).
   - **Al desplegar:** poner `NEXT_PUBLIC_SITE_URL` con el dominio final, dar de alta el sitio en Google Search Console
     (`GOOGLE_SITE_VERIFICATION`, opcional) y enviar `/sitemap.xml`.
-- Pendiente de David:
-  - Recargar saldo en la cuenta de Anthropic para probar Bit, quiz y resumen de sesión.
-  - Añadir método de pago en Daily.co (Billing) para que funcione el vídeo del aula; después probar con
-    `node scripts/aula-demo.mjs` (alumna en Chrome normal, mentora en incógnito).
-  - En Vercel: `ANTHROPIC_API_KEY` y `DAILY_API_KEY` cuando se despliegue.
+- **Fusión del diseño (Checkpoint Academy) e historial del aula** (Checkpoint Academy, referencia
+  `docs/diseno/DISENO.md`; prompts por fase en `docs/diseno/PROMPTS.md`). Cada fase cierra con
+  lint + build + `verify-*` afectados + navegador (es y ca) + commit + ESTADO.md.
+  - [x] **Fase 0** — Cerrar lo pendiente y preparar el terreno (CLAUDE.md + ESTADO.md).
+  - [x] **Fase 1 — Marca y tokens** (2026-10-09): tokens del tema oscuro único (§4), `--warning`/`--sos`,
+    eliminar `family`; Mapa de Dominio a 4 niveles; appName/metadatos a Checkpoint Academy,
+    `Logo`, header y footer nuevos; `/styleguide` actualizado.
+  - [x] **Fase 2 — Portada y Tutor247** (2026-10-09): home con las 15 secciones de §6 (ModelCard,
+    TrustStrip, BeforeAfter, PathFinder, ComparisonTable, FounderBlock, Faq; testimonios
+    ocultos); `/tutor247` con `#familias`; `/familias` → 308.
+  - [x] **Fase 3 — Resto de públicas** (2026-10-09): `/modulos`, `/ciclos`, `/modulos/[code]` («5 errores
+    que suspenden»: proponer modelo antes de migrar), `/mentores`, `/mentores/[id]`,
+    `/precios` (dos modelos), `/diagnostico`, auth (`AuthShell`), `/hazte-mentor`,
+    `/cancelacion`.
+  - [x] **Fase 4 — Panel del alumno** (2026-10-09): `AppShell` por rol, panel con datos actuales,
+    `/panel/creditos` nueva (saldo, caducidades, compra mock, ledger).
+  - [x] **Fase 5 — Tickets y sesiones** (2026-10-09): `/panel/tickets` (SOS.html) y `/panel/sesiones`
+    (Reserva.html) sin tocar RPC ni cobros.
+  - [x] **Fase 6 — Paneles de mentor, familia (oscuro) y admin** (2026-10-09, `0202380`; revisada en navegador).
+  - [x] **Fase 7 — Backend nuevo I** (2026-10-10, `2a2b8cd`): Mapa guardado y rol tutor con cartera.
+  - [x] **Fase 8 — Backend nuevo II** (2026-10-10, `7f828fd`): logros, Bit en el panel (RAG, quiz), referidos.
+  - [x] **Fase 9 — Backend nuevo III** (2026-10-10, `a6189f8`): aula integrada (A, B y C sin grabación) y PWA.
+    WhatsApp NO: necesita proveedor (BSP) y número de empresa; sigue «próximamente».
+  (Migraciones aplicadas y verificadas en BD y navegador el 2026-10-11.)
+  **Próximos objetivos acordados (2026-10-09)**, en este orden: desplegar en Vercel → páginas legales
+  (privacidad, cookies, aviso legal, condiciones) → Stripe real → **aula integrada**:
+  - Fase A: videollamada dentro de la web (`/panel/aula/[sesión]`), solo alumno y mentor de la reserva y
+    cerca de la hora; sustituye a Jitsi (enlace público) y puede marcar la sesión como hecha.
+    Proveedor recomendado: Daily.co (alternativa Whereby Embedded). Necesita cuenta + clave en .env.local.
+  - Fase B: editor de código compartido (tiempo real) + pizarra + subir ficheros (Supabase/Yjs o Liveblocks).
+  - Fase C: Modo Examen (sin pegar), resumen de la sesión con Bit; grabación solo con consentimiento
+    (menores) o no hacerla.
+  - Decisiones de David: 1:1 o también grupos (≤ 5), grabación sí/no, si el mentor abre la sala antes.
+  Después: productos empaquetados (simulacro, Rescate 48h, Plan Módulo, reparto por tareas)
+  → Stripe real → deploy en Vercel → legal (aviso legal, RGPD, cookies, términos).
+
+## 3. En curso
+- Nada en curso (2026-10-12). Siguiente: elegir en «Próximos pasos».
 
 ## 4. Próximos pasos (orden de prioridad)
-0. **SIGUIENTE: Agenda y emparejamiento** (antes de Vercel), por fases: A agenda del mentor + reserva por huecos
-   (hecha) → B franjas del alumno + «Mentores para ti» + filtro en /mentores → C notificaciones en la web
-   (campana, Realtime) + «Avísame» (con y sin cuenta) + «Demanda en tus módulos» + cifras agregadas en la web
-   pública → D el mentor ofrece hueco al alumno que espera (A–D hechas 2026-10-12) → **E email (Resend) y push**
-   (necesita dominio propio + cuenta de Resend; enviará también las alertas sin cuenta guardadas).
-   Después: Vercel → legal → Stripe real.
-   **Hecho antes: fase "Fusión del diseño"** (Checkpoint Academy, referencia
-   `docs/diseno/DISENO.md`; prompts por fase en `docs/diseno/PROMPTS.md`). Cada fase cierra con
-   lint + build + `verify-*` afectados + navegador (es y ca) + commit + ESTADO.md.
-   - [x] **Fase 0** — Cerrar lo pendiente y preparar el terreno (CLAUDE.md + ESTADO.md).
-   - [x] **Fase 1 — Marca y tokens** (2026-10-09): tokens del tema oscuro único (§4), `--warning`/`--sos`,
-     eliminar `family`; Mapa de Dominio a 4 niveles; appName/metadatos a Checkpoint Academy,
-     `Logo`, header y footer nuevos; `/styleguide` actualizado.
-   - [x] **Fase 2 — Portada y Tutor247** (2026-10-09): home con las 15 secciones de §6 (ModelCard,
-     TrustStrip, BeforeAfter, PathFinder, ComparisonTable, FounderBlock, Faq; testimonios
-     ocultos); `/tutor247` con `#familias`; `/familias` → 308.
-   - [x] **Fase 3 — Resto de públicas** (2026-10-09): `/modulos`, `/ciclos`, `/modulos/[code]` («5 errores
-     que suspenden»: proponer modelo antes de migrar), `/mentores`, `/mentores/[id]`,
-     `/precios` (dos modelos), `/diagnostico`, auth (`AuthShell`), `/hazte-mentor`,
-     `/cancelacion`.
-   - [x] **Fase 4 — Panel del alumno** (2026-10-09): `AppShell` por rol, panel con datos actuales,
-     `/panel/creditos` nueva (saldo, caducidades, compra mock, ledger).
-   - [x] **Fase 5 — Tickets y sesiones** (2026-10-09): `/panel/tickets` (SOS.html) y `/panel/sesiones`
-     (Reserva.html) sin tocar RPC ni cobros.
-   - [x] **Fase 6 — Paneles de mentor, familia (oscuro) y admin** (2026-10-09, `0202380`; revisada en navegador).
-   - [x] **Fase 7 — Backend nuevo I** (2026-10-10, `2a2b8cd`): Mapa guardado y rol tutor con cartera.
-   - [x] **Fase 8 — Backend nuevo II** (2026-10-10, `7f828fd`): logros, Bit en el panel (RAG, quiz), referidos.
-   - [x] **Fase 9 — Backend nuevo III** (2026-10-10, `a6189f8`): aula integrada (A, B y C sin grabación) y PWA.
-     WhatsApp NO: necesita proveedor (BSP) y número de empresa; sigue «próximamente».
-   (Migraciones aplicadas y verificadas en BD y navegador el 2026-10-11.)
-   **Próximos objetivos acordados (2026-10-09)**, en este orden: desplegar en Vercel → páginas legales
-   (privacidad, cookies, aviso legal, condiciones) → Stripe real → **aula integrada**:
-   - Fase A: videollamada dentro de la web (`/panel/aula/[sesión]`), solo alumno y mentor de la reserva y
-     cerca de la hora; sustituye a Jitsi (enlace público) y puede marcar la sesión como hecha.
-     Proveedor recomendado: Daily.co (alternativa Whereby Embedded). Necesita cuenta + clave en .env.local.
-   - Fase B: editor de código compartido (tiempo real) + pizarra + subir ficheros (Supabase/Yjs o Liveblocks).
-   - Fase C: Modo Examen (sin pegar), resumen de la sesión con Bit; grabación solo con consentimiento
-     (menores) o no hacerla.
-   - Decisiones de David: 1:1 o también grupos (≤ 5), grabación sí/no, si el mentor abre la sala antes.
-   Después: productos empaquetados (simulacro, Rescate 48h, Plan Módulo, reparto por tareas)
-   → Stripe real → deploy en Vercel → legal (aviso legal, RGPD, cookies, términos).
+0. **SIGUIENTE (lo elige David)** — actualizado 2026-10-12. Hecho hasta aquí: fusión del diseño (fases 0–9),
+   agenda y emparejamiento (A–D), familias/NEE, páginas legales, SEO técnico y reseñas de mentores (ver «Hecho»).
+   a. **Dos detalles de la fase C** (~5 min): quitar el «te escribiremos» del aviso sin cuenta mientras no haya
+      email, y marcar «Agenda» como hecha en `/hazte-mentor` (v5 «Agenda y facturación» sigue «Próximamente»).
+   b. **Baja de cuenta automática (RGPD)**: botón «Eliminar mi cuenta» en el panel + borrado/anonimizado en BD (hoy es
+      por email y manual). Conviene antes de abrir al público.
+   c. **Reseñas, mejoras**: aviso para valorar al cerrar un ticket; permitir editar la reseña (hoy solo borrar).
+   d. **Desplegar en Vercel**: cuenta + variables de entorno; dominio y `NEXT_PUBLIC_SITE_URL`; Supabase Auth (Site URL y
+      Redirect URLs); Google Search Console (`GOOGLE_SITE_VERIFICATION`) y enviar `/sitemap.xml`.
+   e. **Fase E: email (Resend) y push**: necesita dominio propio + cuenta de Resend; enviará también las alertas sin
+      cuenta guardadas (`email_sent_at` vacío).
+   f. **Stripe real** (después del despliegue).
+   **Antes de abrir al público (checklist):** borrar las reseñas de ejemplo (`node scripts/resenas-demo.mjs --borrar`);
+   rellenar los datos del titular en `src/lib/legal.ts`; revisión legal por un profesional; contenido propio por
+   módulo («5 errores que suspenden» solo existe en 0485: es lo que más posiciona en Google).
+   **Bloqueos que dependen de David:**
+   - Recargar saldo en la cuenta de Anthropic para probar Bit, quiz y resumen de sesión.
+   - Añadir método de pago en Daily.co (Billing) para que funcione el vídeo del aula; después probar con
+    `node scripts/aula-demo.mjs` (alumna en Chrome normal, mentora en incógnito).
+   - En Vercel: `ANTHROPIC_API_KEY` y `DAILY_API_KEY` cuando se despliegue.
+   (Historial de la fusión del diseño y del aula: ver «Hecho».)
 1. **Crear tu usuario admin real**: regístrate en `/registro` y ejecuta
    `node scripts/make-admin.mjs tu@email`.
 2. **Configurar Supabase Auth** (panel): Site URL y Redirect URLs (`http://localhost:3000/**`
@@ -600,6 +614,9 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
 - **PWA sin caché de páginas** (son personales): solo página sin conexión · 2026-10-10.
 
 ## 6. Decisiones pendientes (las decide el usuario)
+- (2026-10-12) Datos del titular para las páginas legales (nombre o razón social, NIF, domicilio): de momento no.
+- (2026-10-12) Cuándo borrar las reseñas de ejemplo (como tarde, al abrir al público).
+- (2026-10-12) Qué ve el mentor de la demanda: se aplicó el perfil anónimo (sin confirmar por David).
 - (cerradas 2026-10-12, agenda y emparejamiento) «Avísame» SIN cuenta permitido (email + consentimiento; se
   enviará cuando haya proveedor de email); huecos de 30 min (flash) o 60 min (1:1); el mentor puede ofrecer un
   hueco a un alumno que espera (fase D); se hace todo antes de desplegar en Vercel. Qué ve el mentor de la
