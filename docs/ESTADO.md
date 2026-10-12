@@ -341,8 +341,8 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
   2026-10-11 (fases 7–9 incluidas).
 
 ## 3. En curso
-- **Agenda y emparejamiento — Fase A (agenda del mentor)** · 2026-10-12 · código hecho (lint + build OK);
-  **falta aplicar** `supabase/migrations/20261012090100_agenda.sql` y pasar `node scripts/verify-agenda.mjs` + navegador.
+- **Agenda y emparejamiento — Fase A (agenda del mentor)** · 2026-10-12 · `a80608f`; migración aplicada,
+  `verify-agenda.mjs` OK (18/18) y sin regresión en consumo/credits/roles. Falta revisar en navegador.
   - Tablas `availability` (franjas semanales, hora de Madrid, rejilla 30 min; trigger fusiona solapes; máx. 40)
     y `availability_off` (días bloqueados, ≤ 120 días). RLS solo del dueño (+ admin).
   - RPC `mentor_slots(mentor, tipo, días)` (anon/authenticated): huecos libres = franjas − reservas activas −
@@ -350,6 +350,14 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
     y la sesión no cabe. Mentor sin agenda: flujo antiguo (el alumno propone hora).
   - UI: `/panel/agenda` (mentor: semana, añadir franja a varios días, bloqueos, vista previa); reserva con
     selector de día/hueco; ficha pública del mentor con próximos huecos.
+- **Fase B (emparejamiento)** · 2026-10-12 · código hecho (tsc + lint OK; build pendiente con el dev server parado);
+  **falta aplicar** `supabase/migrations/20261012090200_match.sql` y pasar `node scripts/verify-match.mjs`.
+  - El alumno guarda sus franjas en `availability` (`/panel/agenda` = «Mi disponibilidad» para alumno).
+  - RPC `match_mentors(módulo, límite)` (solo authenticated, alumno = auth.uid()): mentores verificados del
+    módulo con horas/semana en común, primer hueco libre, primer hueco dentro de sus franjas, idioma (profile.locale)
+    y precio 1:1; puntuación 0–185. Sin email/teléfono. `agenda_overlap` interna.
+  - RPC pública `mentors_with_slots(días)` → filtro «Con hueco libre esta semana» en `/mentores?hueco=1`.
+  - Panel del alumno: bloque «Mentores para ti» (hasta 4 módulos × 3 mentores) con enlace a reservar.
 - Pendiente de David:
   - Recargar saldo en la cuenta de Anthropic para probar Bit, quiz y resumen de sesión.
   - Añadir método de pago en Daily.co (Billing) para que funcione el vídeo del aula; después probar con

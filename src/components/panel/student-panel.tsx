@@ -9,6 +9,7 @@ import { LedgerTable } from "@/components/panel/ledger-table";
 import { temasDe } from "@/lib/temas";
 import type { StudentDashboard } from "@/lib/student";
 import type { getPendientesAlumno } from "@/lib/consumo";
+import { MentoresParaTi } from "@/components/panel/mentores-para-ti";
 import type { Modulo } from "@/lib/db-types";
 
 // Panel del alumno (fase 4 de la fusión del diseño): resumen, módulos que prepara con
@@ -181,6 +182,8 @@ export async function StudentPanel({
           <AddModuloForm locale={locale} modulos={catalogo} />
         </div>
       </section>
+
+      <MentoresParaTi locale={locale} modulos={modulos.map((sm) => ({ code: sm.modulo.code, name: sm.modulo.name }))} />
 
       {/* ─────────────────────────── Pedir ayuda ─────────────────────────── */}
       <section aria-labelledby="ayuda">

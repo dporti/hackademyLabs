@@ -78,7 +78,7 @@ async function main() {
     !merge.error && lunes?.length === 1 && lunes[0].start_time.startsWith("10:00") && lunes[0].end_time.startsWith("13:00"),
     JSON.stringify(lunes),
   );
-  const malGrid = await mentor.sb.from("availability").insert({ profile_id: mentor.id, weekday: 2, start_time: "10:15", end_time: "11:00" });
+  const malGrid = await mentor.sb.from("availability").insert({ profile_id: mentor.id, weekday: 2, start_time: "15:15", end_time: "16:00" });
   check("hora fuera de la rejilla de 30 min → rechazada", !!malGrid.error);
   const ajena = await alumno.sb.from("availability").insert({ profile_id: mentor.id, weekday: 3, start_time: "15:00", end_time: "16:00" });
   check("otro usuario NO añade franjas al mentor", !!ajena.error);

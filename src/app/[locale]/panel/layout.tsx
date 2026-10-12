@@ -44,6 +44,7 @@ async function PanelNav({ locale }: { locale: string }) {
       { href: "/panel/bit", label: t("items.bit") },
       { href: "/panel/tickets", label: t("items.tickets"), badge: pendientes.ticketsRespondidos },
       { href: "/panel/sesiones", label: t("items.sesiones"), badge: pendientes.sesionesProximas },
+      { href: "/panel/agenda", label: t("items.disponibilidad") },
       { href: "/panel/logros", label: t("items.logros") },
       { href: "/panel/creditos", label: t("items.creditos") },
     );

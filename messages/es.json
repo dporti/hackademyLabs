@@ -496,7 +496,8 @@
     },
     "availabilityFull": "Sin huecos libres en los próximos 14 días.",
     "availabilityNone": "Aún no ha publicado agenda: al reservar le propones día y hora.",
-    "availabilityHelp": "Próximos huecos para una sesión 1:1 (hora de Madrid)."
+    "availabilityHelp": "Próximos huecos para una sesión 1:1 (hora de Madrid).",
+    "filterSlot": "Con hueco libre esta semana"
   },
   "auth": {
     "registerTitle": "Crea tu cuenta",
@@ -1828,7 +1829,8 @@
       "bit": "Bit · tutor IA",
       "logros": "Logros",
       "materiales": "Banco de material",
-      "agenda": "Agenda"
+      "agenda": "Agenda",
+      "disponibilidad": "Disponibilidad"
     },
     "balance": "Saldo",
     "balanceValue": "{n} créditos",
@@ -2510,6 +2512,25 @@
       "badDate": "Fecha no válida (no puede ser pasada).",
       "tooLong": "Como máximo 120 días seguidos.",
       "generic": "No se ha podido guardar. Inténtalo de nuevo."
-    }
+    },
+    "studentTitle": "Mi disponibilidad",
+    "studentSubtitle": "Marca cuándo sueles poder hacer sesiones (hora de Madrid). Lo usamos para enseñarte primero los mentores con los que coincides y su próximo hueco que te encaja. No reserva nada.",
+    "studentNone": "Aún no has marcado tu disponibilidad.",
+    "seeMatches": "Ver mentores que encajan contigo"
+  },
+  "match": {
+    "title": "Mentores para ti",
+    "setAvailability": "Marca tu disponibilidad",
+    "editAvailability": "Cambiar disponibilidad",
+    "noAvailability": "Marca cuándo puedes y te ordenamos los mentores por horas en común.",
+    "none": "Aún no hay mentor verificado para este módulo.",
+    "overlap": "Coincidís {h} h/semana",
+    "noOverlap": "Sin horas en común con tu disponibilidad",
+    "nextFit": "Próximo hueco que te encaja: {when}",
+    "nextSlot": "Próximo hueco libre: {when}",
+    "proposeTime": "Sin agenda publicada: le propones hora",
+    "sameLang": "Habla tu idioma",
+    "book": "Reservar",
+    "bookN": "Reservar · 1:1 {n} cr."
   }
 }

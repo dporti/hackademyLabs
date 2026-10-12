@@ -496,7 +496,8 @@
     },
     "availabilityFull": "Sense forats lliures els propers 14 dies.",
     "availabilityNone": "Encara no ha publicat agenda: en reservar li proposes dia i hora.",
-    "availabilityHelp": "Propers forats per a una sessió 1:1 (hora de Madrid)."
+    "availabilityHelp": "Propers forats per a una sessió 1:1 (hora de Madrid).",
+    "filterSlot": "Amb forat lliure aquesta setmana"
   },
   "auth": {
     "registerTitle": "Crea el teu compte",
@@ -1828,7 +1829,8 @@
       "bit": "Bit · tutor IA",
       "logros": "Assoliments",
       "materiales": "Banc de material",
-      "agenda": "Agenda"
+      "agenda": "Agenda",
+      "disponibilidad": "Disponibilitat"
     },
     "balance": "Saldo",
     "balanceValue": "{n} crèdits",
@@ -2510,6 +2512,25 @@
       "badDate": "Data no vàlida (no pot ser passada).",
       "tooLong": "Com a màxim 120 dies seguits.",
       "generic": "No s'ha pogut desar. Torna-ho a provar."
-    }
+    },
+    "studentTitle": "La meva disponibilitat",
+    "studentSubtitle": "Marca quan sols poder fer sessions (hora de Madrid). Ho fem servir per ensenyar-te primer els mentors amb qui coincideixes i el seu proper forat que t'encaixa. No reserva res.",
+    "studentNone": "Encara no has marcat la teva disponibilitat.",
+    "seeMatches": "Veure mentors que encaixen amb tu"
+  },
+  "match": {
+    "title": "Mentors per a tu",
+    "setAvailability": "Marca la teva disponibilitat",
+    "editAvailability": "Canviar disponibilitat",
+    "noAvailability": "Marca quan pots i t'ordenem els mentors per hores en comú.",
+    "none": "Encara no hi ha cap mentor verificat per a aquest mòdul.",
+    "overlap": "Coincidiu {h} h/setmana",
+    "noOverlap": "Sense hores en comú amb la teva disponibilitat",
+    "nextFit": "Proper forat que t'encaixa: {when}",
+    "nextSlot": "Proper forat lliure: {when}",
+    "proposeTime": "Sense agenda publicada: li proposes hora",
+    "sameLang": "Parla el teu idioma",
+    "book": "Reservar",
+    "bookN": "Reservar · 1:1 {n} cr."
   }
 }

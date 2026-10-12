@@ -304,3 +304,14 @@ export async function getProximosHuecos(
   const d = (data ?? {}) as { agenda?: boolean; slots?: string[] };
   return { agenda: d.agenda ?? false, slots: (d.slots ?? []).slice(0, n) };
 }
+
+// Ids de mentores verificados con algún hueco libre en los próximos 7 días (fase B,
+// filtro de /mentores). Caché corta.
+export async function getMentoresConHueco(): Promise<string[]> {
+  "use cache";
+  cacheLife("minutes");
+  const sb = createPublicClient();
+  const { data, error } = await sb.rpc("mentors_with_slots", { p_days: 7 });
+  if (error) return [];
+  return (data ?? []) as string[];
+}

@@ -2,12 +2,12 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPathname, Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/brand/section-label";
 import { MentorCard } from "@/components/brand/mentor-card";
-import { getAllModulos, getMentores } from "@/lib/catalog";
+import { getAllModulos, getMentores, getMentoresConHueco } from "@/lib/catalog";
 import type { MentorLevel } from "@/lib/db-types";
 
 // Listado de mentores (maqueta Mentores.html) con filtros por módulo, idioma y nivel
-// (?modulo=&idioma=&nivel=): formulario GET, funciona sin JS y se puede compartir.
-// Disponibilidad y perfil (docente/profesional) del mockup quedan para cuando haya datos.
+// (?modulo=&idioma=&nivel=&hueco=1): formulario GET, funciona sin JS y se puede compartir.
+// «Con hueco esta semana» sale de la agenda de cada mentor (fase B).
 export const instant = false;
 
 const NIVELES: MentorLevel[] = ["mentor", "pro", "experto"];
@@ -25,7 +25,12 @@ export default async function MentoresPage({ params, searchParams }: PageProps<"
   const sp = await searchParams;
   const str = (v: string | string[] | undefined) => (typeof v === "string" && v ? v : undefined);
   const t = await getTranslations("mentors");
-  const [mentores, modulos] = await Promise.all([getMentores(), getAllModulos()]);
+  const hueco = str(sp.hueco) === "1";
+  const [mentores, modulos, conHueco] = await Promise.all([
+    getMentores(),
+    getAllModulos(),
+    hueco ? getMentoresConHueco() : Promise.resolve([] as string[]),
+  ]);
 
   const modulo = modulos.find((m) => m.code === str(sp.modulo));
   const idioma = IDIOMAS.find((i) => i === str(sp.idioma));
@@ -34,7 +39,8 @@ export default async function MentoresPage({ params, searchParams }: PageProps<"
     (m) =>
       (!modulo || m.modulos.some((mo) => mo.code === modulo.code)) &&
       (!idioma || m.languages?.includes(idioma)) &&
-      (!nivel || m.level === nivel),
+      (!nivel || m.level === nivel) &&
+      (!hueco || conHueco.includes(m.profile_id)),
   );
   const nombreIdioma = (l: string) =>
     (IDIOMAS as readonly string[]).includes(l) ? t(`lang.${l as (typeof IDIOMAS)[number]}`) : l.toUpperCase();
@@ -101,13 +107,17 @@ export default async function MentoresPage({ params, searchParams }: PageProps<"
               ))}
             </select>
           </div>
+          <label className="flex min-h-11 cursor-pointer items-center gap-2.5 text-sm font-medium">
+            <input type="checkbox" name="hueco" value="1" defaultChecked={hueco} className="size-4 accent-primary" />
+            {t("filterSlot")}
+          </label>
           <button
             type="submit"
             className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-primary font-bold text-primary-foreground transition-colors hover:bg-primary/85"
           >
             {t("apply")}
           </button>
-          {(modulo || idioma || nivel) && (
+          {(modulo || idioma || nivel || hueco) && (
             <Link
               href="/mentores"
               className="flex min-h-10 items-center justify-center text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"

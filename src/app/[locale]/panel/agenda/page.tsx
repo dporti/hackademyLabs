@@ -5,9 +5,11 @@ import { createClient } from "@/lib/supabase/server";
 import { deleteOffAction, deleteSlotAction } from "@/app/actions/agenda";
 import { OffForm, SlotForm } from "@/components/agenda/agenda-forms";
 import { NextSlots } from "@/components/agenda/next-slots";
+import { Link } from "@/i18n/navigation";
 
 // Agenda del mentor (fase A): franjas semanales recurrentes (hora de Madrid) y días
-// bloqueados. Los alumnos solo pueden reservar dentro de estas franjas.
+// bloqueados; los alumnos solo pueden reservar dentro de ellas. Para el alumno (fase B)
+// es «Mi disponibilidad»: sus franjas preferidas, que sirven para emparejarle con mentores.
 export const instant = false;
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/panel/agenda">) {
@@ -23,15 +25,19 @@ export default async function AgendaPage({ params }: PageProps<"/[locale]/panel/
   setRequestLocale(locale);
   const session = await getSessionUser();
   if (!session) redirect(localePath(locale, "/entrar"));
-  if (session!.profile?.role !== "mentor") redirect(localePath(locale, "/panel"));
+  const role = session!.profile?.role;
+  if (role !== "mentor" && role !== "alumno") redirect(localePath(locale, "/panel"));
 
+  const esAlumno = role === "alumno";
   const t = await getTranslations("agenda");
   const sb = await createClient();
   const hoy = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Madrid" }).format(new Date());
   const [{ data: franjas }, { data: bloqueos }, { data: huecos }] = await Promise.all([
     sb.from("availability").select("id, weekday, start_time, end_time").order("weekday").order("start_time"),
     sb.from("availability_off").select("id, from_day, to_day").gte("to_day", hoy).order("from_day"),
-    sb.rpc("mentor_slots", { p_mentor: session!.user.id, p_kind: "sesion_1a1", p_days: 14 }),
+    esAlumno
+      ? Promise.resolve({ data: null })
+      : sb.rpc("mentor_slots", { p_mentor: session!.user.id, p_kind: "sesion_1a1", p_days: 14 }),
   ]);
   const lista = franjas ?? [];
   const horas = lista.reduce((s, f) => {
@@ -48,10 +54,11 @@ export default async function AgendaPage({ params }: PageProps<"/[locale]/panel/
   return (
     <div className="w-full space-y-10">
       <header>
-        <h1 className="font-heading text-[32px] leading-tight font-bold tracking-tight sm:text-[40px]">{t("title")}</h1>
-        <p className="mt-2 max-w-2xl text-muted-foreground">{t("subtitle")}</p>
+        <h1 className="font-heading text-[32px] leading-tight font-bold tracking-tight sm:text-[40px]">{esAlumno ? t("studentTitle") : t("title")}
+        </h1>
+        <p className="mt-2 max-w-2xl text-muted-foreground">{esAlumno ? t("studentSubtitle") : t("subtitle")}</p>
         <p className="mt-3 font-mono text-sm text-label">
-          {lista.length === 0 ? t("noAgenda") : t("summary", { h: horas, n: lista.length })}
+          {lista.length === 0 ? (esAlumno ? t("studentNone") : t("noAgenda")) : t("summary", { h: horas, n: lista.length })}
         </p>
       </header>
 
@@ -107,6 +114,13 @@ export default async function AgendaPage({ params }: PageProps<"/[locale]/panel/
         <SlotForm locale={locale} />
       </section>
 
+      {esAlumno ? (
+        <p>
+          <Link href="/panel#mentores" className="font-semibold text-primary hover:underline">
+            {t("seeMatches")} →
+          </Link>
+        </p>
+      ) : (
       <div className="grid gap-6 lg:grid-cols-2">
         <section aria-labelledby="bloqueos" className="rounded-3xl border bg-card p-5 sm:p-7">
           <h2 id="bloqueos" className="mb-1 font-heading text-2xl font-bold">
@@ -142,6 +156,7 @@ export default async function AgendaPage({ params }: PageProps<"/[locale]/panel/
           <NextSlots locale={locale} slots={slots} empty={lista.length === 0 ? t("noAgenda") : t("previewEmpty")} />
         </section>
       </div>
+      )}
     </div>
   );
 }

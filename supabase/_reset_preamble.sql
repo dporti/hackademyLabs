@@ -77,6 +77,9 @@ drop function if exists public.guard_aula_doc() cascade;
 drop function if exists public.guard_availability() cascade;
 drop function if exists public.fits_agenda(uuid, timestamptz, timestamptz) cascade;
 drop function if exists public.mentor_slots(uuid, product_kind, int) cascade;
+drop function if exists public.agenda_overlap(uuid, uuid) cascade;
+drop function if exists public.match_mentors(text, int) cascade;
+drop function if exists public.mentors_with_slots(int) cascade;
 
 drop type if exists
   consent_type, plan_kind, product_kind, ledger_type, ra_status,
