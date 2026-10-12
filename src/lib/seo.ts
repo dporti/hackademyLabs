@@ -14,7 +14,9 @@ export const SITE_URL = (
 export const SITE_NAME = "Checkpoint Academy";
 
 // Indexable solo en producción: los previews de Vercel no deben salir en Google.
-export const INDEXABLE = !process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production";
+// SITE_NOINDEX=1 bloquea también producción (antes del lanzamiento; quitarla ese día).
+export const INDEXABLE =
+  process.env.SITE_NOINDEX !== "1" && (!process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production");
 
 const OG_LOCALE: Record<Locale, string> = { es: "es_ES", ca: "ca_ES" };
 

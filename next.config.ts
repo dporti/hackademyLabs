@@ -13,6 +13,12 @@ const nextConfig: NextConfig = {
       { source: "/:locale(ca)/familias", destination: "/:locale/tutor247#familias", permanent: true },
     ];
   },
+  // Antes del lanzamiento (SITE_NOINDEX=1): cabecera noindex en TODO (páginas, imágenes OG,
+  // sitemap…), además del robots.txt y la meta robots (lib/seo.ts).
+  async headers() {
+    if (process.env.SITE_NOINDEX !== "1") return [];
+    return [{ source: "/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }];
+  },
   turbopack: {
     rules: {
       "*.css": {

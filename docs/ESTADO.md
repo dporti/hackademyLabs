@@ -477,7 +477,7 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
   → Stripe real → deploy en Vercel → legal (aviso legal, RGPD, cookies, términos).
 
 ## 3. En curso
-- **Web publicada en Vercel** (2026-10-12). Falta comprobar: `NEXT_PUBLIC_SITE_URL` con la URL de Vercel, Supabase
+- **Web publicada en Vercel** (2026-10-12): https://checkpointacademy.vercel.app/ . Falta comprobar: `NEXT_PUBLIC_SITE_URL` con la URL de Vercel, Supabase
   Auth (Site URL + Redirect URLs) y probar registro/login en producción. La BD es la misma que en local.
 - Nada más en curso (2026-10-12). Siguiente: elegir en «Próximos pasos».
 
@@ -495,7 +495,7 @@ Migraciones 7–9 aplicadas y verificadas (2026-10-11). **Bloqueo:** la cuenta d
    e. **Fase E: email (Resend) y push**: necesita dominio propio + cuenta de Resend; enviará también las alertas sin
       cuenta guardadas (`email_sent_at` vacío).
    f. **Stripe real** (después del despliegue).
-   **Antes de abrir al público (checklist):** borrar las reseñas de ejemplo (`node scripts/resenas-demo.mjs --borrar`);
+   **Antes de abrir al público (checklist):** quitar `SITE_NOINDEX` en Vercel (y Redeploy); borrar las reseñas de ejemplo (`node scripts/resenas-demo.mjs --borrar`);
    rellenar los datos del titular en `src/lib/legal.ts`; revisión legal por un profesional; contenido propio por
    módulo («5 errores que suspenden» solo existe en 0485: es lo que más posiciona en Google).
    **Bloqueos que dependen de David:**
@@ -769,3 +769,4 @@ Copiar `.env.local.example` → `.env.local` y rellenar (NUNCA commitear valores
 - `ANTHROPIC_API_KEY` (Bit, quiz, resumen de sesión; solo servidor)
 - `DAILY_API_KEY` (opcional; vídeo del aula con Daily.co; vacía = Jitsi)
 - `GOOGLE_SITE_VERIFICATION` (opcional; código de Google Search Console)
+- `SITE_NOINDEX` (`1` = Google no indexa aunque sea producción; **puesta en Vercel hasta el lanzamiento**)
